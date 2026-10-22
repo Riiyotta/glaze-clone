@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.1.0
+
+- Citations: 17 in-range-but-wrong citations repointed at the real current lines (`ia.template.*` x3 in `ia.json`; `jsx.nav.*`, `jsx.navpill.*`, `jsx.mobilemenu.*` x14 in `Navbar.jsx`, each shifted by one line); source snapshot hashes refreshed. 4 new citations (`jsx.faq.wrapper`, `jsx.feature.wrapper`, `jsx.persona.section`, `jsx.overlay.dialog`): 199 total.
+- Retrieval: `retrievalEligible` (closed boolean) on every section contract; `shell.youtube-overlay` is `false` with a reason. Wired through `schema/section-contract.schema.json`, the generated PageSpec schema, the allowlist (`retrievalIneligibleSections`, `retrievalEligible` node property), new graph rule `UTILITY_NOT_RETRIEVABLE` (14 rules) and `semantic_validate.check_contracts`, pinned independently of the registry.
+- Provenance vs taxonomy: every section contract has `source` (`id`, `file`, `tag`, `domSelector`, `citation`) and `semantic` (`id`, `category`) as separate closed objects; `verify_all.py` traces each source to the cited element (checks 9a, 10a).
+- Whole-page-wrapper gate (check 10b, `extraction/wrapper_gate.py`) with 19 recorded section heights at 1440px (`sectionHeights`, `extraction/measure_section_heights.mjs`).
+- Adversarial suite: 74 mutations plus contract and gate cases. `prove_drift.py`: 18 new drift cases (35 total) including 3 warning-expected ones.
+- Manifest: `measuredSectionHeights` added to counts; versions bumped to 1.1.0 (allowlist is machine-checked).
+
 ## 1.0.0
 
 First build. Scope: landing `/`, five persona routes, 404.

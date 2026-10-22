@@ -4,6 +4,18 @@
   "registryId": "section.shell.navbar",
   "version": "1.0.0",
   "category": "shell",
+  "semantic": {
+    "id": "section.shell.navbar",
+    "category": "shell"
+  },
+  "source": {
+    "id": "src.Navbar.nav",
+    "file": "src/components/Navbar.jsx",
+    "tag": "nav",
+    "domSelector": "nav.site-navigation",
+    "citation": "jsx.nav.root"
+  },
+  "retrievalEligible": true,
   "purpose": "Fixed top navigation: glass pill from 624px, collapsible glass panel below.",
   "scope": "All routes in scope (/, five persona routes, 404).",
   "composes": [

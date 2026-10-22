@@ -26,6 +26,9 @@ def build():
             "then": {"properties": {
                 "content": s["contentModel"],
                 "motion": {"properties": {"pattern": {"enum": s["motion"]["allowedPatterns"]}}},
+                # retrieval eligibility is pinned per section type: a node may omit the flag, but may
+                # never state a value that differs from its section contract
+                "retrievalEligible": {"const": s.get("retrievalEligible")},
             }},
         })
     schema = {
@@ -66,6 +69,7 @@ def build():
                     "type": {"enum": sorted(sections)},
                     "content": {"type": "object"},
                     "motion": {"$ref": "#/definitions/motion"},
+                    "retrievalEligible": {"type": "boolean"},
                 },
                 "allOf": branches,
             },

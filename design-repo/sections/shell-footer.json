@@ -4,6 +4,18 @@
   "registryId": "section.shell.footer",
   "version": "1.0.0",
   "category": "shell",
+  "semantic": {
+    "id": "section.shell.footer",
+    "category": "shell"
+  },
+  "source": {
+    "id": "src.Footer.footer",
+    "file": "src/components/Footer.jsx",
+    "tag": "footer",
+    "domSelector": "footer",
+    "citation": "jsx.footer.root"
+  },
+  "retrievalEligible": true,
   "purpose": "Legal links, socials and the maker credit.",
   "scope": "All routes in scope.",
   "composes": [

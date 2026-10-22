@@ -130,6 +130,9 @@
         },
         "motion": {
           "$ref": "#/definitions/motion"
+        },
+        "retrievalEligible": {
+          "type": "boolean"
         }
       },
       "allOf": [
@@ -215,6 +218,9 @@
                     ]
                   }
                 }
+              },
+              "retrievalEligible": {
+                "const": true
               }
             }
           }
@@ -314,6 +320,9 @@
                     ]
                   }
                 }
+              },
+              "retrievalEligible": {
+                "const": true
               }
             }
           }
@@ -434,6 +443,9 @@
                     ]
                   }
                 }
+              },
+              "retrievalEligible": {
+                "const": true
               }
             }
           }
@@ -628,6 +640,9 @@
                     ]
                   }
                 }
+              },
+              "retrievalEligible": {
+                "const": true
               }
             }
           }
@@ -749,6 +764,9 @@
                     ]
                   }
                 }
+              },
+              "retrievalEligible": {
+                "const": true
               }
             }
           }
@@ -876,6 +894,9 @@
                     ]
                   }
                 }
+              },
+              "retrievalEligible": {
+                "const": true
               }
             }
           }
@@ -948,6 +969,9 @@
                     ]
                   }
                 }
+              },
+              "retrievalEligible": {
+                "const": false
               }
             }
           }
@@ -1184,6 +1208,9 @@
                     ]
                   }
                 }
+              },
+              "retrievalEligible": {
+                "const": true
               }
             }
           }
@@ -1267,6 +1294,9 @@
                     ]
                   }
                 }
+              },
+              "retrievalEligible": {
+                "const": true
               }
             }
           }

@@ -1,11 +1,13 @@
 # Glaze design-repo
 
+Version 1.1.0 (see CHANGELOG.md).
+
 An AI-ready, machine-validated design system extracted from a clone of the Glaze landing page. An agent composes new pages from it by choosing a template, filling section props, and passing a validator. It never invents colours, sizes, timings, copy budgets or assets.
 
 Status: `design-review-pending`, not production approved (`registry.manifest.json`).
 
-<!-- counts: {"primitives": 10, "components": 11, "sections": 9, "templates": 3, "tokens": 311, "typographyRoles": 20, "motionRecipes": 21, "assetRoles": 10, "graphRules": 13, "examplePageSpecs": 3, "routeEntries": 7, "citations": 195} -->
-Counts (recomputed and enforced by `extraction/verify_all.py`): 10 primitives, 11 components, 9 sections, 3 templates, 311 leaf tokens, 20 type roles, 21 motion recipes, 10 asset roles, 13 graph rules, 3 example PageSpecs, 7 route entries, 195 evidence citations.
+<!-- counts: {"primitives": 10, "components": 11, "sections": 9, "templates": 3, "tokens": 311, "typographyRoles": 20, "motionRecipes": 21, "assetRoles": 10, "graphRules": 14, "examplePageSpecs": 3, "routeEntries": 7, "citations": 199, "measuredSectionHeights": 19} -->
+Counts (recomputed and enforced by `extraction/verify_all.py`): 10 primitives, 11 components, 9 sections, 3 templates, 311 leaf tokens, 20 type roles, 21 motion recipes, 10 asset roles, 14 graph rules, 3 example PageSpecs, 7 route entries, 199 evidence citations, 19 measured section heights.
 
 ## Scope (read this first)
 
@@ -34,8 +36,10 @@ components/   11       NavPill, MobileMenuPanel, PersonaTabs, PersonaDropdown, A
 sections/      9       one contract per section type: content model with maxWords, motion, responsive, constraints
 templates/             template.landing, template.persona, template.not-found: ordered nodes + container rules
 compatibility/         graph.json: adjacency and rhythm rules with severity
-schema/                pagespec.schema.json (generated, draft-07), semantic_validate.py, examples, tests
-extraction/            measured-values.json (evidence ledger), verify_all.py, prove_drift.py
+schema/                pagespec.schema.json (generated, draft-07), section-contract.schema.json (hand-written),
+                       semantic_validate.py, examples, tests
+extraction/            measured-values.json (evidence ledger + section heights), verify_all.py, prove_drift.py,
+                       wrapper_gate.py, measure_section_heights.mjs (optional, needs Playwright)
 assets/                asset-roles.json
 ```
 
@@ -50,6 +54,18 @@ Each layer may only use the layer below it. A primitive references tokens. A com
 5. Validate: `python3 schema/semantic_validate.py my-page.json`. Fix every error; warnings are advisory.
 
 Persona routes: change only `headline`, `subheadline` and `initialTab` (must match the route, see the template constraints). A subheadline without a newline renders as one line.
+
+## Section contract identity: provenance, taxonomy, retrieval
+
+Every `sections/*.json` carries three separate, closed groups (`schema/section-contract.schema.json`):
+
+- `source` is PROVENANCE: `{id, file, tag, domSelector, citation}`. `id` is always `src.<component file>.<dom tag>` (for example `src.Navbar.nav`), `citation` is a measured-values id whose file must equal `file` and whose cited lines must contain `<tag`, and `domSelector` is what the height measurement uses. It says where in the source project the section comes from and nothing about what it means.
+- `semantic` is TAXONOMY: `{id, category}`. `id` equals `registryId`, `category` equals the contract `category` and the typeId prefix (closed enum: shell, hero, showcase, features, support, cta, content). It says what the section means in the design system and nothing about where it was built. The two groups are never inferred from each other.
+- `retrievalEligible` (boolean, default true) says whether the section may be returned as a standalone retrieval chunk. `shell.youtube-overlay` is `false` with a required `retrievalIneligibleReason`: a utility overlay (video dialog) carries no page content. Any cookie, consent, dialog, modal or overlay-type utility section must also be `false`. The pin is hard-coded in `schema/semantic_validate.py` (`UTILITY_SECTIONS`, `UTILITY_KEYWORDS`) independently of the registry, mirrored in the allowlist (`retrievalIneligibleSections`), the generated PageSpec schema (a node may omit `retrievalEligible` but may never contradict its contract) and the graph rule `UTILITY_NOT_RETRIEVABLE`.
+
+## Whole-page-wrapper gate
+
+`extraction/measured-values.json` `sectionHeights` records each section's rendered height at 1440px (Playwright, `extraction/measure_section_heights.mjs`, selectors from `source.domSelector`). `extraction/wrapper_gate.py`, run by `verify_all.py` check 10b: a hero-category section taller than 1800px is a warning; taller than 3000px is an error unless `sectionHeights.wrapperWhitelist` has an entry for it with `reviewedBy`, a justification of at least 30 characters and a `maxHeightPx` that covers it (an accepted hit still warns); one section holding more than 50% of a page's in-flow height warns (pages with at least 3 in-flow sections); a missing measurement is an error. Current measurements: hero 1211px, whitelist empty. Not covered: visual parity with the live site (no live-site capture pipeline exists here, so no parity number is claimed).
 
 ## Rules
 
@@ -71,12 +87,12 @@ Motion comes from `tokens/10-semantic/motion.json` recipes, which compose founda
 
 ## Verify
 
-Requires Python 3.9+ and `python3 -m pip install jsonschema`. No node tooling.
+Requires Python 3.9+ and `python3 -m pip install jsonschema`. No node tooling for verification (only the optional height-measurement script needs Playwright).
 
 ```
-python3 extraction/verify_all.py            # 12 checks, exit 0 on pass
+python3 extraction/verify_all.py            # 12 numbered checks plus 9a, 10a, 10b; exit 0 on pass
 python3 schema/tests/adversarial_test.py    # mutations must be rejected, controls must pass
-python3 extraction/prove_drift.py           # proves the parity, citation, count and pinned-role checks catch injected drift
+python3 extraction/prove_drift.py           # proves the parity, citation, count, pinned-role, retrieval-pin, source-trace and wrapper-gate checks catch injected drift
 python3 schema/build_schema.py              # regenerate the schema after editing sections/
 python3 tokens/build_catalog.py             # regenerate the token catalog after editing tokens/
 ```

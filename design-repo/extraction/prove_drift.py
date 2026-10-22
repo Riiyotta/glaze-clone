@@ -49,6 +49,14 @@ def run(dst, fast=True):
 
 HAVE_SRC = os.path.exists(os.path.join(os.path.dirname(DR), "CLONE_SPEC.md")) and os.path.isdir(os.path.join(os.path.dirname(DR), "src"))
 
+def set_h(page, sec, h):
+    return lambda j: j["sectionHeights"]["pages"][page]["sections"][sec].__setitem__("heightPx", h)
+
+
+WL = {"section": "hero.landing-hero", "maxHeightPx": 3600, "reviewedBy": "design-review", "justification": "Hero intentionally wraps the whole pinned scroll story on this page."}
+MV = "extraction/measured-values.json"
+
+# 4th element "warn": the defect must be reported as a WARNING with exit 0 (not fail the run)
 CASES = [
     ("phantom allowlist entry", "allowlist-parity", lambda d: edit(d, "tokens/llm/component-allowlist.json", lambda j: j["components"].append("component.ghost"))),
     ("orphan contract (allowlist entry removed)", "allowlist-parity", lambda d: edit(d, "tokens/llm/component-allowlist.json", lambda j: j["primitives"].remove("primitive.divider"))),
@@ -67,6 +75,23 @@ CASES = [
     ("schema out of date versus a section contract", "schema", lambda d: edit(d, "sections/support-faq.json", lambda j: j["contentModel"]["properties"]["title"].__setitem__("maxWords", 7))),
     ("token catalog out of date", "catalog", lambda d: edit(d, "tokens/00-foundation/radius.json", lambda j: j["foundation"]["radius"]["card"].__setitem__("$value", "20px"))),
     ("policy category that is not a catalog key", "token-policy", lambda d: edit(d, "tokens/llm/token-policy.json", lambda j: j["rules"]["rawValueRestrictions"].__setitem__("typography", "x"))),
+    ("utility overlay contract flipped to retrievalEligible:true", "retrieval-pin", lambda d: edit(d, "sections/shell-youtube-overlay.json", lambda j: j.__setitem__("retrievalEligible", True))),
+    ("overlay dropped from allowlist retrievalIneligibleSections", "retrieval-pin", lambda d: edit(d, "tokens/llm/component-allowlist.json", lambda j: j.__setitem__("retrievalIneligibleSections", []))),
+    ("content section contract marked ineligible", "retrieval-pin", lambda d: edit(d, "sections/support-faq.json", lambda j: j.update({"retrievalEligible": False, "retrievalIneligibleReason": "x" * 40}))),
+    ("section contract without retrievalEligible", "contract-schema", lambda d: edit(d, "sections/shell-footer.json", lambda j: j.pop("retrievalEligible"))),
+    ("semantic category diverges from category", "semantic-mismatch", lambda d: edit(d, "sections/hero-landing-hero.json", lambda j: j["semantic"].__setitem__("category", "features"))),
+    ("source and semantic merged into one object", "contract-schema", lambda d: edit(d, "sections/hero-landing-hero.json", lambda j: j["source"].__setitem__("category", "hero"))),
+    ("source id not derived from file + tag", "source-id", lambda d: edit(d, "sections/hero-landing-hero.json", lambda j: j["source"].__setitem__("id", "src.Hero.div"))),
+    ("source tag not present at the cited lines", "source-trace", lambda d: edit(d, "sections/hero-landing-hero.json", lambda j: j["source"].update({"tag": "aside", "id": "src.Hero.aside"}))),
+    ("source citation from another file", "source-trace", lambda d: edit(d, "sections/hero-landing-hero.json", lambda j: j["source"].__setitem__("citation", "jsx.faq.wrapper"))),
+    ("allowlist contract-field list diverges from the contract schema", "allowlist-parity", lambda d: edit(d, "tokens/llm/component-allowlist.json", lambda j: j["sectionContractFields"]["source"].remove("domSelector"))),
+    ("hero 3500px, not whitelisted (whole-page wrapper)", "wrapper-height", lambda d: edit(d, MV, set_h("template.landing", "hero.landing-hero", 3500))),
+    ("hero 3500px, whitelist entry lacks justification", "wrapper-height", lambda d: edit(d, MV, lambda j: (set_h("template.landing", "hero.landing-hero", 3500)(j), j["sectionHeights"].__setitem__("wrapperWhitelist", [{**WL, "justification": ""}])))),
+    ("hero 1900px (warning band)", "wrapper-height", lambda d: edit(d, MV, set_h("template.landing", "hero.landing-hero", 1900)), "warn"),
+    ("hero 3500px with a reviewed whitelist entry (accepted, warns)", "wrapper-height", lambda d: edit(d, MV, lambda j: (set_h("template.landing", "hero.landing-hero", 3500)(j), j["sectionHeights"].__setitem__("wrapperWhitelist", [WL]))), "warn"),
+    ("one section holds the majority of a page", "wrapper-height", lambda d: edit(d, MV, set_h("template.landing", "support.faq", 9000)), "warn"),
+    ("measured heights removed", "wrapper-height", lambda d: edit(d, MV, lambda j: j.pop("sectionHeights"))),
+    ("measured selector differs from the contract's source.domSelector", "wrapper-height", lambda d: edit(d, MV, lambda j: j["sectionHeights"]["pages"]["template.landing"]["sections"]["support.faq"].__setitem__("selector", "#other"))),
     ("machine path in the docs", "abs-path", lambda d: open(os.path.join(d, "README.md"), "a").write("\n/Us" + "ers/someone/design-repo\n")),
 ]
 
@@ -74,8 +99,8 @@ CASES = [
 def main():
     bad = 0
     skipped = 0
-    for name, tag, fn in CASES:
-        if tag == "citation" and not HAVE_SRC:
+    for name, tag, fn, *mode in CASES:
+        if tag in ("citation", "source-trace") and not HAVE_SRC:
             print(f"SKIPPED {name:52} needs the source project beside design-repo/")
             skipped += 1
             continue
@@ -83,8 +108,12 @@ def main():
         try:
             fn(dst)
             code, out = run(dst)
-            ok = code != 0 and f"[{tag}]" in out
-            print(f"{'CAUGHT' if ok else 'MISSED':7} {name:52} expects [{tag}]")
+            if mode == ["warn"]:
+                ok = code == 0 and f"WARN  [{tag}]" in out
+                print(f"{'WARNED' if ok else 'MISSED':7} {name:52} expects WARN [{tag}], exit 0")
+            else:
+                ok = code != 0 and f"[{tag}]" in out
+                print(f"{'CAUGHT' if ok else 'MISSED':7} {name:52} expects [{tag}]")
             bad += not ok
         finally:
             shutil.rmtree(tmp, ignore_errors=True)
@@ -97,7 +126,7 @@ def main():
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
     ran = len(CASES) - skipped
-    print(f"drift proof: FAILED ({bad} problem(s))" if bad else f"drift proof: {ran}/{ran} injected defects caught" + (f" ({skipped} skipped: no sibling source)" if skipped else ""))
+    print(f"drift proof: FAILED ({bad} problem(s))" if bad else f"drift proof: {ran}/{ran} injected defects caught or warned as designed" + (f" ({skipped} skipped: no sibling source)" if skipped else ""))
     return 1 if bad else 0
 
 

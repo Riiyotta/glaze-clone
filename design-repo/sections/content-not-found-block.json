@@ -4,6 +4,18 @@
   "registryId": "section.content.not-found-block",
   "version": "1.0.0",
   "category": "content",
+  "semantic": {
+    "id": "section.content.not-found-block",
+    "category": "content"
+  },
+  "source": {
+    "id": "src.NotFoundPage.section",
+    "file": "src/pages/NotFoundPage.jsx",
+    "tag": "section",
+    "domSelector": "main > section",
+    "citation": "jsx.notfound.section"
+  },
+  "retrievalEligible": true,
   "purpose": "Centred error state with the clickable icon, heading, one sentence and a home button.",
   "scope": "404 route (catch-all, /m, and slugs that do not exist).",
   "composes": [

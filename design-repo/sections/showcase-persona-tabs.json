@@ -4,6 +4,18 @@
   "registryId": "section.showcase.persona-tabs",
   "version": "1.0.0",
   "category": "showcase",
+  "semantic": {
+    "id": "section.showcase.persona-tabs",
+    "category": "showcase"
+  },
+  "source": {
+    "id": "src.PersonaShowcase.section",
+    "file": "src/components/PersonaShowcase.jsx",
+    "tag": "section",
+    "domSelector": "section[aria-labelledby=\"persona-showcase-title\"]",
+    "citation": "jsx.persona.section"
+  },
+  "retrievalEligible": true,
   "purpose": "'Make apps for' switcher and a panel with an app grid or logo grid for the chosen audience.",
   "scope": "Landing and persona routes.",
   "composes": [

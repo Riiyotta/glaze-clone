@@ -4,6 +4,18 @@
   "registryId": "section.support.faq",
   "version": "1.0.0",
   "category": "support",
+  "semantic": {
+    "id": "section.support.faq",
+    "category": "support"
+  },
+  "source": {
+    "id": "src.FAQ.div",
+    "file": "src/components/FAQ.jsx",
+    "tag": "div",
+    "domSelector": "#faq",
+    "citation": "jsx.faq.wrapper"
+  },
+  "retrievalEligible": true,
   "purpose": "Single-open accordion that dims once scrolled past.",
   "scope": "Landing and persona routes.",
   "composes": [

@@ -110,6 +110,11 @@
       "id": "MAX_TABS_UNIQUE_IDS",
       "severity": "error",
       "text": "Tab ids and FAQ questions are unique within a page."
+    },
+    {
+      "id": "UTILITY_NOT_RETRIEVABLE",
+      "severity": "error",
+      "text": "Utility overlays (shell.youtube-overlay) are retrievalEligible:false. A PageSpec node may not claim retrievalEligible:true for a section whose contract says false, and the pinned utility set in semantic_validate.UTILITY_SECTIONS may never be eligible."
     }
   ],
   "themeCompatibility": {

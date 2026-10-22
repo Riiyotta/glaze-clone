@@ -4,6 +4,18 @@
   "registryId": "section.hero.landing-hero",
   "version": "1.0.0",
   "category": "hero",
+  "semantic": {
+    "id": "section.hero.landing-hero",
+    "category": "hero"
+  },
+  "source": {
+    "id": "src.Hero.section",
+    "file": "src/components/Hero.jsx",
+    "tag": "section",
+    "domSelector": "#overview > section",
+    "citation": "jsx.hero.section"
+  },
+  "retrievalEligible": true,
   "purpose": "Opening block: eyebrow, headline, lead, CTAs, loop video and three pillars. Headline, lead and starting tab are the only things that change per persona route.",
   "scope": "Landing and persona routes.",
   "composes": [

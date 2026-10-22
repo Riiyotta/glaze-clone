@@ -14,6 +14,8 @@ Checks (numbers match the printed output):
   4 contract references resolve       11 manifest counts, versions, entryPoints, machine-path grep
   5 raw-value lint                    12 adversarial suite
   6 graph rules <-> validator code
+ Also: 9a section contracts (provenance `source` vs taxonomy `semantic`, pinned retrieval
+ eligibility of utility overlays), 10b whole-page-wrapper quality gate (extraction/wrapper_gate.py).
 """
 import glob
 import json
@@ -25,6 +27,7 @@ import sys
 DR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(DR, "tokens"))
 sys.path.insert(0, os.path.join(DR, "schema"))
+sys.path.insert(0, os.path.join(DR, "extraction"))
 errors, warnings = [], []
 
 
@@ -98,6 +101,16 @@ if set(allow["settableHeadFields"]) != set(sch["definitions"]["head"]["propertie
 assets = jload("assets/asset-roles.json")
 if sorted(allow["assetRoles"]) != sorted(assets["roles"]):
     err("allowlist-parity", "allowlist assetRoles differ from assets/asset-roles.json")
+_cs = jload("schema/section-contract.schema.json")
+_scf = allow.get("sectionContractFields", {})
+if sorted(_scf.get("required", [])) != sorted(_cs["required"]):
+    err("allowlist-parity", "allowlist sectionContractFields.required differs from schema/section-contract.schema.json required")
+if sorted(_scf.get("semantic", [])) != sorted(_cs["properties"]["semantic"]["properties"]):
+    err("allowlist-parity", "allowlist sectionContractFields.semantic differs from the contract schema")
+if sorted(_scf.get("source", [])) != sorted(_cs["properties"]["source"]["properties"]):
+    err("allowlist-parity", "allowlist sectionContractFields.source differs from the contract schema")
+if sorted(_scf.get("conditional", [])) != ["retrievalIneligibleReason"] or "retrievalIneligibleReason" not in _cs["properties"]:
+    err("allowlist-parity", "allowlist sectionContractFields.conditional differs from the contract schema")
 
 # 3 tokens ------------------------------------------------------------------
 import tokens_lib as TL  # noqa: E402
@@ -335,6 +348,28 @@ else:
     warn("ia", "ia.json / source project not present beside design-repo/: route cross-check against the repo IA skipped")
     print(f"8) Templates/graph/routes: {len(templates)} templates, {len(route_owner)} route entries, IA cross-check SKIPPED; {len(errors) - c8} errors")
 
+# 9a section contracts ------------------------------------------------------
+import semantic_validate as SV9  # noqa: E402
+
+c9b = len(errors)
+_repo9 = SV9.load_repo()
+for sev_, rule_, msg_ in SV9.check_contracts(_repo9):
+    err(rule_.lower().replace("_", "-"), msg_)
+# retrieval pins, independent of the registry: the hard-coded set, the contracts and the allowlist must agree
+_pin = {"section." + t for t in SV9.UTILITY_SECTIONS}
+_ineligible = {j["registryId"] for _, j in secs.values() if j.get("retrievalEligible") is False}
+if _ineligible != _pin:
+    err("retrieval-pin", f"sections with retrievalEligible:false {sorted(_ineligible)} != pinned utility set {sorted(_pin)}")
+if set(allow.get("retrievalIneligibleSections", [])) != _pin:
+    err("retrieval-pin", f"allowlist retrievalIneligibleSections {allow.get('retrievalIneligibleSections')} != pinned utility set {sorted(_pin)}")
+_nodeprops = jload("schema/pagespec.schema.json")["definitions"]["node"]["allOf"]
+for br in _nodeprops:
+    _t = br["if"]["properties"]["type"]["const"]
+    _want = sec_by_type[_t].get("retrievalEligible")
+    if br["then"]["properties"].get("retrievalEligible") != {"const": _want}:
+        err("retrieval-pin", f"generated schema pins retrievalEligible for {_t} to {br['then']['properties'].get('retrievalEligible')}, contract says {_want}")
+print(f"9a) Section contracts: {len(sec_by_type)} validated (source/semantic separated, retrieval pins: {sorted(_pin)} ineligible); {len(errors) - c9b} errors")
+
 # 9 schema ------------------------------------------------------------------
 import jsonschema  # noqa: E402
 import build_schema as BS  # noqa: E402
@@ -365,7 +400,7 @@ mv = jload("extraction/measured-values.json")
 cites = mv["citations"]
 used_ids = set()
 def collect_cites(k, v, path):
-    if k in ("cite", "measuredFrom"):
+    if k in ("cite", "measuredFrom", "citation"):
         for s in ([v] if isinstance(v, str) else v if isinstance(v, list) else []):
             if isinstance(s, str):
                 used_ids.add((s, path))
@@ -373,7 +408,7 @@ for rel, j in parsed.items():
     if rel.startswith("extraction/") or rel.startswith("schema/pagespec"):
         continue
     def f(k, v, path, rel=rel):
-        if k in ("cite", "measuredFrom"):
+        if k in ("cite", "measuredFrom", "citation"):
             for s in ([v] if isinstance(v, str) else v if isinstance(v, list) else []):
                 if isinstance(s, str):
                     used_ids.add((s, rel))
@@ -410,6 +445,41 @@ if HAVE_SRC:
 else:
     warn("citation", "source project not present beside design-repo/: citation range/content checks SKIPPED (standalone copy)")
     print(f"10) Citations: {len(cites)} defined, {len(used_ids)} references resolve; range/content checks SKIPPED (no sibling source); {len(errors) - c10} errors")
+c10b = len(errors)
+for tid, j in sorted(sec_by_type.items()):
+    src_ = j["source"]
+    cc = cites.get(src_["citation"])
+    if cc is None:
+        err("source-trace", f"{tid}: source.citation {src_['citation']!r} is not defined in extraction/measured-values.json")
+        continue
+    if cc["file"] != src_["file"]:
+        err("source-trace", f"{tid}: source.file {src_['file']} != citation {src_['citation']} file {cc['file']}")
+    if HAVE_SRC and os.path.exists(os.path.join(PROJECT, src_["file"])):
+        _l = open(os.path.join(PROJECT, src_["file"]), errors="replace").read().split("\n")
+        _a, _, _b = cc["lines"].partition("-")
+        _seg = "\n".join(_l[int(_a) - 1:int(_b or _a)])
+        if "<" + src_["tag"] not in _seg:
+            err("source-trace", f"{tid}: source.tag <{src_['tag']}> not found at {src_['file']}:{cc['lines']} (provenance does not trace to the DOM element)")
+    elif HAVE_SRC:
+        err("source-trace", f"{tid}: source.file {src_['file']} does not exist")
+print(f"10a) Source traceability: {len(sec_by_type)} section source ids trace to a cited element; {len(errors) - c10b} errors")
+
+# 10b whole-page-wrapper gate ------------------------------------------------
+import wrapper_gate as WG  # noqa: E402
+
+_cat = {t: j["category"] for t, j in sec_by_type.items()}
+_ge, _gw = WG.evaluate(mv.get("sectionHeights"), _cat, templates)
+for e_ in _ge:
+    err("wrapper-height", e_)
+for w_ in _gw:
+    warn("wrapper-height", w_)
+for _tid, _rec in (mv.get("sectionHeights") or {}).get("pages", {}).items():
+    for _s, _m in _rec.get("sections", {}).items():
+        if _s in sec_by_type and _m.get("selector") != sec_by_type[_s]["source"]["domSelector"]:
+            err("wrapper-height", f"{_tid}/{_s}: measured selector {_m.get('selector')!r} != contract source.domSelector {sec_by_type[_s]['source']['domSelector']!r}")
+_nh = sum(1 for r_ in (mv.get("sectionHeights") or {}).get("pages", {}).values() for m_ in r_.get("sections", {}).values() if m_.get("heightPx") is not None)
+print(f"10b) Wrapper gate: {_nh} measured section heights at {(mv.get('sectionHeights') or {}).get('viewport', {}).get('width')}px (hero warn >{WG.WARN_PX}px, fail >{WG.FAIL_PX}px unless reviewed-whitelisted; majority >{WG.MAJORITY:.0%}); {len(_ge)} errors, {len(_gw)} warnings")
+
 unused = sorted(set(cites) - {c for c, _ in used_ids})
 if unused:
     warn("citation", f"{len(unused)} citation ids defined but not referenced: {unused[:6]}")
@@ -422,6 +492,7 @@ counts = {
     "tokens": cat["counts"]["tokens"], "typographyRoles": cat["counts"]["typographyRoles"], "motionRecipes": cat["counts"]["motionRecipes"],
     "assetRoles": len(assets["roles"]), "graphRules": len(graph["rules"]), "examplePageSpecs": len(ex_files),
     "routeEntries": len(route_owner), "citations": len(cites),
+    "measuredSectionHeights": _nh,
 }
 if man.get("counts") != counts:
     err("manifest-counts", f"counts block {man.get('counts')} != recomputed {counts}")

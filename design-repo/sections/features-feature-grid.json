@@ -4,6 +4,18 @@
   "registryId": "section.features.feature-grid",
   "version": "1.0.0",
   "category": "features",
+  "semantic": {
+    "id": "section.features.feature-grid",
+    "category": "features"
+  },
+  "source": {
+    "id": "src.Features.div",
+    "file": "src/components/Features.jsx",
+    "tag": "div",
+    "domSelector": "#features",
+    "citation": "jsx.feature.wrapper"
+  },
+  "retrievalEligible": true,
   "purpose": "Feature cards laid out in rows of one or two.",
   "scope": "Landing and persona routes.",
   "composes": [

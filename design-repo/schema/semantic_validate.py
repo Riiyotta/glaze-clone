@@ -11,6 +11,11 @@ Layers, in order:
   3. Graph rules from compatibility/graph.json (each rule id implemented below)
   4. Per-instance maxWords budgets, taken from the section contracts
   5. assetRole usage against assets/asset-roles.json
+  6. retrieval eligibility of a node against its section contract (UTILITY_NOT_RETRIEVABLE)
+
+check_contracts(repo) validates the SECTION CONTRACTS themselves (provenance `source` vs taxonomy
+`semantic`, pinned retrieval eligibility). It is independent of the registry/allowlist: the pinned
+utility set below is hard-coded on purpose, so flipping a contract cannot also move the pin.
 """
 import glob
 import json
@@ -39,6 +44,7 @@ def load_repo():
         "graph": _load("compatibility/graph.json"),
         "assets": _load("assets/asset-roles.json")["roles"],
         "sections": sections,
+        "contractSchema": _load("schema/section-contract.schema.json"),
     }
 
 
@@ -48,7 +54,14 @@ IMPLEMENTED_RULES = {
     "NAV_FIRST", "FOOTER_LAST", "OVERLAY_LAST", "ONE_PER_PAGE", "HERO_AFTER_NAV",
     "NOT_FOUND_NO_HERO", "VIDEO_REFS_RESOLVE", "INITIAL_TAB_IN_TABS", "ROUTE_INITIAL_TAB",
     "NAV_ACTIVE_LINK", "TABS_KIND_CONTENT", "MOTION_BUDGET", "MAX_TABS_UNIQUE_IDS",
+    "UTILITY_NOT_RETRIEVABLE",
 }
+
+# Utility / overlay sections: never retrieval chunks, never counted as page content. Pinned here,
+# independent of sections/*.json, so a contract edit alone cannot make an overlay eligible.
+UTILITY_SECTIONS = {"shell.youtube-overlay"}
+# Any section that looks like a cookie/consent/dialog-type utility must also be ineligible.
+UTILITY_KEYWORDS = re.compile(r"overlay|cookie|consent|dialog|modal|popup|lightbox", re.I)
 
 
 def words(s):
@@ -121,6 +134,9 @@ def check_graph_rules(doc, repo, tpl, out):
 
     def add(rule, msg):
         out.append((sev.get(rule, "error"), rule, msg))
+
+    # UTILITY_NOT_RETRIEVABLE (enforced in check_retrieval; reported under this rule id)
+    check_retrieval(doc, repo, out)
 
     # NAV_FIRST
     if not types or types[0] != "shell.navbar" or types.count("shell.navbar") != 1:
@@ -198,6 +214,49 @@ def check_graph_rules(doc, repo, tpl, out):
     bursts = [n for n in nodes if n.get("motion", {}).get("pattern") == "icon-press-and-burst"]
     if len(bursts) > 1:
         add("MOTION_BUDGET", f"{len(bursts)} icon-press-and-burst sections on one page")
+
+
+def check_retrieval(doc, repo, out):
+    for n in doc.get("nodes", []):
+        if "retrievalEligible" not in n:
+            continue
+        sec = repo["sections"].get(n.get("type"), {})
+        if n["retrievalEligible"] and (n.get("type") in UTILITY_SECTIONS or sec.get("retrievalEligible") is False):
+            out.append(("error", "UTILITY_NOT_RETRIEVABLE", f"nodes[{n.get('id')}]: {n.get('type')} is a utility overlay and must not be retrievalEligible:true"))
+        elif n["retrievalEligible"] != sec.get("retrievalEligible"):
+            out.append(("error", "UTILITY_NOT_RETRIEVABLE", f"nodes[{n.get('id')}]: retrievalEligible {n['retrievalEligible']} differs from the section contract ({sec.get('retrievalEligible')})"))
+
+
+def check_contracts(repo):
+    """Findings for the section contracts: provenance vs taxonomy separation + retrieval pins."""
+    out = []
+    v = jsonschema.Draft7Validator(repo["contractSchema"])
+    seen = {}
+    for tid, c in sorted(repo["sections"].items()):
+        for e in sorted(v.iter_errors(c), key=lambda e: list(e.path)):
+            out.append(("error", "CONTRACT_SCHEMA", f"{tid}: {'/'.join(str(p) for p in e.path) or '<root>'}: {e.message[:160]}"))
+        # retrieval pin first and unconditionally: it must fire even when the contract is also schema-invalid
+        pinned = tid in UTILITY_SECTIONS or bool(UTILITY_KEYWORDS.search(tid + " " + c.get("purpose", "")))
+        if pinned and c.get("retrievalEligible") is not False:
+            out.append(("error", "RETRIEVAL_PIN", f"{tid}: utility/overlay/dialog section must be retrievalEligible:false"))
+        if not pinned and c.get("retrievalEligible") is False:
+            out.append(("error", "RETRIEVAL_PIN", f"{tid}: retrievalEligible:false is reserved for utility overlays; this section is content"))
+        if any(o[1] == "CONTRACT_SCHEMA" and o[2].startswith(tid + ":") for o in out):
+            continue
+        sem, src = c["semantic"], c["source"]
+        if c["registryId"] != "section." + tid or c["id"] != c["registryId"]:
+            out.append(("error", "SEMANTIC_MISMATCH", f"{tid}: id/registryId must both be section.{tid}"))
+        if sem["id"] != c["registryId"] or sem["category"] != c["category"] or c["category"] != tid.split(".")[0]:
+            out.append(("error", "SEMANTIC_MISMATCH", f"{tid}: semantic {sem} must equal registryId/category and the typeId prefix"))
+        base = os.path.basename(src["file"]).rsplit(".", 1)[0]
+        if src["id"] != f"src.{base}.{src['tag']}":
+            out.append(("error", "SOURCE_ID", f"{tid}: source.id {src['id']!r} must be src.<component file>.<dom tag> = src.{base}.{src['tag']}"))
+        if src["id"] in seen:
+            out.append(("error", "SOURCE_ID", f"{tid}: source.id {src['id']!r} already used by {seen[src['id']]}"))
+        seen[src["id"]] = tid
+    for t in sorted(UTILITY_SECTIONS - set(repo["sections"])):
+        out.append(("error", "RETRIEVAL_PIN", f"pinned utility section {t} has no contract"))
+    return out
 
 
 def check_assets(doc, repo, out):

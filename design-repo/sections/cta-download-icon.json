@@ -4,6 +4,18 @@
   "registryId": "section.cta.download-icon",
   "version": "1.0.0",
   "category": "cta",
+  "semantic": {
+    "id": "section.cta.download-icon",
+    "category": "cta"
+  },
+  "source": {
+    "id": "src.DownloadCTA.section",
+    "file": "src/components/DownloadCTA.jsx",
+    "tag": "section",
+    "domSelector": "section#download",
+    "citation": "jsx.cta.section"
+  },
+  "retrievalEligible": true,
   "purpose": "Closing call to action: clickable icon, headline, download button and requirements note.",
   "scope": "Landing and persona routes.",
   "composes": [

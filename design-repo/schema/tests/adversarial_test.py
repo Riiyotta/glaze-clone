@@ -15,6 +15,8 @@ import sys
 DR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(DR, "schema"))
 import semantic_validate as SV  # noqa: E402
+sys.path.insert(0, os.path.join(DR, "extraction"))
+import wrapper_gate as WG  # noqa: E402
 
 REPO = SV.load_repo()
 J = lambda rel: json.load(open(os.path.join(DR, rel)))
@@ -132,6 +134,12 @@ MUTATIONS = [
     # assets
     ("role not allowed in this section (usedBy)", NOTFOUND, lambda d: node(d, NF)["content"]["icon"].__setitem__("assetRole", "particle.app-icon"), "SCHEMA"),
 ]
+# retrieval eligibility: a utility overlay flipped to eligible must be rejected (PageSpec layer)
+MUTATIONS += [
+    ("utility overlay node flipped to retrievalEligible:true", LANDING, setp(OVER, ["retrievalEligible"], True), "SCHEMA"),
+    ("content section node claiming retrievalEligible:false", LANDING, setp(HERO, ["retrievalEligible"], False), "SCHEMA"),
+    ("retrievalEligible as a string", LANDING, setp(HERO, ["retrievalEligible"], "yes"), "SCHEMA"),
+]
 MUTATIONS.append(("head title over budget (word count, not schema)", PERSONA, lambda d: d["head"].__setitem__("title", " ".join(["w"] * 19)), "MAX_WORDS"))
 
 # warn-severity rules must be reported as warnings, not errors
@@ -148,6 +156,64 @@ def motion_budget_case():
     out = []
     SV.check_graph_rules(d, REPO, REPO["templates"]["template.landing"], out)
     return any(r[1] == "MOTION_BUDGET" and r[0] == "warn" for r in out)
+
+
+def contract_cases():
+    """Section-contract mutations (provenance/taxonomy separation, retrieval pins, wrapper gate).
+    Each starts from the real contracts, breaks one thing and must raise the named rule."""
+    def repo_with(fn):
+        r = copy.deepcopy(REPO)
+        fn(r["sections"])
+        return r
+    S = lambda t: (lambda secs: secs[t])
+    cases = [
+        ("overlay contract flipped to retrievalEligible:true", lambda x: x[OVER].__setitem__("retrievalEligible", True), "RETRIEVAL_PIN"),
+        ("overlay contract flipped AND reason removed", lambda x: (x[OVER].__setitem__("retrievalEligible", True), x[OVER].pop("retrievalIneligibleReason")), "RETRIEVAL_PIN"),
+        ("overlay contract missing retrievalEligible", lambda x: x[OVER].pop("retrievalEligible"), "CONTRACT_SCHEMA"),
+        ("overlay ineligible without a reason", lambda x: x[OVER].pop("retrievalIneligibleReason"), "CONTRACT_SCHEMA"),
+        ("dialog-type section disguised as eligible content (new cookie banner contract)", lambda x: x.__setitem__("shell.cookie-banner", {**copy.deepcopy(x[FOOT]), "id": "section.shell.cookie-banner", "typeId": "shell.cookie-banner", "registryId": "section.shell.cookie-banner", "purpose": "Cookie consent banner.", "semantic": {"id": "section.shell.cookie-banner", "category": "shell"}, "source": {"id": "src.Footer.footer", "file": "src/components/Footer.jsx", "tag": "footer", "domSelector": "footer", "citation": "jsx.footer.root"}}), "RETRIEVAL_PIN"),
+        ("content section marked ineligible", lambda x: x[FAQ].update({"retrievalEligible": False, "retrievalIneligibleReason": "x" * 40}), "RETRIEVAL_PIN"),
+        ("retrievalEligible not a boolean", lambda x: x[HERO].__setitem__("retrievalEligible", "true"), "CONTRACT_SCHEMA"),
+        ("semantic id diverges from registryId", lambda x: x[HERO]["semantic"].__setitem__("id", "section.hero.other"), "SEMANTIC_MISMATCH"),
+        ("semantic category diverges from category", lambda x: x[HERO]["semantic"].__setitem__("category", "features"), "SEMANTIC_MISMATCH"),
+        ("semantic category outside the closed enum", lambda x: x[HERO]["semantic"].__setitem__("category", "landing"), "CONTRACT_SCHEMA"),
+        ("source and semantic merged (source carries category)", lambda x: x[HERO]["source"].__setitem__("category", "hero"), "CONTRACT_SCHEMA"),
+        ("semantic carries a source field", lambda x: x[HERO]["semantic"].__setitem__("file", "src/components/Hero.jsx"), "CONTRACT_SCHEMA"),
+        ("source missing", lambda x: x[HERO].pop("source"), "CONTRACT_SCHEMA"),
+        ("semantic missing", lambda x: x[HERO].pop("semantic"), "CONTRACT_SCHEMA"),
+        ("source id not derived from component file + tag", lambda x: x[HERO]["source"].__setitem__("id", "src.Hero.div"), "SOURCE_ID"),
+        ("source id taken from the taxonomy", lambda x: x[HERO]["source"].__setitem__("id", "section.hero.landing-hero"), "CONTRACT_SCHEMA"),
+        ("two sections claiming one source element", lambda x: x[FAQ]["source"].update({"id": x[CTA]["source"]["id"]}), "SOURCE_ID"),
+        ("source citation id not a cite id", lambda x: x[HERO]["source"].__setitem__("citation", "Hero line 30"), "CONTRACT_SCHEMA"),
+    ]
+    return [(n, repo_with(fn), rule) for n, fn, rule in cases]
+
+
+def gate_cases():
+    """Wrapper-gate cases on the pure function, using the real recorded heights as the base."""
+    mv = json.load(open(os.path.join(DR, "extraction", "measured-values.json")))
+    cats = {t: s["category"] for t, s in REPO["sections"].items()}
+    def run(fn):
+        h = copy.deepcopy(mv["sectionHeights"])
+        fn(h)
+        return WG.evaluate(h, cats, REPO["templates"])
+    L = lambda h: h["pages"]["template.landing"]["sections"][HERO]
+    wl = {"section": HERO, "maxHeightPx": 3600, "reviewedBy": "design-review", "justification": "Hero intentionally wraps the full pinned scroll story on this page."}
+    return [
+        ("control: real recorded heights pass the gate", run(lambda h: None), 0, 0),
+        ("hero 1900px is a warning, not an error", run(lambda h: L(h).__setitem__("heightPx", 1900)), 0, 1),
+        ("hero 3100px with no whitelist fails", run(lambda h: L(h).__setitem__("heightPx", 3100)), 1, 0),
+        ("hero 3100px, whitelisted + justified, passes with a warning", run(lambda h: (L(h).__setitem__("heightPx", 3100), h.__setitem__("wrapperWhitelist", [wl]))), 0, 1),
+        ("hero 3700px exceeds the whitelist maxHeightPx", run(lambda h: (L(h).__setitem__("heightPx", 3700), h.__setitem__("wrapperWhitelist", [wl]))), 1, 0),
+        ("whitelist entry without justification", run(lambda h: (L(h).__setitem__("heightPx", 3100), h.__setitem__("wrapperWhitelist", [{**wl, "justification": "ok"}]))), 2, 0),
+        ("whitelist entry without reviewer", run(lambda h: (L(h).__setitem__("heightPx", 3100), h.__setitem__("wrapperWhitelist", [{k: v for k, v in wl.items() if k != "reviewedBy"}]))), 2, 0),
+        ("whitelist naming a non-hero section", run(lambda h: h.__setitem__("wrapperWhitelist", [{**wl, "section": FEAT}])), 1, 0),
+        ("non-hero section over 3000px only warns for majority", run(lambda h: h["pages"]["template.landing"]["sections"][FEAT].__setitem__("heightPx", 9000)), 0, 1),
+        ("one section holding most of the page warns", run(lambda h: h["pages"]["template.landing"]["sections"][FAQ].__setitem__("heightPx", 9000)), 0, 1),
+        ("missing height record fails", run(lambda h: h["pages"]["template.landing"]["sections"].pop(FAQ)), 1, 0),
+        ("missing page record fails", run(lambda h: h["pages"].pop("template.persona")), 1, 0),
+        ("sectionHeights absent fails", WG.evaluate(None, cats, REPO["templates"]), 1, 0),
+    ]
 
 
 def findings(doc):
@@ -173,6 +239,42 @@ def main():
     ok = motion_budget_case()
     print(f"{'WARNS' if ok else 'WRONG':12} {'two burst sections (graph layer called directly)':58} expects warn MOTION_BUDGET")
     fails += not ok
+    # utility overlay flipped to eligible with the schema pin relaxed: the semantic layer must still reject
+    d = copy.deepcopy(LANDING)
+    node(d, OVER)["retrievalEligible"] = True
+    out = []
+    SV.check_graph_rules(d, REPO, REPO["templates"]["template.landing"], out)
+    ok = any(r[1] == "UTILITY_NOT_RETRIEVABLE" and r[0] == "error" for r in out)
+    print(f"{'REJECTED' if ok else 'NOT REJECTED':12} {'overlay node flipped (graph layer called directly, schema bypassed)':58} expects UTILITY_NOT_RETRIEVABLE")
+    fails += not ok
+    rejected += ok
+    extra = 1
+    # same flip with a contract that was ALSO flipped: the hard-coded pin still rejects the node
+    r2 = copy.deepcopy(REPO)
+    r2["sections"][OVER]["retrievalEligible"] = True
+    out = []
+    SV.check_graph_rules(d, r2, r2["templates"]["template.landing"], out)
+    ok = any(r[1] == "UTILITY_NOT_RETRIEVABLE" and r[0] == "error" for r in out)
+    print(f"{'REJECTED' if ok else 'NOT REJECTED':12} {'node flip with the contract flipped too (pin independent of registry)':58} expects UTILITY_NOT_RETRIEVABLE")
+    fails += not ok
+    rejected += ok
+    extra += 1
+    for name, r, rule in contract_cases():
+        res = SV.check_contracts(r)
+        ok = any(x[1] == rule and x[0] == "error" for x in res)
+        print(f"{'REJECTED' if ok else 'NOT REJECTED':12} {name:58} expects {rule}" + ("" if ok else f"  got {[x[1] for x in res][:4]}"))
+        fails += not ok
+        rejected += ok
+        extra += 1
+    ok = not SV.check_contracts(REPO)
+    print(f"{'CONTROL PASS' if ok else 'CONTROL FAIL':12} real section contracts pass check_contracts")
+    fails += not ok
+    gate_controls = int(ok)
+    for name, (e, w), ne, nw in gate_cases():
+        ok = (len(e) == ne and len(w) == nw) if ne < 2 else (len(e) >= 1 and len(w) == nw)
+        print(f"{'GATE OK' if ok else 'GATE WRONG':12} {name:58} expects {ne} error(s), {nw} warning(s); got {len(e)}/{len(w)}")
+        fails += not ok
+        gate_controls += ok
     controls = 0
     ctrl = [("landing example", LANDING), ("persona example", PERSONA), ("not-found example", NOTFOUND)]
     # one control per persona route, with that route's real initial tab
@@ -196,7 +298,7 @@ def main():
         controls += ok
         print(f"{'CONTROL PASS' if ok else 'CONTROL FAIL':12} {name}" + ("" if ok else f"  {res[:3]}"))
         fails += not ok
-    print(f"adversarial: {rejected}/{len(MUTATIONS)} mutations rejected, {controls}/{len(ctrl)} controls pass, {len(WARN_CASES)} warn-case(s)")
+    print(f"adversarial: {rejected}/{len(MUTATIONS) + extra} mutations rejected, {controls}/{len(ctrl)} controls pass, {len(WARN_CASES)} warn-case(s), {gate_controls} contract/gate case(s) as expected")
     return 1 if fails else 0
 
 

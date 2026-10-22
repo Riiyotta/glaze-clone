@@ -31,7 +31,7 @@
     "description": "First 16 hex of sha256 of each cited file at build time. A mismatch in a sibling source is a WARNING that the snapshot is stale (MASTER-GUIDE 3.10), not an error.",
     "files": {
       "CLONE_SPEC.md": "998c1945be2747a0",
-      "ia.json": "1feffa9a5f6abd8a",
+      "ia.json": "44a5ff104cb95fdf",
       "specs/SPEC_legal_persona.md": "36bb0b535aa84787",
       "src/components/DownloadCTA.jsx": "f75ae03429e61b6a",
       "src/components/FAQ.jsx": "18b55db606c76f56",
@@ -39,8 +39,8 @@
       "src/components/Footer.jsx": "3812ef4c65d52c3a",
       "src/components/GlazeIcon.jsx": "5ec6f81594595722",
       "src/components/Hero.jsx": "515a9bff09d553ea",
-      "src/components/Navbar.jsx": "d7d78157a35c0021",
-      "src/components/PersonaShowcase.jsx": "4dea9d2c36035b45",
+      "src/components/Navbar.jsx": "b82ebaedcf008981",
+      "src/components/PersonaShowcase.jsx": "08f7f40958340311",
       "src/components/YouTubeOverlay.jsx": "080ffcf0b6cfe36d",
       "src/components/icons.jsx": "e6363fa5861c456c",
       "src/data/content.js": "c843bd0c68221936",
@@ -204,21 +204,21 @@
     },
     "ia.template.landing": {
       "file": "ia.json",
-      "lines": "128",
+      "lines": "138",
       "mustContain": [
         "\"id\": \"template.landing\""
       ]
     },
     "ia.template.not-found": {
       "file": "ia.json",
-      "lines": "162",
+      "lines": "180",
       "mustContain": [
         "\"id\": \"template.not-found\""
       ]
     },
     "ia.template.persona": {
       "file": "ia.json",
-      "lines": "145",
+      "lines": "157",
       "mustContain": [
         "\"id\": \"template.persona\""
       ]
@@ -734,56 +734,56 @@
     },
     "jsx.mobilemenu.burger": {
       "file": "src/components/Navbar.jsx",
-      "lines": "103",
+      "lines": "104",
       "mustContain": [
         "h-0.5 w-5 rounded-full bg-current transition-transform duration-150 ease-out"
       ]
     },
     "jsx.mobilemenu.content": {
       "file": "src/components/Navbar.jsx",
-      "lines": "118",
+      "lines": "119",
       "mustContain": [
         "transition-opacity duration-100 ease-out"
       ]
     },
     "jsx.mobilemenu.header": {
       "file": "src/components/Navbar.jsx",
-      "lines": "90",
+      "lines": "91",
       "mustContain": [
         "h-[50px] shrink-0 items-center justify-between pl-[18px] pr-[14px]"
       ]
     },
     "jsx.mobilemenu.link": {
       "file": "src/components/Navbar.jsx",
-      "lines": "128",
+      "lines": "129",
       "mustContain": [
         "font-display text-[30px] font-medium leading-[33px]"
       ]
     },
     "jsx.mobilemenu.navdelay": {
       "file": "src/components/Navbar.jsx",
-      "lines": "66",
+      "lines": "67",
       "mustContain": [
         "}, 150)"
       ]
     },
     "jsx.mobilemenu.signin": {
       "file": "src/components/Navbar.jsx",
-      "lines": "141",
+      "lines": "142",
       "mustContain": [
         "font-display text-2xl font-medium leading-[30px]"
       ]
     },
     "jsx.nav.624": {
       "file": "src/components/Navbar.jsx",
-      "lines": "77",
+      "lines": "78",
       "mustContain": [
         "min-[624px]:hidden"
       ]
     },
     "jsx.nav.backdrop": {
       "file": "src/components/Navbar.jsx",
-      "lines": "77",
+      "lines": "78",
       "mustContain": [
         "backdrop-blur-[2.5px]"
       ]
@@ -797,42 +797,42 @@
     },
     "jsx.nav.divider-gradient": {
       "file": "src/components/Navbar.jsx",
-      "lines": "136",
+      "lines": "137",
       "mustContain": [
         "bg-[linear-gradient(90deg,transparent"
       ]
     },
     "jsx.nav.root": {
       "file": "src/components/Navbar.jsx",
-      "lines": "82",
+      "lines": "83",
       "mustContain": [
         "site-navigation fixed left-0 right-0"
       ]
     },
     "jsx.navpill.container": {
       "file": "src/components/Navbar.jsx",
-      "lines": "178",
+      "lines": "179",
       "mustContain": [
         "h-12 w-fit items-center gap-6 rounded-full p-1.5 pl-[15px]"
       ]
     },
     "jsx.navpill.link": {
       "file": "src/components/Navbar.jsx",
-      "lines": "189",
+      "lines": "190",
       "mustContain": [
         "flex h-8 items-center text-sm font-medium leading-none"
       ]
     },
     "jsx.navpill.logo": {
       "file": "src/components/Navbar.jsx",
-      "lines": "181",
+      "lines": "182",
       "mustContain": [
         "className=\"h-5\""
       ]
     },
     "jsx.navpill.rule": {
       "file": "src/components/Navbar.jsx",
-      "lines": "201",
+      "lines": "202",
       "mustContain": [
         "-ml-2 h-4 w-px shrink-0 bg-white/[0.12]"
       ]
@@ -1441,6 +1441,36 @@
         "boxShadow: {",
         "'close-btn': '0 10px 28px"
       ]
+    },
+    "jsx.faq.wrapper": {
+      "file": "src/components/FAQ.jsx",
+      "lines": "14-16",
+      "mustContain": [
+        "<div",
+        "id=\"faq\""
+      ]
+    },
+    "jsx.feature.wrapper": {
+      "file": "src/components/Features.jsx",
+      "lines": "40",
+      "mustContain": [
+        "<div id=\"features\""
+      ]
+    },
+    "jsx.persona.section": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "221",
+      "mustContain": [
+        "aria-labelledby=\"persona-showcase-title\""
+      ]
+    },
+    "jsx.overlay.dialog": {
+      "file": "src/components/YouTubeOverlay.jsx",
+      "lines": "27-28",
+      "mustContain": [
+        "<div",
+        "role=\"dialog\""
+      ]
     }
   },
   "unclassified": [
@@ -1500,5 +1530,128 @@
       "value": "nav mobile max-height calc(100dvh - 16px); popup viewport padding 5px",
       "handling": "recorded in prose fields of the component contracts; not tokenised (viewport-derived)"
     }
-  ]
+  ],
+  "sectionHeights": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "measuredWith": "Playwright Chromium; getBoundingClientRect().height of the element matching each section contract source.domSelector; 1500ms settle for entrance animations",
+    "pages": {
+      "template.landing": {
+        "route": "/",
+        "documentHeightPx": 6141,
+        "sections": {
+          "shell.navbar": {
+            "heightPx": 48,
+            "inFlow": false,
+            "selector": "nav.site-navigation"
+          },
+          "hero.landing-hero": {
+            "heightPx": 1211,
+            "inFlow": true,
+            "selector": "#overview > section"
+          },
+          "showcase.persona-tabs": {
+            "heightPx": 536,
+            "inFlow": true,
+            "selector": "section[aria-labelledby=\"persona-showcase-title\"]"
+          },
+          "features.feature-grid": {
+            "heightPx": 2034,
+            "inFlow": true,
+            "selector": "#features"
+          },
+          "support.faq": {
+            "heightPx": 682,
+            "inFlow": true,
+            "selector": "#faq"
+          },
+          "cta.download-icon": {
+            "heightPx": 789,
+            "inFlow": true,
+            "selector": "section#download"
+          },
+          "shell.footer": {
+            "heightPx": 122,
+            "inFlow": true,
+            "selector": "footer"
+          },
+          "shell.youtube-overlay": {
+            "heightPx": 900,
+            "inFlow": false,
+            "selector": "[role=\"dialog\"][aria-modal=\"true\"]"
+          }
+        }
+      },
+      "template.persona": {
+        "route": "/designers",
+        "documentHeightPx": 6141,
+        "sections": {
+          "shell.navbar": {
+            "heightPx": 48,
+            "inFlow": false,
+            "selector": "nav.site-navigation"
+          },
+          "hero.landing-hero": {
+            "heightPx": 1211,
+            "inFlow": true,
+            "selector": "#overview > section"
+          },
+          "showcase.persona-tabs": {
+            "heightPx": 536,
+            "inFlow": true,
+            "selector": "section[aria-labelledby=\"persona-showcase-title\"]"
+          },
+          "features.feature-grid": {
+            "heightPx": 2034,
+            "inFlow": true,
+            "selector": "#features"
+          },
+          "support.faq": {
+            "heightPx": 682,
+            "inFlow": true,
+            "selector": "#faq"
+          },
+          "cta.download-icon": {
+            "heightPx": 789,
+            "inFlow": true,
+            "selector": "section#download"
+          },
+          "shell.footer": {
+            "heightPx": 122,
+            "inFlow": true,
+            "selector": "footer"
+          },
+          "shell.youtube-overlay": {
+            "heightPx": 900,
+            "inFlow": false,
+            "selector": "[role=\"dialog\"][aria-modal=\"true\"]"
+          }
+        }
+      },
+      "template.not-found": {
+        "route": "/this-route-does-not-exist",
+        "documentHeightPx": 900,
+        "sections": {
+          "shell.navbar": {
+            "heightPx": 48,
+            "inFlow": false,
+            "selector": "nav.site-navigation"
+          },
+          "content.not-found-block": {
+            "heightPx": 778,
+            "inFlow": true,
+            "selector": "main > section"
+          },
+          "shell.footer": {
+            "heightPx": 122,
+            "inFlow": true,
+            "selector": "footer"
+          }
+        }
+      }
+    },
+    "wrapperWhitelist": []
+  }
 }

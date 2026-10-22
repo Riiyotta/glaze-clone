@@ -4,6 +4,19 @@
   "registryId": "section.shell.youtube-overlay",
   "version": "1.0.0",
   "category": "shell",
+  "semantic": {
+    "id": "section.shell.youtube-overlay",
+    "category": "shell"
+  },
+  "source": {
+    "id": "src.YouTubeOverlay.div",
+    "file": "src/components/YouTubeOverlay.jsx",
+    "tag": "div",
+    "domSelector": "[role=\"dialog\"][aria-modal=\"true\"]",
+    "citation": "jsx.overlay.dialog"
+  },
+  "retrievalEligible": false,
+  "retrievalIneligibleReason": "Utility overlay (video dialog opened on demand): carries no retrievable page content, only a closeLabel and embed references. It must never be returned as a standalone retrieval chunk or counted as a page section.",
   "purpose": "Video dialog opened by hero and feature buttons.",
   "scope": "Landing and persona routes.",
   "composes": [
