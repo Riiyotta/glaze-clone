@@ -1,0 +1,146 @@
+{
+  "registryId": "primitive.link",
+  "version": "1.0.0",
+  "category": "navigation",
+  "description": "Text and icon links. Local routes use the router Link; absolute URLs render a plain anchor (src/router.jsx), so an href can change from absolute to local without markup changes.",
+  "props": {
+    "variant": {
+      "enum": [
+        "nav",
+        "nav-active",
+        "mobile-nav",
+        "footer",
+        "inline-underline",
+        "with-arrow",
+        "social"
+      ]
+    },
+    "href": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string",
+      "maxWords": 6
+    },
+    "external": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "variants": {
+    "nav": {
+      "typography": "{typography.label.control}",
+      "text": "{color.text.secondary}",
+      "height": "{navPill.linkHeight}",
+      "states": {
+        "hover": {
+          "text": "{color.text.primary}"
+        },
+        "transition": "{motion.recipe.hover.colors}"
+      },
+      "cite": [
+        "jsx.navpill.link"
+      ]
+    },
+    "nav-active": {
+      "typography": "{typography.label.control}",
+      "text": "{color.text.primary}",
+      "aria": "aria-current=page",
+      "cite": [
+        "jsx.navpill.link"
+      ]
+    },
+    "mobile-nav": {
+      "typography": "{typography.nav.mobile-link}",
+      "text": "{color.text.tertiary}",
+      "states": {
+        "hover": {
+          "text": "{color.text.primary}"
+        },
+        "active-page": {
+          "text": "{color.text.primary}"
+        },
+        "transition": "{motion.recipe.hover.colors}"
+      },
+      "cite": [
+        "jsx.mobilemenu.link"
+      ]
+    },
+    "footer": {
+      "typography": "{typography.footer}",
+      "text": "{color.text.tertiary}",
+      "states": {
+        "hover": {
+          "text": "{color.text.secondary}"
+        },
+        "transition": "{motion.recipe.hover.colors}"
+      },
+      "cite": [
+        "jsx.footer.link"
+      ]
+    },
+    "inline-underline": {
+      "text": "{color.text.primary}",
+      "decoration": "{color.link.underline}",
+      "underlineOffset": "{foundation.space.1}",
+      "states": {
+        "hover": {
+          "decoration": "{color.link.underline-hover}"
+        },
+        "transition": "{motion.recipe.hover.colors}"
+      },
+      "cite": [
+        "jsx.faq.link"
+      ]
+    },
+    "with-arrow": {
+      "text": "{color.text.secondary}",
+      "gap": "{foundation.space.1.5}",
+      "icon": "primitive.icon#arrow-right",
+      "states": {
+        "hover": {
+          "text": "{color.text.primary}",
+          "iconTranslateX": "{foundation.distance.nudge}"
+        },
+        "transition": "{motion.recipe.hover.colors}",
+        "iconTransition": "{motion.recipe.hover.transform}"
+      },
+      "cite": [
+        "jsx.persona.bottomlink",
+        "spec.states.table"
+      ]
+    },
+    "social": {
+      "hitBox": "{social.hitBox}",
+      "glyph": "{social.glyph}",
+      "text": "{color.text.tertiary}",
+      "states": {
+        "hover": {
+          "text": "{color.text.secondary}"
+        },
+        "transition": "{motion.recipe.hover.colors}"
+      },
+      "cite": [
+        "jsx.footer.social"
+      ]
+    }
+  },
+  "tokens": [
+    "color.text.secondary",
+    "color.text.tertiary",
+    "color.text.primary",
+    "color.link.underline",
+    "color.link.underline-hover",
+    "navPill.linkHeight",
+    "social.hitBox",
+    "motion.recipe.hover.colors",
+    "motion.recipe.hover.transform",
+    "foundation.distance.nudge"
+  ],
+  "measuredFrom": [
+    "jsx.navpill.link",
+    "jsx.footer.link",
+    "jsx.faq.link",
+    "spec.states.table"
+  ]
+}

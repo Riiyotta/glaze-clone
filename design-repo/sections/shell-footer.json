@@ -1,0 +1,156 @@
+{
+  "id": "section.shell.footer",
+  "typeId": "shell.footer",
+  "registryId": "section.shell.footer",
+  "version": "1.0.0",
+  "category": "shell",
+  "purpose": "Legal links, socials and the maker credit.",
+  "scope": "All routes in scope.",
+  "composes": [
+    "primitive.link",
+    "primitive.icon"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "copyright": {
+        "type": "string",
+        "maxWords": 4
+      },
+      "primaryLinks": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "maxWords": 4
+            },
+            "href": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "label",
+            "href"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 0,
+        "maxItems": 4
+      },
+      "legalLinks": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "maxWords": 4
+            },
+            "href": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "label",
+            "href"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 0,
+        "maxItems": 4
+      },
+      "socials": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "platform": {
+              "type": "string",
+              "enum": [
+                "x",
+                "slack",
+                "youtube",
+                "reddit"
+              ]
+            },
+            "href": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "platform",
+            "href"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 0,
+        "maxItems": 4
+      },
+      "creditLabel": {
+        "type": "string",
+        "maxWords": 4
+      },
+      "creditHref": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "copyright",
+      "primaryLinks",
+      "legalLinks",
+      "socials",
+      "creditLabel",
+      "creditHref"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.380}",
+      "change": "Gaps widen."
+    },
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Bottom padding grows."
+    },
+    {
+      "at": "{foundation.breakpoint.700}",
+      "change": "The two link groups sit on one row."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustBeLast": true,
+    "mustBeLastExcept": [
+      "shell.youtube-overlay"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "paddingBottom": "{sectionPadding.footer-bottom-narrow} below 480, {sectionPadding.footer-bottom} from 480",
+    "marginTop": "auto (pushes to viewport bottom)"
+  },
+  "measuredFrom": [
+    "jsx.footer.root",
+    "spec.footer"
+  ]
+}

@@ -1,0 +1,1498 @@
+{
+  "description": "Ledger of the real evidence behind every token, contract and rule. Each citation id used in a 'cite' or 'measuredFrom' field resolves here to a file in the SOURCE PROJECT (the Glaze clone that sits next to design-repo/), a line range and strings that must appear inside that range. extraction/verify_all.py checks range validity and content when the source is present, and only WARNS (never fails) when design-repo/ is used standalone. The paths are project-relative, not machine paths.",
+  "sourceProject": {
+    "name": "Glaze clone (React 18, Vite 5, Tailwind 3.4)",
+    "origin": "Glaze by Raycast, a real, live commercial site. Clone is a study copy; its copy, brand marks, app icons and screenshots are not licensed for reuse.",
+    "measuredWith": "Playwright, Chromium, 1440x900 and 390x844, spot checks at 768/1024/1280 (CLONE_SPEC.md header)",
+    "builtRoutes": [
+      "/",
+      "/designers",
+      "/product-managers",
+      "/engineers",
+      "/creators",
+      "/teams",
+      "/* (404, includes /m)"
+    ]
+  },
+  "scope": {
+    "modelled": [
+      "template.landing",
+      "template.persona",
+      "template.not-found"
+    ],
+    "decision": "Only the landing page, five persona routes and the 404 are modelled. Pricing, download, awards, legal, blog, changelog, store and app-detail routes appear in the repo-level ia.json but were still being specced/built when this repo was written; they are deliberately absent. Do not infer their structure from this repo.",
+    "linkPolicy": "Nav and footer links in the clone point at absolute https://www.glaze.app URLs today and are expected to become local routes. External domains (YouTube, Raycast, x.com, reddit, slack) are intentionally not cloned. Example PageSpecs use example.com placeholders."
+  },
+  "evidenceLevels": {
+    "measured": "CLONE_SPEC.md Playwright-computed values and matching src values",
+    "code": "read from src/ only (e.g. mobile-device CTA variant, which CLONE_SPEC says was read from code, not rendered)"
+  },
+  "sourceSnapshot": {
+    "description": "First 16 hex of sha256 of each cited file at build time. A mismatch in a sibling source is a WARNING that the snapshot is stale (MASTER-GUIDE 3.10), not an error.",
+    "files": {
+      "CLONE_SPEC.md": "998c1945be2747a0",
+      "ia.json": "1feffa9a5f6abd8a",
+      "specs/SPEC_legal_persona.md": "36bb0b535aa84787",
+      "src/components/DownloadCTA.jsx": "9369247ed55a73aa",
+      "src/components/FAQ.jsx": "492d19a0ae82a1cc",
+      "src/components/Features.jsx": "974912077aa94bfa",
+      "src/components/Footer.jsx": "a2a2dee0cfed428b",
+      "src/components/GlazeIcon.jsx": "27183d8f8ae961c0",
+      "src/components/Hero.jsx": "515a9bff09d553ea",
+      "src/components/Navbar.jsx": "08e98db3998f33e1",
+      "src/components/PersonaShowcase.jsx": "20a56aef6903f739",
+      "src/components/YouTubeOverlay.jsx": "080ffcf0b6cfe36d",
+      "src/components/icons.jsx": "e6363fa5861c456c",
+      "src/data/content.js": "d23aac64c170840d",
+      "src/index.css": "f7306655fc9b3f3c",
+      "src/motion.js": "5760b43f101eba89",
+      "src/pages/Landing.jsx": "51fefaf6cb52e3a2",
+      "src/pages/NotFoundPage.jsx": "c1d374a70f6e196d",
+      "tailwind.config.js": "895e6fdcefc72f00"
+    }
+  },
+  "citations": {
+    "content.awards": {
+      "file": "src/data/content.js",
+      "lines": "32",
+      "mustContain": [
+        "export const AWARDS"
+      ]
+    },
+    "css.animate-in": {
+      "file": "src/index.css",
+      "lines": "247",
+      "mustContain": [
+        ".animate-in {"
+      ]
+    },
+    "css.animate-nav-in": {
+      "file": "src/index.css",
+      "lines": "246",
+      "mustContain": [
+        ".animate-nav-in {"
+      ]
+    },
+    "css.focus-ring": {
+      "file": "src/index.css",
+      "lines": "227-228",
+      "mustContain": [
+        ":focus-visible:not(.dialog-focus-surface)",
+        "box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6);"
+      ]
+    },
+    "css.fontface.instrument": {
+      "file": "src/index.css",
+      "lines": "19",
+      "mustContain": [
+        "font-family: 'Instrument Sans';"
+      ]
+    },
+    "css.fontface.inter": {
+      "file": "src/index.css",
+      "lines": "3",
+      "mustContain": [
+        "font-family: 'Inter';"
+      ]
+    },
+    "css.glass-focus-within": {
+      "file": "src/index.css",
+      "lines": "75",
+      "mustContain": [
+        "background: #23232399;"
+      ]
+    },
+    "css.glass-interactive": {
+      "file": "src/index.css",
+      "lines": "71-75",
+      "mustContain": [
+        ".liquid-glass-interactive {",
+        "background: #23232399;"
+      ]
+    },
+    "css.icon-glow": {
+      "file": "src/index.css",
+      "lines": "131-133",
+      "mustContain": [
+        ".waitlist-icon-glow {",
+        "will-change: filter;"
+      ]
+    },
+    "css.icon-particle": {
+      "file": "src/index.css",
+      "lines": "137-169",
+      "mustContain": [
+        ".icon-particle {",
+        "border-radius: 22px;"
+      ]
+    },
+    "css.icon-sheen": {
+      "file": "src/index.css",
+      "lines": "120-125",
+      "mustContain": [
+        ".glaze-app-icon-glass::before {",
+        "#ffffff1a 0%, #ffffff05 50%, #0000 80%);"
+      ]
+    },
+    "css.icon-squircle": {
+      "file": "src/index.css",
+      "lines": "112-117",
+      "mustContain": [
+        ".glaze-app-icon-glass {",
+        "mask: url("
+      ]
+    },
+    "css.kf.fade-in": {
+      "file": "src/index.css",
+      "lines": "241",
+      "mustContain": [
+        "@keyframes fade-in {"
+      ]
+    },
+    "css.kf.fade-in-up": {
+      "file": "src/index.css",
+      "lines": "237-238",
+      "mustContain": [
+        "@keyframes fade-in-up {",
+        "translateY(24px)"
+      ]
+    },
+    "css.kf.nav-in": {
+      "file": "src/index.css",
+      "lines": "233",
+      "mustContain": [
+        "@keyframes nav-in {"
+      ]
+    },
+    "css.liquid-glass": {
+      "file": "src/index.css",
+      "lines": "65-69",
+      "mustContain": [
+        ".liquid-glass {",
+        "border: 1px solid theme('colors.glass-border');"
+      ]
+    },
+    "css.mobile-nav-open": {
+      "file": "src/index.css",
+      "lines": "103-108",
+      "mustContain": [
+        ".mobile-nav-panel-open {",
+        "box-shadow: theme('boxShadow.mobile-nav-open');"
+      ]
+    },
+    "css.mobile-nav-panel": {
+      "file": "src/index.css",
+      "lines": "99-101",
+      "mustContain": [
+        ".mobile-nav-panel {",
+        "transition: height 0.14s cubic-bezier(0.16, 1, 0.3, 1);"
+      ]
+    },
+    "css.root-accent": {
+      "file": "src/index.css",
+      "lines": "43",
+      "mustContain": [
+        "--accent: #245aca;"
+      ]
+    },
+    "css.root-bg": {
+      "file": "src/index.css",
+      "lines": "41",
+      "mustContain": [
+        "--bg: #121212;"
+      ]
+    },
+    "ia.template.landing": {
+      "file": "ia.json",
+      "lines": "128",
+      "mustContain": [
+        "\"id\": \"template.landing\""
+      ]
+    },
+    "ia.template.not-found": {
+      "file": "ia.json",
+      "lines": "162",
+      "mustContain": [
+        "\"id\": \"template.not-found\""
+      ]
+    },
+    "ia.template.persona": {
+      "file": "ia.json",
+      "lines": "145",
+      "mustContain": [
+        "\"id\": \"template.persona\""
+      ]
+    },
+    "js.autoplay.mq": {
+      "file": "src/motion.js",
+      "lines": "18",
+      "mustContain": [
+        "(max-width: 623px)"
+      ]
+    },
+    "js.autoplay.timers": {
+      "file": "src/motion.js",
+      "lines": "38",
+      "mustContain": [
+        "[0, 100, 400, 900]"
+      ]
+    },
+    "js.faqdim": {
+      "file": "src/motion.js",
+      "lines": "81",
+      "mustContain": [
+        "threshold: [0, 0.35]"
+      ]
+    },
+    "js.navdot.base": {
+      "file": "src/motion.js",
+      "lines": "90",
+      "mustContain": [
+        "const DOT_BASE"
+      ]
+    },
+    "js.navdot.hide": {
+      "file": "src/motion.js",
+      "lines": "91",
+      "mustContain": [
+        "const dotHide"
+      ]
+    },
+    "js.navdot.move": {
+      "file": "src/motion.js",
+      "lines": "117",
+      "mustContain": [
+        "transition: 'left 0.35s cubic-bezier(0.4,0,0.2,1)"
+      ]
+    },
+    "js.navdot.show": {
+      "file": "src/motion.js",
+      "lines": "92",
+      "mustContain": [
+        "const dotShow"
+      ]
+    },
+    "js.particles.angles": {
+      "file": "src/motion.js",
+      "lines": "222-226",
+      "mustContain": [
+        "rand(-Math.PI * 0.65, -Math.PI * 0.55)",
+        "rand(-Math.PI * 0.42, -Math.PI * 0.25)"
+      ]
+    },
+    "js.particles.consts": {
+      "file": "src/motion.js",
+      "lines": "156-159",
+      "mustContain": [
+        "const PER_BURST = 4",
+        "const DRAG = 0.99"
+      ]
+    },
+    "js.particles.dt": {
+      "file": "src/motion.js",
+      "lines": "175",
+      "mustContain": [
+        "Math.min((now - lastT.current) / 1000, 0.05)"
+      ]
+    },
+    "js.particles.narrow": {
+      "file": "src/motion.js",
+      "lines": "218",
+      "mustContain": [
+        "const narrow = window.innerWidth < 600"
+      ]
+    },
+    "js.particles.preload": {
+      "file": "src/motion.js",
+      "lines": "154",
+      "mustContain": [
+        "requestIdleCallback"
+      ]
+    },
+    "js.particles.rotation": {
+      "file": "src/motion.js",
+      "lines": "246-247",
+      "mustContain": [
+        "rotation: rand(-20, 20)",
+        "rotationSpeed: rand(-360, 360)"
+      ]
+    },
+    "js.particles.size": {
+      "file": "src/motion.js",
+      "lines": "162",
+      "mustContain": [
+        "const particleSize"
+      ]
+    },
+    "js.particles.speed": {
+      "file": "src/motion.js",
+      "lines": "227",
+      "mustContain": [
+        "const speed = narrow"
+      ]
+    },
+    "jsx.app.belowfold": {
+      "file": "src/pages/Landing.jsx",
+      "lines": "34",
+      "mustContain": [
+        "data-anim=\"below-fold-fade\""
+      ]
+    },
+    "jsx.appcard.author": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "56",
+      "mustContain": [
+        "text-[13px] leading-4 text-text-secondary"
+      ]
+    },
+    "jsx.appcard.award": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "52",
+      "mustContain": [
+        "app.award &&"
+      ]
+    },
+    "jsx.appcard.hover": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "44",
+      "mustContain": [
+        "hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/30"
+      ]
+    },
+    "jsx.appcard.root": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "44",
+      "mustContain": [
+        "flex min-h-40 flex-col items-center justify-center rounded-2xl p-3"
+      ]
+    },
+    "jsx.appcard.title": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "49",
+      "mustContain": [
+        "text-md font-medium leading-snug text-text-primary"
+      ]
+    },
+    "jsx.appicon.fade": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "12",
+      "mustContain": [
+        "transition-opacity duration-200"
+      ]
+    },
+    "jsx.appicon.img": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "21",
+      "mustContain": [
+        "scale-[1.19]"
+      ]
+    },
+    "jsx.appicon.pulse": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "12",
+      "mustContain": [
+        "animate-pulse"
+      ]
+    },
+    "jsx.appicon.root": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "5",
+      "mustContain": [
+        "function AppIconGlass"
+      ]
+    },
+    "jsx.appicon.size": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "9",
+      "mustContain": [
+        "glaze-app-icon-glass h-16 w-16"
+      ]
+    },
+    "jsx.cta.button": {
+      "file": "src/components/DownloadCTA.jsx",
+      "lines": "20",
+      "mustContain": [
+        "h-11 items-center justify-center gap-2.5 rounded-full bg-accent"
+      ]
+    },
+    "jsx.cta.section": {
+      "file": "src/components/DownloadCTA.jsx",
+      "lines": "11",
+      "mustContain": [
+        "px-4 pb-[64px] pt-[220px] xs:pb-[200px] xs:pt-[280px]"
+      ]
+    },
+    "jsx.cta.title": {
+      "file": "src/components/DownloadCTA.jsx",
+      "lines": "14",
+      "mustContain": [
+        "mb-4 select-none font-display text-3xl"
+      ]
+    },
+    "jsx.dropdown.chevron": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "140",
+      "mustContain": [
+        "group-data-[popup-open]:rotate-180"
+      ]
+    },
+    "jsx.dropdown.offset": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "77",
+      "mustContain": [
+        "const POPUP_OFFSET = 7"
+      ]
+    },
+    "jsx.dropdown.popup": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "150",
+      "mustContain": [
+        "w-52 -translate-x-1/2"
+      ]
+    },
+    "jsx.dropdown.root": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "81",
+      "mustContain": [
+        "function PersonaDropdown"
+      ]
+    },
+    "jsx.faq.answer": {
+      "file": "src/components/FAQ.jsx",
+      "lines": "38",
+      "mustContain": [
+        "whitespace-pre-line text-balance pb-4 text-sm leading-relaxed"
+      ]
+    },
+    "jsx.faq.chevron": {
+      "file": "src/components/FAQ.jsx",
+      "lines": "34",
+      "mustContain": [
+        "transition-transform duration-300"
+      ]
+    },
+    "jsx.faq.chevron-svg": {
+      "file": "src/components/icons.jsx",
+      "lines": "97",
+      "mustContain": [
+        "export function FaqChevron"
+      ]
+    },
+    "jsx.faq.dim": {
+      "file": "src/components/FAQ.jsx",
+      "lines": "17",
+      "mustContain": [
+        "duration-[600ms]"
+      ]
+    },
+    "jsx.faq.item": {
+      "file": "src/components/FAQ.jsx",
+      "lines": "29",
+      "mustContain": [
+        "aria-expanded={open}"
+      ]
+    },
+    "jsx.faq.link": {
+      "file": "src/components/FAQ.jsx",
+      "lines": "44",
+      "mustContain": [
+        "underline decoration-white/20 underline-offset-4"
+      ]
+    },
+    "jsx.faq.list": {
+      "file": "src/components/FAQ.jsx",
+      "lines": "22",
+      "mustContain": [
+        "divide-y divide-border-separator border-b border-border-separator"
+      ]
+    },
+    "jsx.faq.question": {
+      "file": "src/components/FAQ.jsx",
+      "lines": "33",
+      "mustContain": [
+        "text-balance pr-4 text-base font-medium text-text-primary xs:text-xl"
+      ]
+    },
+    "jsx.faq.root": {
+      "file": "src/components/FAQ.jsx",
+      "lines": "7",
+      "mustContain": [
+        "export default function FAQ"
+      ]
+    },
+    "jsx.faq.title": {
+      "file": "src/components/FAQ.jsx",
+      "lines": "21",
+      "mustContain": [
+        "xs:text-[44px] xs:leading-[1.1]"
+      ]
+    },
+    "jsx.feature.body": {
+      "file": "src/components/Features.jsx",
+      "lines": "13",
+      "mustContain": [
+        "text-balance text-sm leading-[1.4]"
+      ]
+    },
+    "jsx.feature.card": {
+      "file": "src/components/Features.jsx",
+      "lines": "6",
+      "mustContain": [
+        "h-full overflow-hidden rounded-2xl bg-surface-well"
+      ]
+    },
+    "jsx.feature.picture": {
+      "file": "src/components/Features.jsx",
+      "lines": "30",
+      "mustContain": [
+        "<source media=\"(min-width: 800px)\""
+      ]
+    },
+    "jsx.feature.root": {
+      "file": "src/components/Features.jsx",
+      "lines": "38",
+      "mustContain": [
+        "export default function Features"
+      ]
+    },
+    "jsx.feature.title": {
+      "file": "src/components/Features.jsx",
+      "lines": "10",
+      "mustContain": [
+        "font-display text-2xl font-medium leading-[1.1] tracking-tight"
+      ]
+    },
+    "jsx.feature.watch-demo": {
+      "file": "src/components/Features.jsx",
+      "lines": "21",
+      "mustContain": [
+        "rounded-full bg-white/5 py-1.5 pl-1.5 pr-3"
+      ]
+    },
+    "jsx.footer.380": {
+      "file": "src/components/Footer.jsx",
+      "lines": "13",
+      "mustContain": [
+        "min-[380px]:gap-x-4"
+      ]
+    },
+    "jsx.footer.700": {
+      "file": "src/components/Footer.jsx",
+      "lines": "12",
+      "mustContain": [
+        "min-[700px]:flex-row"
+      ]
+    },
+    "jsx.footer.link": {
+      "file": "src/components/Footer.jsx",
+      "lines": "5",
+      "mustContain": [
+        "const linkCls"
+      ]
+    },
+    "jsx.footer.root": {
+      "file": "src/components/Footer.jsx",
+      "lines": "10",
+      "mustContain": [
+        "mt-auto px-4 pb-5 xs:pb-14"
+      ]
+    },
+    "jsx.footer.social": {
+      "file": "src/components/Footer.jsx",
+      "lines": "43",
+      "mustContain": [
+        "flex h-6 w-6 items-center justify-center text-text-tertiary"
+      ]
+    },
+    "jsx.glazeicon.icon": {
+      "file": "src/components/GlazeIcon.jsx",
+      "lines": "22",
+      "mustContain": [
+        "relative z-[10000]"
+      ]
+    },
+    "jsx.glazeicon.img": {
+      "file": "src/components/GlazeIcon.jsx",
+      "lines": "35",
+      "mustContain": [
+        "'h-20 w-20 xs:h-[112px] xs:w-[112px]'"
+      ]
+    },
+    "jsx.glazeicon.layer": {
+      "file": "src/components/GlazeIcon.jsx",
+      "lines": "21",
+      "mustContain": [
+        "data-particle-layer"
+      ]
+    },
+    "jsx.glazeicon.root": {
+      "file": "src/components/GlazeIcon.jsx",
+      "lines": "7",
+      "mustContain": [
+        "export default function GlazeIcon"
+      ]
+    },
+    "jsx.hero.anim": {
+      "file": "src/components/Hero.jsx",
+      "lines": "33-118",
+      "mustContain": [
+        "animStyle(0)",
+        "animStyle(400)"
+      ]
+    },
+    "jsx.hero.download": {
+      "file": "src/components/Hero.jsx",
+      "lines": "91",
+      "mustContain": [
+        "h-10 items-center justify-center gap-2 rounded-full bg-accent"
+      ]
+    },
+    "jsx.hero.eyebrow": {
+      "file": "src/components/Hero.jsx",
+      "lines": "36",
+      "mustContain": [
+        "text-base font-medium leading-none"
+      ]
+    },
+    "jsx.hero.h1": {
+      "file": "src/components/Hero.jsx",
+      "lines": "51",
+      "mustContain": [
+        "font-display text-hero font-medium leading-hero tracking-tight"
+      ]
+    },
+    "jsx.hero.note": {
+      "file": "src/components/Hero.jsx",
+      "lines": "112",
+      "mustContain": [
+        "mt-4 text-center text-xs leading-[1.35]"
+      ]
+    },
+    "jsx.hero.pillars": {
+      "file": "src/components/Hero.jsx",
+      "lines": "156",
+      "mustContain": [
+        "min-[600px]:gap-12"
+      ]
+    },
+    "jsx.hero.play": {
+      "file": "src/components/Hero.jsx",
+      "lines": "149",
+      "mustContain": [
+        "h-12 w-12 select-none opacity-90"
+      ]
+    },
+    "jsx.hero.reinvent": {
+      "file": "src/components/Hero.jsx",
+      "lines": "101",
+      "mustContain": [
+        "border border-white/[0.08] bg-white/[0.06]"
+      ]
+    },
+    "jsx.hero.scrim": {
+      "file": "src/components/Hero.jsx",
+      "lines": "144",
+      "mustContain": [
+        "bg-black/15 transition-colors group-hover:bg-black/25"
+      ]
+    },
+    "jsx.hero.section": {
+      "file": "src/components/Hero.jsx",
+      "lines": "30",
+      "mustContain": [
+        "px-4 pt-[140px] xs:pt-40"
+      ]
+    },
+    "jsx.hero.sub": {
+      "file": "src/components/Hero.jsx",
+      "lines": "62",
+      "mustContain": [
+        "max-w-content text-balance text-base leading-relaxed text-text-tertiary"
+      ]
+    },
+    "jsx.hero.video": {
+      "file": "src/components/Hero.jsx",
+      "lines": "134",
+      "mustContain": [
+        "data-anim=\"hero-video\""
+      ]
+    },
+    "jsx.icon.scale": {
+      "file": "src/components/GlazeIcon.jsx",
+      "lines": "29",
+      "mustContain": [
+        "transition-transform duration-300 ease-out hover:scale-105 active:scale-95"
+      ]
+    },
+    "jsx.landing.root": {
+      "file": "src/pages/Landing.jsx",
+      "lines": "13",
+      "mustContain": [
+        "export default function Landing"
+      ]
+    },
+    "jsx.mobilemenu.burger": {
+      "file": "src/components/Navbar.jsx",
+      "lines": "102",
+      "mustContain": [
+        "h-0.5 w-5 rounded-full bg-current transition-transform duration-150 ease-out"
+      ]
+    },
+    "jsx.mobilemenu.content": {
+      "file": "src/components/Navbar.jsx",
+      "lines": "117",
+      "mustContain": [
+        "transition-opacity duration-100 ease-out"
+      ]
+    },
+    "jsx.mobilemenu.header": {
+      "file": "src/components/Navbar.jsx",
+      "lines": "89",
+      "mustContain": [
+        "h-[50px] shrink-0 items-center justify-between pl-[18px] pr-[14px]"
+      ]
+    },
+    "jsx.mobilemenu.link": {
+      "file": "src/components/Navbar.jsx",
+      "lines": "127",
+      "mustContain": [
+        "font-display text-[30px] font-medium leading-[33px]"
+      ]
+    },
+    "jsx.mobilemenu.navdelay": {
+      "file": "src/components/Navbar.jsx",
+      "lines": "65",
+      "mustContain": [
+        "}, 150)"
+      ]
+    },
+    "jsx.mobilemenu.signin": {
+      "file": "src/components/Navbar.jsx",
+      "lines": "140",
+      "mustContain": [
+        "font-display text-2xl font-medium leading-[30px]"
+      ]
+    },
+    "jsx.nav.624": {
+      "file": "src/components/Navbar.jsx",
+      "lines": "76",
+      "mustContain": [
+        "min-[624px]:hidden"
+      ]
+    },
+    "jsx.nav.backdrop": {
+      "file": "src/components/Navbar.jsx",
+      "lines": "76",
+      "mustContain": [
+        "backdrop-blur-[2.5px]"
+      ]
+    },
+    "jsx.nav.collapsed-h": {
+      "file": "src/components/Navbar.jsx",
+      "lines": "8",
+      "mustContain": [
+        "const COLLAPSED_H = 52"
+      ]
+    },
+    "jsx.nav.divider-gradient": {
+      "file": "src/components/Navbar.jsx",
+      "lines": "135",
+      "mustContain": [
+        "bg-[linear-gradient(90deg,transparent"
+      ]
+    },
+    "jsx.nav.root": {
+      "file": "src/components/Navbar.jsx",
+      "lines": "81",
+      "mustContain": [
+        "site-navigation fixed left-0 right-0"
+      ]
+    },
+    "jsx.navpill.container": {
+      "file": "src/components/Navbar.jsx",
+      "lines": "177",
+      "mustContain": [
+        "h-12 w-fit items-center gap-6 rounded-full p-1.5 pl-[15px]"
+      ]
+    },
+    "jsx.navpill.link": {
+      "file": "src/components/Navbar.jsx",
+      "lines": "188",
+      "mustContain": [
+        "flex h-8 items-center text-sm font-medium leading-none"
+      ]
+    },
+    "jsx.navpill.logo": {
+      "file": "src/components/Navbar.jsx",
+      "lines": "180",
+      "mustContain": [
+        "className=\"h-5\""
+      ]
+    },
+    "jsx.navpill.rule": {
+      "file": "src/components/Navbar.jsx",
+      "lines": "200",
+      "mustContain": [
+        "-ml-2 h-4 w-px shrink-0 bg-white/[0.12]"
+      ]
+    },
+    "jsx.notfound.body": {
+      "file": "src/pages/NotFoundPage.jsx",
+      "lines": "15",
+      "mustContain": [
+        "mb-6 text-base leading-[1.4] text-text-secondary"
+      ]
+    },
+    "jsx.notfound.page": {
+      "file": "src/pages/NotFoundPage.jsx",
+      "lines": "6",
+      "mustContain": [
+        "export default function NotFoundPage"
+      ]
+    },
+    "jsx.notfound.section": {
+      "file": "src/pages/NotFoundPage.jsx",
+      "lines": "9",
+      "mustContain": [
+        "flex flex-1 items-center justify-center px-4 py-24"
+      ]
+    },
+    "jsx.notfound.title": {
+      "file": "src/pages/NotFoundPage.jsx",
+      "lines": "12",
+      "mustContain": [
+        "font-display text-3xl font-medium"
+      ]
+    },
+    "jsx.overlay.backdrop": {
+      "file": "src/components/YouTubeOverlay.jsx",
+      "lines": "31",
+      "mustContain": [
+        "fixed inset-0 z-[100]"
+      ]
+    },
+    "jsx.overlay.close": {
+      "file": "src/components/YouTubeOverlay.jsx",
+      "lines": "39",
+      "mustContain": [
+        "rounded-full border border-glass-border bg-close-btn"
+      ]
+    },
+    "jsx.overlay.frame": {
+      "file": "src/components/YouTubeOverlay.jsx",
+      "lines": "44",
+      "mustContain": [
+        "max-w-[900px] rounded-[12px]"
+      ]
+    },
+    "jsx.persona.800": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "206",
+      "mustContain": [
+        "min-[800px]:flex"
+      ]
+    },
+    "jsx.persona.arrow": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "72",
+      "mustContain": [
+        "group-hover:translate-x-0.5"
+      ]
+    },
+    "jsx.persona.bottomlink": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "65",
+      "mustContain": [
+        "function BottomLink"
+      ]
+    },
+    "jsx.persona.h2": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "250",
+      "mustContain": [
+        "font-display text-2xl font-medium leading-tight tracking-tight"
+      ]
+    },
+    "jsx.persona.p": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "254",
+      "mustContain": [
+        "text-balance text-sm leading-snug text-text-secondary"
+      ]
+    },
+    "jsx.persona.panel": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "244",
+      "mustContain": [
+        "data-anim=\"persona-panel\""
+      ]
+    },
+    "jsx.persona.root": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "183",
+      "mustContain": [
+        "export default function PersonaShowcase"
+      ]
+    },
+    "jsx.persona.tab": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "223",
+      "mustContain": [
+        "h-[34px] shrink-0 rounded-full px-3.5"
+      ]
+    },
+    "jsx.persona.tablist": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "208",
+      "mustContain": [
+        "rounded-full bg-white/[0.025] p-[3px]"
+      ]
+    },
+    "jsx.persona.teamlogo": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "274",
+      "mustContain": [
+        "h-14 w-14 min-[600px]:h-[72px] min-[600px]:w-[72px]"
+      ]
+    },
+    "qa.dropdown": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "90",
+      "mustContain": [
+        "Live site (Base UI Select, alignItemWithTrigger off)"
+      ]
+    },
+    "spec.404": {
+      "file": "CLONE_SPEC.md",
+      "lines": "127",
+      "mustContain": [
+        "## 3. Route `/m` (404 page)"
+      ]
+    },
+    "spec.bp.nochange": {
+      "file": "CLONE_SPEC.md",
+      "lines": "73",
+      "mustContain": [
+        "**768 / 1024 / 1280:**"
+      ]
+    },
+    "spec.color.table": {
+      "file": "CLONE_SPEC.md",
+      "lines": "37",
+      "mustContain": [
+        "### 1.2 Colors"
+      ]
+    },
+    "spec.containers": {
+      "file": "CLONE_SPEC.md",
+      "lines": "70",
+      "mustContain": [
+        "`max-w-page` 960px"
+      ]
+    },
+    "spec.cta": {
+      "file": "CLONE_SPEC.md",
+      "lines": "269",
+      "mustContain": [
+        "### S5 Download CTA"
+      ]
+    },
+    "spec.faq": {
+      "file": "CLONE_SPEC.md",
+      "lines": "246",
+      "mustContain": [
+        "### S4 FAQ"
+      ]
+    },
+    "spec.features": {
+      "file": "CLONE_SPEC.md",
+      "lines": "221",
+      "mustContain": [
+        "### S3 Features"
+      ]
+    },
+    "spec.features.card": {
+      "file": "CLONE_SPEC.md",
+      "lines": "228",
+      "mustContain": [
+        "Card = `rounded-18 overflow-hidden bg #080808"
+      ]
+    },
+    "spec.footer": {
+      "file": "CLONE_SPEC.md",
+      "lines": "115",
+      "mustContain": [
+        "### 2.3 Footer"
+      ]
+    },
+    "spec.glass": {
+      "file": "CLONE_SPEC.md",
+      "lines": "58",
+      "mustContain": [
+        "- `.liquid-glass`: `backdrop-filter"
+      ]
+    },
+    "spec.hero": {
+      "file": "CLONE_SPEC.md",
+      "lines": "161",
+      "mustContain": [
+        "### S1 Hero"
+      ]
+    },
+    "spec.hero.h1": {
+      "file": "CLONE_SPEC.md",
+      "lines": "166",
+      "mustContain": [
+        "2. **H1** (AnimateIn, delay 100ms)"
+      ]
+    },
+    "spec.hero.pillars": {
+      "file": "CLONE_SPEC.md",
+      "lines": "183",
+      "mustContain": [
+        "Pillars `div.mt-56 w-full`"
+      ]
+    },
+    "spec.keyframes.pulse": {
+      "file": "CLONE_SPEC.md",
+      "lines": "87",
+      "mustContain": [
+        "@keyframes pulse"
+      ]
+    },
+    "spec.motion.default": {
+      "file": "CLONE_SPEC.md",
+      "lines": "75",
+      "mustContain": [
+        "### 1.6 Default transition"
+      ]
+    },
+    "spec.motion.easeout-note": {
+      "file": "CLONE_SPEC.md",
+      "lines": "89",
+      "mustContain": [
+        "Note: `ease-out` in these shorthand rules"
+      ]
+    },
+    "spec.motion.m1": {
+      "file": "CLONE_SPEC.md",
+      "lines": "317",
+      "mustContain": [
+        "- **M1 Hero entrance"
+      ]
+    },
+    "spec.motion.m2": {
+      "file": "CLONE_SPEC.md",
+      "lines": "318",
+      "mustContain": [
+        "- **M2 Below-the-fold wrapper.**"
+      ]
+    },
+    "spec.motion.m3": {
+      "file": "CLONE_SPEC.md",
+      "lines": "319",
+      "mustContain": [
+        "- **M3 Persona panel.**"
+      ]
+    },
+    "spec.motion.m4": {
+      "file": "CLONE_SPEC.md",
+      "lines": "320",
+      "mustContain": [
+        "- **M4 AnimateIn component (generic).**"
+      ]
+    },
+    "spec.motion.m5": {
+      "file": "CLONE_SPEC.md",
+      "lines": "321",
+      "mustContain": [
+        "- **M5 Hero video.**"
+      ]
+    },
+    "spec.motion.m6": {
+      "file": "CLONE_SPEC.md",
+      "lines": "322",
+      "mustContain": [
+        "- **M6 FAQ dim on scroll-past.**"
+      ]
+    },
+    "spec.motion.m7": {
+      "file": "CLONE_SPEC.md",
+      "lines": "323",
+      "mustContain": [
+        "- **M7 Icon particles"
+      ]
+    },
+    "spec.motion.m8": {
+      "file": "CLONE_SPEC.md",
+      "lines": "332",
+      "mustContain": [
+        "- **M8 Nav.**"
+      ]
+    },
+    "spec.motion.m9": {
+      "file": "CLONE_SPEC.md",
+      "lines": "333",
+      "mustContain": [
+        "- **M9 FAQ accordion.**"
+      ]
+    },
+    "spec.nav.desktop": {
+      "file": "CLONE_SPEC.md",
+      "lines": "95",
+      "mustContain": [
+        "### 2.1 Desktop nav"
+      ]
+    },
+    "spec.nav.mobile": {
+      "file": "CLONE_SPEC.md",
+      "lines": "104",
+      "mustContain": [
+        "### 2.2 Mobile nav"
+      ]
+    },
+    "spec.overlays": {
+      "file": "CLONE_SPEC.md",
+      "lines": "278",
+      "mustContain": [
+        "### Overlays (conditional)"
+      ]
+    },
+    "spec.persona": {
+      "file": "CLONE_SPEC.md",
+      "lines": "190",
+      "mustContain": [
+        "### S2 Persona showcase"
+      ]
+    },
+    "spec.persona.card": {
+      "file": "CLONE_SPEC.md",
+      "lines": "204",
+      "mustContain": [
+        "- **App grid**"
+      ]
+    },
+    "spec.persona.diff": {
+      "file": "specs/SPEC_legal_persona.md",
+      "lines": "42",
+      "mustContain": [
+        "### A.2 Persona diff table"
+      ]
+    },
+    "spec.persona.dropdown": {
+      "file": "CLONE_SPEC.md",
+      "lines": "198",
+      "mustContain": [
+        "- Menu (Base UI select)"
+      ]
+    },
+    "spec.persona.switcher": {
+      "file": "CLONE_SPEC.md",
+      "lines": "193",
+      "mustContain": [
+        "- **Switcher** `div.w-full py-4`"
+      ]
+    },
+    "spec.persona.teams": {
+      "file": "CLONE_SPEC.md",
+      "lines": "209",
+      "mustContain": [
+        "- **Teams tab**"
+      ]
+    },
+    "spec.radius": {
+      "file": "CLONE_SPEC.md",
+      "lines": "57",
+      "mustContain": [
+        "- Radii: `rounded-2xl`"
+      ]
+    },
+    "spec.space.scale": {
+      "file": "CLONE_SPEC.md",
+      "lines": "70",
+      "mustContain": [
+        "Page side padding is `px-4`"
+      ]
+    },
+    "spec.states.accent": {
+      "file": "CLONE_SPEC.md",
+      "lines": "297",
+      "mustContain": [
+        "| Accent buttons (nav Download"
+      ]
+    },
+    "spec.states.table": {
+      "file": "CLONE_SPEC.md",
+      "lines": "291",
+      "mustContain": [
+        "## 5. Interaction states"
+      ]
+    },
+    "spec.svg": {
+      "file": "CLONE_SPEC.md",
+      "lines": "338",
+      "mustContain": [
+        "## 7. Inline SVG / data-URI markup (exact)"
+      ]
+    },
+    "spec.type.scale": {
+      "file": "CLONE_SPEC.md",
+      "lines": "66",
+      "mustContain": [
+        "### 1.4 Type scale"
+      ]
+    },
+    "spec.type.weights": {
+      "file": "CLONE_SPEC.md",
+      "lines": "99",
+      "mustContain": [
+        "Inter **14px / 500 / line-height 14px**"
+      ]
+    },
+    "src.icons": {
+      "file": "src/components/icons.jsx",
+      "lines": "17",
+      "mustContain": [
+        "const lucideProps"
+      ]
+    },
+    "tw.color.accent": {
+      "file": "tailwind.config.js",
+      "lines": "26",
+      "mustContain": [
+        "accent: '#245aca'"
+      ]
+    },
+    "tw.color.background": {
+      "file": "tailwind.config.js",
+      "lines": "17",
+      "mustContain": [
+        "background: '#121212'"
+      ]
+    },
+    "tw.color.border-primary": {
+      "file": "tailwind.config.js",
+      "lines": "23",
+      "mustContain": [
+        "'border-primary'"
+      ]
+    },
+    "tw.color.border-separator": {
+      "file": "tailwind.config.js",
+      "lines": "24",
+      "mustContain": [
+        "'border-separator'"
+      ]
+    },
+    "tw.color.close-btn": {
+      "file": "tailwind.config.js",
+      "lines": "32-33",
+      "mustContain": [
+        "'close-btn': 'rgba(35,35,35,0.34)'",
+        "'close-btn-hover'"
+      ]
+    },
+    "tw.color.dialog-backdrop": {
+      "file": "tailwind.config.js",
+      "lines": "34",
+      "mustContain": [
+        "'dialog-backdrop'"
+      ]
+    },
+    "tw.color.foreground": {
+      "file": "tailwind.config.js",
+      "lines": "18",
+      "mustContain": [
+        "foreground: '#ffffff'"
+      ]
+    },
+    "tw.color.glass": {
+      "file": "tailwind.config.js",
+      "lines": "30",
+      "mustContain": [
+        "glass: 'rgba(35,35,35,0.3)'"
+      ]
+    },
+    "tw.color.glass-border": {
+      "file": "tailwind.config.js",
+      "lines": "31",
+      "mustContain": [
+        "'glass-border'"
+      ]
+    },
+    "tw.color.support": {
+      "file": "tailwind.config.js",
+      "lines": "35-42",
+      "mustContain": [
+        "support: {",
+        "magenta: '#cf2f98'"
+      ]
+    },
+    "tw.color.surface-panel": {
+      "file": "tailwind.config.js",
+      "lines": "28",
+      "mustContain": [
+        "'surface-panel'"
+      ]
+    },
+    "tw.color.surface-popover": {
+      "file": "tailwind.config.js",
+      "lines": "29",
+      "mustContain": [
+        "'surface-popover'"
+      ]
+    },
+    "tw.color.surface-well": {
+      "file": "tailwind.config.js",
+      "lines": "27",
+      "mustContain": [
+        "'surface-well': '#080808'"
+      ]
+    },
+    "tw.color.text-secondary": {
+      "file": "tailwind.config.js",
+      "lines": "20",
+      "mustContain": [
+        "'text-secondary': '#a0a0a0'"
+      ]
+    },
+    "tw.color.text-tertiary": {
+      "file": "tailwind.config.js",
+      "lines": "21",
+      "mustContain": [
+        "'text-tertiary': '#717171'"
+      ]
+    },
+    "tw.dropshadow": {
+      "file": "tailwind.config.js",
+      "lines": "76-78",
+      "mustContain": [
+        "dropShadow: {",
+        "particle:"
+      ]
+    },
+    "tw.easing": {
+      "file": "tailwind.config.js",
+      "lines": "81",
+      "mustContain": [
+        "'nav-panel': 'cubic-bezier(.16,1,.3,1)'"
+      ]
+    },
+    "tw.font.family": {
+      "file": "tailwind.config.js",
+      "lines": "45-48",
+      "mustContain": [
+        "fontFamily: {",
+        "mono: ["
+      ]
+    },
+    "tw.font.lineheight": {
+      "file": "tailwind.config.js",
+      "lines": "55-56",
+      "mustContain": [
+        "lineHeight: {",
+        "hero: '1.1'"
+      ]
+    },
+    "tw.font.size": {
+      "file": "tailwind.config.js",
+      "lines": "50-53",
+      "mustContain": [
+        "fontSize: {",
+        "hero: '2.125rem'"
+      ]
+    },
+    "tw.maxwidth": {
+      "file": "tailwind.config.js",
+      "lines": "65-68",
+      "mustContain": [
+        "maxWidth: {",
+        "narrow: '480px'"
+      ]
+    },
+    "tw.opacity": {
+      "file": "tailwind.config.js",
+      "lines": "84",
+      "mustContain": [
+        "15: '0.15'"
+      ]
+    },
+    "tw.radius": {
+      "file": "tailwind.config.js",
+      "lines": "58-63",
+      "mustContain": [
+        "borderRadius: {",
+        "option: '9px'"
+      ]
+    },
+    "tw.screens": {
+      "file": "tailwind.config.js",
+      "lines": "7-13",
+      "mustContain": [
+        "screens: {",
+        "'2xl': '1536px'"
+      ]
+    },
+    "tw.shadow": {
+      "file": "tailwind.config.js",
+      "lines": "70-74",
+      "mustContain": [
+        "boxShadow: {",
+        "'close-btn': '0 10px 28px"
+      ]
+    }
+  },
+  "unclassified": [
+    {
+      "id": "tab-height-34",
+      "value": "34px",
+      "where": "persona tab and 'Make apps for' label (h-[34px])",
+      "handling": "kept as foundation.space.8.5; not on the 4px scale, arbitrary in source"
+    },
+    {
+      "id": "focus-ring-declared-vs-rendered",
+      "value": "ring-white/45 (buttons, tabs) and ring-1 white/30 (app card) in class strings",
+      "handling": "rendered ring is the global 2px white/0.6 box-shadow (src/index.css, pixel-audit); declared values kept in color.ring.* with renderedOnBuiltRoutes=false"
+    },
+    {
+      "id": "particle-size-quirk",
+      "value": "JS centring size 56 below 768 vs CSS box 64 below 600 / 107 from 600",
+      "handling": "original quirk kept deliberately (src/motion.js comment); both numbers are tokens"
+    },
+    {
+      "id": "two-ease-out-curves",
+      "value": "CSS keyword ease-out (0,0,.58,1) vs Tailwind ease-out (0,0,.2,1)",
+      "handling": "two separate easing tokens; CLONE_SPEC 1.7 note"
+    },
+    {
+      "id": "hex-alpha-stops",
+      "value": "#0000, #ffffff2e, #ffffff0a, #ffffff1a, #ffffff05 gradient stops",
+      "handling": "converted to rgba tokens (a18, a04, a10, a02, transparent); equal after rounding to two decimals"
+    },
+    {
+      "id": "shadow-rounding",
+      "value": "#0000001f, #0006, #0003 in the mobile-nav shadow",
+      "handling": "rounded to black-alpha a12, a40, a20 (exact: 0.122, 0.4, 0.2)"
+    },
+    {
+      "id": "support-palette",
+      "value": "red/orange/yellow/green/blue/purple/magenta",
+      "handling": "defined in the original theme, not rendered on any built route; present with usedOnBuiltRoutes=false and excluded from generation by token-policy"
+    },
+    {
+      "id": "glaze-icon-compact",
+      "value": "GlazeIcon compact prop (64/80px icon, mb-7/8)",
+      "handling": "used only by routes outside this scope; not modelled"
+    },
+    {
+      "id": "lang-text-hardcoded",
+      "value": "Footer 'Copyright 2026' and Raycast credit href",
+      "handling": "content, not tokens; carried as section props"
+    },
+    {
+      "id": "viewport-heights",
+      "value": "nav mobile max-height calc(100dvh - 16px); popup viewport padding 5px",
+      "handling": "recorded in prose fields of the component contracts; not tokenised (viewport-derived)"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "$description": "Component-scoped sizing, composed from foundation/semantic tokens. Heights and paddings are the measured control sizes (CLONE_SPEC 2.1, S1, S5, 404).",
+  "button": {
+    "height": {
+      "sm": "{foundation.space.9}",
+      "md": "{foundation.space.10}",
+      "lg": "{foundation.space.11}"
+    },
+    "paddingX": {
+      "icon-leading-md": "{foundation.space.3.5}",
+      "trailing-md": "{foundation.space.4}",
+      "nav": "{foundation.space.4}",
+      "lg": "{foundation.space.5}",
+      "cta-icon-leading": "{foundation.space.4}",
+      "mobile-cta": "{foundation.space.10}"
+    },
+    "gap": {
+      "md": "{foundation.space.2}",
+      "lg": "{foundation.space.2.5}"
+    },
+    "icon": "{foundation.iconSize.18}",
+    "radius": "{radius.control}"
+  },
+  "navPill": {
+    "height": "{foundation.space.12}",
+    "padding": "{foundation.space.1.5}",
+    "paddingLeft": "{foundation.space.3.75}",
+    "gap": "{foundation.space.6}",
+    "linkGap": "{foundation.space.4}",
+    "linkHeight": "{foundation.space.8}",
+    "logoHeight": "{foundation.iconSize.20}",
+    "dot": "{foundation.space.0.75}",
+    "ruleHeight": "{foundation.iconSize.16}"
+  },
+  "mobilePanel": {
+    "collapsedHeight": "{foundation.space.13}",
+    "headerHeight": "{foundation.space.12.5}",
+    "padding": "{foundation.space.4.5}",
+    "paddingTop": "{foundation.space.3.5}",
+    "logoHeight": "{foundation.iconSize.24}",
+    "burgerSize": "{foundation.space.9}",
+    "burgerBar": "{foundation.iconSize.20}",
+    "radius": "{radius.panel}"
+  },
+  "tab": {
+    "height": "{foundation.space.8.5}",
+    "paddingX": "{foundation.space.3.5}",
+    "trackPadding": "{foundation.space.0.75}",
+    "gap": "{foundation.space.1}"
+  },
+  "dropdown": {
+    "triggerHeight": "{foundation.space.11}",
+    "triggerPaddingX": "{foundation.space.4}",
+    "offset": "{foundation.space.1.75}",
+    "popupPadding": "{foundation.space.1.5}",
+    "optionHeight": "{foundation.space.9}",
+    "optionHeightWide": "{foundation.space.8}",
+    "optionPaddingX": "{foundation.space.2}",
+    "optionGap": "{foundation.space.2}"
+  },
+  "appIcon": {
+    "size": "{foundation.iconSize.64}",
+    "sizeWide": "{foundation.iconSize.112}",
+    "imageScale": "{foundation.scale.app-icon-image}",
+    "borderStrokeWidth": "2 (svg units, non-scaling)"
+  },
+  "appCard": {
+    "padding": "{foundation.space.3}",
+    "minHeight": "{foundation.space.40}",
+    "minHeightWide": "{foundation.space.58}",
+    "radius": "{radius.card}",
+    "awardSize": "{foundation.iconSize.16}",
+    "avatarSize": "{foundation.iconSize.16}"
+  },
+  "featureCard": {
+    "padding": "{foundation.space.6}",
+    "paddingWide": "{foundation.space.7}",
+    "radius": "{radius.card}"
+  },
+  "faqItem": {
+    "paddingY": "{foundation.space.4}",
+    "chevron": "{foundation.iconSize.20}"
+  },
+  "overlay": {
+    "closeSize": "{foundation.space.11}",
+    "closeSizeWide": "{foundation.space.10}",
+    "closeInset": "{foundation.space.4}",
+    "closeInsetWide": "{foundation.space.6}",
+    "closeIcon": "{foundation.iconSize.20}",
+    "frameRadius": "{radius.frame}"
+  },
+  "glazeIcon": {
+    "size": "{foundation.iconSize.80}",
+    "sizeWide": "{foundation.iconSize.112}",
+    "marginBottom": "{foundation.space.10}"
+  },
+  "particle": {
+    "size": "{foundation.iconSize.64}",
+    "sizeWide": "{foundation.iconSize.107}",
+    "imageRadius": "{foundation.radius.frame}",
+    "imageRadiusWide": "{foundation.radius.particle-lg}"
+  },
+  "social": {
+    "hitBox": "{foundation.iconSize.24}",
+    "glyph": "{foundation.iconSize.20}"
+  }
+}

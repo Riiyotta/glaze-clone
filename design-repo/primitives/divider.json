@@ -1,0 +1,45 @@
+{
+  "registryId": "primitive.divider",
+  "version": "1.0.0",
+  "category": "layout",
+  "description": "Three dividers actually used: gradient hairline (mobile menu), 1px vertical rule (nav pill) and FAQ list separators.",
+  "variants": {
+    "gradient-hairline": {
+      "height": "{foundation.space.hairline}",
+      "fill": "{foundation.gradient.nav-divider}",
+      "cite": [
+        "jsx.nav.divider-gradient"
+      ]
+    },
+    "vertical-rule": {
+      "width": "{foundation.space.px}",
+      "height": "{navPill.ruleHeight}",
+      "colour": "{color.border.rule}",
+      "marginLeft": "-{foundation.space.2}",
+      "cite": [
+        "jsx.navpill.rule"
+      ]
+    },
+    "list-separator": {
+      "width": "{foundation.space.px}",
+      "colour": "{color.border.separator}",
+      "note": "divide-y between items plus a border-bottom on the list.",
+      "cite": [
+        "jsx.faq.list"
+      ]
+    }
+  },
+  "tokens": [
+    "foundation.space.hairline",
+    "foundation.gradient.nav-divider",
+    "foundation.space.px",
+    "navPill.ruleHeight",
+    "color.border.rule",
+    "color.border.separator"
+  ],
+  "measuredFrom": [
+    "jsx.nav.divider-gradient",
+    "jsx.navpill.rule",
+    "jsx.faq.list"
+  ]
+}

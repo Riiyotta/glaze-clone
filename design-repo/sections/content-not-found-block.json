@@ -1,0 +1,112 @@
+{
+  "id": "section.content.not-found-block",
+  "typeId": "content.not-found-block",
+  "registryId": "section.content.not-found-block",
+  "version": "1.0.0",
+  "category": "content",
+  "purpose": "Centred error state with the clickable icon, heading, one sentence and a home button.",
+  "scope": "404 route (catch-all, /m, and slugs that do not exist).",
+  "composes": [
+    "component.glaze-icon-burst",
+    "primitive.text",
+    "primitive.button"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "icon": {
+        "type": "object",
+        "properties": {
+          "assetRole": {
+            "const": "brand.app-icon"
+          },
+          "assetRef": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string",
+            "maxWords": 16
+          }
+        },
+        "required": [
+          "assetRole",
+          "assetRef"
+        ],
+        "additionalProperties": false
+      },
+      "particlePoolRef": {
+        "type": "string"
+      },
+      "headline": {
+        "type": "string",
+        "maxWords": 4
+      },
+      "body": {
+        "type": "string",
+        "maxWords": 12
+      },
+      "cta": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 4
+          },
+          "href": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "href"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "icon",
+      "particlePoolRef",
+      "headline",
+      "body",
+      "cta"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "icon-press-and-burst"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Headline 30 to 44; icon 80 to 112."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "fillsViewport": true
+  },
+  "containerRules": {
+    "width": "{container.narrow}",
+    "gutter": "{space.page-gutter}",
+    "paddingY": "{sectionPadding.notfound-y}",
+    "minHeight": "viewport height; footer pinned to the bottom",
+    "align": "centred in remaining height"
+  },
+  "measuredFrom": [
+    "jsx.notfound.section",
+    "spec.404"
+  ]
+}

@@ -1,0 +1,19 @@
+/* Blog / changelog prose (SPEC_blog 2.3) and lightbox fade (2.4) */
+@keyframes lightbox-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.markdown-content.markdown-content > .markdown-list + *,
+.markdown-content.markdown-content > hr + * { margin-top: 28px; }
+.markdown-list { list-style: none; margin: 0; padding: 0; }
+.markdown-list > li { position: relative; padding-left: 24px; }
+.markdown-list > li + li { margin-top: 8px; }
+.markdown-list > li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0.76em;
+  width: 12px;
+  height: 1px;
+  background: #717171;
+}

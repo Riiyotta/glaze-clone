@@ -1,0 +1,85 @@
+{
+  "$description": "Motion primitives: durations, easings, delays, keyframes, distances, scales, opacities and particle physics. Sources: src/index.css (keyframes and .animate-* shorthands), src/motion.js (values ported from the live bundle), component class strings, CLONE_SPEC 1.6/1.7 and M1-M9. Two different 'ease-out' curves coexist on the page and are kept apart: the CSS keyword (keyframe shorthands, nav dot) and Tailwind's ease-out utility.",
+  "foundation": {
+    "duration": {
+      "100": { "$type": "duration", "$value": "100ms", "$extensions": { "cite": ["css.glass-interactive", "jsx.mobilemenu.content"] } },
+      "140": { "$type": "duration", "$value": "140ms", "$extensions": { "cite": ["css.mobile-nav-panel"] } },
+      "150": { "$type": "duration", "$value": "150ms", "$description": "Tailwind default for transition-colors / -transform / -all.", "$extensions": { "cite": ["spec.motion.default"] } },
+      "200": { "$type": "duration", "$value": "200ms", "$extensions": { "cite": ["js.navdot.hide", "jsx.appicon.fade"] } },
+      "300": { "$type": "duration", "$value": "300ms", "$extensions": { "cite": ["js.navdot.show", "jsx.faq.chevron", "jsx.icon.scale"] } },
+      "350": { "$type": "duration", "$value": "350ms", "$extensions": { "cite": ["js.navdot.move"] } },
+      "600": { "$type": "duration", "$value": "600ms", "$extensions": { "cite": ["css.animate-in", "jsx.faq.dim"] } },
+      "1000": { "$type": "duration", "$value": "1000ms", "$extensions": { "cite": ["css.animate-nav-in"] } },
+      "2000": { "$type": "duration", "$value": "2000ms", "$description": "Tailwind animate-pulse (app-icon loading placeholder).", "$extensions": { "cite": ["jsx.appicon.pulse"] } }
+    },
+    "easing": {
+      "standard": { "$type": "cubicBezier", "$value": [0.4, 0, 0.2, 1], "$description": "Tailwind default / ease-in-out utility.", "$extensions": { "cite": ["spec.motion.default"] } },
+      "tw-out": { "$type": "cubicBezier", "$value": [0, 0, 0.2, 1], "$description": "Tailwind ease-out utility.", "$extensions": { "cite": ["spec.motion.easeout-note"] } },
+      "css-ease-out": { "$type": "cubicBezier", "$value": [0, 0, 0.58, 1], "$description": "CSS keyword ease-out (keyframe shorthands, nav dot show).", "$extensions": { "cite": ["css.animate-in", "spec.motion.easeout-note"] } },
+      "css-ease-in": { "$type": "cubicBezier", "$value": [0.42, 0, 1, 1], "$description": "CSS keyword ease-in (nav dot hide).", "$extensions": { "cite": ["js.navdot.hide"] } },
+      "expo-out": { "$type": "cubicBezier", "$value": [0.16, 1, 0.3, 1], "$description": "Mobile nav panel height.", "$extensions": { "cite": ["css.mobile-nav-panel", "tw.easing"] } },
+      "pulse": { "$type": "cubicBezier", "$value": [0.4, 0, 0.6, 1], "$extensions": { "cite": ["spec.keyframes.pulse"] } },
+      "linear": { "$type": "cubicBezier", "$value": [0, 0, 1, 1] }
+    },
+    "delay": {
+      "0": { "$type": "duration", "$value": "0ms", "$extensions": { "cite": ["jsx.hero.anim"] } },
+      "100": { "$type": "duration", "$value": "100ms", "$extensions": { "cite": ["jsx.hero.anim"] } },
+      "150": { "$type": "duration", "$value": "150ms", "$description": "Mobile-menu link: close, wait, then navigate.", "$extensions": { "cite": ["jsx.mobilemenu.navdelay"] } },
+      "200": { "$type": "duration", "$value": "200ms", "$extensions": { "cite": ["jsx.hero.anim"] } },
+      "300": { "$type": "duration", "$value": "300ms", "$extensions": { "cite": ["jsx.hero.anim"] } },
+      "400": { "$type": "duration", "$value": "400ms", "$extensions": { "cite": ["jsx.hero.anim"] } },
+      "500": { "$type": "duration", "$value": "500ms", "$extensions": { "cite": ["jsx.app.belowfold"] } }
+    },
+    "distance": {
+      "rise": { "$type": "dimension", "$value": "24px", "$description": "fade-in-up start offset.", "$extensions": { "cite": ["css.kf.fade-in-up"] } },
+      "dot-drop": { "$type": "dimension", "$value": "4px", "$extensions": { "cite": ["js.navdot.hide"] } },
+      "nudge": { "$type": "dimension", "$value": "2px", "$description": "Arrow translate-x-0.5 on link hover; burger bar offset when open.", "$extensions": { "cite": ["jsx.persona.arrow"] } },
+      "burger-rest": { "$type": "dimension", "$value": "3px", "$extensions": { "cite": ["jsx.mobilemenu.burger"] } }
+    },
+    "scale": {
+      "press": { "$type": "number", "$value": 0.95, "$extensions": { "cite": ["jsx.icon.scale"] } },
+      "hover": { "$type": "number", "$value": 1.05, "$extensions": { "cite": ["jsx.icon.scale", "jsx.hero.reinvent"] } },
+      "hover-play": { "$type": "number", "$value": 1.1, "$extensions": { "cite": ["jsx.hero.play"] } },
+      "app-icon-image": { "$type": "number", "$value": 1.19, "$description": "Static over-scale of the app icon image inside the squircle mask.", "$extensions": { "cite": ["jsx.appicon.img"] } }
+    },
+    "opacity": {
+      "dimmed": { "$type": "number", "$value": 0.15, "$extensions": { "cite": ["tw.opacity", "js.faqdim"] } },
+      "disabled": { "$type": "number", "$value": 0.5, "$extensions": { "cite": ["spec.states.accent"] } },
+      "hover-accent": { "$type": "number", "$value": 0.9, "$description": "Accent buttons on hover; also the play icon at rest.", "$extensions": { "cite": ["spec.states.accent", "jsx.hero.play"] } },
+      "full": { "$type": "number", "$value": 1 }
+    },
+    "rotate": {
+      "half": { "$type": "number", "$value": 180, "$description": "deg; dropdown chevron open.", "$extensions": { "cite": ["jsx.dropdown.chevron"] } },
+      "quarter": { "$type": "number", "$value": 90, "$description": "deg; FAQ chevron open.", "$extensions": { "cite": ["jsx.faq.chevron"] } },
+      "burger": { "$type": "number", "$value": 45, "$description": "deg; burger bars when open.", "$extensions": { "cite": ["jsx.mobilemenu.burger"] } }
+    },
+    "keyframes": {
+      "nav-in": { "$type": "keyframes", "$value": { "0%": { "opacity": 0 }, "100%": { "opacity": 1 } }, "$extensions": { "cite": ["css.kf.nav-in"] } },
+      "fade-in-up": { "$type": "keyframes", "$value": { "0%": { "opacity": 0, "transform": "translateY({foundation.distance.rise})" }, "100%": { "opacity": 1, "transform": "translateY(0)" } }, "$extensions": { "cite": ["css.kf.fade-in-up"] } },
+      "fade-in": { "$type": "keyframes", "$value": { "0%": { "opacity": 0 }, "100%": { "opacity": 1 } }, "$extensions": { "cite": ["css.kf.fade-in"] } },
+      "pulse": { "$type": "keyframes", "$value": { "50%": { "opacity": 0.5 } }, "$extensions": { "cite": ["spec.keyframes.pulse"] } }
+    },
+    "particles": {
+      "$description": "M7 icon-burst physics (src/motion.js). Units: px, px/s, px/s^2, radians as fractions of PI, degrees.",
+      "perBurst": { "$type": "number", "$value": 4, "$extensions": { "cite": ["js.particles.consts"] } },
+      "maxLive": { "$type": "number", "$value": 40, "$extensions": { "cite": ["js.particles.consts"] } },
+      "gravity": { "$type": "number", "$value": 2400, "$extensions": { "cite": ["js.particles.consts"] } },
+      "drag": { "$type": "number", "$value": 0.99, "$extensions": { "cite": ["js.particles.consts"] } },
+      "maxStep": { "$type": "number", "$value": 0.05, "$description": "seconds; dt clamp.", "$extensions": { "cite": ["js.particles.dt"] } },
+      "speedNarrow": { "$type": "number", "$value": [650, 1100], "$extensions": { "cite": ["js.particles.speed"] } },
+      "speedWide": { "$type": "number", "$value": [800, 1400], "$extensions": { "cite": ["js.particles.speed"] } },
+      "anglesNarrow": { "$type": "number", "$value": [[-0.65, -0.55], [-0.45, -0.35]], "$extensions": { "cite": ["js.particles.angles"] } },
+      "anglesWide": { "$type": "number", "$value": [[-0.75, -0.58], [-0.42, -0.25]], "$extensions": { "cite": ["js.particles.angles"] } },
+      "initialRotation": { "$type": "number", "$value": [-20, 20], "$extensions": { "cite": ["js.particles.rotation"] } },
+      "rotationSpeed": { "$type": "number", "$value": [-360, 360], "$extensions": { "cite": ["js.particles.rotation"] } },
+      "centringSizeNarrow": { "$type": "number", "$value": 56, "$description": "JS centring size below 768px. Deliberately differs from the 64px CSS box (source quirk kept).", "$extensions": { "cite": ["js.particles.size"] } },
+      "centringSizeWide": { "$type": "number", "$value": 107, "$extensions": { "cite": ["js.particles.size"] } },
+      "preloadFallbackDelay": { "$type": "duration", "$value": "200ms", "$extensions": { "cite": ["js.particles.preload"] } }
+    },
+    "observer": {
+      "faqDimThresholds": { "$type": "number", "$value": [0, 0.35], "$extensions": { "cite": ["js.faqdim"] } },
+      "animateInThreshold": { "$type": "number", "$value": 0.15, "$description": "Generic AnimateIn default; no instance on / uses it (all immediate).", "$extensions": { "cite": ["spec.motion.m4"] } },
+      "autoplayRetries": { "$type": "number", "$value": [0, 100, 400, 900], "$description": "ms; mobile video play() retries.", "$extensions": { "cite": ["js.autoplay.timers"] } }
+    }
+  }
+}

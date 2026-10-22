@@ -1,0 +1,52 @@
+{
+  "registryId": "primitive.app-icon",
+  "version": "1.0.0",
+  "category": "media",
+  "description": "Squircle app icon: image scaled 1.19 inside a squircle SVG mask, diagonal radial sheen overlay and a 2-unit gradient border stroke.",
+  "props": {
+    "src": {
+      "type": "string"
+    },
+    "assetRole": {
+      "const": "app.icon"
+    },
+    "alt": {
+      "const": ""
+    }
+  },
+  "size": {
+    "narrow": "{appIcon.size}",
+    "wide": "{appIcon.sizeWide}",
+    "breakpoint": "{foundation.breakpoint.600}"
+  },
+  "layers": [
+    "placeholder (surface.ghost, pulses until loaded)",
+    "image scale {foundation.scale.app-icon-image}",
+    "::before sheen {foundation.gradient.app-icon-sheen}",
+    "svg border stroke, white gradient 0.45 > 0.12 > 0.06 > 0.1 > 0.25, vector-effect non-scaling"
+  ],
+  "squircle": "64-unit viewBox path; see src/components/icons.jsx SQUIRCLE_PATH and src/index.css .glaze-app-icon-glass",
+  "states": {
+    "loading": {
+      "placeholder": "animate-pulse",
+      "transition": "{motion.recipe.appicon.fade}"
+    },
+    "loaded": {
+      "imageOpacity": "{foundation.opacity.full}"
+    }
+  },
+  "tokens": [
+    "appIcon.size",
+    "appIcon.sizeWide",
+    "foundation.breakpoint.600",
+    "foundation.scale.app-icon-image",
+    "foundation.gradient.app-icon-sheen",
+    "color.surface.ghost",
+    "motion.recipe.appicon.fade"
+  ],
+  "licensing": "Real app icons belong to their authors. Generated pages must use assetRole app.icon with neutral generated placeholder art, never a real app's icon.",
+  "measuredFrom": [
+    "jsx.appicon.root",
+    "css.icon-squircle"
+  ]
+}

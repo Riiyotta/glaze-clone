@@ -1,0 +1,82 @@
+{
+  "registryId": "component.persona-tabs",
+  "version": "1.0.0",
+  "category": "showcase",
+  "description": "'Make apps for' tablist, six audiences, shown from 800px. Roving tabindex; Left/Right arrows move and wrap.",
+  "composes": [
+    "primitive.text"
+  ],
+  "props": {
+    "label": {
+      "type": "string",
+      "maxWords": 3
+    },
+    "tabs": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 6,
+      "items": {
+        "id": "string",
+        "label": "string maxWords 2"
+      }
+    },
+    "selectedId": {
+      "type": "string"
+    }
+  },
+  "layout": {
+    "track": {
+      "background": "{color.surface.tablist}",
+      "radius": "{radius.control}",
+      "padding": "{tab.trackPadding}",
+      "gap": "{tab.gap}"
+    },
+    "tab": {
+      "height": "{tab.height}",
+      "paddingX": "{tab.paddingX}",
+      "radius": "{radius.control}",
+      "typography": "{typography.label.control}"
+    }
+  },
+  "states": {
+    "selected": {
+      "background": "{color.surface.selected}",
+      "text": "{color.text.primary}"
+    },
+    "unselected": {
+      "text": "{color.text.secondary}"
+    },
+    "hover": {
+      "background": "{color.surface.hover-subtle}",
+      "text": "{color.text.primary}"
+    },
+    "focus-visible": {
+      "shadow": "{elevation.focus}"
+    },
+    "transition": "{motion.recipe.hover.colors}"
+  },
+  "a11y": {
+    "roles": "tablist / tab / tabpanel",
+    "keys": "ArrowLeft, ArrowRight with wrap; selected tab tabIndex 0, others -1"
+  },
+  "responsive": {
+    "showFrom": "{foundation.breakpoint.800}",
+    "below": "component.persona-dropdown replaces it"
+  },
+  "tokens": [
+    "color.surface.tablist",
+    "tab.height",
+    "tab.paddingX",
+    "tab.trackPadding",
+    "color.surface.selected",
+    "color.surface.hover-subtle",
+    "elevation.focus",
+    "motion.recipe.hover.colors",
+    "foundation.breakpoint.800"
+  ],
+  "measuredFrom": [
+    "jsx.persona.tablist",
+    "jsx.persona.tab",
+    "spec.persona.switcher"
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "$description": "Closed assetRole vocabulary. Every media field in a PageSpec names one role. The source is Glaze by Raycast, a real live commercial product, so several roles forbid generation outright. verify_all.py pins each role to its policy value (not just enum membership).",
+  "version": "1.0.0",
+  "policyEnum": [
+    "may-generate-new",
+    "must-reuse-exact",
+    "must-not-fabricate",
+    "must-not-reuse-live-endpoint"
+  ],
+  "globalRules": [
+    "AI generation must never reproduce Glaze or Raycast logos, marks or app icons.",
+    "Never use real users' avatars, names, or real app icons or screenshots.",
+    "Never copy the source site's marketing copy; example PageSpec content is placeholder text.",
+    "Asset files are not shipped in this repo; assetRef values are host-resolved ids."
+  ],
+  "roles": {
+    "brand.wordmark": {
+      "policy": "must-reuse-exact",
+      "usedBy": [
+        "shell.navbar"
+      ],
+      "description": "Glaze wordmark SVG in the nav pill and mobile panel.",
+      "guidance": "Reuse the shipped file exactly. Never redraw, recolour, restyle or invent a wordmark. If the host has no licence to ship it, omit it."
+    },
+    "brand.app-icon": {
+      "policy": "must-reuse-exact",
+      "usedBy": [
+        "cta.download-icon",
+        "content.not-found-block"
+      ],
+      "description": "The large Glaze app icon (CTA, 404).",
+      "guidance": "Reuse the shipped file exactly. AI generation must never reproduce or approximate the Glaze or Raycast logo or app icon."
+    },
+    "particle.app-icon": {
+      "policy": "must-reuse-exact",
+      "usedBy": [
+        "cta.download-icon",
+        "content.not-found-block"
+      ],
+      "description": "Pool of 17 app icons thrown by the click burst.",
+      "guidance": "Reuse the shipped pool, or ship the burst with generic placeholder squares. Never generate lookalikes of real app icons."
+    },
+    "app.icon": {
+      "policy": "may-generate-new",
+      "usedBy": [
+        "showcase.persona-tabs"
+      ],
+      "description": "Squircle icon inside an app card.",
+      "guidance": "Generate neutral abstract placeholder art (flat gradient or simple shape). Never reproduce a real app's icon or a Glaze/Raycast mark."
+    },
+    "avatar.person": {
+      "policy": "may-generate-new",
+      "usedBy": [
+        "showcase.persona-tabs"
+      ],
+      "description": "Round author avatar on an app card.",
+      "guidance": "Use a synthetic, clearly generic avatar (initial on a flat colour, or abstract shape). Never use or imitate a real user's photo, and never use a real person's name."
+    },
+    "badge.award": {
+      "policy": "must-reuse-exact",
+      "usedBy": [
+        "showcase.persona-tabs"
+      ],
+      "description": "Gold, silver or bronze award medal after an app name.",
+      "guidance": "Reuse the exact shipped medal or omit the badge. Do not redraw."
+    },
+    "screenshot.feature": {
+      "policy": "must-not-fabricate",
+      "usedBy": [
+        "features.feature-grid"
+      ],
+      "description": "Product screenshot in a feature card (desktop and mobile crops).",
+      "guidance": "Real product UI. Do not fabricate or paraphrase it. Reuse the exact shipped file, or use a neutral wireframe placeholder clearly marked as such."
+    },
+    "video.hero-loop": {
+      "policy": "must-reuse-exact",
+      "usedBy": [
+        "hero.landing-hero"
+      ],
+      "description": "Autoplay muted intro loop in the hero.",
+      "guidance": "Reuse the shipped file or a static poster. Do not synthesise footage of the real product."
+    },
+    "logo.partner": {
+      "policy": "must-not-fabricate",
+      "usedBy": [
+        "showcase.persona-tabs"
+      ],
+      "description": "Company marks on the team tab.",
+      "guidance": "Real third-party trademarks. Use only the exact shipped glyph for a company that has agreed, otherwise generic placeholder shapes. Never invent or alter a company mark."
+    },
+    "embed.video": {
+      "policy": "must-not-reuse-live-endpoint",
+      "usedBy": [
+        "shell.youtube-overlay"
+      ],
+      "description": "Third-party video embed target (YouTube) opened by the overlay.",
+      "guidance": "External domains are intentionally not cloned. Examples use a placeholder URL. Do not point generated pages at the live source site's videos."
+    }
+  }
+}

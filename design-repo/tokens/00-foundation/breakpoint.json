@@ -1,0 +1,16 @@
+{
+  "$description": "Every min-width at which something changes on / or /m, read from src/components (xs: and min-[Npx]: variants), src/index.css media queries and src/motion.js matchMedia/innerWidth checks. Tailwind screens sm 640 / 2xl 1536 are declared in tailwind.config.js but no class on the built routes uses them, and CLONE_SPEC 1.5 measured no layout change at 1024 or 1280.",
+  "foundation": {
+    "breakpoint": {
+      "380": { "$type": "dimension", "$value": "380px", "$description": "Footer gaps widen.", "$extensions": { "cite": ["jsx.footer.380"], "kind": "css" } },
+      "480": { "$type": "dimension", "$value": "480px", "$description": "Tailwind screen xs. Hero/FAQ/CTA type sizes, section gaps, overlay close size.", "$extensions": { "cite": ["tw.screens"], "kind": "css" } },
+      "600": { "$type": "dimension", "$value": "600px", "$description": "Persona grid 2->4 cols, pillar descriptions, particle CSS size, particle launch angles.", "$extensions": { "cite": ["jsx.hero.pillars", "css.icon-particle", "js.particles.narrow"], "kind": "css+js" } },
+      "624": { "$type": "dimension", "$value": "624px", "$description": "Mobile panel nav <-> desktop pill. JS twin: (max-width: 623px) mobile video autoplay hook and menu auto-close on resize.", "$extensions": { "cite": ["jsx.nav.624", "js.autoplay.mq"], "kind": "css+js" } },
+      "700": { "$type": "dimension", "$value": "700px", "$description": "Footer row 1 goes inline.", "$extensions": { "cite": ["jsx.footer.700"], "kind": "css" } },
+      "768": { "$type": "dimension", "$value": "768px", "$description": "JS-only: particle centring size 56 -> 107.", "$extensions": { "cite": ["js.particles.size"], "kind": "js" } },
+      "800": { "$type": "dimension", "$value": "800px", "$description": "Persona tabs vs dropdown; features 2-col; desktop feature images via <picture>.", "$extensions": { "cite": ["jsx.persona.800", "jsx.feature.picture"], "kind": "css" } },
+      "1024": { "$type": "dimension", "$value": "1024px", "$description": "Tailwind lg. Measured: no layout change.", "$extensions": { "cite": ["spec.bp.nochange"], "kind": "measured-no-change" } },
+      "1280": { "$type": "dimension", "$value": "1280px", "$description": "Tailwind xl. Measured: no layout change.", "$extensions": { "cite": ["spec.bp.nochange"], "kind": "measured-no-change" } }
+    }
+  }
+}

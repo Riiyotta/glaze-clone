@@ -1,0 +1,98 @@
+{
+  "registryId": "component.nav-pill",
+  "version": "1.0.0",
+  "category": "shell",
+  "description": "Desktop navigation: a fixed glass pill with logo, five links, an active dot, a vertical rule, Sign in and a Download button. Shown from 624px.",
+  "composes": [
+    "primitive.glass-surface",
+    "primitive.link",
+    "primitive.button",
+    "primitive.divider",
+    "primitive.image"
+  ],
+  "props": {
+    "links": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "label": "string",
+        "href": "string"
+      }
+    },
+    "activeIndex": {
+      "type": "integer",
+      "description": "-1 when no link matches the route; persona routes and 404 use -1."
+    },
+    "signInLabel": {
+      "type": "string",
+      "maxWords": 2
+    },
+    "downloadLabel": {
+      "type": "string",
+      "maxWords": 2
+    }
+  },
+  "layout": {
+    "position": "fixed, left 0, right 0",
+    "top": "{space.nav-inset-top-wide}",
+    "zIndex": "{zIndex.nav}",
+    "height": "{navPill.height}",
+    "padding": "{navPill.padding}",
+    "paddingLeft": "{navPill.paddingLeft}",
+    "gap": "{navPill.gap}",
+    "linkGap": "{navPill.linkGap}",
+    "radius": "{radius.control}",
+    "surface": "primitive.glass-surface#glass",
+    "scrollBehaviour": "none: stays fixed, no hide, no background change"
+  },
+  "states": {
+    "link-hover": {
+      "text": "{color.text.primary}",
+      "transition": "{motion.recipe.hover.colors}"
+    },
+    "link-active": {
+      "text": "{color.text.primary}",
+      "dot": "visible under the link"
+    },
+    "download-hover": {
+      "opacity": "{foundation.opacity.hover-accent}"
+    }
+  },
+  "motion": {
+    "activeDot": {
+      "show": "{motion.recipe.nav.dot-show}",
+      "hide": "{motion.recipe.nav.dot-hide}",
+      "move": "{motion.recipe.nav.dot-move}",
+      "size": "{navPill.dot}",
+      "colour": "{color.text.secondary}",
+      "position": "left = link centre - 1.5, top = link bottom - 4 (from the links container)"
+    },
+    "entrance": "{motion.recipe.entrance.nav-pill}"
+  },
+  "responsive": {
+    "showFrom": "{foundation.breakpoint.624}",
+    "below": "component.mobile-menu-panel replaces it"
+  },
+  "tokens": [
+    "navPill.height",
+    "navPill.padding",
+    "navPill.paddingLeft",
+    "navPill.gap",
+    "navPill.linkGap",
+    "navPill.dot",
+    "space.nav-inset-top-wide",
+    "zIndex.nav",
+    "radius.control",
+    "color.text.secondary",
+    "foundation.breakpoint.624",
+    "motion.recipe.nav.dot-show",
+    "motion.recipe.nav.dot-hide",
+    "motion.recipe.nav.dot-move",
+    "motion.recipe.entrance.nav-pill"
+  ],
+  "measuredFrom": [
+    "jsx.navpill.container",
+    "spec.nav.desktop",
+    "js.navdot.base"
+  ]
+}

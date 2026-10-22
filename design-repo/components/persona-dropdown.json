@@ -1,0 +1,102 @@
+{
+  "registryId": "component.persona-dropdown",
+  "version": "1.0.0",
+  "category": "showcase",
+  "description": "Select used below 800px: a glass trigger and a listbox popover. Pixel-audit corrections: popup centred on the trigger, 7px offset, flips above when there is no room below, page scroll locked while open.",
+  "composes": [
+    "primitive.glass-surface",
+    "primitive.icon",
+    "primitive.text"
+  ],
+  "props": {
+    "label": {
+      "type": "string",
+      "maxWords": 3
+    },
+    "options": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 6
+    },
+    "selectedId": {
+      "type": "string"
+    }
+  },
+  "layout": {
+    "trigger": {
+      "height": "{dropdown.triggerHeight}",
+      "paddingX": "{dropdown.triggerPaddingX}",
+      "radius": "{radius.control}",
+      "shadow": "{elevation.dropdown-trigger}",
+      "surface": "primitive.glass-surface#glass",
+      "typography": "{typography.label.control-lg}"
+    },
+    "popup": {
+      "width": "{container.popover}",
+      "padding": "{dropdown.popupPadding}",
+      "offset": "{dropdown.offset}",
+      "surface": "primitive.glass-surface#popover",
+      "zIndex": "{zIndex.popover}",
+      "align": "centre on trigger",
+      "flip": "to top when space below is less than popup height and space above is greater",
+      "viewportPadding": "5px (Base UI collision padding)"
+    },
+    "option": {
+      "height": {
+        "narrow": "{dropdown.optionHeight}",
+        "wide": "{dropdown.optionHeightWide}"
+      },
+      "paddingX": "{dropdown.optionPaddingX}",
+      "gap": "{dropdown.optionGap}",
+      "radius": "{radius.option}"
+    }
+  },
+  "states": {
+    "trigger-hover": {
+      "background": "{color.surface.panel}",
+      "transition": "{motion.recipe.hover.colors}"
+    },
+    "open": {
+      "chevron": "rotate 180",
+      "transition": "{motion.recipe.chevron.rotate}",
+      "bodyScroll": "locked"
+    },
+    "option-highlight": {
+      "background": "{color.surface.chip}"
+    },
+    "option-selected": {
+      "background": "{color.surface.ghost-hover}",
+      "check": "opacity 1"
+    },
+    "escape": "closes and returns focus to trigger"
+  },
+  "a11y": {
+    "trigger": "role=combobox, aria-haspopup=listbox",
+    "popup": "role=listbox, options role=option aria-selected"
+  },
+  "responsive": {
+    "showBelow": "{foundation.breakpoint.800}"
+  },
+  "tokens": [
+    "dropdown.triggerHeight",
+    "dropdown.triggerPaddingX",
+    "dropdown.popupPadding",
+    "dropdown.offset",
+    "dropdown.optionHeight",
+    "dropdown.optionHeightWide",
+    "elevation.dropdown-trigger",
+    "color.surface.panel",
+    "color.surface.chip",
+    "color.surface.ghost-hover",
+    "container.popover",
+    "zIndex.popover",
+    "motion.recipe.chevron.rotate",
+    "foundation.breakpoint.800"
+  ],
+  "measuredFrom": [
+    "jsx.dropdown.root",
+    "jsx.dropdown.popup",
+    "qa.dropdown",
+    "spec.persona.dropdown"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "registryId": "component.pillar",
+  "version": "1.0.0",
+  "category": "hero",
+  "description": "Icon, title and one-line description under the hero video. The description is hidden below 600px.",
+  "composes": [
+    "primitive.icon",
+    "primitive.text"
+  ],
+  "props": {
+    "icon": {
+      "enum": [
+        "hard-drive",
+        "laptop-minimal-check",
+        "sparkles"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "maxWords": 2
+    },
+    "text": {
+      "type": "string",
+      "maxWords": 14
+    }
+  },
+  "layout": {
+    "maxWidth": "{container.pillar}",
+    "gap": {
+      "narrow": "{foundation.space.2}",
+      "wide": "{foundation.space.12}"
+    },
+    "iconColour": "{color.text.secondary}",
+    "titleTypography": "{typography.label.pillar}",
+    "bodyTypography": "{typography.body.panel}"
+  },
+  "responsive": {
+    "breakpoint": "{foundation.breakpoint.600}",
+    "descriptionHiddenBelow": "{foundation.breakpoint.600}"
+  },
+  "tokens": [
+    "container.pillar",
+    "color.text.secondary",
+    "typography.label.pillar",
+    "foundation.breakpoint.600"
+  ],
+  "measuredFrom": [
+    "jsx.hero.pillars",
+    "spec.hero.pillars"
+  ]
+}

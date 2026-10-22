@@ -1,0 +1,267 @@
+{
+  "$comment": "Route set from the live sitemap (glaze.app/sitemap.xml) plus recon in specs/ and CLONE_SPEC.md. implementedBy is set only for sections that exist in src/ today.",
+  "meta": {
+    "source": "https://www.glaze.app (sitemap + Playwright recon); clone at this project root",
+    "status": "draft: landing, 5 persona routes and the 404 are built; the other templates are planned from the sitemap and still being specced",
+    "totalRoutes": 1953,
+    "totalTemplates": 13
+  },
+  "categories": {
+    "SHELL": "Chrome shared across pages: navigation, footer, overlays.",
+    "HERO": "Page-opening header block.",
+    "SHOWCASE": "Product-in-use displays: app tabs, grids, listings.",
+    "FEATURES": "Capability explanation modules.",
+    "SUPPORT": "Answers to common questions.",
+    "CTA": "Calls to download or act.",
+    "CONTENT": "Body content of a page: documents, articles, changelog, error states.",
+    "COMMERCE": "Plans and pricing.",
+    "STORE": "App store browsing and app detail blocks."
+  },
+  "sections": {
+    "shell.navbar": {
+      "category": "SHELL",
+      "description": "Fixed top navigation: glass pill on desktop (brand, Home, Pricing, Store, Blog, Changelog, Sign in) and a slide-down panel on mobile, with an active-link dot.",
+      "scope": "Present on all 1953 routes, including the 404.",
+      "implementedBy": "src/components/Navbar.jsx"
+    },
+    "shell.footer": {
+      "category": "SHELL",
+      "description": "Bottom footer with legal links, socials and the Raycast credit.",
+      "scope": "Present on all 1953 routes, including the 404.",
+      "implementedBy": "src/components/Footer.jsx"
+    },
+    "shell.youtube-overlay": {
+      "category": "SHELL",
+      "description": "Full-screen YouTube embed dialog opened from hero and feature demo buttons; locks scroll, closes on Esc or backdrop.",
+      "scope": "Carried by the landing page and the 5 persona routes, 6 routes in total.",
+      "implementedBy": "src/components/YouTubeOverlay.jsx"
+    },
+    "hero.landing-hero": {
+      "category": "HERO",
+      "description": "Eyebrow, two-line headline, subtext, Download and Reinvent-your-wheel buttons, requirements note, autoplay loop video and three pillars; headline and subtext are swapped per persona route.",
+      "scope": "Landing page plus the 5 persona routes, 6 routes in total.",
+      "implementedBy": "src/components/Hero.jsx"
+    },
+    "showcase.persona-tabs": {
+      "category": "SHOWCASE",
+      "description": "Six audience tabs (dropdown below 800px) each showing a four-app grid, with company logos on the team tab; the starting tab depends on the route.",
+      "scope": "Landing page plus the 5 persona routes, 6 routes in total.",
+      "implementedBy": "src/components/PersonaShowcase.jsx"
+    },
+    "features.feature-grid": {
+      "category": "FEATURES",
+      "description": "Six feature cards laid out 1 / 2 / 2 / 1, switching to mobile images below 800px.",
+      "scope": "Landing page plus the 5 persona routes, 6 routes in total.",
+      "implementedBy": "src/components/Features.jsx"
+    },
+    "support.faq": {
+      "category": "SUPPORT",
+      "description": "Ten-question single-open accordion that dims to 15% opacity once scrolled past.",
+      "scope": "Landing page plus the 5 persona routes, 6 routes in total.",
+      "implementedBy": "src/components/FAQ.jsx"
+    },
+    "cta.download-icon": {
+      "category": "CTA",
+      "description": "Large app icon that launches a burst of flying app icons on click, with the 'What will you build?' headline and download buttons.",
+      "scope": "Landing page plus the 5 persona routes, 6 routes in total.",
+      "implementedBy": "src/components/DownloadCTA.jsx"
+    },
+    "cta.download-page": {
+      "category": "CTA",
+      "description": "Dedicated download page with the installer call to action and system requirements.",
+      "scope": "Only the single /download route."
+    },
+    "content.not-found-block": {
+      "category": "CONTENT",
+      "description": "Centered error state with the clickable app icon, 'Page not found' heading, one sentence and a Go Home button.",
+      "scope": "The catch-all 404 route, which also serves /m and the 6 persona-style slugs that do not exist upstream.",
+      "implementedBy": "src/pages/NotFoundPage.jsx"
+    },
+    "content.legal-document": {
+      "category": "CONTENT",
+      "description": "Long-form legal text in a 640px column: Inter 48px title, last-updated line, h2 and h3 headings, paragraphs, nested bullet lists and underlined links.",
+      "scope": "The 3 legal routes: terms, privacy and acceptable use."
+    },
+    "content.awards-body": {
+      "category": "CONTENT",
+      "description": "Awards program page and its terms page content.",
+      "scope": "The 2 awards routes."
+    },
+    "content.post-list": {
+      "category": "CONTENT",
+      "description": "Blog index listing of post cards with image, title, excerpt and date.",
+      "scope": "Only the single /blog route."
+    },
+    "content.article-body": {
+      "category": "CONTENT",
+      "description": "Blog post header (title, date, author, hero image) and prose body.",
+      "scope": "The 4 blog post routes."
+    },
+    "content.changelog-entries": {
+      "category": "CONTENT",
+      "description": "Chronological list of release entries with version/date headers and media.",
+      "scope": "Only the single /changelog route."
+    },
+    "commerce.pricing-plans": {
+      "category": "COMMERCE",
+      "description": "Plan comparison cards with prices and feature lists.",
+      "scope": "Only the single /pricing route."
+    },
+    "store.category-nav": {
+      "category": "STORE",
+      "description": "Row of store category links (remixable, developer tools, productivity, utilities, media, design, lifestyle, games and fun).",
+      "scope": "The store index plus the 8 category routes, 9 routes in total."
+    },
+    "store.app-grid": {
+      "category": "STORE",
+      "description": "Grid of app cards (icon, name, tagline, author) for the store index or one category.",
+      "scope": "The store index plus the 8 category routes, 9 routes in total."
+    },
+    "store.app-detail": {
+      "category": "STORE",
+      "description": "Single app page: icon, name, author, download and remix actions, screenshots and description.",
+      "scope": "Every /app/{slug} route, 1924 in total."
+    }
+  },
+  "templates": [
+    {
+      "id": "template.landing",
+      "name": "Landing page",
+      "routeCount": 1,
+      "routes": ["/"],
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.landing-hero",
+        "showcase.persona-tabs",
+        "features.feature-grid",
+        "support.faq",
+        "cta.download-icon",
+        "shell.footer",
+        "shell.youtube-overlay"
+      ]
+    },
+    {
+      "id": "template.persona",
+      "name": "Persona landing",
+      "routeCount": 5,
+      "routes": ["/designers", "/product-managers", "/engineers", "/creators", "/teams"],
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.landing-hero",
+        "showcase.persona-tabs",
+        "features.feature-grid",
+        "support.faq",
+        "cta.download-icon",
+        "shell.footer",
+        "shell.youtube-overlay"
+      ]
+    },
+    {
+      "id": "template.not-found",
+      "name": "Not found",
+      "routeCount": 1,
+      "routes": ["/*"],
+      "chrome": "full",
+      "sections": ["shell.navbar", "content.not-found-block", "shell.footer"]
+    },
+    {
+      "id": "template.pricing",
+      "name": "Pricing",
+      "routeCount": 1,
+      "routes": ["/pricing"],
+      "chrome": "full",
+      "sections": ["shell.navbar", "commerce.pricing-plans", "shell.footer"]
+    },
+    {
+      "id": "template.download",
+      "name": "Download",
+      "routeCount": 1,
+      "routes": ["/download"],
+      "chrome": "full",
+      "sections": ["shell.navbar", "cta.download-page", "shell.footer"]
+    },
+    {
+      "id": "template.awards",
+      "name": "Awards",
+      "routeCount": 2,
+      "routes": ["/awards", "/awards/terms"],
+      "chrome": "full",
+      "sections": ["shell.navbar", "content.awards-body", "shell.footer"]
+    },
+    {
+      "id": "template.legal",
+      "name": "Legal document",
+      "routeCount": 3,
+      "routes": ["/terms", "/privacy", "/aup"],
+      "chrome": "full",
+      "sections": ["shell.navbar", "content.legal-document", "shell.footer"]
+    },
+    {
+      "id": "template.blog-index",
+      "name": "Blog index",
+      "routeCount": 1,
+      "routes": ["/blog"],
+      "chrome": "full",
+      "sections": ["shell.navbar", "content.post-list", "shell.footer"]
+    },
+    {
+      "id": "template.blog-post",
+      "name": "Blog post",
+      "routeCount": 4,
+      "routes": [
+        "/blog/how-teams-use-glaze",
+        "/blog/why-glaze-when-claude-code-and-codex-exist",
+        "/blog/affiliate-program",
+        "/blog/how-we-use-glaze-at-raycast"
+      ],
+      "chrome": "full",
+      "sections": ["shell.navbar", "content.article-body", "shell.footer"]
+    },
+    {
+      "id": "template.changelog",
+      "name": "Changelog",
+      "routeCount": 1,
+      "routes": ["/changelog"],
+      "chrome": "full",
+      "sections": ["shell.navbar", "content.changelog-entries", "shell.footer"]
+    },
+    {
+      "id": "template.store-index",
+      "name": "Store index",
+      "routeCount": 1,
+      "routes": ["/store"],
+      "chrome": "full",
+      "sections": ["shell.navbar", "store.category-nav", "store.app-grid", "shell.footer"]
+    },
+    {
+      "id": "template.store-category",
+      "name": "Store category",
+      "routeCount": 8,
+      "routes": [
+        "/store/remixable",
+        "/store/developer-tools",
+        "/store/productivity",
+        "/store/utilities",
+        "/store/media",
+        "/store/design",
+        "/store/lifestyle",
+        "/store/games-and-fun"
+      ],
+      "chrome": "full",
+      "sections": ["shell.navbar", "store.category-nav", "store.app-grid", "shell.footer"]
+    },
+    {
+      "id": "template.app-detail",
+      "name": "App detail",
+      "routeCount": 1924,
+      "routes": ["/app/my-stash-CDBw9Z", "/app/elsewhere-khfW1h", "/app/the-last-blockbuster-oRLCOs"],
+      "routesTruncated": true,
+      "routePattern": "/app/{slug}",
+      "routeRange": [1, 1924],
+      "chrome": "full",
+      "sections": ["shell.navbar", "store.app-detail", "shell.footer"]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "id": "section.shell.youtube-overlay",
+  "typeId": "shell.youtube-overlay",
+  "registryId": "section.shell.youtube-overlay",
+  "version": "1.0.0",
+  "category": "shell",
+  "purpose": "Video dialog opened by hero and feature buttons.",
+  "scope": "Landing and persona routes.",
+  "composes": [
+    "component.youtube-overlay"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "closeLabel": {
+        "type": "string",
+        "maxWords": 3
+      },
+      "videos": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "assetRole": {
+              "const": "embed.video"
+            },
+            "embedUrl": {
+              "type": "string"
+            },
+            "aspect": {
+              "type": "string",
+              "enum": [
+                "16/9",
+                "4/3"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "assetRole",
+            "embedUrl",
+            "aspect"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 1,
+        "maxItems": 6
+      }
+    },
+    "required": [
+      "closeLabel",
+      "videos"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Close button 40px at 24px inset; below it 44px at 16px inset."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustBeLast": true,
+    "floating": true
+  },
+  "containerRules": {
+    "width": "{container.video-frame}",
+    "position": "fixed, full viewport",
+    "zIndex": "{zIndex.video-overlay}"
+  },
+  "measuredFrom": [
+    "jsx.overlay.backdrop",
+    "spec.overlays"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$description": "Corner radii (CLONE_SPEC 1.3, tailwind.config.js borderRadius). Tailwind's rounded-xl and rounded-2xl are BOTH remapped to 18px in the source config; this repo exposes one token for that value.",
+  "foundation": {
+    "radius": {
+      "sm": { "$type": "dimension", "$value": "4px", "$extensions": { "cite": ["spec.radius"], "usedOnBuiltRoutes": false } },
+      "md": { "$type": "dimension", "$value": "6px", "$extensions": { "cite": ["spec.radius"], "usedOnBuiltRoutes": false } },
+      "lg": { "$type": "dimension", "$value": "8px", "$extensions": { "cite": ["spec.radius"], "usedOnBuiltRoutes": false } },
+      "option": { "$type": "dimension", "$value": "9px", "$extensions": { "cite": ["tw.radius"] } },
+      "frame": { "$type": "dimension", "$value": "12px", "$description": "YouTube frame and small particle image.", "$extensions": { "cite": ["jsx.overlay.frame", "css.icon-particle"] } },
+      "popover": { "$type": "dimension", "$value": "14px", "$extensions": { "cite": ["tw.radius"] } },
+      "card": { "$type": "dimension", "$value": "18px", "$extensions": { "cite": ["tw.radius"] } },
+      "particle-lg": { "$type": "dimension", "$value": "22px", "$extensions": { "cite": ["css.icon-particle"] } },
+      "panel": { "$type": "dimension", "$value": "26px", "$extensions": { "cite": ["tw.radius"] } },
+      "full": { "$type": "dimension", "$value": "9999px", "$extensions": { "cite": ["spec.radius"] } },
+      "circle": { "$type": "dimension", "$value": "50%", "$description": "Nav active dot.", "$extensions": { "cite": ["js.navdot.base"] } }
+    }
+  }
+}

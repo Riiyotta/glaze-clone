@@ -1,0 +1,32 @@
+{
+  "registryId": "primitive.container",
+  "version": "1.0.0",
+  "category": "layout",
+  "description": "Centred width-limited wrapper. Every section sits in px-4 and one of three widths.",
+  "props": {
+    "width": {
+      "enum": [
+        "page",
+        "content",
+        "narrow"
+      ],
+      "default": "page"
+    }
+  },
+  "widths": {
+    "page": "{container.page}",
+    "content": "{container.content}",
+    "narrow": "{container.narrow}"
+  },
+  "gutter": "{space.page-gutter}",
+  "tokens": [
+    "container.page",
+    "container.content",
+    "container.narrow",
+    "space.page-gutter"
+  ],
+  "measuredFrom": [
+    "tw.maxwidth",
+    "spec.containers"
+  ]
+}

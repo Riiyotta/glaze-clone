@@ -1,0 +1,18 @@
+{
+  "$description": "The only theme. The source site is dark-only: no light palette, no theme switch. Maps theme slots to semantic tokens so a future light theme has a defined place to land.",
+  "id": "dark",
+  "status": "production-source",
+  "slots": {
+    "page.background": "{color.bg.page}",
+    "page.text": "{color.text.primary}",
+    "page.text-muted": "{color.text.secondary}",
+    "page.text-subtle": "{color.text.tertiary}",
+    "action.primary": "{color.accent.default}",
+    "action.primary-text": "{color.text.on-accent}",
+    "card.background": "{color.surface.well}",
+    "glass.background": "{color.surface.glass}",
+    "glass.border": "{color.border.glass}",
+    "divider": "{color.border.separator}",
+    "focus": "{color.ring.focus}"
+  }
+}

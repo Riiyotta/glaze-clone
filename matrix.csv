@@ -1,0 +1,21 @@
+section,category,templates,routes,Landing page,Persona landing,Not found,Pricing,Download,Awards,Legal document,Blog index,Blog post,Changelog,Store index,Store category,App detail
+shell.navbar,SHELL,13,1953,x,x,x,x,x,x,x,x,x,x,x,x,x
+shell.footer,SHELL,13,1953,x,x,x,x,x,x,x,x,x,x,x,x,x
+store.app-detail,STORE,1,1924,,,,,,,,,,,,,x
+store.category-nav,STORE,2,9,,,,,,,,,,,x,x,
+store.app-grid,STORE,2,9,,,,,,,,,,,x,x,
+shell.youtube-overlay,SHELL,2,6,x,x,,,,,,,,,,,
+hero.landing-hero,HERO,2,6,x,x,,,,,,,,,,,
+showcase.persona-tabs,SHOWCASE,2,6,x,x,,,,,,,,,,,
+features.feature-grid,FEATURES,2,6,x,x,,,,,,,,,,,
+support.faq,SUPPORT,2,6,x,x,,,,,,,,,,,
+cta.download-icon,CTA,2,6,x,x,,,,,,,,,,,
+content.article-body,CONTENT,1,4,,,,,,,,,x,,,,
+content.legal-document,CONTENT,1,3,,,,,,,x,,,,,,
+content.awards-body,CONTENT,1,2,,,,,,x,,,,,,,
+cta.download-page,CTA,1,1,,,,,x,,,,,,,,
+content.not-found-block,CONTENT,1,1,,,x,,,,,,,,,,
+content.post-list,CONTENT,1,1,,,,,,,,x,,,,,
+content.changelog-entries,CONTENT,1,1,,,,,,,,,,x,,,
+commerce.pricing-plans,COMMERCE,1,1,,,,x,,,,,,,,,
+ROUTE COUNT,,,1953,1,5,1,1,1,2,3,1,4,1,1,8,1924

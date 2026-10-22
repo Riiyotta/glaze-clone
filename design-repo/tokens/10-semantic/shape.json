@@ -1,0 +1,38 @@
+{
+  "$description": "Semantic radius, elevation, blur and spacing aliases. All values are references.",
+  "radius": {
+    "control": { "$value": "{foundation.radius.full}", "$description": "Buttons, pills, tabs, inputs, close buttons." },
+    "card": { "$value": "{foundation.radius.card}", "$description": "Feature cards, app cards, persona container, mobile video." },
+    "media": { "$value": "{foundation.radius.panel}", "$description": "Desktop hero video." },
+    "panel": { "$value": "{foundation.radius.panel}", "$description": "Mobile nav panel." },
+    "popover": { "$value": "{foundation.radius.popover}" },
+    "option": { "$value": "{foundation.radius.option}" },
+    "frame": { "$value": "{foundation.radius.frame}", "$description": "YouTube frame." },
+    "avatar": { "$value": "{foundation.radius.full}" }
+  },
+  "elevation": {
+    "dropdown-trigger": { "$value": "{foundation.shadow.dropdown-trigger}" },
+    "dropdown-menu": { "$value": "{foundation.shadow.dropdown-menu}" },
+    "close-button": { "$value": "{foundation.shadow.close-button}" },
+    "mobile-nav-open": { "$value": "{foundation.shadow.mobile-nav-open}" },
+    "focus": { "$value": "{foundation.shadow.focus-ring}" },
+    "icon-glow": { "$value": "{foundation.dropShadow.glow}" },
+    "particle": { "$value": "{foundation.dropShadow.particle}" }
+  },
+  "blur": {
+    "glass": { "$value": "{foundation.blur.glass}" },
+    "glass-strong": { "$value": "{foundation.blur.glass-strong}" },
+    "scrim": { "$value": "{foundation.blur.overlay}" },
+    "menu-backdrop": { "$value": "{foundation.blur.menu-backdrop}" }
+  },
+  "space": {
+    "page-gutter": { "$value": "{foundation.space.4}", "$description": "px-4 on every section." },
+    "section-gap": { "$value": "{foundation.space.40}", "$description": "mt-[160px] below 480." },
+    "section-gap-wide": { "$value": "{foundation.space.64}", "$description": "mt-[256px] at >=480." },
+    "card-gap": { "$value": "{foundation.space.4}", "$description": "Feature rows: gap 16 below 800." },
+    "card-gap-wide": { "$value": "{foundation.space.5}", "$description": "Feature rows: gap 20 at >=800." },
+    "grid-gap": { "$value": "{foundation.space.1}", "$description": "App grid gap-1." },
+    "nav-inset-top": { "$value": "{foundation.space.2}", "$description": "Nav top offset below 624." },
+    "nav-inset-top-wide": { "$value": "{foundation.space.4}" }
+  }
+}

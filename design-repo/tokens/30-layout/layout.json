@@ -1,0 +1,33 @@
+{
+  "$description": "Layout tokens: container widths, z-index scale, section paddings. Container widths and z-indexes are layout primitives with no other home, so they hold raw values here (the only token layer besides foundation allowed to).",
+  "container": {
+    "page": { "$type": "dimension", "$value": "960px", "$description": "max-w-page", "$extensions": { "cite": ["tw.maxwidth"] } },
+    "content": { "$type": "dimension", "$value": "640px", "$description": "max-w-content", "$extensions": { "cite": ["tw.maxwidth"] } },
+    "narrow": { "$type": "dimension", "$value": "480px", "$description": "max-w-narrow", "$extensions": { "cite": ["tw.maxwidth"] } },
+    "video-frame": { "$type": "dimension", "$value": "900px", "$extensions": { "cite": ["jsx.overlay.frame"] } },
+    "pillar": { "$type": "dimension", "$value": "280px", "$extensions": { "cite": ["jsx.hero.pillars"] } },
+    "popover": { "$type": "dimension", "$value": "208px", "$description": "w-52", "$extensions": { "cite": ["jsx.dropdown.popup"] } },
+    "gutter": { "$type": "reference", "$value": "{space.page-gutter}" }
+  },
+  "zIndex": {
+    "nav": { "$type": "number", "$value": 50, "$extensions": { "cite": ["jsx.nav.root"] } },
+    "popover": { "$type": "number", "$value": 50, "$extensions": { "cite": ["jsx.dropdown.popup"] } },
+    "nav-backdrop-closed": { "$type": "number", "$value": 40, "$extensions": { "cite": ["jsx.nav.backdrop"] } },
+    "video-overlay": { "$type": "number", "$value": 100, "$extensions": { "cite": ["jsx.overlay.backdrop"] } },
+    "particle-layer": { "$type": "number", "$value": 9999, "$extensions": { "cite": ["css.icon-particle", "jsx.glazeicon.layer"] } },
+    "glaze-icon": { "$type": "number", "$value": 10000, "$extensions": { "cite": ["jsx.glazeicon.icon"] } },
+    "nav-backdrop-open": { "$type": "number", "$value": 10001, "$extensions": { "cite": ["jsx.nav.backdrop"] } },
+    "nav-open": { "$type": "number", "$value": 10002, "$extensions": { "cite": ["jsx.nav.root"] } }
+  },
+  "sectionPadding": {
+    "hero-top": { "$value": "{foundation.space.40}", "$description": "pt-40 at >=480" },
+    "hero-top-narrow": { "$value": "{foundation.space.35}", "$description": "pt-[140px] below 480" },
+    "cta-top": { "$value": "{foundation.space.70}" },
+    "cta-top-narrow": { "$value": "{foundation.space.55}" },
+    "cta-bottom": { "$value": "{foundation.space.50}" },
+    "cta-bottom-narrow": { "$value": "{foundation.space.16}" },
+    "notfound-y": { "$value": "{foundation.space.24}" },
+    "footer-bottom": { "$value": "{foundation.space.14}" },
+    "footer-bottom-narrow": { "$value": "{foundation.space.5}" }
+  }
+}

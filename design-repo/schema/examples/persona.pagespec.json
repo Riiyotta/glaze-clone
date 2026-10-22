@@ -1,0 +1,656 @@
+{
+  "id": "page.persona-designers",
+  "route": "/designers",
+  "template": "template.persona",
+  "theme": "dark",
+  "nodes": [
+    {
+      "id": "nav-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Link 1",
+            "href": "/example-1"
+          },
+          {
+            "label": "Link 2",
+            "href": "/example-2"
+          },
+          {
+            "label": "Link 3",
+            "href": "/example-3"
+          },
+          {
+            "label": "Link 4",
+            "href": "/example-4"
+          },
+          {
+            "label": "Link 5",
+            "href": "/example-5"
+          }
+        ],
+        "activeLinkHref": null,
+        "signInLabel": "Sign in",
+        "signInHref": "/example-sign-in",
+        "downloadLabel": "Download",
+        "downloadHref": "/example-download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://example.com/x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://example.com/slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://example.com/youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://example.com/reddit"
+          }
+        ],
+        "creditLabel": "Made by Example",
+        "creditHref": "https://example.com",
+        "logoAssetRole": "brand.wordmark",
+        "logoAssetRef": "ph-wordmark"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "hero-1",
+      "type": "hero.landing-hero",
+      "content": {
+        "eyebrowBrand": "Acme",
+        "eyebrowByline": "by",
+        "eyebrowLinkLabel": "Example Co",
+        "eyebrowLinkHref": "https://example.com",
+        "headline": "Placeholder persona headline\nacross two lines",
+        "subheadline": "Placeholder persona lead on one line with no break.",
+        "primaryCta": {
+          "label": "Download",
+          "href": "/example-download",
+          "icon": "apple"
+        },
+        "secondaryCta": {
+          "label": "Watch intro",
+          "videoId": "intro"
+        },
+        "requirementsNote": "Placeholder requirements note",
+        "mobileSignUp": {
+          "label": "Sign up",
+          "href": "/example-sign-up",
+          "note": "Placeholder availability note"
+        },
+        "video": {
+          "assetRole": "video.hero-loop",
+          "assetRef": "ph-loop",
+          "alt": "Placeholder loop"
+        },
+        "introVideoId": "intro",
+        "pillars": [
+          {
+            "icon": "hard-drive",
+            "title": "Pillar one",
+            "text": "Placeholder pillar text one."
+          },
+          {
+            "icon": "laptop-minimal-check",
+            "title": "Pillar two",
+            "text": "Placeholder pillar text two."
+          },
+          {
+            "icon": "sparkles",
+            "title": "Pillar three",
+            "text": "Placeholder pillar text three."
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "entrance-hero-rise",
+        "reducedMotionFallback": "opacity-only",
+        "delayMs": 0
+      }
+    },
+    {
+      "id": "persona-1",
+      "type": "showcase.persona-tabs",
+      "content": {
+        "label": "Make apps for",
+        "dropdownAriaLabel": "Choose an audience",
+        "initialTab": "design",
+        "tabs": [
+          {
+            "id": "personal",
+            "label": "Tab One",
+            "kind": "apps",
+            "title": "Placeholder title for Tab One",
+            "description": "Placeholder description for this audience.",
+            "bottomLink": {
+              "label": "Placeholder link",
+              "href": "/example"
+            },
+            "apps": [
+              {
+                "name": "Tab One App 1",
+                "author": "Author 1",
+                "href": "/example/app-tab one-1",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-1",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-1"
+              },
+              {
+                "name": "Tab One App 2",
+                "author": "Author 2",
+                "href": "/example/app-tab one-2",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-2",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-2"
+              },
+              {
+                "name": "Tab One App 3",
+                "author": "Author 3",
+                "href": "/example/app-tab one-3",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-3",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-3"
+              },
+              {
+                "name": "Tab One App 4",
+                "author": "Author 4",
+                "href": "/example/app-tab one-4",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-4",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-4"
+              }
+            ]
+          },
+          {
+            "id": "design",
+            "label": "Tab Two",
+            "kind": "apps",
+            "title": "Placeholder title for Tab Two",
+            "description": "Placeholder description for this audience.",
+            "bottomLink": {
+              "label": "Placeholder link",
+              "href": "/example"
+            },
+            "apps": [
+              {
+                "name": "Tab Two App 1",
+                "author": "Author 1",
+                "href": "/example/app-tab two-1",
+                "award": "silver",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-1",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-1"
+              },
+              {
+                "name": "Tab Two App 2",
+                "author": "Author 2",
+                "href": "/example/app-tab two-2",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-2",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-2"
+              },
+              {
+                "name": "Tab Two App 3",
+                "author": "Author 3",
+                "href": "/example/app-tab two-3",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-3",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-3"
+              },
+              {
+                "name": "Tab Two App 4",
+                "author": "Author 4",
+                "href": "/example/app-tab two-4",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-4",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-4"
+              }
+            ]
+          },
+          {
+            "id": "development",
+            "label": "Tab Three",
+            "kind": "apps",
+            "title": "Placeholder title for Tab Three",
+            "description": "Placeholder description for this audience.",
+            "bottomLink": {
+              "label": "Placeholder link",
+              "href": "/example"
+            },
+            "apps": [
+              {
+                "name": "Tab Three App 1",
+                "author": "Author 1",
+                "href": "/example/app-tab three-1",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-1",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-1"
+              },
+              {
+                "name": "Tab Three App 2",
+                "author": "Author 2",
+                "href": "/example/app-tab three-2",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-2",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-2"
+              },
+              {
+                "name": "Tab Three App 3",
+                "author": "Author 3",
+                "href": "/example/app-tab three-3",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-3",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-3"
+              },
+              {
+                "name": "Tab Three App 4",
+                "author": "Author 4",
+                "href": "/example/app-tab three-4",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-4",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-4"
+              }
+            ]
+          },
+          {
+            "id": "creativity",
+            "label": "Tab Four",
+            "kind": "apps",
+            "title": "Placeholder title for Tab Four",
+            "description": "Placeholder description for this audience.",
+            "bottomLink": {
+              "label": "Placeholder link",
+              "href": "/example"
+            },
+            "apps": [
+              {
+                "name": "Tab Four App 1",
+                "author": "Author 1",
+                "href": "/example/app-tab four-1",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-1",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-1"
+              },
+              {
+                "name": "Tab Four App 2",
+                "author": "Author 2",
+                "href": "/example/app-tab four-2",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-2",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-2"
+              },
+              {
+                "name": "Tab Four App 3",
+                "author": "Author 3",
+                "href": "/example/app-tab four-3",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-3",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-3"
+              },
+              {
+                "name": "Tab Four App 4",
+                "author": "Author 4",
+                "href": "/example/app-tab four-4",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-4",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-4"
+              }
+            ]
+          },
+          {
+            "id": "fun",
+            "label": "Tab Five",
+            "kind": "apps",
+            "title": "Placeholder title for Tab Five",
+            "description": "Placeholder description for this audience.",
+            "bottomLink": {
+              "label": "Placeholder link",
+              "href": "/example"
+            },
+            "apps": [
+              {
+                "name": "Tab Five App 1",
+                "author": "Author 1",
+                "href": "/example/app-tab five-1",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-1",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-1"
+              },
+              {
+                "name": "Tab Five App 2",
+                "author": "Author 2",
+                "href": "/example/app-tab five-2",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-2",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-2"
+              },
+              {
+                "name": "Tab Five App 3",
+                "author": "Author 3",
+                "href": "/example/app-tab five-3",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-3",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-3"
+              },
+              {
+                "name": "Tab Five App 4",
+                "author": "Author 4",
+                "href": "/example/app-tab five-4",
+                "award": "none",
+                "iconAssetRole": "app.icon",
+                "iconAssetRef": "ph-icon-4",
+                "avatarAssetRole": "avatar.person",
+                "avatarAssetRef": "ph-avatar-4"
+              }
+            ]
+          },
+          {
+            "id": "teams",
+            "label": "Tab Six",
+            "kind": "logos",
+            "title": "Placeholder title for Tab Six",
+            "description": "Placeholder description for this audience.",
+            "bottomLink": {
+              "label": "Placeholder link",
+              "href": "/example"
+            },
+            "logos": [
+              {
+                "name": "Company 1",
+                "assetRole": "logo.partner",
+                "assetRef": "ph-logo-1"
+              },
+              {
+                "name": "Company 2",
+                "assetRole": "logo.partner",
+                "assetRef": "ph-logo-2"
+              },
+              {
+                "name": "Company 3",
+                "assetRole": "logo.partner",
+                "assetRef": "ph-logo-3"
+              },
+              {
+                "name": "Company 4",
+                "assetRole": "logo.partner",
+                "assetRef": "ph-logo-4"
+              }
+            ]
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "panel-fade-on-switch",
+        "reducedMotionFallback": "opacity-only"
+      }
+    },
+    {
+      "id": "features-1",
+      "type": "features.feature-grid",
+      "content": {
+        "rows": [
+          {
+            "cards": [
+              {
+                "title": "Feature one",
+                "description": "Placeholder feature description.",
+                "desktopImage": {
+                  "assetRole": "screenshot.feature",
+                  "assetRef": "ph-shot-d",
+                  "alt": "Placeholder screenshot"
+                },
+                "mobileImage": {
+                  "assetRole": "screenshot.feature",
+                  "assetRef": "ph-shot-m"
+                },
+                "demoLabel": "Watch demo",
+                "demoVideoId": "demo"
+              }
+            ]
+          },
+          {
+            "cards": [
+              {
+                "title": "Feature two",
+                "description": "Placeholder feature description.",
+                "desktopImage": {
+                  "assetRole": "screenshot.feature",
+                  "assetRef": "ph-shot-d",
+                  "alt": "Placeholder screenshot"
+                },
+                "mobileImage": {
+                  "assetRole": "screenshot.feature",
+                  "assetRef": "ph-shot-m"
+                }
+              },
+              {
+                "title": "Feature three",
+                "description": "Placeholder feature description.",
+                "desktopImage": {
+                  "assetRole": "screenshot.feature",
+                  "assetRef": "ph-shot-d",
+                  "alt": "Placeholder screenshot"
+                },
+                "mobileImage": {
+                  "assetRole": "screenshot.feature",
+                  "assetRef": "ph-shot-m"
+                }
+              }
+            ]
+          },
+          {
+            "cards": [
+              {
+                "title": "Feature four",
+                "description": "Placeholder feature description.",
+                "desktopImage": {
+                  "assetRole": "screenshot.feature",
+                  "assetRef": "ph-shot-d",
+                  "alt": "Placeholder screenshot"
+                },
+                "mobileImage": {
+                  "assetRole": "screenshot.feature",
+                  "assetRef": "ph-shot-m"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "faq-1",
+      "type": "support.faq",
+      "content": {
+        "title": "FAQ",
+        "items": [
+          {
+            "question": "Placeholder question 1?",
+            "answer": "Placeholder answer text."
+          },
+          {
+            "question": "Placeholder question 2?",
+            "answer": "Placeholder answer text."
+          },
+          {
+            "question": "Placeholder question 3?",
+            "answer": "Placeholder answer text."
+          },
+          {
+            "question": "Placeholder question with link?",
+            "answer": "Placeholder answer with a link.",
+            "link": {
+              "label": "Example link",
+              "href": "/example",
+              "after": "."
+            }
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "accordion-and-dim",
+        "reducedMotionFallback": "static"
+      }
+    },
+    {
+      "id": "cta-1",
+      "type": "cta.download-icon",
+      "content": {
+        "icon": {
+          "assetRole": "brand.app-icon",
+          "assetRef": "ph-app-icon",
+          "alt": "Placeholder icon"
+        },
+        "particlePoolRef": "ph-particle-pool",
+        "headline": "Placeholder call to action",
+        "primaryCta": {
+          "label": "Download",
+          "href": "/example-download",
+          "icon": "apple"
+        },
+        "mobileHref": "/example-sign-up",
+        "requirementsNote": "Placeholder requirements note"
+      },
+      "motion": {
+        "pattern": "icon-press-and-burst",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "footer-1",
+      "type": "shell.footer",
+      "content": {
+        "copyright": "Copyright Example",
+        "primaryLinks": [
+          {
+            "label": "Docs",
+            "href": "https://example.com/docs"
+          },
+          {
+            "label": "Blog",
+            "href": "/example-blog"
+          }
+        ],
+        "legalLinks": [
+          {
+            "label": "Terms",
+            "href": "/example-terms"
+          },
+          {
+            "label": "Privacy",
+            "href": "/example-privacy"
+          },
+          {
+            "label": "Use policy",
+            "href": "/example-use"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://example.com/x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://example.com/slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://example.com/youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://example.com/reddit"
+          }
+        ],
+        "creditLabel": "Made by Example",
+        "creditHref": "https://example.com"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "overlay-1",
+      "type": "shell.youtube-overlay",
+      "content": {
+        "closeLabel": "Close video",
+        "videos": [
+          {
+            "id": "intro",
+            "assetRole": "embed.video",
+            "embedUrl": "https://example.com/embed/placeholder-intro",
+            "aspect": "16/9"
+          },
+          {
+            "id": "demo",
+            "assetRole": "embed.video",
+            "embedUrl": "https://example.com/embed/placeholder-demo",
+            "aspect": "16/9"
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    }
+  ],
+  "head": {
+    "title": "Placeholder persona headline across two lines. Example.",
+    "description": "Placeholder persona lead on one line with no break.",
+    "robots": "max-image-preview:large"
+  }
+}

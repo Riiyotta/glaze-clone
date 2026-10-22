@@ -1,0 +1,118 @@
+{
+  "description": "Adjacency and rhythm rules for the three templates. `adjacency` is derived from every consecutive pair in templates/templates.json (extraction check recomputes it). Rules carry a severity; semantic_validate.py implements each rule id listed here and verify_all.py checks the two agree.",
+  "adjacency": {
+    "content.not-found-block": {
+      "canPrecede": [
+        "shell.footer"
+      ]
+    },
+    "cta.download-icon": {
+      "canPrecede": [
+        "shell.footer"
+      ]
+    },
+    "features.feature-grid": {
+      "canPrecede": [
+        "support.faq"
+      ]
+    },
+    "hero.landing-hero": {
+      "canPrecede": [
+        "showcase.persona-tabs"
+      ]
+    },
+    "shell.footer": {
+      "canPrecede": [
+        "shell.youtube-overlay"
+      ]
+    },
+    "shell.navbar": {
+      "canPrecede": [
+        "content.not-found-block",
+        "hero.landing-hero"
+      ]
+    },
+    "showcase.persona-tabs": {
+      "canPrecede": [
+        "features.feature-grid"
+      ]
+    },
+    "support.faq": {
+      "canPrecede": [
+        "cta.download-icon"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "NAV_FIRST",
+      "severity": "error",
+      "text": "shell.navbar is the first node on every page and appears once."
+    },
+    {
+      "id": "FOOTER_LAST",
+      "severity": "error",
+      "text": "shell.footer is the last node, except that shell.youtube-overlay may follow it.",
+      "exception": "shell.youtube-overlay"
+    },
+    {
+      "id": "OVERLAY_LAST",
+      "severity": "error",
+      "text": "shell.youtube-overlay, when present, is the final node."
+    },
+    {
+      "id": "ONE_PER_PAGE",
+      "severity": "error",
+      "text": "Every section type appears at most once per page (no section here repeats)."
+    },
+    {
+      "id": "HERO_AFTER_NAV",
+      "severity": "error",
+      "text": "hero.landing-hero, when present, directly follows shell.navbar.",
+      "exception": "template.not-found has no hero (noHero)."
+    },
+    {
+      "id": "NOT_FOUND_NO_HERO",
+      "severity": "error",
+      "text": "template.not-found contains no hero, showcase, features, faq or cta nodes."
+    },
+    {
+      "id": "VIDEO_REFS_RESOLVE",
+      "severity": "error",
+      "text": "Every videoId in hero.landing-hero (introVideoId, secondaryCta.videoId) and features.feature-grid (demoVideoId) matches a videos[].id in shell.youtube-overlay, and a page that references any video includes the overlay."
+    },
+    {
+      "id": "INITIAL_TAB_IN_TABS",
+      "severity": "error",
+      "text": "showcase.persona-tabs.initialTab equals one of its tabs[].id."
+    },
+    {
+      "id": "ROUTE_INITIAL_TAB",
+      "severity": "error",
+      "text": "On a persona route the initialTab equals the template's routeInitialTab value; on / it equals constraints.requiredInitialTab."
+    },
+    {
+      "id": "NAV_ACTIVE_LINK",
+      "severity": "error",
+      "text": "navbar.activeLinkHref equals the template's navActiveLinkHref (the landing page marks '/', persona routes and the 404 mark none)."
+    },
+    {
+      "id": "TABS_KIND_CONTENT",
+      "severity": "error",
+      "text": "A tab of kind apps carries apps[], a tab of kind logos carries logos[]; the schema enforces it, the validator also checks at most 4 entries."
+    },
+    {
+      "id": "MOTION_BUDGET",
+      "severity": "warn",
+      "text": "At most one icon-press-and-burst section per page."
+    },
+    {
+      "id": "MAX_TABS_UNIQUE_IDS",
+      "severity": "error",
+      "text": "Tab ids and FAQ questions are unique within a page."
+    }
+  ],
+  "themeCompatibility": {
+    "dark": "production-source"
+  }
+}

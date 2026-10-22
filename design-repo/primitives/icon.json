@@ -1,0 +1,155 @@
+{
+  "registryId": "primitive.icon",
+  "version": "1.0.0",
+  "category": "media",
+  "description": "Closed inline-SVG icon set. Glyph geometry lives in the host app (src/components/icons.jsx); the contract fixes names, sizes and stroke only. Colour is always currentColor.",
+  "props": {
+    "name": {
+      "enum": [
+        "chevron-down",
+        "check",
+        "x",
+        "arrow-right",
+        "faq-chevron",
+        "apple",
+        "play-circle",
+        "hard-drive",
+        "laptop-minimal-check",
+        "sparkles",
+        "social-x",
+        "social-slack",
+        "social-youtube",
+        "social-reddit",
+        "raycast-mark"
+      ]
+    },
+    "size": {
+      "enum": [
+        "14",
+        "16",
+        "18",
+        "20",
+        "24",
+        "48"
+      ]
+    }
+  },
+  "icons": {
+    "chevron-down": {
+      "set": "lucide",
+      "stroke": "2 round",
+      "size": "{foundation.iconSize.16}",
+      "sizeWide": "{foundation.iconSize.14}",
+      "states": {
+        "open": {
+          "rotate": "{foundation.rotate.half}",
+          "transition": "{motion.recipe.chevron.rotate}"
+        }
+      }
+    },
+    "check": {
+      "set": "lucide",
+      "stroke": "2 round",
+      "size": "{foundation.iconSize.16}",
+      "states": {
+        "unselected": {
+          "opacity": 0
+        }
+      }
+    },
+    "x": {
+      "set": "lucide",
+      "stroke": "2.25 round",
+      "size": "{foundation.iconSize.20}"
+    },
+    "arrow-right": {
+      "set": "custom 16 viewBox",
+      "stroke": "1.5 round",
+      "size": "{foundation.iconSize.16}",
+      "states": {
+        "group-hover": {
+          "translateX": "{foundation.distance.nudge}",
+          "transition": "{motion.recipe.hover.transform}"
+        }
+      }
+    },
+    "faq-chevron": {
+      "set": "custom 20 viewBox",
+      "stroke": "1.5 round",
+      "size": "{faqItem.chevron}",
+      "colour": "{color.text.tertiary}",
+      "states": {
+        "open": {
+          "rotate": "{foundation.rotate.quarter}",
+          "transition": "{motion.recipe.faq.accordion}"
+        }
+      }
+    },
+    "apple": {
+      "set": "custom",
+      "fill": "currentColor",
+      "size": "{foundation.iconSize.18}"
+    },
+    "play-circle": {
+      "set": "custom data-URI svg image",
+      "size": "{foundation.iconSize.18}",
+      "sizeLarge": "{foundation.iconSize.48}"
+    },
+    "hard-drive": {
+      "set": "lucide",
+      "size": "{foundation.iconSize.24}",
+      "sizeNarrow": "{foundation.iconSize.20}"
+    },
+    "laptop-minimal-check": {
+      "set": "lucide",
+      "size": "{foundation.iconSize.24}",
+      "sizeNarrow": "{foundation.iconSize.20}"
+    },
+    "sparkles": {
+      "set": "lucide",
+      "size": "{foundation.iconSize.24}",
+      "sizeNarrow": "{foundation.iconSize.20}"
+    },
+    "social-x": {
+      "set": "brand glyph",
+      "size": "{social.glyph}",
+      "licensing": "third-party trademark"
+    },
+    "social-slack": {
+      "set": "brand glyph",
+      "size": "{social.glyph}",
+      "licensing": "third-party trademark"
+    },
+    "social-youtube": {
+      "set": "brand glyph",
+      "size": "{social.glyph}",
+      "licensing": "third-party trademark"
+    },
+    "social-reddit": {
+      "set": "brand glyph",
+      "size": "{social.glyph}",
+      "licensing": "third-party trademark"
+    },
+    "raycast-mark": {
+      "set": "brand glyph",
+      "size": "{foundation.iconSize.20}",
+      "licensing": "Raycast trademark: reuse the shipped glyph only, never redraw."
+    }
+  },
+  "tokens": [
+    "foundation.iconSize.16",
+    "foundation.iconSize.14",
+    "foundation.iconSize.18",
+    "foundation.iconSize.20",
+    "foundation.iconSize.24",
+    "foundation.iconSize.48",
+    "foundation.rotate.half",
+    "foundation.rotate.quarter",
+    "faqItem.chevron",
+    "social.glyph"
+  ],
+  "measuredFrom": [
+    "src.icons",
+    "spec.svg"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "registryId": "primitive.badge",
+  "version": "1.0.0",
+  "category": "media",
+  "description": "Award badge: a small raster tier medal shown after an app name. Tiers gold, silver, bronze.",
+  "props": {
+    "tier": {
+      "enum": [
+        "gold",
+        "silver",
+        "bronze"
+      ]
+    },
+    "alt": {
+      "type": "string",
+      "maxWords": 3,
+      "description": "'<Tier> winner'"
+    },
+    "assetRole": {
+      "const": "badge.award"
+    }
+  },
+  "size": "{appCard.awardSize}",
+  "spacing": {
+    "marginLeft": "{foundation.space.0.5}"
+  },
+  "states": {
+    "none": "Not interactive."
+  },
+  "tokens": [
+    "appCard.awardSize",
+    "foundation.space.0.5"
+  ],
+  "licensing": "Award medals are the source site's artwork. Reuse the exact shipped asset or leave the badge out; never redraw it.",
+  "measuredFrom": [
+    "jsx.appcard.award",
+    "content.awards"
+  ]
+}

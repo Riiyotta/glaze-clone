@@ -1,0 +1,57 @@
+{
+  "$description": "Semantic colour roles. Every $value is a reference to tokens/00-foundation/color.json. Names follow the source's own Tailwind colour names where they exist (text-primary, surface-well, glass-border, close-btn...).",
+  "color": {
+    "bg": {
+      "page": { "$type": "color", "$value": "{foundation.color.neutral.950}", "$extensions": { "cite": ["tw.color.background"] } }
+    },
+    "text": {
+      "primary": { "$type": "color", "$value": "{foundation.color.neutral.0}", "$extensions": { "cite": ["tw.color.foreground"] } },
+      "secondary": { "$type": "color", "$value": "{foundation.color.neutral.400}", "$extensions": { "cite": ["tw.color.text-secondary"] } },
+      "tertiary": { "$type": "color", "$value": "{foundation.color.neutral.500}", "$extensions": { "cite": ["tw.color.text-tertiary"] } },
+      "quaternary": { "$type": "color", "$value": "{foundation.color.white-alpha.a20}", "$extensions": { "cite": ["tw.color.border-primary"], "usedOnBuiltRoutes": false } },
+      "on-accent": { "$type": "color", "$value": "{foundation.color.neutral.0}", "$extensions": { "cite": ["spec.states.accent"] } }
+    },
+    "accent": {
+      "default": { "$type": "color", "$value": "{foundation.color.blue.600}", "$extensions": { "cite": ["tw.color.accent"] } }
+    },
+    "border": {
+      "primary": { "$type": "color", "$value": "{foundation.color.white-alpha.a20}", "$extensions": { "cite": ["tw.color.border-primary"] } },
+      "separator": { "$type": "color", "$value": "{foundation.color.white-alpha.a10}", "$description": "FAQ dividers, YouTube frame, popover border.", "$extensions": { "cite": ["tw.color.border-separator"] } },
+      "glass": { "$type": "color", "$value": "{foundation.color.white-alpha.a08}", "$extensions": { "cite": ["tw.color.glass-border"] } },
+      "glass-open": { "$type": "color", "$value": "{foundation.color.white-alpha.a12}", "$extensions": { "cite": ["css.mobile-nav-open"] } },
+      "control-hover": { "$type": "color", "$value": "{foundation.color.white-alpha.a14}", "$description": "Close-button border on hover.", "$extensions": { "cite": ["jsx.overlay.close"] } },
+      "rule": { "$type": "color", "$value": "{foundation.color.white-alpha.a12}", "$description": "1x16 vertical rule in the nav pill.", "$extensions": { "cite": ["jsx.navpill.rule"] } }
+    },
+    "surface": {
+      "well": { "$type": "color", "$value": "{foundation.color.neutral.1000}", "$extensions": { "cite": ["tw.color.surface-well"] } },
+      "glass": { "$type": "color", "$value": "{foundation.color.tinted-alpha.glass-a30}", "$extensions": { "cite": ["tw.color.glass"] } },
+      "glass-focus": { "$type": "color", "$value": "{foundation.color.tinted-alpha.glass-a60}", "$extensions": { "cite": ["css.glass-focus-within"] } },
+      "glass-open": { "$type": "color", "$value": "{foundation.color.tinted-alpha.page-a78}", "$extensions": { "cite": ["css.mobile-nav-open"] } },
+      "panel": { "$type": "color", "$value": "{foundation.color.tinted-alpha.panel-a58}", "$description": "Dropdown trigger hover.", "$extensions": { "cite": ["tw.color.surface-panel"] } },
+      "popover": { "$type": "color", "$value": "{foundation.color.tinted-alpha.popover-a95}", "$extensions": { "cite": ["tw.color.surface-popover"] } },
+      "close": { "$type": "color", "$value": "{foundation.color.tinted-alpha.glass-a34}", "$extensions": { "cite": ["tw.color.close-btn"] } },
+      "close-hover": { "$type": "color", "$value": "{foundation.color.tinted-alpha.panel-a52}", "$extensions": { "cite": ["tw.color.close-btn"] } },
+      "tablist": { "$type": "color", "$value": "{foundation.color.white-alpha.a025}", "$extensions": { "cite": ["jsx.persona.tablist"] } },
+      "hover-subtle": { "$type": "color", "$value": "{foundation.color.white-alpha.a04}", "$description": "App card hover, unselected tab hover.", "$extensions": { "cite": ["jsx.appcard.hover"] } },
+      "chip": { "$type": "color", "$value": "{foundation.color.white-alpha.a05}", "$description": "Watch Demo chip; highlighted dropdown option.", "$extensions": { "cite": ["jsx.feature.watch-demo"] } },
+      "ghost": { "$type": "color", "$value": "{foundation.color.white-alpha.a06}", "$description": "Ghost button rest; app-icon loading placeholder.", "$extensions": { "cite": ["jsx.hero.reinvent"] } },
+      "selected": { "$type": "color", "$value": "{foundation.color.white-alpha.a08}", "$description": "Selected tab.", "$extensions": { "cite": ["jsx.persona.tab"] } },
+      "ghost-hover": { "$type": "color", "$value": "{foundation.color.white-alpha.a10}", "$description": "Ghost button / chip hover; selected dropdown option.", "$extensions": { "cite": ["jsx.hero.reinvent", "jsx.feature.watch-demo"] } }
+    },
+    "scrim": {
+      "video": { "$type": "color", "$value": "{foundation.color.black-alpha.a15}", "$extensions": { "cite": ["jsx.hero.scrim"] } },
+      "video-hover": { "$type": "color", "$value": "{foundation.color.black-alpha.a25}", "$extensions": { "cite": ["jsx.hero.scrim"] } },
+      "overlay": { "$type": "color", "$value": "{foundation.color.black-alpha.a80}", "$extensions": { "cite": ["jsx.overlay.backdrop"] } },
+      "dialog": { "$type": "color", "$value": "{foundation.color.tinted-alpha.page-a75}", "$extensions": { "cite": ["tw.color.dialog-backdrop"], "usedOnBuiltRoutes": false } }
+    },
+    "ring": {
+      "focus": { "$type": "color", "$value": "{foundation.color.white-alpha.a60}", "$description": "What actually renders for every :focus-visible on the built routes.", "$extensions": { "cite": ["css.focus-ring"] } },
+      "control-declared": { "$type": "color", "$value": "{foundation.color.white-alpha.a45}", "$description": "Declared ring-white/45 on buttons/tabs. Overridden by ring.focus at runtime; kept for traceability only.", "$extensions": { "cite": ["jsx.hero.reinvent"], "renderedOnBuiltRoutes": false } },
+      "card-declared": { "$type": "color", "$value": "{foundation.color.white-alpha.a30}", "$description": "Declared ring-1 white/30 on app cards. Overridden by ring.focus at runtime.", "$extensions": { "cite": ["jsx.appcard.hover"], "renderedOnBuiltRoutes": false } }
+    },
+    "link": {
+      "underline": { "$type": "color", "$value": "{foundation.color.white-alpha.a20}", "$extensions": { "cite": ["jsx.faq.link"] } },
+      "underline-hover": { "$type": "color", "$value": "{foundation.color.white-alpha.a60}", "$extensions": { "cite": ["jsx.faq.link"] } }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "registryId": "component.team-logo-grid",
+  "version": "1.0.0",
+  "category": "showcase",
+  "description": "Replaces the app grid on the team tab: four monochrome company marks with names.",
+  "composes": [
+    "primitive.icon",
+    "primitive.text"
+  ],
+  "props": {
+    "logos": {
+      "type": "array",
+      "maxItems": 4,
+      "items": {
+        "name": "string maxWords 2",
+        "assetRole": {
+          "const": "logo.partner"
+        }
+      }
+    }
+  },
+  "layout": {
+    "logoSize": {
+      "narrow": "{foundation.iconSize.56}",
+      "wide": "{foundation.iconSize.72}"
+    },
+    "colour": "{color.text.primary}",
+    "gap": {
+      "x": "{foundation.space.32}",
+      "y": "{foundation.space.12}"
+    },
+    "narrowLayout": "2-column grid",
+    "wideLayout": "wrapped flex, centred"
+  },
+  "responsive": {
+    "breakpoint": "{foundation.breakpoint.600}"
+  },
+  "licensing": "The marks are real third-party trademarks (the source shows Raycast, Linear, Vercel, Cursor). Generated pages must not invent or alter marks; use assetRole logo.partner with the exact shipped glyph or generic placeholder shapes.",
+  "tokens": [
+    "foundation.iconSize.56",
+    "foundation.iconSize.72",
+    "color.text.primary",
+    "foundation.space.32",
+    "foundation.space.12",
+    "foundation.breakpoint.600"
+  ],
+  "measuredFrom": [
+    "jsx.persona.teamlogo",
+    "spec.persona.teams"
+  ]
+}

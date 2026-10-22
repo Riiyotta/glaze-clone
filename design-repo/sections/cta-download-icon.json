@@ -1,0 +1,126 @@
+{
+  "id": "section.cta.download-icon",
+  "typeId": "cta.download-icon",
+  "registryId": "section.cta.download-icon",
+  "version": "1.0.0",
+  "category": "cta",
+  "purpose": "Closing call to action: clickable icon, headline, download button and requirements note.",
+  "scope": "Landing and persona routes.",
+  "composes": [
+    "component.glaze-icon-burst",
+    "primitive.text",
+    "primitive.button"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "icon": {
+        "type": "object",
+        "properties": {
+          "assetRole": {
+            "const": "brand.app-icon"
+          },
+          "assetRef": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string",
+            "maxWords": 16
+          }
+        },
+        "required": [
+          "assetRole",
+          "assetRef"
+        ],
+        "additionalProperties": false
+      },
+      "particlePoolRef": {
+        "type": "string",
+        "description": "Host id of the particle icon pool (assetRole particle.app-icon)."
+      },
+      "headline": {
+        "type": "string",
+        "maxWords": 6
+      },
+      "primaryCta": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 4
+          },
+          "href": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string",
+            "enum": [
+              "apple",
+              "none"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "href",
+          "icon"
+        ],
+        "additionalProperties": false
+      },
+      "mobileHref": {
+        "type": "string"
+      },
+      "requirementsNote": {
+        "type": "string",
+        "maxWords": 10
+      }
+    },
+    "required": [
+      "icon",
+      "particlePoolRef",
+      "headline",
+      "primaryCta",
+      "mobileHref",
+      "requirementsNote"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "icon-press-and-burst"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Icon 80 to 112; headline 30 to 44; paddings 220/64 to 280/200."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustPrecede": [
+      "shell.footer"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.narrow}",
+    "gutter": "{space.page-gutter}",
+    "paddingTop": "{sectionPadding.cta-top-narrow} below 480, {sectionPadding.cta-top} from 480",
+    "paddingBottom": "{sectionPadding.cta-bottom-narrow} below 480, {sectionPadding.cta-bottom} from 480"
+  },
+  "measuredFrom": [
+    "jsx.cta.section",
+    "spec.cta"
+  ]
+}

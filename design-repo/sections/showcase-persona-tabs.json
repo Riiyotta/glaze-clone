@@ -1,0 +1,269 @@
+{
+  "id": "section.showcase.persona-tabs",
+  "typeId": "showcase.persona-tabs",
+  "registryId": "section.showcase.persona-tabs",
+  "version": "1.0.0",
+  "category": "showcase",
+  "purpose": "'Make apps for' switcher and a panel with an app grid or logo grid for the chosen audience.",
+  "scope": "Landing and persona routes.",
+  "composes": [
+    "component.persona-tabs",
+    "component.persona-dropdown",
+    "component.app-card",
+    "component.team-logo-grid"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "label": {
+        "type": "string",
+        "maxWords": 3
+      },
+      "dropdownAriaLabel": {
+        "type": "string",
+        "maxWords": 4
+      },
+      "initialTab": {
+        "type": "string",
+        "description": "Must equal one tab id; the route decides it."
+      },
+      "tabs": {
+        "type": "array",
+        "items": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string",
+                  "maxWords": 2
+                },
+                "kind": {
+                  "const": "apps"
+                },
+                "title": {
+                  "type": "string",
+                  "maxWords": 8
+                },
+                "description": {
+                  "type": "string",
+                  "maxWords": 20
+                },
+                "apps": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "maxWords": 4
+                      },
+                      "author": {
+                        "type": "string",
+                        "maxWords": 3
+                      },
+                      "href": {
+                        "type": "string"
+                      },
+                      "award": {
+                        "type": "string",
+                        "enum": [
+                          "none",
+                          "gold",
+                          "silver",
+                          "bronze"
+                        ]
+                      },
+                      "iconAssetRole": {
+                        "const": "app.icon"
+                      },
+                      "iconAssetRef": {
+                        "type": "string"
+                      },
+                      "avatarAssetRole": {
+                        "const": "avatar.person"
+                      },
+                      "avatarAssetRef": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "author",
+                      "href",
+                      "iconAssetRole",
+                      "iconAssetRef",
+                      "avatarAssetRole",
+                      "avatarAssetRef"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 4
+                },
+                "bottomLink": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string",
+                      "maxWords": 4
+                    },
+                    "href": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "href"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "id",
+                "label",
+                "kind",
+                "title",
+                "description",
+                "apps",
+                "bottomLink"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string",
+                  "maxWords": 2
+                },
+                "kind": {
+                  "const": "logos"
+                },
+                "title": {
+                  "type": "string",
+                  "maxWords": 8
+                },
+                "description": {
+                  "type": "string",
+                  "maxWords": 20
+                },
+                "logos": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "maxWords": 2
+                      },
+                      "assetRole": {
+                        "const": "logo.partner"
+                      },
+                      "assetRef": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "assetRole",
+                      "assetRef"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 4
+                },
+                "bottomLink": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string",
+                      "maxWords": 4
+                    },
+                    "href": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "href"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "id",
+                "label",
+                "kind",
+                "title",
+                "description",
+                "logos",
+                "bottomLink"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "minItems": 2,
+        "maxItems": 6
+      }
+    },
+    "required": [
+      "label",
+      "dropdownAriaLabel",
+      "initialTab",
+      "tabs"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "panel-fade-on-switch"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.600}",
+      "change": "Grid 2 to 4 columns; icon 64 to 112; panel type 24 to 30."
+    },
+    {
+      "at": "{foundation.breakpoint.800}",
+      "change": "Tablist replaces the dropdown."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "hero.landing-hero"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "marginTop": "{space.section-gap} below 480, {space.section-gap-wide} from 480",
+    "panelPadding": "{foundation.space.4} below 600, {foundation.space.8} from 600"
+  },
+  "measuredFrom": [
+    "jsx.persona.root",
+    "spec.persona",
+    "spec.persona.diff"
+  ]
+}

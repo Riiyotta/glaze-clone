@@ -1,0 +1,90 @@
+{
+  "registryId": "component.app-card",
+  "version": "1.0.0",
+  "category": "showcase",
+  "description": "Store-style card: squircle icon, name with optional award medal, avatar and author. Four per persona panel.",
+  "composes": [
+    "primitive.app-icon",
+    "primitive.badge",
+    "primitive.image",
+    "primitive.text"
+  ],
+  "props": {
+    "name": {
+      "type": "string",
+      "maxWords": 4
+    },
+    "author": {
+      "type": "string",
+      "maxWords": 3
+    },
+    "href": {
+      "type": "string"
+    },
+    "iconAssetRole": {
+      "const": "app.icon"
+    },
+    "avatarAssetRole": {
+      "const": "avatar.person"
+    },
+    "award": {
+      "enum": [
+        "none",
+        "gold",
+        "silver",
+        "bronze"
+      ],
+      "default": "none"
+    }
+  },
+  "layout": {
+    "padding": "{appCard.padding}",
+    "radius": "{appCard.radius}",
+    "minHeight": {
+      "narrow": "{appCard.minHeight}",
+      "wide": "{appCard.minHeightWide}"
+    },
+    "align": "centre column",
+    "titleTypography": "{typography.label.card-title}",
+    "authorTypography": "{typography.meta}",
+    "truncate": "name and author truncate to one line"
+  },
+  "states": {
+    "hover": {
+      "background": "{color.surface.hover-subtle}",
+      "transition": "{motion.recipe.hover.colors}",
+      "note": "Nothing else changes on hover."
+    },
+    "focus-visible": {
+      "shadow": "{elevation.focus}",
+      "note": "Declared ring-1 white/30 is overridden by the global focus rule."
+    }
+  },
+  "motion": {
+    "iconFade": "{motion.recipe.appicon.fade}"
+  },
+  "responsive": {
+    "gridColumns": {
+      "below600": 2,
+      "from600": 4
+    },
+    "breakpoint": "{foundation.breakpoint.600}"
+  },
+  "licensing": "App names, icons and author avatars are real third-party works. Generated pages use invented names and generated placeholder art with the roles above.",
+  "tokens": [
+    "appCard.padding",
+    "appCard.radius",
+    "appCard.minHeight",
+    "appCard.minHeightWide",
+    "typography.label.card-title",
+    "typography.meta",
+    "color.surface.hover-subtle",
+    "elevation.focus",
+    "motion.recipe.hover.colors",
+    "foundation.breakpoint.600"
+  ],
+  "measuredFrom": [
+    "jsx.appcard.root",
+    "spec.persona.card"
+  ]
+}

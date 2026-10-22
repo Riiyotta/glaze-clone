@@ -1,0 +1,62 @@
+{
+  "registryId": "component.faq-item",
+  "version": "1.0.0",
+  "category": "support",
+  "description": "Accordion row: question button with chevron, answer revealed by animating grid rows from 0fr to 1fr. One item open at a time; none open by default; clicking the open item closes it.",
+  "composes": [
+    "primitive.text",
+    "primitive.icon",
+    "primitive.link",
+    "primitive.divider"
+  ],
+  "props": {
+    "question": {
+      "type": "string",
+      "maxWords": 14
+    },
+    "answer": {
+      "type": "string",
+      "maxWords": 60
+    },
+    "link": {
+      "type": "object",
+      "optional": true,
+      "props": {
+        "label": "string maxWords 4",
+        "href": "string",
+        "after": "string maxWords 4"
+      }
+    }
+  },
+  "layout": {
+    "paddingY": "{faqItem.paddingY}",
+    "questionTypography": "{typography.label.question}",
+    "answerTypography": "{typography.body.answer}",
+    "separator": "primitive.divider#list-separator",
+    "answerWhitespace": "pre-line"
+  },
+  "states": {
+    "open": {
+      "chevron": "rotate 90",
+      "answerRows": "1fr",
+      "aria": "aria-expanded=true"
+    },
+    "closed": {
+      "answerRows": "0fr"
+    }
+  },
+  "motion": {
+    "accordion": "{motion.recipe.faq.accordion}"
+  },
+  "tokens": [
+    "faqItem.paddingY",
+    "faqItem.chevron",
+    "typography.label.question",
+    "typography.body.answer",
+    "motion.recipe.faq.accordion"
+  ],
+  "measuredFrom": [
+    "jsx.faq.item",
+    "spec.faq"
+  ]
+}

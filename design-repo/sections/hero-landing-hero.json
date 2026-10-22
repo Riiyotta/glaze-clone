@@ -1,0 +1,232 @@
+{
+  "id": "section.hero.landing-hero",
+  "typeId": "hero.landing-hero",
+  "registryId": "section.hero.landing-hero",
+  "version": "1.0.0",
+  "category": "hero",
+  "purpose": "Opening block: eyebrow, headline, lead, CTAs, loop video and three pillars. Headline, lead and starting tab are the only things that change per persona route.",
+  "scope": "Landing and persona routes.",
+  "composes": [
+    "primitive.text",
+    "primitive.button",
+    "primitive.image",
+    "component.pillar"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "eyebrowBrand": {
+        "type": "string",
+        "maxWords": 2
+      },
+      "eyebrowByline": {
+        "type": "string",
+        "maxWords": 2
+      },
+      "eyebrowLinkLabel": {
+        "type": "string",
+        "maxWords": 2
+      },
+      "eyebrowLinkHref": {
+        "type": "string"
+      },
+      "headline": {
+        "type": "string",
+        "maxWords": 14,
+        "description": "A newline splits it into two spans separated by a br."
+      },
+      "subheadline": {
+        "type": "string",
+        "maxWords": 26,
+        "description": "A newline becomes a br visible from 480px."
+      },
+      "primaryCta": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 4
+          },
+          "href": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string",
+            "enum": [
+              "apple",
+              "none"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "href",
+          "icon"
+        ],
+        "additionalProperties": false
+      },
+      "secondaryCta": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 4
+          },
+          "videoId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "videoId"
+        ],
+        "additionalProperties": false
+      },
+      "requirementsNote": {
+        "type": "string",
+        "maxWords": 10
+      },
+      "mobileSignUp": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 3
+          },
+          "href": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string",
+            "maxWords": 8
+          }
+        },
+        "required": [
+          "label",
+          "href",
+          "note"
+        ],
+        "additionalProperties": false
+      },
+      "video": {
+        "type": "object",
+        "properties": {
+          "assetRole": {
+            "const": "video.hero-loop"
+          },
+          "assetRef": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string",
+            "maxWords": 16
+          }
+        },
+        "required": [
+          "assetRole",
+          "assetRef"
+        ],
+        "additionalProperties": false
+      },
+      "introVideoId": {
+        "type": "string"
+      },
+      "pillars": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "icon": {
+              "type": "string",
+              "enum": [
+                "hard-drive",
+                "laptop-minimal-check",
+                "sparkles"
+              ]
+            },
+            "title": {
+              "type": "string",
+              "maxWords": 2
+            },
+            "text": {
+              "type": "string",
+              "maxWords": 14
+            }
+          },
+          "required": [
+            "icon",
+            "title",
+            "text"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 3,
+        "maxItems": 3
+      }
+    },
+    "required": [
+      "eyebrowBrand",
+      "eyebrowByline",
+      "eyebrowLinkLabel",
+      "eyebrowLinkHref",
+      "headline",
+      "subheadline",
+      "primaryCta",
+      "secondaryCta",
+      "requirementsNote",
+      "mobileSignUp",
+      "video",
+      "introVideoId",
+      "pillars"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "entrance-hero-rise"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Headline 34 to 48; lead 16 to 18; CTAs row instead of column; top padding 140 to 160."
+    },
+    {
+      "at": "{foundation.breakpoint.600}",
+      "change": "Pillar descriptions appear; pillar gap 8 to 48."
+    },
+    {
+      "at": "{foundation.breakpoint.624}",
+      "change": "Mobile-device UA swaps the CTA block to a single sign-up button (UA based, not width based)."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "shell.navbar"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "paddingTop": "{sectionPadding.hero-top-narrow} below 480, {sectionPadding.hero-top} from 480",
+    "align": "centred column"
+  },
+  "measuredFrom": [
+    "jsx.hero.section",
+    "spec.hero",
+    "spec.persona.diff"
+  ],
+  "personaVariants": "On persona routes only headline, subheadline and the persona-tabs initialTab differ. Subheadline without a newline renders one span."
+}

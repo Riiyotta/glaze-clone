@@ -1,0 +1,114 @@
+{
+  "registryId": "primitive.image",
+  "version": "1.0.0",
+  "category": "media",
+  "description": "Image, avatar and looping video frames. Every media field in a PageSpec must declare an assetRole from assets/asset-roles.json.",
+  "props": {
+    "kind": {
+      "enum": [
+        "video-loop",
+        "feature-image",
+        "avatar",
+        "app-icon-image",
+        "logo-svg"
+      ]
+    },
+    "assetRole": {
+      "type": "string",
+      "description": "Must be a key in assets/asset-roles.json"
+    },
+    "alt": {
+      "type": "string",
+      "maxWords": 20
+    },
+    "aspect": {
+      "type": "string"
+    }
+  },
+  "variants": {
+    "video-loop": {
+      "radius": {
+        "narrow": "{radius.card}",
+        "wide": "{radius.media}"
+      },
+      "scrim": "{color.scrim.video}",
+      "scrimHover": "{color.scrim.video-hover}",
+      "playIconSize": "{foundation.iconSize.48}",
+      "playIconOpacity": "{foundation.opacity.hover-accent}",
+      "states": {
+        "hover": {
+          "scrim": "{color.scrim.video-hover}",
+          "playIconScale": "{foundation.scale.hover-play}",
+          "playIconOpacity": "{foundation.opacity.full}"
+        },
+        "transition": "{motion.recipe.hover.colors}",
+        "iconTransition": {
+          "duration": "{foundation.duration.150}",
+          "easing": "{foundation.easing.standard}",
+          "properties": [
+            "all"
+          ]
+        }
+      },
+      "autoplay": "muted loop playsinline; see motion.recipe.video.autoplay",
+      "cite": [
+        "jsx.hero.video",
+        "jsx.hero.scrim",
+        "jsx.hero.play"
+      ]
+    },
+    "feature-image": {
+      "markup": "<picture> with a desktop source at min-width {foundation.breakpoint.800}, mobile image otherwise",
+      "selectable": false,
+      "cite": [
+        "jsx.feature.picture"
+      ]
+    },
+    "avatar": {
+      "size": "{appCard.avatarSize}",
+      "radius": "{radius.avatar}",
+      "fit": "cover",
+      "cite": [
+        "jsx.appcard.author"
+      ]
+    },
+    "app-icon-image": {
+      "scale": "{foundation.scale.app-icon-image}",
+      "fit": "cover",
+      "note": "Always rendered through primitive.app-icon.",
+      "cite": [
+        "jsx.appicon.img"
+      ]
+    },
+    "logo-svg": {
+      "heightDesktop": "{navPill.logoHeight}",
+      "heightMobile": "{mobilePanel.logoHeight}",
+      "assetRole": "brand.wordmark",
+      "cite": [
+        "jsx.navpill.logo"
+      ]
+    }
+  },
+  "tokens": [
+    "radius.card",
+    "radius.media",
+    "color.scrim.video",
+    "color.scrim.video-hover",
+    "foundation.iconSize.48",
+    "foundation.scale.hover-play",
+    "foundation.scale.app-icon-image",
+    "appCard.avatarSize",
+    "radius.avatar",
+    "navPill.logoHeight",
+    "mobilePanel.logoHeight"
+  ],
+  "a11y": {
+    "video": "The whole video card is role=button, tabIndex 0, opens the overlay on Enter or Space; context menu suppressed.",
+    "decorative": "Hero play icon alt 'Play'; button-internal play icons alt ''."
+  },
+  "measuredFrom": [
+    "jsx.hero.video",
+    "jsx.feature.picture",
+    "jsx.appcard.author"
+  ]
+}

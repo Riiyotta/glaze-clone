@@ -1,0 +1,49 @@
+{
+  "version": "1.0.0",
+  "description": "Rules for using tokens. Category names are the real keys in token-catalog.json (byCategory), so verify_all.py can resolve them.",
+  "rules": {
+    "rawValueRestrictions": {
+      "color": "forbidden in primitives/, components/, sections/: use a token reference",
+      "semanticColor": "forbidden in primitives/, components/, sections/: use a token reference",
+      "fontSize": "forbidden in primitives/, components/, sections/: use a token reference",
+      "fontFamily": "forbidden in primitives/, components/, sections/: use a token reference",
+      "fontWeight": "forbidden in primitives/, components/, sections/: use a token reference",
+      "lineHeight": "forbidden in primitives/, components/, sections/: use a token reference",
+      "letterSpacing": "forbidden in primitives/, components/, sections/: use a token reference",
+      "spacing": "forbidden in primitives/, components/, sections/: use a token reference",
+      "radius": "forbidden in primitives/, components/, sections/: use a token reference",
+      "elevation": "forbidden in primitives/, components/, sections/: use a token reference",
+      "blur": "forbidden in primitives/, components/, sections/: use a token reference",
+      "breakpoint": "forbidden in primitives/, components/, sections/: use a token reference",
+      "motion": "forbidden in primitives/, components/, sections/: use a token reference",
+      "zIndex": "forbidden in primitives/, components/, sections/: use a token reference",
+      "iconSize": "forbidden in primitives/, components/, sections/: use a token reference"
+    },
+    "referenceSyntax": "{path.to.token} resolving against tokens/ (see tokens/tokens_lib.py)",
+    "rawLintCoverage": "Hex colours, rgba(), cubic-bezier() and N px values outside {refs}, in every string except keys listed in rawLintExemptKeys"
+  },
+  "rawLintExemptKeys": [
+    "description",
+    "$description",
+    "note",
+    "$note",
+    "purpose",
+    "scope",
+    "change",
+    "quirk",
+    "licensing",
+    "guidance",
+    "browserNotes",
+    "text",
+    "measuredFrom",
+    "cite",
+    "a11y",
+    "squircle",
+    "evidence"
+  ],
+  "notGenerationApproved": [
+    "foundation.color.support.*"
+  ],
+  "notGenerationApprovedReason": "Defined in the source theme but not used on any built route.",
+  "overrides": "PageSpecs have no per-instance style or token-override field, so there is nothing to validate at the PageSpec layer. Styling belongs to the section and component contracts. Drift of this policy against the catalog is caught by verify_all.py instead."
+}

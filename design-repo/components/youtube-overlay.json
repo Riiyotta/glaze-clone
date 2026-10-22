@@ -1,0 +1,61 @@
+{
+  "registryId": "component.youtube-overlay",
+  "version": "1.0.0",
+  "category": "overlay",
+  "description": "Full-screen video dialog. No entrance animation. Scroll locked while open; closes on Esc, backdrop click or the close button.",
+  "composes": [
+    "primitive.button",
+    "primitive.icon"
+  ],
+  "props": {
+    "embedUrl": {
+      "type": "string",
+      "description": "Third-party embed; not cloned."
+    },
+    "aspect": {
+      "enum": [
+        "16/9",
+        "4/3"
+      ],
+      "default": "16/9"
+    },
+    "closeLabel": {
+      "type": "string",
+      "maxWords": 3
+    }
+  },
+  "layout": {
+    "backdrop": {
+      "background": "{color.scrim.overlay}",
+      "blur": "{blur.scrim}",
+      "zIndex": "{zIndex.video-overlay}"
+    },
+    "close": {
+      "variant": "primitive.button#icon-close",
+      "inset": "{overlay.closeInset}",
+      "insetWide": "{overlay.closeInsetWide}"
+    },
+    "frame": {
+      "maxWidth": "{container.video-frame}",
+      "radius": "{overlay.frameRadius}",
+      "border": "{color.border.separator}"
+    }
+  },
+  "motion": {
+    "entrance": "none"
+  },
+  "tokens": [
+    "color.scrim.overlay",
+    "blur.scrim",
+    "zIndex.video-overlay",
+    "overlay.closeInset",
+    "overlay.closeInsetWide",
+    "container.video-frame",
+    "overlay.frameRadius",
+    "color.border.separator"
+  ],
+  "measuredFrom": [
+    "jsx.overlay.backdrop",
+    "spec.overlays"
+  ]
+}

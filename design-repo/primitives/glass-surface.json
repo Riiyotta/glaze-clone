@@ -1,0 +1,90 @@
+{
+  "registryId": "primitive.glass-surface",
+  "version": "1.0.0",
+  "category": "surface",
+  "description": "The 'liquid glass' surface: translucent grey with blur and saturation. Used by the nav pill, mobile panel, persona dropdown trigger and close buttons.",
+  "variants": {
+    "glass": {
+      "background": "{color.surface.glass}",
+      "border": "{color.border.glass}",
+      "blur": "{blur.glass}",
+      "saturate": "{foundation.saturate.glass}",
+      "cssClass": ".liquid-glass",
+      "cite": [
+        "css.liquid-glass"
+      ]
+    },
+    "glass-interactive": {
+      "extends": "glass",
+      "states": {
+        "focus-within": {
+          "background": "{color.surface.glass-focus}",
+          "transition": {
+            "duration": "{foundation.duration.100}",
+            "properties": [
+              "background"
+            ]
+          }
+        }
+      },
+      "cssClass": ".liquid-glass-interactive",
+      "cite": [
+        "css.glass-interactive"
+      ]
+    },
+    "glass-open": {
+      "extends": "glass",
+      "background": "{color.surface.glass-open}",
+      "border": "{color.border.glass-open}",
+      "blur": "{blur.glass-strong}",
+      "saturate": "{foundation.saturate.glass-open}",
+      "shadow": "{elevation.mobile-nav-open}",
+      "cssClass": ".mobile-nav-panel-open",
+      "cite": [
+        "css.mobile-nav-open"
+      ]
+    },
+    "popover": {
+      "background": "{color.surface.popover}",
+      "border": "{color.border.separator}",
+      "blur": "{blur.glass-strong}",
+      "radius": "{radius.popover}",
+      "shadow": "{elevation.dropdown-menu}",
+      "cite": [
+        "jsx.dropdown.popup"
+      ]
+    },
+    "well": {
+      "background": "{color.surface.well}",
+      "radius": "{radius.card}",
+      "note": "Opaque, no blur: feature cards.",
+      "cite": [
+        "jsx.feature.card"
+      ]
+    }
+  },
+  "tokens": [
+    "color.surface.glass",
+    "color.border.glass",
+    "blur.glass",
+    "foundation.saturate.glass",
+    "color.surface.glass-focus",
+    "color.surface.glass-open",
+    "color.border.glass-open",
+    "blur.glass-strong",
+    "foundation.saturate.glass-open",
+    "elevation.mobile-nav-open",
+    "color.surface.popover",
+    "radius.popover",
+    "elevation.dropdown-menu",
+    "color.surface.well",
+    "radius.card"
+  ],
+  "browserNotes": "Firefox: .site-navigation drops will-change/backface-visibility/transform (src/index.css @supports -moz-appearance).",
+  "measuredFrom": [
+    "css.liquid-glass",
+    "css.glass-interactive",
+    "css.mobile-nav-open",
+    "spec.glass"
+  ]
+}

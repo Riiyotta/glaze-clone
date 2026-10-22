@@ -1,0 +1,105 @@
+{
+  "id": "section.support.faq",
+  "typeId": "support.faq",
+  "registryId": "section.support.faq",
+  "version": "1.0.0",
+  "category": "support",
+  "purpose": "Single-open accordion that dims once scrolled past.",
+  "scope": "Landing and persona routes.",
+  "composes": [
+    "component.faq-item"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "maxWords": 2
+      },
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "question": {
+              "type": "string",
+              "maxWords": 14
+            },
+            "answer": {
+              "type": "string",
+              "maxWords": 60
+            },
+            "link": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "maxWords": 4
+                },
+                "href": {
+                  "type": "string"
+                },
+                "after": {
+                  "type": "string",
+                  "maxWords": 4
+                }
+              },
+              "required": [
+                "label",
+                "href"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "question",
+            "answer"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 1,
+        "maxItems": 12
+      }
+    },
+    "required": [
+      "title",
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "accordion-and-dim"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Title 30 to 44; question 16 to 20; answer 14 to 16."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true
+  },
+  "containerRules": {
+    "width": "{container.content}",
+    "gutter": "{space.page-gutter}",
+    "marginTop": "{space.section-gap} below 480, {space.section-gap-wide} from 480",
+    "scrollMargin": "{foundation.space.40}"
+  },
+  "measuredFrom": [
+    "jsx.faq.root",
+    "spec.faq"
+  ]
+}

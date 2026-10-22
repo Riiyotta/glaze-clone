@@ -1,0 +1,85 @@
+{
+  "version": "1.0.0",
+  "description": "Closed list of what an AI generation pipeline may reference or set. extraction/verify_all.py checks parity with the real contract files (no phantom entries, no orphans) and that this version equals registry.manifest.json allowlistVersion.",
+  "primitives": [
+    "primitive.app-icon",
+    "primitive.badge",
+    "primitive.button",
+    "primitive.container",
+    "primitive.divider",
+    "primitive.glass-surface",
+    "primitive.icon",
+    "primitive.image",
+    "primitive.link",
+    "primitive.text"
+  ],
+  "components": [
+    "component.app-card",
+    "component.faq-item",
+    "component.feature-card",
+    "component.glaze-icon-burst",
+    "component.mobile-menu-panel",
+    "component.nav-pill",
+    "component.persona-dropdown",
+    "component.persona-tabs",
+    "component.pillar",
+    "component.team-logo-grid",
+    "component.youtube-overlay"
+  ],
+  "sections": [
+    "section.content.not-found-block",
+    "section.cta.download-icon",
+    "section.features.feature-grid",
+    "section.hero.landing-hero",
+    "section.shell.footer",
+    "section.shell.navbar",
+    "section.shell.youtube-overlay",
+    "section.showcase.persona-tabs",
+    "section.support.faq"
+  ],
+  "templates": [
+    "template.landing",
+    "template.not-found",
+    "template.persona"
+  ],
+  "settableNodeProperties": [
+    "id",
+    "type",
+    "content",
+    "motion"
+  ],
+  "settableMotionFields": [
+    "pattern",
+    "delayMs",
+    "reducedMotionFallback"
+  ],
+  "settablePageProperties": [
+    "id",
+    "route",
+    "template",
+    "theme",
+    "head",
+    "nodes"
+  ],
+  "settableHeadFields": [
+    "title",
+    "description",
+    "robots"
+  ],
+  "assetRoles": [
+    "app.icon",
+    "avatar.person",
+    "badge.award",
+    "brand.app-icon",
+    "brand.wordmark",
+    "embed.video",
+    "logo.partner",
+    "particle.app-icon",
+    "screenshot.feature",
+    "video.hero-loop"
+  ],
+  "notSettable": [
+    "raw colours, sizes, durations or easings anywhere in a PageSpec (PageSpecs carry no token-override field; styling belongs to section/component contracts)",
+    "any property not listed above"
+  ]
+}

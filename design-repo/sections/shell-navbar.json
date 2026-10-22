@@ -1,0 +1,152 @@
+{
+  "id": "section.shell.navbar",
+  "typeId": "shell.navbar",
+  "registryId": "section.shell.navbar",
+  "version": "1.0.0",
+  "category": "shell",
+  "purpose": "Fixed top navigation: glass pill from 624px, collapsible glass panel below.",
+  "scope": "All routes in scope (/, five persona routes, 404).",
+  "composes": [
+    "component.nav-pill",
+    "component.mobile-menu-panel"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "links": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "maxWords": 4
+            },
+            "href": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "label",
+            "href"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 1,
+        "maxItems": 5
+      },
+      "activeLinkHref": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "Link to mark active; null on persona routes and 404."
+      },
+      "signInLabel": {
+        "type": "string",
+        "maxWords": 2
+      },
+      "signInHref": {
+        "type": "string"
+      },
+      "downloadLabel": {
+        "type": "string",
+        "maxWords": 2
+      },
+      "downloadHref": {
+        "type": "string"
+      },
+      "socials": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "platform": {
+              "type": "string",
+              "enum": [
+                "x",
+                "slack",
+                "youtube",
+                "reddit"
+              ]
+            },
+            "href": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "platform",
+            "href"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 0,
+        "maxItems": 4
+      },
+      "creditLabel": {
+        "type": "string",
+        "maxWords": 4
+      },
+      "creditHref": {
+        "type": "string"
+      },
+      "logoAssetRole": {
+        "const": "brand.wordmark"
+      },
+      "logoAssetRef": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "links",
+      "signInLabel",
+      "signInHref",
+      "downloadLabel",
+      "downloadHref",
+      "socials",
+      "creditLabel",
+      "creditHref",
+      "logoAssetRole",
+      "logoAssetRef"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "nav-active-dot",
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.624}",
+      "change": "Mobile panel below, desktop pill from this width; menu auto-closes when widened."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustBeFirst": true
+  },
+  "containerRules": {
+    "width": "full viewport, fixed",
+    "inset": "{space.nav-inset-top} below 624, {space.nav-inset-top-wide} from 624",
+    "gutter": "{space.page-gutter} below 624, none from 624",
+    "zIndex": "{zIndex.nav}"
+  },
+  "measuredFrom": [
+    "jsx.nav.root",
+    "spec.nav.desktop",
+    "spec.nav.mobile"
+  ]
+}

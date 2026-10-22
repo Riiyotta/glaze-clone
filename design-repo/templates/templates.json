@@ -1,0 +1,270 @@
+{
+  "description": "Three page shapes cover the two built route families: the landing page (and five persona variants) and the 404. Out of scope by decision: pricing, download, awards, legal, blog, changelog, store and app-detail templates (listed in the repo-level IA, still being built). Add a template by appending an entry here, section contracts under sections/, the allowlist, graph and schema (see README 'Adding a template').",
+  "scope": {
+    "built": [
+      "/",
+      "/designers",
+      "/product-managers",
+      "/engineers",
+      "/creators",
+      "/teams",
+      "/* (404)"
+    ],
+    "notModelled": "Every other route in the repo-level IA. Do not guess their structure from this repo."
+  },
+  "templates": {
+    "template.landing": {
+      "id": "template.landing",
+      "version": "1.0.0",
+      "name": "Landing page",
+      "routes": [
+        "/"
+      ],
+      "routeKind": "static",
+      "evidence": "measured",
+      "description": "Home page. Hero, persona showcase, feature grid, FAQ, download CTA, footer, video overlay.",
+      "nodes": [
+        {
+          "section": "shell.navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "hero.landing-hero",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "showcase.persona-tabs",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "features.feature-grid",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "support.faq",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "cta.download-icon",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "shell.footer",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "shell.youtube-overlay",
+          "required": true,
+          "repeatable": false
+        }
+      ],
+      "constraints": {
+        "requiredInitialTab": "personal",
+        "navActiveLinkHref": "/"
+      },
+      "containers": [
+        {
+          "id": "nav-layer",
+          "kind": "fixed-chrome",
+          "holds": [
+            "shell.navbar"
+          ],
+          "note": "Rendered by the router layout outside <main>."
+        },
+        {
+          "id": "main",
+          "kind": "main",
+          "classContract": "flex column, min-height 100dvh",
+          "holds": [
+            "hero.landing-hero",
+            "below-fold",
+            "shell.youtube-overlay"
+          ]
+        },
+        {
+          "id": "below-fold",
+          "kind": "motion-wrapper",
+          "holds": [
+            "showcase.persona-tabs",
+            "features.feature-grid",
+            "support.faq",
+            "cta.download-icon",
+            "shell.footer"
+          ],
+          "motion": "{motion.recipe.entrance.below-fold}",
+          "layout": "block, sections stack with their own top margins"
+        }
+      ],
+      "cite": [
+        "jsx.landing.root",
+        "ia.template.landing"
+      ]
+    },
+    "template.persona": {
+      "id": "template.persona",
+      "version": "1.0.0",
+      "name": "Persona landing",
+      "routes": [
+        "/designers",
+        "/product-managers",
+        "/engineers",
+        "/creators",
+        "/teams"
+      ],
+      "routeKind": "fixed-set",
+      "evidence": "measured",
+      "description": "Same section list as the landing page. Only hero headline, hero subheadline and the preselected tab change. Nav has no active link.",
+      "nodes": [
+        {
+          "section": "shell.navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "hero.landing-hero",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "showcase.persona-tabs",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "features.feature-grid",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "support.faq",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "cta.download-icon",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "shell.footer",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "shell.youtube-overlay",
+          "required": true,
+          "repeatable": false
+        }
+      ],
+      "constraints": {
+        "navActiveLinkHref": null,
+        "routeInitialTab": {
+          "/designers": "design",
+          "/product-managers": "personal",
+          "/engineers": "development",
+          "/creators": "creativity",
+          "/teams": "teams"
+        }
+      },
+      "containers": [
+        {
+          "id": "nav-layer",
+          "kind": "fixed-chrome",
+          "holds": [
+            "shell.navbar"
+          ]
+        },
+        {
+          "id": "main",
+          "kind": "main",
+          "classContract": "flex column, min-height 100dvh",
+          "holds": [
+            "hero.landing-hero",
+            "below-fold",
+            "shell.youtube-overlay"
+          ]
+        },
+        {
+          "id": "below-fold",
+          "kind": "motion-wrapper",
+          "holds": [
+            "showcase.persona-tabs",
+            "features.feature-grid",
+            "support.faq",
+            "cta.download-icon",
+            "shell.footer"
+          ],
+          "motion": "{motion.recipe.entrance.below-fold}"
+        }
+      ],
+      "unlistedSlugs": "Six showcase tab ids (design, development, creativity, personal, fun, productivity) are NOT routes; they render template.not-found.",
+      "cite": [
+        "jsx.landing.root",
+        "spec.persona.diff",
+        "ia.template.persona"
+      ]
+    },
+    "template.not-found": {
+      "id": "template.not-found",
+      "version": "1.0.0",
+      "name": "Not found",
+      "routes": [
+        "/*"
+      ],
+      "routeKind": "catch-all",
+      "evidence": "measured",
+      "description": "HTTP 404 page for /m, the six non-route persona slugs and any unknown path. No entrance animations.",
+      "nodes": [
+        {
+          "section": "shell.navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "content.not-found-block",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "shell.footer",
+          "required": true,
+          "repeatable": false
+        }
+      ],
+      "constraints": {
+        "navActiveLinkHref": null,
+        "noHero": true
+      },
+      "containers": [
+        {
+          "id": "nav-layer",
+          "kind": "fixed-chrome",
+          "holds": [
+            "shell.navbar"
+          ]
+        },
+        {
+          "id": "main",
+          "kind": "main",
+          "classContract": "flex column, min-height 100dvh; content block flex-1 and centred, footer after",
+          "holds": [
+            "content.not-found-block",
+            "shell.footer"
+          ]
+        }
+      ],
+      "cite": [
+        "jsx.notfound.page",
+        "spec.404",
+        "ia.template.not-found"
+      ]
+    }
+  }
+}

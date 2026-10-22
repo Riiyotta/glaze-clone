@@ -1,0 +1,98 @@
+{
+  "registryId": "primitive.text",
+  "version": "1.0.0",
+  "category": "typography",
+  "description": "Heading, eyebrow and body roles. A text node picks exactly one role; sizes, weights and tracking come only from tokens/10-semantic/typography.json.",
+  "props": {
+    "role": {
+      "enum": [
+        "display.hero",
+        "display.section",
+        "heading.card",
+        "heading.panel",
+        "eyebrow",
+        "body.lead",
+        "body.panel",
+        "body.card",
+        "body.answer",
+        "body.error",
+        "caption",
+        "meta"
+      ]
+    },
+    "as": {
+      "enum": [
+        "h1",
+        "h2",
+        "h3",
+        "p",
+        "span"
+      ]
+    },
+    "text": {
+      "type": "string"
+    },
+    "balance": {
+      "type": "boolean",
+      "default": true,
+      "description": "text-wrap: balance, used on every heading and lead paragraph."
+    },
+    "lineBreak": {
+      "type": "string",
+      "description": "A newline in the string becomes a <br>; in body.lead it is visible only from the 480 breakpoint."
+    }
+  },
+  "roles": {
+    "display.hero": "{typography.display.hero}",
+    "display.section": "{typography.display.section}",
+    "heading.card": "{typography.heading.card}",
+    "heading.panel": "{typography.heading.panel}",
+    "eyebrow": "{typography.eyebrow}",
+    "body.lead": "{typography.body.lead}",
+    "body.panel": "{typography.body.panel}",
+    "body.card": "{typography.body.card}",
+    "body.answer": "{typography.body.answer}",
+    "body.error": "{typography.body.error}",
+    "caption": "{typography.caption}",
+    "meta": "{typography.meta}"
+  },
+  "colourByRole": {
+    "display.hero": "{color.text.primary}",
+    "display.section": "{color.text.primary}",
+    "heading.card": "{color.text.primary}",
+    "heading.panel": "{color.text.primary}",
+    "eyebrow": "{color.text.primary}+{color.text.secondary}",
+    "body.lead": "{color.text.tertiary}",
+    "body.panel": "{color.text.secondary}",
+    "body.card": "{color.text.secondary}",
+    "body.answer": "{color.text.secondary}",
+    "body.error": "{color.text.secondary}",
+    "caption": "{color.text.tertiary}",
+    "meta": "{color.text.secondary}"
+  },
+  "tokens": [
+    "typography.display.hero",
+    "typography.display.section",
+    "typography.heading.card",
+    "typography.heading.panel",
+    "typography.eyebrow",
+    "typography.body.lead",
+    "typography.body.panel",
+    "typography.body.card",
+    "typography.body.answer",
+    "typography.body.error",
+    "typography.caption",
+    "typography.meta",
+    "color.text.primary",
+    "color.text.secondary",
+    "color.text.tertiary"
+  ],
+  "responsive": {
+    "note": "Role sizes change at the breakpoints listed per role in tokens/10-semantic/typography.json (480, 600, 800)."
+  },
+  "measuredFrom": [
+    "spec.type.scale",
+    "spec.hero.h1",
+    "jsx.hero.sub"
+  ]
+}

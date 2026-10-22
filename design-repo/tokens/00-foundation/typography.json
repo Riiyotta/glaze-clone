@@ -1,0 +1,59 @@
+{
+  "$description": "Foundation type primitives (CLONE_SPEC 1.1 and 1.4, tailwind.config.js fontFamily/fontSize/lineHeight). The clone runs on Tailwind v3 defaults plus three custom sizes (2xs, md, hero). rem = 16px.",
+  "foundation": {
+    "font": {
+      "family": {
+        "sans": { "$type": "fontFamily", "$value": ["Inter", "sans-serif"], "$description": "Body default.", "$extensions": { "cite": ["tw.font.family", "css.fontface.inter"] } },
+        "display": { "$type": "fontFamily", "$value": ["Instrument Sans", "sans-serif"], "$description": "All headings (class font-display).", "$extensions": { "cite": ["tw.font.family", "css.fontface.instrument"] } },
+        "mono": { "$type": "fontFamily", "$value": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"], "$description": "Only used by an inactive promo eyebrow on the live site; not rendered on / or /m.", "$extensions": { "cite": ["tw.font.family"], "usedOnBuiltRoutes": false } }
+      },
+      "weight": {
+        "regular": { "$type": "fontWeight", "$value": 400, "$extensions": { "cite": ["spec.type.weights"] } },
+        "medium": { "$type": "fontWeight", "$value": 500, "$description": "Every heading, label and button.", "$extensions": { "cite": ["spec.type.weights"] } }
+      },
+      "size": {
+        "2xs": { "$type": "dimension", "$value": "10px", "$extensions": { "cite": ["tw.font.size"], "usedOnBuiltRoutes": false } },
+        "xs": { "$type": "dimension", "$value": "12px", "$extensions": { "cite": ["spec.type.scale"] } },
+        "meta": { "$type": "dimension", "$value": "13px", "$description": "App-card author line (arbitrary text-[13px] in source).", "$extensions": { "cite": ["jsx.appcard.author"] } },
+        "sm": { "$type": "dimension", "$value": "14px", "$extensions": { "cite": ["spec.type.scale"] } },
+        "md": { "$type": "dimension", "$value": "15px", "$extensions": { "cite": ["tw.font.size"] } },
+        "base": { "$type": "dimension", "$value": "16px", "$extensions": { "cite": ["spec.type.scale"] } },
+        "lg": { "$type": "dimension", "$value": "18px", "$extensions": { "cite": ["spec.type.scale"] } },
+        "xl": { "$type": "dimension", "$value": "20px", "$extensions": { "cite": ["spec.type.scale"] } },
+        "2xl": { "$type": "dimension", "$value": "24px", "$extensions": { "cite": ["spec.type.scale"] } },
+        "3xl": { "$type": "dimension", "$value": "30px", "$extensions": { "cite": ["spec.type.scale"] } },
+        "hero": { "$type": "dimension", "$value": "34px", "$extensions": { "cite": ["tw.font.size"] } },
+        "display": { "$type": "dimension", "$value": "44px", "$description": "Arbitrary text-[44px] in source (FAQ, CTA, 404 titles).", "$extensions": { "cite": ["jsx.faq.title"] } },
+        "5xl": { "$type": "dimension", "$value": "48px", "$extensions": { "cite": ["spec.type.scale"] } }
+      },
+      "lineHeight": {
+        "none": { "$type": "number", "$value": 1, "$extensions": { "cite": ["jsx.navpill.link"] } },
+        "hero": { "$type": "number", "$value": 1.1, "$description": "leading-hero and every leading-[1.1].", "$extensions": { "cite": ["tw.font.lineheight"] } },
+        "tight": { "$type": "number", "$value": 1.25, "$extensions": { "cite": ["spec.type.scale"] } },
+        "caption": { "$type": "number", "$value": 1.35, "$extensions": { "cite": ["jsx.hero.note"] } },
+        "snug": { "$type": "number", "$value": 1.375, "$extensions": { "cite": ["spec.type.scale"] } },
+        "card": { "$type": "number", "$value": 1.4, "$extensions": { "cite": ["jsx.feature.body"] } },
+        "relaxed": { "$type": "number", "$value": 1.625, "$extensions": { "cite": ["spec.type.scale"] } },
+        "fixed-16": { "$type": "dimension", "$value": "16px", "$description": "text-xs / app-card author leading-4.", "$extensions": { "cite": ["spec.type.scale"] } },
+        "fixed-20": { "$type": "dimension", "$value": "20px", "$description": "text-sm default leading.", "$extensions": { "cite": ["spec.type.scale"] } },
+        "fixed-24": { "$type": "dimension", "$value": "24px", "$extensions": { "cite": ["spec.type.scale"] } },
+        "fixed-28": { "$type": "dimension", "$value": "28px", "$extensions": { "cite": ["spec.type.scale"] } },
+        "fixed-30": { "$type": "dimension", "$value": "30px", "$description": "Mobile menu Sign In.", "$extensions": { "cite": ["jsx.mobilemenu.signin"] } },
+        "fixed-33": { "$type": "dimension", "$value": "33px", "$description": "Mobile menu links.", "$extensions": { "cite": ["jsx.mobilemenu.link"] } }
+      },
+      "letterSpacing": {
+        "tight": { "$type": "dimension", "$value": "-0.025em", "$description": "tracking-tight on every display heading (-1.2px at 48px, -1.1px at 44px, -0.75px at 30px).", "$extensions": { "cite": ["spec.type.scale"] } },
+        "normal": { "$type": "dimension", "$value": "0em" }
+      }
+    }
+  },
+  "$extensions": {
+    "fontFaces": {
+      "$description": "Self-hosted variable fonts. Files live in the host app at /assets/fonts/ and are NOT shipped in this repo (licensing: Inter and Instrument Sans are SIL OFL, but the hashed subsets are the source site's build output). Only the two latin files load on the measured pages.",
+      "faces": [
+        { "family": "Inter", "weightRange": "100 900", "style": "normal", "display": "swap", "subsets": ["latin", "latin-ext"], "cite": "css.fontface.inter" },
+        { "family": "Instrument Sans", "weightRange": "400 700", "style": "normal", "display": "swap", "subsets": ["latin", "latin-ext"], "cite": "css.fontface.instrument" }
+      ]
+    }
+  }
+}

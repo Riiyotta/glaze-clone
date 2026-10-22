@@ -1,0 +1,143 @@
+{
+  "id": "section.features.feature-grid",
+  "typeId": "features.feature-grid",
+  "registryId": "section.features.feature-grid",
+  "version": "1.0.0",
+  "category": "features",
+  "purpose": "Feature cards laid out in rows of one or two.",
+  "scope": "Landing and persona routes.",
+  "composes": [
+    "component.feature-card"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "rows": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "cards": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "maxWords": 5
+                  },
+                  "description": {
+                    "type": "string",
+                    "maxWords": 24
+                  },
+                  "desktopImage": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "const": "screenshot.feature"
+                      },
+                      "assetRef": {
+                        "type": "string"
+                      },
+                      "alt": {
+                        "type": "string",
+                        "maxWords": 16
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "assetRef"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "mobileImage": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "const": "screenshot.feature"
+                      },
+                      "assetRef": {
+                        "type": "string"
+                      },
+                      "alt": {
+                        "type": "string",
+                        "maxWords": 16
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "assetRef"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "demoLabel": {
+                    "type": "string",
+                    "maxWords": 3
+                  },
+                  "demoVideoId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "title",
+                  "description",
+                  "desktopImage",
+                  "mobileImage"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "cards"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 1,
+        "maxItems": 6
+      }
+    },
+    "required": [
+      "rows"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.800}",
+      "change": "Two-card rows become two columns; desktop images replace mobile images; type and padding grow."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "marginTop": "{space.section-gap} below 480, {space.section-gap-wide} from 480",
+    "rowGap": "{space.card-gap} below 800, {space.card-gap-wide} from 800",
+    "scrollMargin": "{foundation.space.20}"
+  },
+  "measuredFrom": [
+    "jsx.feature.root",
+    "spec.features"
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "registryId": "component.mobile-menu-panel",
+  "version": "1.0.0",
+  "category": "shell",
+  "description": "Mobile navigation below 624px: a glass panel that is 52px tall collapsed and grows to fit its content. Burger toggles; a blurred backdrop closes it.",
+  "composes": [
+    "primitive.glass-surface",
+    "primitive.link",
+    "primitive.divider",
+    "primitive.image",
+    "primitive.icon"
+  ],
+  "props": {
+    "links": {
+      "type": "array",
+      "maxItems": 5
+    },
+    "signInLabel": {
+      "type": "string",
+      "maxWords": 2
+    },
+    "socials": {
+      "type": "array",
+      "maxItems": 4,
+      "items": {
+        "enum": [
+          "social-x",
+          "social-slack",
+          "social-youtube",
+          "social-reddit"
+        ]
+      }
+    },
+    "creditLabel": {
+      "type": "string",
+      "maxWords": 4
+    }
+  },
+  "layout": {
+    "top": "{space.nav-inset-top}",
+    "sidePadding": "{space.page-gutter}",
+    "collapsedHeight": "{mobilePanel.collapsedHeight}",
+    "headerHeight": "{mobilePanel.headerHeight}",
+    "contentPadding": "{mobilePanel.padding}",
+    "radius": "{mobilePanel.radius}",
+    "maxHeight": "viewport height minus 16",
+    "surface": "primitive.glass-surface#glass, then #glass-open when expanded",
+    "zIndexOpen": "{zIndex.nav-open}",
+    "backdropBlur": "{blur.menu-backdrop}",
+    "backdropZ": {
+      "closed": "{zIndex.nav-backdrop-closed}",
+      "open": "{zIndex.nav-backdrop-open}"
+    }
+  },
+  "states": {
+    "open": {
+      "height": "header + content scrollHeight + 2px border",
+      "bodyScroll": "locked (overflow hidden)",
+      "burger": "two bars rotate 45deg, translate 2px"
+    },
+    "closed": {
+      "burger": "bars at -3px and +3px",
+      "contentOpacity": 0
+    },
+    "link-hover": {
+      "text": "{color.text.primary}"
+    }
+  },
+  "motion": {
+    "height": "{motion.recipe.nav.panel-height}",
+    "content": "{motion.recipe.nav.panel-content}",
+    "burger": "{motion.recipe.nav.burger}",
+    "backdrop": "{motion.recipe.nav.backdrop}",
+    "linkHandoff": "{motion.recipe.nav.link-handoff}"
+  },
+  "responsive": {
+    "showBelow": "{foundation.breakpoint.624}",
+    "autoCloseAt": "{foundation.breakpoint.624}"
+  },
+  "tokens": [
+    "mobilePanel.collapsedHeight",
+    "mobilePanel.headerHeight",
+    "mobilePanel.padding",
+    "mobilePanel.radius",
+    "space.nav-inset-top",
+    "space.page-gutter",
+    "zIndex.nav-open",
+    "zIndex.nav-backdrop-open",
+    "zIndex.nav-backdrop-closed",
+    "blur.menu-backdrop",
+    "motion.recipe.nav.panel-height",
+    "motion.recipe.nav.panel-content",
+    "motion.recipe.nav.burger",
+    "motion.recipe.nav.backdrop",
+    "motion.recipe.nav.link-handoff",
+    "foundation.breakpoint.624"
+  ],
+  "measuredFrom": [
+    "spec.nav.mobile",
+    "jsx.mobilemenu.header",
+    "css.mobile-nav-panel"
+  ]
+}

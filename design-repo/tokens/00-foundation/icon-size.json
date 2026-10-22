@@ -1,0 +1,19 @@
+{
+  "$description": "Icon, logo and media box sizes as rendered (class sizes in src/components, CLONE_SPEC sections 2-4).",
+  "foundation": {
+    "iconSize": {
+      "14": { "$type": "dimension", "$value": "14px", "$description": "Dropdown chevron >=480.", "$extensions": { "cite": ["jsx.dropdown.chevron"] } },
+      "16": { "$type": "dimension", "$value": "16px", "$description": "Arrow, check, chevron <480, award badge, avatar.", "$extensions": { "cite": ["jsx.appcard.author", "jsx.persona.arrow"] } },
+      "18": { "$type": "dimension", "$value": "18px", "$description": "Apple glyph and play-circle in buttons.", "$extensions": { "cite": ["jsx.hero.reinvent"] } },
+      "20": { "$type": "dimension", "$value": "20px", "$description": "Social glyphs, FAQ chevron, close X, pillar icon <600, wordmark height desktop.", "$extensions": { "cite": ["jsx.faq.chevron-svg"] } },
+      "24": { "$type": "dimension", "$value": "24px", "$description": "Pillar icon >=600, social hit box, mobile wordmark height.", "$extensions": { "cite": ["jsx.hero.pillars"] } },
+      "48": { "$type": "dimension", "$value": "48px", "$description": "Video play-circle.", "$extensions": { "cite": ["jsx.hero.play"] } },
+      "56": { "$type": "dimension", "$value": "56px", "$description": "Team logo <600.", "$extensions": { "cite": ["jsx.persona.teamlogo"] } },
+      "64": { "$type": "dimension", "$value": "64px", "$description": "App icon <600; particle box <600.", "$extensions": { "cite": ["jsx.appicon.size", "css.icon-particle"] } },
+      "72": { "$type": "dimension", "$value": "72px", "$description": "Team logo >=600.", "$extensions": { "cite": ["jsx.persona.teamlogo"] } },
+      "80": { "$type": "dimension", "$value": "80px", "$description": "Glaze icon <480.", "$extensions": { "cite": ["jsx.glazeicon.img"] } },
+      "107": { "$type": "dimension", "$value": "107px", "$description": "Particle box >=600.", "$extensions": { "cite": ["css.icon-particle"] } },
+      "112": { "$type": "dimension", "$value": "112px", "$description": "App icon >=600; Glaze icon >=480.", "$extensions": { "cite": ["jsx.appicon.size", "jsx.glazeicon.img"] } }
+    }
+  }
+}

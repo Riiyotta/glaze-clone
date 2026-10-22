@@ -1,0 +1,78 @@
+{
+  "registryId": "component.glaze-icon-burst",
+  "version": "1.0.0",
+  "category": "cta",
+  "description": "Large app icon with a soft white glow. Click spawns 4 flying app icons from the icon centre under gravity. Shared by the download CTA and the 404.",
+  "composes": [
+    "primitive.image"
+  ],
+  "props": {
+    "iconAssetRole": {
+      "const": "brand.app-icon"
+    },
+    "particleAssetRole": {
+      "const": "particle.app-icon"
+    },
+    "alt": {
+      "type": "string",
+      "maxWords": 2
+    }
+  },
+  "layout": {
+    "size": {
+      "narrow": "{glazeIcon.size}",
+      "wide": "{glazeIcon.sizeWide}"
+    },
+    "marginBottom": "{glazeIcon.marginBottom}",
+    "glow": "{elevation.icon-glow}",
+    "iconZ": "{zIndex.glaze-icon}",
+    "particleLayerZ": "{zIndex.particle-layer}",
+    "particle": {
+      "size": "{particle.size}",
+      "sizeWide": "{particle.sizeWide}",
+      "imageRadius": "{particle.imageRadius}",
+      "imageRadiusWide": "{particle.imageRadiusWide}",
+      "shadow": "{elevation.particle}"
+    }
+  },
+  "states": {
+    "hover": {
+      "scale": "{foundation.scale.hover}"
+    },
+    "active": {
+      "scale": "{foundation.scale.press}"
+    },
+    "transition": "{motion.recipe.press.icon}"
+  },
+  "motion": {
+    "press": "{motion.recipe.press.icon}",
+    "burst": "{motion.recipe.particles.burst}"
+  },
+  "responsive": {
+    "particleBoxBreakpoint": "{foundation.breakpoint.600}",
+    "particleCentringBreakpoint": "{foundation.breakpoint.768}",
+    "iconBreakpoint": "{foundation.breakpoint.480}",
+    "quirk": "JS centring size is 56 below 768 while the CSS box is 64 below 600 and 107 from 600; kept as in the original."
+  },
+  "licensing": "The Glaze app icon and the 17 particle icons are the source brand's artwork. A generated page must reuse the shipped assets or omit the burst; never redraw the Glaze mark.",
+  "tokens": [
+    "glazeIcon.size",
+    "glazeIcon.sizeWide",
+    "glazeIcon.marginBottom",
+    "elevation.icon-glow",
+    "zIndex.glaze-icon",
+    "zIndex.particle-layer",
+    "particle.size",
+    "particle.sizeWide",
+    "elevation.particle",
+    "foundation.scale.hover",
+    "foundation.scale.press",
+    "motion.recipe.press.icon",
+    "motion.recipe.particles.burst"
+  ],
+  "measuredFrom": [
+    "jsx.glazeicon.root",
+    "js.particles.consts",
+    "spec.motion.m7"
+  ]
+}

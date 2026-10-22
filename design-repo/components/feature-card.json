@@ -1,0 +1,77 @@
+{
+  "registryId": "component.feature-card",
+  "version": "1.0.0",
+  "category": "features",
+  "description": "Feature tile on an opaque well: title, description, optional Watch Demo chip, then a picture that swaps to a mobile image below 800px.",
+  "composes": [
+    "primitive.glass-surface",
+    "primitive.text",
+    "primitive.button",
+    "primitive.image"
+  ],
+  "props": {
+    "title": {
+      "type": "string",
+      "maxWords": 5
+    },
+    "description": {
+      "type": "string",
+      "maxWords": 22
+    },
+    "desktopImageRole": {
+      "const": "screenshot.feature"
+    },
+    "mobileImageRole": {
+      "const": "screenshot.feature"
+    },
+    "alt": {
+      "type": "string",
+      "maxWords": 14
+    },
+    "demoLabel": {
+      "type": "string",
+      "maxWords": 3,
+      "description": "Present only on the first card."
+    }
+  },
+  "layout": {
+    "surface": "primitive.glass-surface#well",
+    "padding": {
+      "narrow": "{featureCard.padding}",
+      "wide": "{featureCard.paddingWide}"
+    },
+    "radius": "{featureCard.radius}",
+    "headerLayout": "column below 800, row with space-between from 800",
+    "titleTypography": "{typography.heading.card}",
+    "bodyTypography": "{typography.body.card}"
+  },
+  "states": {
+    "demo-hover": {
+      "background": "{color.surface.ghost-hover}",
+      "transition": "{motion.recipe.hover.colors}"
+    }
+  },
+  "responsive": {
+    "breakpoint": "{foundation.breakpoint.800}",
+    "imageSwap": "desktop source from 800",
+    "rowColumns": {
+      "below800": 1,
+      "from800": 2
+    }
+  },
+  "licensing": "Feature images are product screenshots of the real app. Never fabricate or redraw them; use assetRole screenshot.feature with the shipped asset or a neutral generated mock.",
+  "tokens": [
+    "featureCard.padding",
+    "featureCard.paddingWide",
+    "featureCard.radius",
+    "typography.heading.card",
+    "typography.body.card",
+    "color.surface.well",
+    "color.surface.ghost-hover",
+    "foundation.breakpoint.800"
+  ],
+  "measuredFrom": [
+    "jsx.feature.card",
+    "spec.features.card"
+  ]
+}

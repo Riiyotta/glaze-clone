@@ -1,0 +1,189 @@
+{
+  "registryId": "primitive.button",
+  "version": "1.0.0",
+  "category": "action",
+  "description": "Pill button / link-button. Four visual variants measured on / and /404. The only filled colour is the single accent.",
+  "props": {
+    "variant": {
+      "enum": [
+        "accent",
+        "ghost",
+        "chip",
+        "icon-close"
+      ]
+    },
+    "size": {
+      "enum": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "default": "md"
+    },
+    "label": {
+      "type": "string",
+      "maxWords": 4
+    },
+    "leadingIcon": {
+      "enum": [
+        "none",
+        "apple",
+        "play-circle"
+      ],
+      "default": "none"
+    },
+    "href": {
+      "type": "string",
+      "description": "Local route or external URL; external domains are not cloned."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "variants": {
+    "accent": {
+      "background": "{color.accent.default}",
+      "text": "{color.text.on-accent}",
+      "radius": "{radius.control}",
+      "typography": {
+        "md": "{typography.label.control}",
+        "lg": "{typography.label.control-lg}"
+      },
+      "height": {
+        "sm": "{button.height.sm}",
+        "md": "{button.height.md}",
+        "lg": "{button.height.lg}"
+      },
+      "states": {
+        "hover": {
+          "opacity": "{foundation.opacity.hover-accent}",
+          "note": "Opacity is not in the transition list; it snaps."
+        },
+        "disabled": {
+          "opacity": "{foundation.opacity.disabled}"
+        },
+        "focus-visible": {
+          "shadow": "{elevation.focus}"
+        },
+        "transition": "{motion.recipe.hover.colors}"
+      },
+      "cite": [
+        "spec.states.accent",
+        "jsx.hero.download"
+      ]
+    },
+    "ghost": {
+      "background": "{color.surface.ghost}",
+      "border": "{color.border.glass}",
+      "text": "{color.text.primary}",
+      "radius": "{radius.control}",
+      "typography": {
+        "md": "{typography.label.control}"
+      },
+      "height": {
+        "md": "{button.height.md}"
+      },
+      "states": {
+        "hover": {
+          "background": "{color.surface.ghost-hover}",
+          "leadingIconScale": "{foundation.scale.hover}"
+        },
+        "focus-visible": {
+          "shadow": "{elevation.focus}"
+        },
+        "transition": "{motion.recipe.hover.colors}",
+        "iconTransition": "{motion.recipe.hover.transform}"
+      },
+      "cite": [
+        "jsx.hero.reinvent",
+        "spec.states.table"
+      ]
+    },
+    "chip": {
+      "background": "{color.surface.chip}",
+      "text": "{color.text.primary}",
+      "radius": "{radius.control}",
+      "typography": {
+        "md": "{typography.label.control}"
+      },
+      "note": "Watch Demo. Rest background chip, hover ghost-hover; transition-all at the Tailwind default duration.",
+      "states": {
+        "hover": {
+          "background": "{color.surface.ghost-hover}"
+        },
+        "transition": {
+          "duration": "{foundation.duration.150}",
+          "easing": "{foundation.easing.standard}",
+          "properties": [
+            "all"
+          ]
+        }
+      },
+      "cite": [
+        "jsx.feature.watch-demo"
+      ]
+    },
+    "icon-close": {
+      "background": "{color.surface.close}",
+      "border": "{color.border.glass}",
+      "text": "{color.text.primary}",
+      "radius": "{radius.control}",
+      "shadow": "{elevation.close-button}",
+      "blur": "{blur.glass}",
+      "saturate": "{foundation.saturate.glass}",
+      "size": {
+        "narrow": "{overlay.closeSize}",
+        "wide": "{overlay.closeSizeWide}"
+      },
+      "states": {
+        "hover": {
+          "background": "{color.surface.close-hover}",
+          "border": "{color.border.control-hover}"
+        },
+        "focus-visible": {
+          "shadow": "{elevation.focus}"
+        },
+        "transition": "{motion.recipe.hover.colors}"
+      },
+      "cite": [
+        "jsx.overlay.close",
+        "spec.states.table"
+      ]
+    }
+  },
+  "tokens": [
+    "color.accent.default",
+    "color.text.on-accent",
+    "color.surface.ghost",
+    "color.surface.ghost-hover",
+    "color.surface.chip",
+    "color.surface.close",
+    "color.surface.close-hover",
+    "color.border.glass",
+    "color.border.control-hover",
+    "radius.control",
+    "button.height.md",
+    "elevation.focus",
+    "elevation.close-button",
+    "blur.glass",
+    "foundation.opacity.hover-accent",
+    "foundation.opacity.disabled",
+    "motion.recipe.hover.colors"
+  ],
+  "responsive": {
+    "note": "Hero CTA row is flex-col below 480 and flex-row from 480. Sizes do not change; only the arrangement does.",
+    "stackBelow": "{foundation.breakpoint.480}"
+  },
+  "a11y": {
+    "role": "link for navigation, button for actions",
+    "focusRing": "The global unlayered :focus-visible rule renders 2px white at 0.6 on every control, overriding ring-* utilities (pixel-audit correction)."
+  },
+  "measuredFrom": [
+    "jsx.hero.download",
+    "jsx.hero.reinvent",
+    "jsx.feature.watch-demo",
+    "jsx.overlay.close",
+    "spec.states.table"
+  ]
+}

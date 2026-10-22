@@ -1,0 +1,70 @@
+{
+  "$description": "Foundation colour primitives. Every value is read from the clone's tailwind.config.js / src/index.css / component class strings, cross-checked against CLONE_SPEC.md section 1.2 (Playwright-computed on the live site). Citation ids in $extensions.cite resolve in extraction/measured-values.json. The site is dark-only; there is no light palette in the source.",
+  "foundation": {
+    "color": {
+      "neutral": {
+        "1000": { "$type": "color", "$value": "#080808", "$description": "Feature-card well.", "$extensions": { "cite": ["tw.color.surface-well", "spec.color.table"] } },
+        "950": { "$type": "color", "$value": "#121212", "$description": "Page background (html, body, theme-color meta).", "$extensions": { "cite": ["tw.color.background", "css.root-bg"] } },
+        "500": { "$type": "color", "$value": "#717171", "$description": "color-mix(#121212, #fff 40%).", "$extensions": { "cite": ["tw.color.text-tertiary"] } },
+        "400": { "$type": "color", "$value": "#a0a0a0", "$description": "color-mix(#121212, #fff 60%).", "$extensions": { "cite": ["tw.color.text-secondary"] } },
+        "0": { "$type": "color", "$value": "#ffffff", "$extensions": { "cite": ["tw.color.foreground"] } }
+      },
+      "blue": {
+        "600": { "$type": "color", "$value": "#245aca", "$description": "The single accent hue.", "$extensions": { "cite": ["tw.color.accent", "css.root-accent"] } }
+      },
+      "support": {
+        "$description": "Defined in the original theme but NOT used on / or /m. Kept for completeness; token-policy marks them not-generation-approved.",
+        "red": { "$type": "color", "$value": "#ff6363", "$extensions": { "cite": ["tw.color.support"], "usedOnBuiltRoutes": false } },
+        "orange": { "$type": "color", "$value": "#ff9217", "$extensions": { "cite": ["tw.color.support"], "usedOnBuiltRoutes": false } },
+        "yellow": { "$type": "color", "$value": "#ffc531", "$extensions": { "cite": ["tw.color.support"], "usedOnBuiltRoutes": false } },
+        "green": { "$type": "color", "$value": "#59d499", "$extensions": { "cite": ["tw.color.support"], "usedOnBuiltRoutes": false } },
+        "blue": { "$type": "color", "$value": "#56c2ff", "$extensions": { "cite": ["tw.color.support"], "usedOnBuiltRoutes": false } },
+        "purple": { "$type": "color", "$value": "#a485ff", "$extensions": { "cite": ["tw.color.support"], "usedOnBuiltRoutes": false } },
+        "magenta": { "$type": "color", "$value": "#cf2f98", "$extensions": { "cite": ["tw.color.support"], "usedOnBuiltRoutes": false } }
+      },
+      "white-alpha": {
+        "$description": "rgba(255,255,255,x) steps actually used on / and /m (CLONE_SPEC 1.2 'white alpha utilities used', plus the icon-sheen gradient stops from src/index.css).",
+        "a02": { "$type": "color", "$value": "rgba(255,255,255,0.02)", "$description": "#ffffff05, app-icon sheen outer stop.", "$extensions": { "cite": ["css.icon-sheen"] } },
+        "a025": { "$type": "color", "$value": "rgba(255,255,255,0.025)", "$extensions": { "cite": ["jsx.persona.tablist"] } },
+        "a04": { "$type": "color", "$value": "rgba(255,255,255,0.04)", "$extensions": { "cite": ["jsx.appcard.hover", "css.icon-sheen"] } },
+        "a05": { "$type": "color", "$value": "rgba(255,255,255,0.05)", "$extensions": { "cite": ["jsx.feature.watch-demo"] } },
+        "a06": { "$type": "color", "$value": "rgba(255,255,255,0.06)", "$extensions": { "cite": ["jsx.hero.reinvent"] } },
+        "a08": { "$type": "color", "$value": "rgba(255,255,255,0.08)", "$extensions": { "cite": ["tw.color.glass-border"] } },
+        "a10": { "$type": "color", "$value": "rgba(255,255,255,0.1)", "$extensions": { "cite": ["tw.color.border-separator"] } },
+        "a12": { "$type": "color", "$value": "rgba(255,255,255,0.12)", "$description": "#ffffff1f.", "$extensions": { "cite": ["css.mobile-nav-open", "css.icon-glow"] } },
+        "a14": { "$type": "color", "$value": "rgba(255,255,255,0.14)", "$extensions": { "cite": ["jsx.nav.divider-gradient"] } },
+        "a18": { "$type": "color", "$value": "rgba(255,255,255,0.18)", "$description": "#ffffff2e, app-icon sheen inner stop.", "$extensions": { "cite": ["css.icon-sheen"] } },
+        "a20": { "$type": "color", "$value": "rgba(255,255,255,0.2)", "$extensions": { "cite": ["tw.color.border-primary"] } },
+        "a30": { "$type": "color", "$value": "rgba(255,255,255,0.3)", "$extensions": { "cite": ["jsx.appcard.hover"] } },
+        "a45": { "$type": "color", "$value": "rgba(255,255,255,0.45)", "$extensions": { "cite": ["jsx.hero.reinvent"] } },
+        "a60": { "$type": "color", "$value": "rgba(255,255,255,0.6)", "$extensions": { "cite": ["css.focus-ring"] } }
+      },
+      "black-alpha": {
+        "a12": { "$type": "color", "$value": "rgba(0,0,0,0.12)", "$description": "#0000001f.", "$extensions": { "cite": ["tw.shadow"] } },
+        "a15": { "$type": "color", "$value": "rgba(0,0,0,0.15)", "$extensions": { "cite": ["jsx.hero.scrim"] } },
+        "a18": { "$type": "color", "$value": "rgba(0,0,0,0.18)", "$extensions": { "cite": ["tw.shadow"] } },
+        "a20": { "$type": "color", "$value": "rgba(0,0,0,0.2)", "$description": "#0003.", "$extensions": { "cite": ["tw.shadow"] } },
+        "a25": { "$type": "color", "$value": "rgba(0,0,0,0.25)", "$extensions": { "cite": ["jsx.hero.scrim"] } },
+        "a28": { "$type": "color", "$value": "rgba(0,0,0,0.28)", "$extensions": { "cite": ["tw.shadow"] } },
+        "a40": { "$type": "color", "$value": "rgba(0,0,0,0.4)", "$description": "#0006.", "$extensions": { "cite": ["tw.shadow", "tw.dropshadow"] } },
+        "a45": { "$type": "color", "$value": "rgba(0,0,0,0.45)", "$extensions": { "cite": ["tw.shadow"] } },
+        "a80": { "$type": "color", "$value": "rgba(0,0,0,0.8)", "$extensions": { "cite": ["jsx.overlay.backdrop"] } }
+      },
+      "tinted-alpha": {
+        "$description": "Translucent greys that are not white/black alpha. Hex-with-alpha in the source.",
+        "glass-a30": { "$type": "color", "$value": "rgba(35,35,35,0.3)", "$description": "#2323234d.", "$extensions": { "cite": ["tw.color.glass"] } },
+        "glass-a34": { "$type": "color", "$value": "rgba(35,35,35,0.34)", "$extensions": { "cite": ["tw.color.close-btn"] } },
+        "glass-a60": { "$type": "color", "$value": "rgba(35,35,35,0.6)", "$description": "#23232399.", "$extensions": { "cite": ["css.glass-focus-within"] } },
+        "panel-a58": { "$type": "color", "$value": "rgba(40,40,40,0.58)", "$extensions": { "cite": ["tw.color.surface-panel"] } },
+        "panel-a52": { "$type": "color", "$value": "rgba(42,42,42,0.52)", "$extensions": { "cite": ["tw.color.close-btn"] } },
+        "popover-a95": { "$type": "color", "$value": "rgba(34,34,34,0.95)", "$extensions": { "cite": ["tw.color.surface-popover"] } },
+        "page-a75": { "$type": "color", "$value": "rgba(18,18,18,0.75)", "$description": "Dialog backdrop (defined; the app-details dialog itself is out of scope).", "$extensions": { "cite": ["tw.color.dialog-backdrop"], "usedOnBuiltRoutes": false } },
+        "page-a78": { "$type": "color", "$value": "rgba(18,18,18,0.78)", "$description": "#121212c7, open mobile nav panel.", "$extensions": { "cite": ["css.mobile-nav-open"] } }
+      },
+      "keyword": {
+        "transparent": { "$type": "color", "$value": "transparent" },
+        "current": { "$type": "color", "$value": "currentColor" }
+      }
+    }
+  }
+}
