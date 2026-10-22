@@ -9,10 +9,10 @@ export default function Changelog() {
     <main className="flex min-h-dvh flex-col">
       <section className="px-4 pb-20 pt-[140px] xs:pt-40">
         <div className="mx-auto mb-12 w-full max-w-[680px] text-center xs:mb-16">
-          <h1 className="mb-4 px-4 font-display text-[36px] font-medium leading-[1.1] tracking-[-0.9px] text-text-primary xs:px-0 xs:text-5xl xs:tracking-[-1.2px]">
+          <h1 className="mb-4 px-4 font-display text-[36px] font-medium leading-[1.1] tracking-[-0.9px] text-text-primary xs:px-0 xs:text-5xl xs:leading-[1.1] xs:tracking-[-1.2px]">
             What's new
           </h1>
-          <p className="mx-auto text-base leading-relaxed text-text-tertiary xs:max-w-[440px] xs:text-lg">
+          <p className="mx-auto text-base leading-relaxed text-text-tertiary xs:max-w-[440px] xs:text-lg xs:leading-relaxed">
             Discover the latest releases in Glaze
           </p>
         </div>

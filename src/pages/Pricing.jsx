@@ -61,7 +61,7 @@ function PlanCard({ plan }) {
         <ul className="flex flex-col">
           {plan.lead && <li className="mb-3 list-none">{plan.lead}</li>}
           {plan.features.map((f, i) => (
-            <Feature key={f.text} f={f} first={i === 0 && !plan.lead} />
+            <Feature key={f.text} f={f} first={i === 0} />
           ))}
         </ul>
       </div>

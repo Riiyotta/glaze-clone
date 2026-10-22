@@ -1,0 +1,123 @@
+{
+  "repositoryId": "glaze-landing",
+  "designFamily": "glaze",
+  "repositoryVersion": "1.0.0",
+  "status": "design-review-pending",
+  "productionApproved": false,
+  "supportedPlatforms": [
+    "web"
+  ],
+  "defaultTheme": "dark",
+  "schemaValidatedThemes": [
+    "dark"
+  ],
+  "generationApprovedThemes": [
+    "dark"
+  ],
+  "pageSpecVersion": "1.0.0",
+  "tokenVersion": "1.0.0",
+  "tokenCatalogVersion": "1.0.0",
+  "tokenPolicyVersion": "1.0.0",
+  "sectionRegistryVersion": "1.0.0",
+  "componentRegistryVersion": "1.0.0",
+  "assetRegistryVersion": "1.0.0",
+  "allowlistVersion": "1.0.0",
+  "versionFieldNote": "Machine-checked by extraction/verify_all.py: allowlistVersion (must equal tokens/llm/component-allowlist.json version), tokenCatalogVersion, tokenPolicyVersion, and the whole counts block. Documentation-only, hand-maintained, nothing verifies them: repositoryVersion, pageSpecVersion, tokenVersion, sectionRegistryVersion, componentRegistryVersion, assetRegistryVersion.",
+  "sourceProject": {
+    "name": "Glaze landing clone (React 18, Vite 5, Tailwind 3.4)",
+    "description": "Study clone of a real, live commercial site (Glaze by Raycast). Brand marks, copy, app icons, avatars and screenshots are not licensed for reuse; see assets/asset-roles.json.",
+    "measuredBreakpoints": [
+      1440,
+      1024,
+      768,
+      390
+    ],
+    "evidenceLedger": "extraction/measured-values.json"
+  },
+  "scope": {
+    "modelledTemplates": [
+      "template.landing",
+      "template.persona",
+      "template.not-found"
+    ],
+    "routes": [
+      "/",
+      "/designers",
+      "/product-managers",
+      "/engineers",
+      "/creators",
+      "/teams",
+      "/* (404, includes /m)"
+    ],
+    "deliberatelyNotModelled": "All other routes in the repo-level IA (pricing, download, awards, legal, blog, changelog, store, app detail). They were being specced and built concurrently. See README 'Adding a template'."
+  },
+  "counts": {
+    "primitives": 10,
+    "components": 11,
+    "sections": 9,
+    "templates": 3,
+    "tokens": 311,
+    "typographyRoles": 20,
+    "motionRecipes": 21,
+    "assetRoles": 10,
+    "graphRules": 13,
+    "examplePageSpecs": 3,
+    "routeEntries": 7,
+    "citations": 195
+  },
+  "entryPoints": {
+    "generation": [
+      "tokens/llm/token-catalog.json",
+      "tokens/llm/component-allowlist.json",
+      "assets/asset-roles.json",
+      "schema/pagespec.schema.json",
+      "templates/templates.json"
+    ],
+    "validation": [
+      "schema/semantic_validate.py",
+      "compatibility/graph.json",
+      "tokens/llm/token-policy.json",
+      "extraction/verify_all.py",
+      "schema/tests/adversarial_test.py"
+    ],
+    "evidence": [
+      "extraction/measured-values.json"
+    ],
+    "humanOnboarding": "README.md",
+    "changeHistory": "CHANGELOG.md"
+  },
+  "fileClassification": {
+    "canonicalTokenSources": [
+      "tokens/00-foundation/*.json",
+      "tokens/10-semantic/*.json",
+      "tokens/20-component/*.json",
+      "tokens/30-layout/*.json"
+    ],
+    "themeAliasMappings": [
+      "tokens/themes/*.json"
+    ],
+    "designContracts": [
+      "primitives/*.json",
+      "components/*.json",
+      "sections/*.json",
+      "templates/templates.json",
+      "compatibility/graph.json"
+    ],
+    "generatedFiles": [
+      "tokens/llm/token-catalog.json (tokens/build_catalog.py)",
+      "schema/pagespec.schema.json (schema/build_schema.py)"
+    ]
+  },
+  "excludedFromPackage": [
+    "node_modules",
+    "__pycache__",
+    "*.zip (design-repo.zip is a build artifact, regenerate last, never commit)"
+  ],
+  "dependencies": {
+    "python": ">=3.9",
+    "packages": [
+      "jsonschema>=4"
+    ],
+    "note": "No node tooling. Install with: python3 -m pip install jsonschema"
+  }
+}

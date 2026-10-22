@@ -1,0 +1,29 @@
+/* /awards (SPEC_marketing sections 0 and 3). Loaded with the Awards page chunk. */
+@media (min-width: 624px) {
+  .awards-page-background {
+    background: linear-gradient(#000 0, #000 calc(min(56.25vw, 720px) - 16px), #121212 calc(min(56.25vw, 720px) + 784px));
+  }
+}
+@media (max-width: 623px) {
+  html[data-page='awards'],
+  body[data-page='awards'] {
+    background: #000;
+  }
+  html[data-page='awards'] .site-navigation {
+    background: #000;
+    padding-top: 8px;
+    top: 0;
+  }
+}
+@keyframes awards-lightbox-in {
+  0% { opacity: 0; }
+  to { opacity: 1; }
+}
+.awards-lightbox-in {
+  animation: 0.2s ease-out both awards-lightbox-in;
+}
+.store-search-input:focus,
+.store-search-input:focus-visible {
+  outline: none;
+  box-shadow: none;
+}

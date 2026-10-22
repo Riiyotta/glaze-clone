@@ -15,7 +15,7 @@ export default function Footer() {
             <a href="https://manual.glaze.app/" target="_blank" rel="noopener noreferrer" className={linkCls}>
               Manual
             </a>
-            <Link to={`${LIVE}/blog`} className={linkCls}>
+            <Link to="/blog" className={linkCls}>
               Blog
             </Link>
           </div>

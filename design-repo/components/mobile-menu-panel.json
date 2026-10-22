@@ -54,12 +54,12 @@
   },
   "states": {
     "open": {
-      "height": "header + content scrollHeight + 2px border",
+      "height": "header + content scrollHeight + 2 x {foundation.space.px} border",
       "bodyScroll": "locked (overflow hidden)",
-      "burger": "two bars rotate 45deg, translate 2px"
+      "burger": "two bars rotate {foundation.rotate.burger} degrees and translate {foundation.distance.nudge}"
     },
     "closed": {
-      "burger": "bars at -3px and +3px",
+      "burger": "bars at -{foundation.distance.burger-rest} and +{foundation.distance.burger-rest}",
       "contentOpacity": 0
     },
     "link-hover": {

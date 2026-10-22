@@ -50,6 +50,16 @@
           ]
         }
       },
+      "1.25": {
+        "$type": "dimension",
+        "$value": "5px",
+        "$description": "Persona popup viewport collision padding (Base UI).",
+        "$extensions": {
+          "cite": [
+            "jsx.dropdown.offset"
+          ]
+        }
+      },
       "1.5": {
         "$type": "dimension",
         "$value": "6px",

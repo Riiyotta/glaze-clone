@@ -1,6 +1,10 @@
-import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
-import { LIVE, PERSONAS } from '../data/content'
+import { Suspense, lazy, useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
+import { PERSONAS } from '../data/content'
+import { Link } from '../router'
 import { ArrowRightIcon, CheckIcon, ChevronDownIcon, SQUIRCLE_PATH, TEAM_LOGOS, TeamLogo } from './icons'
+
+// App-details dialog is lazy so the landing bundle does not carry the store snapshot (SPEC_store 7)
+const AppDialog = lazy(() => import('./store/AppDialog'))
 
 function AppIconGlass({ src }) {
   const gid = `glaze-app-icon-border-${useId().replace(/:/g, '')}`
@@ -36,11 +40,16 @@ function AppIconGlass({ src }) {
   )
 }
 
-function AppCard({ app }) {
+function AppCard({ app, onOpen }) {
   return (
     <a
       aria-label={`Preview ${app.name}`}
-      href={app.href}
+      href={`/app/${app.slug}`}
+      onClick={(e) => {
+        if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+        e.preventDefault()
+        onOpen(app.slug)
+      }}
       className="flex min-h-40 flex-col items-center justify-center rounded-2xl p-3 text-center transition-colors hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/30 min-[600px]:min-h-[232px]"
     >
       <AppIconGlass src={app.icon} />
@@ -64,13 +73,13 @@ function AppCard({ app }) {
 
 function BottomLink({ href, children }) {
   return (
-    <a
-      href={href}
+    <Link
+      to={href}
       className="group mt-4 flex items-center gap-1.5 text-sm text-text-secondary transition-colors hover:text-text-primary min-[600px]:mt-8 min-[600px]:text-base"
     >
       {children}
       <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-    </a>
+    </Link>
   )
 }
 
@@ -182,6 +191,16 @@ function PersonaDropdown({ selected, onSelect }) {
 
 export default function PersonaShowcase({ initialPersona = 'personal' }) {
   const [selected, setSelected] = useState(initialPersona)
+  const [dialogSlug, setDialogSlug] = useState(null)
+  const returnFocus = useRef(null)
+  const openApp = (slug) => {
+    returnFocus.current = document.activeElement
+    setDialogSlug(slug)
+  }
+  const closeApp = () => {
+    setDialogSlug(null)
+    returnFocus.current?.focus?.()
+  }
   // SPEC_legal_persona A.2: reset the tab when the route's initialPersona changes client-side.
   useEffect(() => setSelected(initialPersona), [initialPersona])
   const persona = PERSONAS.find((p) => p.slug === selected)
@@ -261,10 +280,10 @@ export default function PersonaShowcase({ initialPersona = 'personal' }) {
                   <>
                     <div className="grid w-full grid-cols-2 gap-1 min-[600px]:grid-cols-4">
                       {persona.apps.slice(0, 4).map((a) => (
-                        <AppCard key={a.slug} app={a} />
+                        <AppCard key={a.slug} app={a} onOpen={openApp} />
                       ))}
                     </div>
-                    <BottomLink href={`${LIVE}/store`}>Explore the Glaze Store</BottomLink>
+                    <BottomLink href="/store">Explore the Glaze Store</BottomLink>
                   </>
                 ) : (
                   <>
@@ -276,7 +295,7 @@ export default function PersonaShowcase({ initialPersona = 'personal' }) {
                         </li>
                       ))}
                     </ul>
-                    <BottomLink href={`${LIVE}/blog/how-we-use-glaze-at-raycast`}>See how teams use Glaze</BottomLink>
+                    <BottomLink href="/blog/how-we-use-glaze-at-raycast">See how teams use Glaze</BottomLink>
                   </>
                 )}
               </div>
@@ -284,6 +303,11 @@ export default function PersonaShowcase({ initialPersona = 'personal' }) {
           </div>
         </div>
       </section>
+      {dialogSlug && persona.apps && (
+        <Suspense fallback={null}>
+          <AppDialog slug={dialogSlug} slugs={persona.apps.map((a) => a.slug)} onChange={setDialogSlug} onClose={closeApp} />
+        </Suspense>
+      )}
     </div>
   )
 }

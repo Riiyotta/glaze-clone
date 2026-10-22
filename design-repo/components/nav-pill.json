@@ -45,6 +45,7 @@
     "surface": "primitive.glass-surface#glass",
     "scrollBehaviour": "none: stays fixed, no hide, no background change"
   },
+  "activeRule": "A link is active when the pathname equals its href or sits under it; '/' matches only '/'. On the modelled routes that yields '/' on the landing page and no active link on persona routes and the 404. Links may be absolute or local; the source is migrating them to local routes.",
   "states": {
     "link-hover": {
       "text": "{color.text.primary}",

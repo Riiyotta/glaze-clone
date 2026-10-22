@@ -34,7 +34,7 @@ export default function DownloadCTA({ onIconBurst, compact = false }) {
 // SPEC_blog 2.2 item 5: "compact" Download block used under blog posts.
 function CompactCTA({ onIconBurst, mobile }) {
   return (
-    <section className="mt-20 pt-4 xs:mt-24">
+    <section className="mt-20 pt-4 xs:mt-24 xs:pt-0">
       <div className="mx-auto flex max-w-[420px] flex-col items-center text-center">
         <GlazeIcon onBurst={onIconBurst} compact />
         <h2 className="mb-4 select-none font-display text-[30px] font-medium leading-[1.1] tracking-[-0.9px] xs:mb-7 xs:text-[36px]">

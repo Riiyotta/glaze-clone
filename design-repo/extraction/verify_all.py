@@ -11,7 +11,7 @@ Checks (numbers match the printed output):
   1 JSON parse                         8 template/graph/route consistency
   2 allowlist <-> contract parity      9 schema freshness, Draft-07, examples
   3 token tree, references, catalog   10 citations (range + content), source drift
-  4 contract references resolve       11 manifest counts, versions, entryPoints, /Users/ grep
+  4 contract references resolve       11 manifest counts, versions, entryPoints, machine-path grep
   5 raw-value lint                    12 adversarial suite
   6 graph rules <-> validator code
 """
@@ -258,7 +258,7 @@ for role in PINNED:
 used = {}
 def collect_roles(tid):
     def f(k, v, path):
-        if k == "assetRole" and isinstance(v, dict) and "const" in v:
+        if (k == "assetRole" or k.endswith("AssetRole")) and isinstance(v, dict) and "const" in v:
             used.setdefault(v["const"], set()).add(tid)
     return f
 for tid, j in sec_by_type.items():
@@ -274,8 +274,8 @@ for role, spec in assets["roles"].items():
     for u in spec["usedBy"]:
         if role not in used and role not in ("particle.app-icon",) and u in sec_by_type:
             pass
-for role in assets["roles"]:
-    if role not in used and role != "particle.app-icon":
+for role, spec_ in assets["roles"].items():
+    if role not in used and "derivedFrom" not in spec_:
         err("asset-role", f"role {role} is not wired into any section contract (schema)")
 print(f"7) Asset roles: {len(assets['roles'])} roles pinned, {len(used)} wired into schema; {len(errors) - c7} errors")
 
@@ -474,11 +474,16 @@ print(f"11) Manifest: counts recomputed, versions matched, entryPoints inside re
 
 # 12 ------------------------------------------------------------------------
 c12 = len(errors)
-r = subprocess.run([sys.executable, os.path.join(DR, "schema", "tests", "adversarial_test.py")], capture_output=True, text=True)
-tail = [l for l in r.stdout.strip().split("\n") if l][-1:] or [""]
-if r.returncode != 0:
-    err("adversarial", "adversarial suite failed:\n" + r.stdout[-1500:] + r.stderr[-500:])
-print(f"12) Adversarial suite: {'PASS' if r.returncode == 0 else 'FAIL'} ({tail[0]})")
+if "--skip-adversarial" in sys.argv:
+    print("12) Adversarial suite: SKIPPED by --skip-adversarial (use only for drift injection runs)")
+    r = None
+else:
+  r = subprocess.run([sys.executable, os.path.join(DR, "schema", "tests", "adversarial_test.py")], capture_output=True, text=True)
+if r is not None:
+    tail = [l for l in r.stdout.strip().split("\n") if l][-1:] or [""]
+    if r.returncode != 0:
+        err("adversarial", "adversarial suite failed:\n" + r.stdout[-1500:] + r.stderr[-500:])
+    print(f"12) Adversarial suite: {'PASS' if r.returncode == 0 else 'FAIL'} ({tail[0]})")
 
 print("\n" + "=" * 70)
 for w in warnings:

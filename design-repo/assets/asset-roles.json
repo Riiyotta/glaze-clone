@@ -37,6 +37,7 @@
         "cta.download-icon",
         "content.not-found-block"
       ],
+      "derivedFrom": "cta.download-icon.particlePoolRef (host-resolved pool id, no direct asset field)",
       "description": "Pool of 17 app icons thrown by the click burst.",
       "guidance": "Reuse the shipped pool, or ship the burst with generic placeholder squares. Never generate lookalikes of real app icons."
     },
@@ -61,6 +62,7 @@
       "usedBy": [
         "showcase.persona-tabs"
       ],
+      "derivedFrom": "showcase.persona-tabs tabs[].apps[].award enum (the medal image follows the tier)",
       "description": "Gold, silver or bronze award medal after an app name.",
       "guidance": "Reuse the exact shipped medal or omit the badge. Do not redraw."
     },

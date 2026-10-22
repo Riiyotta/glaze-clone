@@ -1,7 +1,7 @@
 # https://www.glaze.app (sitemap + Playwright recon); clone at this project root
 
 Source: https://www.glaze.app (sitemap + Playwright recon); clone at this project root
-Status: **draft: landing, 5 persona routes and the 404 are built; the other templates are planned from the sitemap and still being specced**
+Status: **built: all 13 templates exist in src/; app pages use a 265-app snapshot, long text pages use placeholder prose**
 1953 routes · 13 templates · 19 unique sections
 
 > Generated from `ia.json` by `build.mjs`. Edit the JSON, not this file.
@@ -39,31 +39,29 @@ component library or stays local to its page.
 |---|---|---:|---:|---|---|
 | `shell.navbar` | SHELL | 13 | 1953 | `src/components/Navbar.jsx` | Present on all 1953 routes, including the 404. |
 | `shell.footer` | SHELL | 13 | 1953 | `src/components/Footer.jsx` | Present on all 1953 routes, including the 404. |
-| `store.app-detail` | STORE | 1 | 1924 | _not yet built_ | Every /app/{slug} route, 1924 in total. |
-| `store.category-nav` | STORE | 2 | 9 | _not yet built_ | The store index plus the 8 category routes, 9 routes in total. |
-| `store.app-grid` | STORE | 2 | 9 | _not yet built_ | The store index plus the 8 category routes, 9 routes in total. |
+| `store.app-detail` | STORE | 1 | 1924 | `src/pages/AppPage.jsx` | Every /app/{slug} route, 1924 in total. |
+| `store.category-nav` | STORE | 2 | 9 | `src/pages/Store.jsx` | The store index plus the 8 category routes, 9 routes in total. |
+| `store.app-grid` | STORE | 2 | 9 | `src/pages/Store.jsx` | The store index plus the 8 category routes, 9 routes in total. |
 | `shell.youtube-overlay` | SHELL | 2 | 6 | `src/components/YouTubeOverlay.jsx` | Carried by the landing page and the 5 persona routes, 6 routes in total. |
 | `hero.landing-hero` | HERO | 2 | 6 | `src/components/Hero.jsx` | Landing page plus the 5 persona routes, 6 routes in total. |
 | `showcase.persona-tabs` | SHOWCASE | 2 | 6 | `src/components/PersonaShowcase.jsx` | Landing page plus the 5 persona routes, 6 routes in total. |
 | `features.feature-grid` | FEATURES | 2 | 6 | `src/components/Features.jsx` | Landing page plus the 5 persona routes, 6 routes in total. |
 | `support.faq` | SUPPORT | 2 | 6 | `src/components/FAQ.jsx` | Landing page plus the 5 persona routes, 6 routes in total. |
 | `cta.download-icon` | CTA | 2 | 6 | `src/components/DownloadCTA.jsx` | Landing page plus the 5 persona routes, 6 routes in total. |
-| `content.article-body` | CONTENT | 1 | 4 | _not yet built_ | The 4 blog post routes. |
-| `content.legal-document` | CONTENT | 1 | 3 | _not yet built_ | The 3 legal routes: terms, privacy and acceptable use. |
-| `content.awards-body` | CONTENT | 1 | 2 | _not yet built_ | The 2 awards routes. |
-| `cta.download-page` | CTA | 1 | 1 | _not yet built_ | Only the single /download route. |
+| `content.article-body` | CONTENT | 1 | 4 | `src/pages/BlogPost.jsx` | The 4 blog post routes. |
+| `content.legal-document` | CONTENT | 1 | 3 | `src/pages/LegalPage.jsx` | The 3 legal routes: terms, privacy and acceptable use. |
+| `content.awards-body` | CONTENT | 1 | 2 | `src/pages/Awards.jsx` | The 2 awards routes. |
+| `cta.download-page` | CTA | 1 | 1 | `src/pages/Download.jsx` | Only the single /download route. |
 | `content.not-found-block` | CONTENT | 1 | 1 | `src/pages/NotFoundPage.jsx` | The catch-all 404 route, which also serves /m and the 6 persona-style slugs that do not exist upstream. |
-| `content.post-list` | CONTENT | 1 | 1 | _not yet built_ | Only the single /blog route. |
-| `content.changelog-entries` | CONTENT | 1 | 1 | _not yet built_ | Only the single /changelog route. |
-| `commerce.pricing-plans` | COMMERCE | 1 | 1 | _not yet built_ | Only the single /pricing route. |
+| `content.post-list` | CONTENT | 1 | 1 | `src/pages/BlogIndex.jsx` | Only the single /blog route. |
+| `content.changelog-entries` | CONTENT | 1 | 1 | `src/pages/Changelog.jsx` | Only the single /changelog route. |
+| `commerce.pricing-plans` | COMMERCE | 1 | 1 | `src/pages/Pricing.jsx` | Only the single /pricing route. |
 
 **10 shared sections** appear in more than one template and belong in a component library.
 
 **9 single-use sections** appear in exactly one template. Building these
 as "reusable" components up front would be speculative — keep them page-local
 until a second caller actually appears.
-
-**10 sections have no `implementedBy` yet** — not necessarily missing, just not linked to a component in this pass: `store.app-detail`, `store.category-nav`, `store.app-grid`, `content.article-body`, `content.legal-document`, `content.awards-body`, `cta.download-page`, `content.post-list`, `content.changelog-entries`, `commerce.pricing-plans`.
 
 ## Templates
 
@@ -269,7 +267,7 @@ _Calls to download or act._
 
 **`cta.download-page`** — Dedicated download page with the installer call to action and system requirements.
 
-· Only the single /download route. · appears on 1 routes
+· Only the single /download route. · appears on 1 routes · implemented by `src/pages/Download.jsx`
 
 ### CONTENT
 
@@ -281,23 +279,23 @@ _Body content of a page: documents, articles, changelog, error states._
 
 **`content.legal-document`** — Long-form legal text in a 640px column: Inter 48px title, last-updated line, h2 and h3 headings, paragraphs, nested bullet lists and underlined links.
 
-· The 3 legal routes: terms, privacy and acceptable use. · appears on 3 routes
+· The 3 legal routes: terms, privacy and acceptable use. · appears on 3 routes · implemented by `src/pages/LegalPage.jsx`
 
 **`content.awards-body`** — Awards program page and its terms page content.
 
-· The 2 awards routes. · appears on 2 routes
+· The 2 awards routes. · appears on 2 routes · implemented by `src/pages/Awards.jsx`
 
 **`content.post-list`** — Blog index listing of post cards with image, title, excerpt and date.
 
-· Only the single /blog route. · appears on 1 routes
+· Only the single /blog route. · appears on 1 routes · implemented by `src/pages/BlogIndex.jsx`
 
 **`content.article-body`** — Blog post header (title, date, author, hero image) and prose body.
 
-· The 4 blog post routes. · appears on 4 routes
+· The 4 blog post routes. · appears on 4 routes · implemented by `src/pages/BlogPost.jsx`
 
 **`content.changelog-entries`** — Chronological list of release entries with version/date headers and media.
 
-· Only the single /changelog route. · appears on 1 routes
+· Only the single /changelog route. · appears on 1 routes · implemented by `src/pages/Changelog.jsx`
 
 ### COMMERCE
 
@@ -305,7 +303,7 @@ _Plans and pricing._
 
 **`commerce.pricing-plans`** — Plan comparison cards with prices and feature lists.
 
-· Only the single /pricing route. · appears on 1 routes
+· Only the single /pricing route. · appears on 1 routes · implemented by `src/pages/Pricing.jsx`
 
 ### STORE
 
@@ -313,12 +311,12 @@ _App store browsing and app detail blocks._
 
 **`store.category-nav`** — Row of store category links (remixable, developer tools, productivity, utilities, media, design, lifestyle, games and fun).
 
-· The store index plus the 8 category routes, 9 routes in total. · appears on 9 routes
+· The store index plus the 8 category routes, 9 routes in total. · appears on 9 routes · implemented by `src/pages/Store.jsx`
 
 **`store.app-grid`** — Grid of app cards (icon, name, tagline, author) for the store index or one category.
 
-· The store index plus the 8 category routes, 9 routes in total. · appears on 9 routes
+· The store index plus the 8 category routes, 9 routes in total. · appears on 9 routes · implemented by `src/pages/Store.jsx`
 
 **`store.app-detail`** — Single app page: icon, name, author, download and remix actions, screenshots and description.
 
-· Every /app/{slug} route, 1924 in total. · appears on 1924 routes
+· Every /app/{slug} route, 1924 in total. · appears on 1924 routes · implemented by `src/pages/AppPage.jsx`

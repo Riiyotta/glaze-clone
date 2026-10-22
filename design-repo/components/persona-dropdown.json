@@ -39,7 +39,7 @@
       "zIndex": "{zIndex.popover}",
       "align": "centre on trigger",
       "flip": "to top when space below is less than popup height and space above is greater",
-      "viewportPadding": "5px (Base UI collision padding)"
+      "viewportPadding": "{foundation.space.1.25}"
     },
     "option": {
       "height": {

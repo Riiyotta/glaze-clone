@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { FAQS } from '../data/content'
+import { Link } from '../router'
 import { FaqChevron } from './icons'
 import { useScrollPastDim } from '../motion'
 
@@ -39,12 +40,12 @@ export default function FAQ({ items = FAQS, wrapperClassName = 'mt-[160px] xs:mt
                         {item.a}
                         {item.link && (
                           <>
-                            <a
-                              href={item.link.href}
+                            <Link
+                              to={item.link.href}
                               className="text-text-primary underline decoration-white/20 underline-offset-4 transition-colors hover:text-white hover:decoration-white/60"
                             >
                               {item.link.label}
-                            </a>
+                            </Link>
                             {item.link.after}
                           </>
                         )}

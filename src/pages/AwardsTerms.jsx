@@ -44,7 +44,7 @@ export default function AwardsTerms() {
     <main className="flex min-h-dvh flex-col">
       <section className="px-4 pb-24 pt-[172px]">
         <div className="mx-auto max-w-content">
-          <h1 className="mb-3 text-balance text-center text-4xl font-medium leading-[1.1] tracking-tight text-white xs:text-5xl">
+          <h1 className="mb-3 text-balance text-center text-4xl font-medium leading-[1.1] tracking-tight text-white xs:text-5xl xs:leading-[1.1]">
             {AWARDS_TERMS_TITLE.map((line) => (
               <span key={line} className="block">
                 {line}

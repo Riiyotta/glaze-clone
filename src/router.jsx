@@ -23,10 +23,18 @@ const PathnameContext = createContext('/')
 // Current normalized pathname ('/index.html' -> '/'). Use inside <Router>.
 export const usePathname = () => useContext(PathnameContext)
 
+// Pathname plus a `search` key so head data can depend on the query string (e.g. ?page=2 canonicals).
 function useLocationPathname() {
-  const [pathname, setPathname] = useState(() => normalizePath(window.location.pathname))
+  const [loc, setLoc] = useState(() => ({ pathname: normalizePath(window.location.pathname), search: window.location.search }))
+  const pathname = loc.pathname
   useEffect(() => {
-    const sync = () => startTransition(() => setPathname(normalizePath(window.location.pathname)))
+    const sync = () =>
+      startTransition(() =>
+        setLoc((prev) => {
+          const next = { pathname: normalizePath(window.location.pathname), search: window.location.search }
+          return prev.pathname === next.pathname && prev.search === next.search ? prev : next
+        }),
+      )
     window.addEventListener('popstate', sync)
     window.addEventListener(NAV_EVENT, sync)
     return () => {
@@ -34,7 +42,7 @@ function useLocationPathname() {
       window.removeEventListener(NAV_EVENT, sync)
     }
   }, [])
-  return pathname
+  return loc
 }
 
 const isExternal = (to) => /^([a-z][a-z\d+.-]*:|\/\/)/i.test(to)
@@ -183,18 +191,18 @@ export function applyHead(partial) {
 /* ------------------------------------------------------------------ Router */
 
 export function Router({ match, notFound, layout: Layout = ({ children }) => children }) {
-  const pathname = useLocationPathname()
+  const { pathname, search } = useLocationPathname()
   const hit = match(pathname)
   const route = hit ? hit.route : notFound
   const params = hit ? hit.params : {}
   const Page = route.component
 
   useEffect(() => {
-    const head = typeof route.head === 'function' ? route.head(params) : route.head
+    const head = typeof route.head === 'function' ? route.head(params, search) : route.head
     applyHead(head || {})
     // params is derived from pathname; pathname is the real dependency.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [route, pathname])
+  }, [route, pathname, search])
 
   // Scroll to top on every route change (push and back/forward). The first mount is handled
   // by the landing page's own scroll-restoration effect and the browser.

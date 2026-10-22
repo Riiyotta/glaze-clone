@@ -63,6 +63,10 @@
   "motion": {
     "iconFade": "{motion.recipe.appicon.fade}"
   },
+  "interaction": {
+    "primaryClick": "In the source clone a plain click opens an app-details dialog (lazy store component, added after this contract was measured). That dialog belongs to the store scope and is NOT modelled; only the card, its link target and its visual states are.",
+    "modifiedClick": "Ctrl, Cmd, Shift, Alt or non-primary clicks follow the href normally."
+  },
   "responsive": {
     "gridColumns": {
       "below600": 2,

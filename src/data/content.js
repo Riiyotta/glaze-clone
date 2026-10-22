@@ -3,10 +3,10 @@ export const LIVE = 'https://www.glaze.app'
 
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
-  { label: 'Pricing', href: `${LIVE}/pricing` },
-  { label: 'Store', href: `${LIVE}/store` },
-  { label: 'Blog', href: `${LIVE}/blog` },
-  { label: 'Changelog', href: `${LIVE}/changelog` },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Store', href: '/store' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Changelog', href: '/changelog' },
 ]
 
 export const SIGNUP_HREF = `${LIVE}/signup`
@@ -166,7 +166,7 @@ export const FAQS = [
   { q: 'How do I get started?', a: 'Download Glaze for Mac and start building. Glaze currently requires macOS Tahoe and Apple Silicon, with Windows and Linux support planned down the road.' },
   { q: 'Do I need to know how to code?', a: 'No. You describe what you want in plain language and Glaze builds it. If something isn’t right, just talk to it and change it. And if you do know how to code, you’ll feel right at home shaping things further.' },
   { q: 'How is Glaze different from Lovable, Replit, or v0?', a: 'Those tools build for the browser. Glaze builds for your desktop. That means your apps can access your file system, keyboard shortcuts, menu bar integration, background processes, and deeper integration with your OS. Your data stays on your machine, not on someone else’s server. It’s a different category entirely.' },
-  { q: 'What kind of apps can I build?', a: 'Anything that comes to mind. Internal tools for your team, personal utilities, menu bar apps, workflow automations, or just quick one-off things that make your life easier. If you can describe it, Glaze can build it. ', link: { label: 'Browse the store', href: `${LIVE}/store`, after: ' for inspiration.' } },
+  { q: 'What kind of apps can I build?', a: 'Anything that comes to mind. Internal tools for your team, personal utilities, menu bar apps, workflow automations, or just quick one-off things that make your life easier. If you can describe it, Glaze can build it. ', link: { label: 'Browse the store', href: '/store', after: ' for inspiration.' } },
   { q: 'How do I use my Claude subscription?', a: "Sign in with Claude CLI, then connect Glaze and allow it to use your subscription. Your Claude models appear in the model picker next to Glaze's own models. Runs on your subscription don't spend Glaze credits and are unlimited on Glaze's side during the Beta, subject only to Claude's own usage limits." },
   { q: 'Do I own the apps I build with Glaze?', a: 'Yes! You own your app, its code and content.' },
   { q: "How do I share the apps I've built?", a: "You can share an app with anyone, they just need Glaze installed and to be signed in to their account. They don't have to be a paid subscriber to run it. On any plan you can publish to the public Glaze Store, where anyone can discover, download and use your app, or create a private Team Store to distribute apps inside your team, free while Team Stores are in Beta. Pro adds unlisted publishing for 1:1 sharing." },

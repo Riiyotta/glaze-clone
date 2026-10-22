@@ -33,18 +33,18 @@
       "CLONE_SPEC.md": "998c1945be2747a0",
       "ia.json": "1feffa9a5f6abd8a",
       "specs/SPEC_legal_persona.md": "36bb0b535aa84787",
-      "src/components/DownloadCTA.jsx": "9369247ed55a73aa",
-      "src/components/FAQ.jsx": "492d19a0ae82a1cc",
+      "src/components/DownloadCTA.jsx": "f75ae03429e61b6a",
+      "src/components/FAQ.jsx": "18b55db606c76f56",
       "src/components/Features.jsx": "974912077aa94bfa",
-      "src/components/Footer.jsx": "a2a2dee0cfed428b",
-      "src/components/GlazeIcon.jsx": "27183d8f8ae961c0",
+      "src/components/Footer.jsx": "3812ef4c65d52c3a",
+      "src/components/GlazeIcon.jsx": "5ec6f81594595722",
       "src/components/Hero.jsx": "515a9bff09d553ea",
-      "src/components/Navbar.jsx": "08e98db3998f33e1",
-      "src/components/PersonaShowcase.jsx": "20a56aef6903f739",
+      "src/components/Navbar.jsx": "d7d78157a35c0021",
+      "src/components/PersonaShowcase.jsx": "4dea9d2c36035b45",
       "src/components/YouTubeOverlay.jsx": "080ffcf0b6cfe36d",
       "src/components/icons.jsx": "e6363fa5861c456c",
-      "src/data/content.js": "d23aac64c170840d",
-      "src/index.css": "f7306655fc9b3f3c",
+      "src/data/content.js": "c843bd0c68221936",
+      "src/index.css": "60d73d46957f7cff",
       "src/motion.js": "5760b43f101eba89",
       "src/pages/Landing.jsx": "51fefaf6cb52e3a2",
       "src/pages/NotFoundPage.jsx": "c1d374a70f6e196d",
@@ -340,70 +340,70 @@
     },
     "jsx.appcard.author": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "56",
+      "lines": "65",
       "mustContain": [
         "text-[13px] leading-4 text-text-secondary"
       ]
     },
     "jsx.appcard.award": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "52",
+      "lines": "61",
       "mustContain": [
         "app.award &&"
       ]
     },
     "jsx.appcard.hover": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "44",
+      "lines": "53",
       "mustContain": [
         "hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/30"
       ]
     },
     "jsx.appcard.root": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "44",
+      "lines": "53",
       "mustContain": [
         "flex min-h-40 flex-col items-center justify-center rounded-2xl p-3"
       ]
     },
     "jsx.appcard.title": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "49",
+      "lines": "58",
       "mustContain": [
         "text-md font-medium leading-snug text-text-primary"
       ]
     },
     "jsx.appicon.fade": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "12",
+      "lines": "16",
       "mustContain": [
         "transition-opacity duration-200"
       ]
     },
     "jsx.appicon.img": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "21",
+      "lines": "25",
       "mustContain": [
         "scale-[1.19]"
       ]
     },
     "jsx.appicon.pulse": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "12",
+      "lines": "16",
       "mustContain": [
         "animate-pulse"
       ]
     },
     "jsx.appicon.root": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "5",
+      "lines": "9",
       "mustContain": [
         "function AppIconGlass"
       ]
     },
     "jsx.appicon.size": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "9",
+      "lines": "13",
       "mustContain": [
         "glaze-app-icon-glass h-16 w-16"
       ]
@@ -431,42 +431,43 @@
     },
     "jsx.dropdown.chevron": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "140",
+      "lines": "149",
       "mustContain": [
         "group-data-[popup-open]:rotate-180"
       ]
     },
     "jsx.dropdown.offset": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "77",
+      "lines": "86-87",
       "mustContain": [
-        "const POPUP_OFFSET = 7"
+        "const POPUP_OFFSET = 7",
+        "const POPUP_PADDING = 5"
       ]
     },
     "jsx.dropdown.popup": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "150",
+      "lines": "159",
       "mustContain": [
         "w-52 -translate-x-1/2"
       ]
     },
     "jsx.dropdown.root": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "81",
+      "lines": "90",
       "mustContain": [
         "function PersonaDropdown"
       ]
     },
     "jsx.faq.answer": {
       "file": "src/components/FAQ.jsx",
-      "lines": "38",
+      "lines": "39",
       "mustContain": [
         "whitespace-pre-line text-balance pb-4 text-sm leading-relaxed"
       ]
     },
     "jsx.faq.chevron": {
       "file": "src/components/FAQ.jsx",
-      "lines": "34",
+      "lines": "35",
       "mustContain": [
         "transition-transform duration-300"
       ]
@@ -480,49 +481,49 @@
     },
     "jsx.faq.dim": {
       "file": "src/components/FAQ.jsx",
-      "lines": "17",
+      "lines": "18",
       "mustContain": [
         "duration-[600ms]"
       ]
     },
     "jsx.faq.item": {
       "file": "src/components/FAQ.jsx",
-      "lines": "29",
+      "lines": "30",
       "mustContain": [
         "aria-expanded={open}"
       ]
     },
     "jsx.faq.link": {
       "file": "src/components/FAQ.jsx",
-      "lines": "44",
+      "lines": "45",
       "mustContain": [
         "underline decoration-white/20 underline-offset-4"
       ]
     },
     "jsx.faq.list": {
       "file": "src/components/FAQ.jsx",
-      "lines": "22",
+      "lines": "23",
       "mustContain": [
         "divide-y divide-border-separator border-b border-border-separator"
       ]
     },
     "jsx.faq.question": {
       "file": "src/components/FAQ.jsx",
-      "lines": "33",
+      "lines": "34",
       "mustContain": [
         "text-balance pr-4 text-base font-medium text-text-primary xs:text-xl"
       ]
     },
     "jsx.faq.root": {
       "file": "src/components/FAQ.jsx",
-      "lines": "7",
+      "lines": "8",
       "mustContain": [
         "export default function FAQ"
       ]
     },
     "jsx.faq.title": {
       "file": "src/components/FAQ.jsx",
-      "lines": "21",
+      "lines": "22",
       "mustContain": [
         "xs:text-[44px] xs:leading-[1.1]"
       ]
@@ -606,28 +607,28 @@
     },
     "jsx.glazeicon.icon": {
       "file": "src/components/GlazeIcon.jsx",
-      "lines": "22",
+      "lines": "23",
       "mustContain": [
         "relative z-[10000]"
       ]
     },
     "jsx.glazeicon.img": {
       "file": "src/components/GlazeIcon.jsx",
-      "lines": "35",
+      "lines": "36",
       "mustContain": [
         "'h-20 w-20 xs:h-[112px] xs:w-[112px]'"
       ]
     },
     "jsx.glazeicon.layer": {
       "file": "src/components/GlazeIcon.jsx",
-      "lines": "21",
+      "lines": "22",
       "mustContain": [
         "data-particle-layer"
       ]
     },
     "jsx.glazeicon.root": {
       "file": "src/components/GlazeIcon.jsx",
-      "lines": "7",
+      "lines": "8",
       "mustContain": [
         "export default function GlazeIcon"
       ]
@@ -719,7 +720,7 @@
     },
     "jsx.icon.scale": {
       "file": "src/components/GlazeIcon.jsx",
-      "lines": "29",
+      "lines": "30",
       "mustContain": [
         "transition-transform duration-300 ease-out hover:scale-105 active:scale-95"
       ]
@@ -733,56 +734,56 @@
     },
     "jsx.mobilemenu.burger": {
       "file": "src/components/Navbar.jsx",
-      "lines": "102",
+      "lines": "103",
       "mustContain": [
         "h-0.5 w-5 rounded-full bg-current transition-transform duration-150 ease-out"
       ]
     },
     "jsx.mobilemenu.content": {
       "file": "src/components/Navbar.jsx",
-      "lines": "117",
+      "lines": "118",
       "mustContain": [
         "transition-opacity duration-100 ease-out"
       ]
     },
     "jsx.mobilemenu.header": {
       "file": "src/components/Navbar.jsx",
-      "lines": "89",
+      "lines": "90",
       "mustContain": [
         "h-[50px] shrink-0 items-center justify-between pl-[18px] pr-[14px]"
       ]
     },
     "jsx.mobilemenu.link": {
       "file": "src/components/Navbar.jsx",
-      "lines": "127",
+      "lines": "128",
       "mustContain": [
         "font-display text-[30px] font-medium leading-[33px]"
       ]
     },
     "jsx.mobilemenu.navdelay": {
       "file": "src/components/Navbar.jsx",
-      "lines": "65",
+      "lines": "66",
       "mustContain": [
         "}, 150)"
       ]
     },
     "jsx.mobilemenu.signin": {
       "file": "src/components/Navbar.jsx",
-      "lines": "140",
+      "lines": "141",
       "mustContain": [
         "font-display text-2xl font-medium leading-[30px]"
       ]
     },
     "jsx.nav.624": {
       "file": "src/components/Navbar.jsx",
-      "lines": "76",
+      "lines": "77",
       "mustContain": [
         "min-[624px]:hidden"
       ]
     },
     "jsx.nav.backdrop": {
       "file": "src/components/Navbar.jsx",
-      "lines": "76",
+      "lines": "77",
       "mustContain": [
         "backdrop-blur-[2.5px]"
       ]
@@ -796,42 +797,42 @@
     },
     "jsx.nav.divider-gradient": {
       "file": "src/components/Navbar.jsx",
-      "lines": "135",
+      "lines": "136",
       "mustContain": [
         "bg-[linear-gradient(90deg,transparent"
       ]
     },
     "jsx.nav.root": {
       "file": "src/components/Navbar.jsx",
-      "lines": "81",
+      "lines": "82",
       "mustContain": [
         "site-navigation fixed left-0 right-0"
       ]
     },
     "jsx.navpill.container": {
       "file": "src/components/Navbar.jsx",
-      "lines": "177",
+      "lines": "178",
       "mustContain": [
         "h-12 w-fit items-center gap-6 rounded-full p-1.5 pl-[15px]"
       ]
     },
     "jsx.navpill.link": {
       "file": "src/components/Navbar.jsx",
-      "lines": "188",
+      "lines": "189",
       "mustContain": [
         "flex h-8 items-center text-sm font-medium leading-none"
       ]
     },
     "jsx.navpill.logo": {
       "file": "src/components/Navbar.jsx",
-      "lines": "180",
+      "lines": "181",
       "mustContain": [
         "className=\"h-5\""
       ]
     },
     "jsx.navpill.rule": {
       "file": "src/components/Navbar.jsx",
-      "lines": "200",
+      "lines": "201",
       "mustContain": [
         "-ml-2 h-4 w-px shrink-0 bg-white/[0.12]"
       ]
@@ -887,77 +888,77 @@
     },
     "jsx.persona.800": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "206",
+      "lines": "225",
       "mustContain": [
         "min-[800px]:flex"
       ]
     },
     "jsx.persona.arrow": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "72",
+      "lines": "81",
       "mustContain": [
         "group-hover:translate-x-0.5"
       ]
     },
     "jsx.persona.bottomlink": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "65",
+      "lines": "74",
       "mustContain": [
         "function BottomLink"
       ]
     },
     "jsx.persona.h2": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "250",
+      "lines": "269",
       "mustContain": [
         "font-display text-2xl font-medium leading-tight tracking-tight"
       ]
     },
     "jsx.persona.p": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "254",
+      "lines": "273",
       "mustContain": [
         "text-balance text-sm leading-snug text-text-secondary"
       ]
     },
     "jsx.persona.panel": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "244",
+      "lines": "263",
       "mustContain": [
         "data-anim=\"persona-panel\""
       ]
     },
     "jsx.persona.root": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "183",
+      "lines": "192",
       "mustContain": [
         "export default function PersonaShowcase"
       ]
     },
     "jsx.persona.tab": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "223",
+      "lines": "242",
       "mustContain": [
         "h-[34px] shrink-0 rounded-full px-3.5"
       ]
     },
     "jsx.persona.tablist": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "208",
+      "lines": "227",
       "mustContain": [
         "rounded-full bg-white/[0.025] p-[3px]"
       ]
     },
     "jsx.persona.teamlogo": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "274",
+      "lines": "293",
       "mustContain": [
         "h-14 w-14 min-[600px]:h-[72px] min-[600px]:w-[72px]"
       ]
     },
     "qa.dropdown": {
       "file": "src/components/PersonaShowcase.jsx",
-      "lines": "90",
+      "lines": "99",
       "mustContain": [
         "Live site (Base UI Select, alignItemWithTrigger off)"
       ]
@@ -1482,7 +1483,12 @@
     {
       "id": "glaze-icon-compact",
       "value": "GlazeIcon compact prop (64/80px icon, mb-7/8)",
-      "handling": "used only by routes outside this scope; not modelled"
+      "handling": "GlazeIcon compact and fixedSize props, DownloadCTA compact prop, FAQ items/wrapperClassName props and router Link in the footer exist for routes outside this scope; only the default variants used on /, persona routes and 404 are modelled"
+    },
+    {
+      "id": "app-details-dialog",
+      "value": "AppCard click opens a lazy AppDialog (src/components/store/AppDialog)",
+      "handling": "added to the source while this repo was being built; belongs to the store specs, not modelled. CLONE_SPEC section 4 already lists the app-details dialog as not specced for the landing scope"
     },
     {
       "id": "lang-text-hardcoded",

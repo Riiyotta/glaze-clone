@@ -13,6 +13,8 @@ const BORDER_Y = 2
 // (so persona pages, legal pages and the 404 activate nothing).
 function isActive(href, pathname) {
   if (!href.startsWith('/')) return false
+  // Measured on live: Store is active on /store and on /app/* (real or unknown slug), but NOT on /store/<category>.
+  if (href === '/store') return pathname === '/store' || pathname.startsWith('/app/')
   return href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`)
 }
 

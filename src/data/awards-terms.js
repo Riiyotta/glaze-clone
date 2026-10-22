@@ -1,13 +1,13 @@
 // PLACEHOLDER CONTENT. The clause text below is neutral lorem-style filler generated
 // deterministically (see ./legal/lorem.js) to match the paragraph counts and approximate lengths
-// in specs/SPEC_marketing.md section 4.2 (chars / 6 = words). It is NOT the real Awards terms.
+// in specs/SPEC_marketing.md section 4.2 (chars / 6.4 = words). It is NOT the real Awards terms.
 // Only the title, last-updated line, the 12 numbered h2s, the "Schedule 1" divider, the 4 h3s,
 // the criteria labels (UI copy, same as on /awards), the entry-window labels/dates and the link
 // targets mirror the original page.
 import { createBuilder } from './legal/lorem.js'
 
 const { p: gen, h2, h3 } = createBuilder(2026)
-const w = (chars) => Math.max(3, Math.round(chars / 6))
+const w = (chars) => Math.max(3, Math.round(chars / 6.4))
 const p = (chars, links) => gen(w(chars), links ? { links } : undefined)
 
 export const AWARDS_TERMS_TITLE = ['Glaze Awards', 'Terms & Conditions']
