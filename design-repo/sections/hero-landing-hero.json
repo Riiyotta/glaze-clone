@@ -2,7 +2,7 @@
   "id": "section.hero.landing-hero",
   "typeId": "hero.landing-hero",
   "registryId": "section.hero.landing-hero",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "category": "hero",
   "semantic": {
     "id": "section.hero.landing-hero",
@@ -124,7 +124,16 @@
         "type": "object",
         "properties": {
           "assetRole": {
-            "const": "video.hero-loop"
+            "enum": [
+              "video.hero-loop",
+              "video.user-supplied"
+            ],
+            "referenceRoles": [
+              "video.hero-loop"
+            ],
+            "generatedRoles": [
+              "video.user-supplied"
+            ]
           },
           "assetRef": {
             "type": "string"

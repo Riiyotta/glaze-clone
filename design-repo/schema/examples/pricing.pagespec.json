@@ -1,0 +1,269 @@
+{
+  "id": "page.pricing",
+  "mode": "reference",
+  "route": "/pricing",
+  "template": "template.pricing",
+  "theme": "dark",
+  "head": {
+    "title": "Placeholder pricing title",
+    "description": "Placeholder pricing description."
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Link 1",
+            "href": "/example-1"
+          },
+          {
+            "label": "Link 2",
+            "href": "/example-2"
+          },
+          {
+            "label": "Link 3",
+            "href": "/example-3"
+          },
+          {
+            "label": "Link 4",
+            "href": "/example-4"
+          },
+          {
+            "label": "Link 5",
+            "href": "/example-5"
+          }
+        ],
+        "activeLinkHref": "/pricing",
+        "signInLabel": "Sign in",
+        "signInHref": "/example-sign-in",
+        "downloadLabel": "Download",
+        "downloadHref": "/example-download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://example.com/x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://example.com/slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://example.com/youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://example.com/reddit"
+          }
+        ],
+        "creditLabel": "Made by Example",
+        "creditHref": "https://example.com",
+        "logoAssetRole": "brand.wordmark",
+        "logoAssetRef": "ph-wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "page-title-1",
+      "type": "hero.page-title",
+      "content": {
+        "title": "Pricing"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "pricing-plans-1",
+      "type": "commerce.pricing-plans",
+      "content": {
+        "plans": [
+          {
+            "id": "free",
+            "title": "Plan A",
+            "features": [
+              {
+                "text": "Feature one",
+                "badge": "Badge",
+                "icon": "check"
+              },
+              {
+                "text": "Feature two"
+              },
+              {
+                "text": "Feature three"
+              }
+            ],
+            "caption": "Plan caption"
+          },
+          {
+            "id": "pro",
+            "title": "Plan B",
+            "highlighted": true,
+            "lead": "Everything in A, plus:",
+            "features": [
+              {
+                "text": "Feature four",
+                "info": "Placeholder tooltip text."
+              },
+              {
+                "text": "Feature five"
+              },
+              {
+                "text": "Feature six"
+              }
+            ],
+            "price": {
+              "amount": "$8",
+              "unit": "per month"
+            }
+          },
+          {
+            "id": "team",
+            "title": "Plan C",
+            "features": [
+              {
+                "text": "Feature seven"
+              },
+              {
+                "text": "Feature eight"
+              }
+            ],
+            "caption": "Plan C caption"
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "faq-1",
+      "type": "support.faq",
+      "content": {
+        "title": "FAQ",
+        "items": [
+          {
+            "question": "Placeholder question 1?",
+            "answer": "Placeholder answer text."
+          },
+          {
+            "question": "Placeholder question 2?",
+            "answer": "Placeholder answer text."
+          },
+          {
+            "question": "Placeholder question 3?",
+            "answer": "Placeholder answer text."
+          },
+          {
+            "question": "Placeholder question 4?",
+            "answer": "Placeholder answer text."
+          },
+          {
+            "question": "Placeholder question 5?",
+            "answer": "Placeholder answer text."
+          },
+          {
+            "question": "Placeholder question 6?",
+            "answer": "Placeholder answer text.",
+            "link": {
+              "label": "Example link",
+              "href": "/example",
+              "after": "."
+            }
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "accordion-and-dim",
+        "reducedMotionFallback": "static"
+      }
+    },
+    {
+      "id": "download-icon-1",
+      "type": "cta.download-icon",
+      "content": {
+        "icon": {
+          "assetRole": "brand.app-icon",
+          "assetRef": "ph-app-icon",
+          "alt": "Placeholder icon"
+        },
+        "particlePoolRef": "ph-particle-pool",
+        "headline": "Placeholder call to action",
+        "primaryCta": {
+          "label": "Download",
+          "href": "/example-download",
+          "icon": "apple"
+        },
+        "mobileHref": "/example-sign-up",
+        "requirementsNote": "Placeholder requirements note"
+      },
+      "motion": {
+        "pattern": "icon-press-and-burst",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "footer-1",
+      "type": "shell.footer",
+      "content": {
+        "copyright": "Copyright Example",
+        "primaryLinks": [
+          {
+            "label": "Docs",
+            "href": "https://example.com/docs"
+          },
+          {
+            "label": "Blog",
+            "href": "/example-blog"
+          }
+        ],
+        "legalLinks": [
+          {
+            "label": "Terms",
+            "href": "/example-terms"
+          },
+          {
+            "label": "Privacy",
+            "href": "/example-privacy"
+          },
+          {
+            "label": "Use policy",
+            "href": "/example-use"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://example.com/x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://example.com/slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://example.com/youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://example.com/reddit"
+          }
+        ],
+        "creditLabel": "Made by Example",
+        "creditHref": "https://example.com"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    }
+  ]
+}

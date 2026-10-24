@@ -1,6 +1,6 @@
 {
   "registryId": "primitive.image",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "category": "media",
   "description": "Image, avatar and looping video frames. Every media field in a PageSpec must declare an assetRole from assets/asset-roles.json.",
   "props": {
@@ -10,7 +10,13 @@
         "feature-image",
         "avatar",
         "app-icon-image",
-        "logo-svg"
+        "logo-svg",
+        "cover-image",
+        "prose-image",
+        "jury-photo",
+        "screenshot",
+        "medal",
+        "plan-mark"
       ]
     },
     "assetRole": {
@@ -86,6 +92,72 @@
       "assetRole": "brand.wordmark",
       "cite": [
         "jsx.navpill.logo"
+      ]
+    },
+    "cover-image": {
+      "radius": {
+        "card": "{radius.cover}",
+        "article": "{radius.cover-large}"
+      },
+      "aspect": "1.9 / 1",
+      "fit": "cover",
+      "border": "{color.border.separator}",
+      "hover": {
+        "opacity": "{foundation.opacity.hover-accent}",
+        "note": "Blog index only (group hover)."
+      },
+      "cite": [
+        "jsx.blogindex.cover",
+        "jsx.blogpost.cover"
+      ]
+    },
+    "prose-image": {
+      "radius": "{radius.prose-image}",
+      "border": "{color.border.separator}",
+      "cursor": "opens the lightbox on blog posts",
+      "cite": [
+        "jsx.prose.img"
+      ]
+    },
+    "jury-photo": {
+      "size": {
+        "narrow": "{jury.photo}",
+        "wide": "{jury.photoWide}"
+      },
+      "radius": "{radius.avatar}",
+      "filter": "greyscale",
+      "cite": [
+        "jsx.jury.photo"
+      ]
+    },
+    "screenshot": {
+      "height": {
+        "narrow": "{screenshotStrip.height}",
+        "wide": "{screenshotStrip.heightWide}"
+      },
+      "radius": "{screenshotStrip.radius}",
+      "snap": "x mandatory, start",
+      "cite": [
+        "jsx.shots.img",
+        "jsx.shots.strip"
+      ]
+    },
+    "medal": {
+      "size": {
+        "inline": "{foundation.iconSize.16}",
+        "card": "{winnerCard.medal}",
+        "prize": "{prize.icon}"
+      },
+      "cite": [
+        "jsx.winners.card",
+        "jsx.awardpill.root"
+      ]
+    },
+    "plan-mark": {
+      "size": "{foundation.iconSize.14}",
+      "note": "Third-party mark in a plan row; blocked in generated mode.",
+      "cite": [
+        "jsx.pricing.feature"
       ]
     }
   },

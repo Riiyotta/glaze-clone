@@ -1,0 +1,289 @@
+{
+  "id": "page.blog-post",
+  "mode": "reference",
+  "route": "/blog/example-post",
+  "template": "template.blog-post",
+  "theme": "dark",
+  "head": {
+    "title": "Placeholder post title.",
+    "description": "Placeholder post description."
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Link 1",
+            "href": "/example-1"
+          },
+          {
+            "label": "Link 2",
+            "href": "/example-2"
+          },
+          {
+            "label": "Link 3",
+            "href": "/example-3"
+          },
+          {
+            "label": "Link 4",
+            "href": "/example-4"
+          },
+          {
+            "label": "Link 5",
+            "href": "/example-5"
+          }
+        ],
+        "activeLinkHref": "/blog",
+        "signInLabel": "Sign in",
+        "signInHref": "/example-sign-in",
+        "downloadLabel": "Download",
+        "downloadHref": "/example-download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://example.com/x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://example.com/slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://example.com/youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://example.com/reddit"
+          }
+        ],
+        "creditLabel": "Made by Example",
+        "creditHref": "https://example.com",
+        "logoAssetRole": "brand.wordmark",
+        "logoAssetRef": "ph-wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "article-cover-1",
+      "type": "content.article-cover",
+      "content": {
+        "image": {
+          "assetRole": "cover.image",
+          "assetRef": "ph-cover-1",
+          "alt": "Placeholder cover"
+        }
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "article-header-1",
+      "type": "content.article-header",
+      "content": {
+        "date": "January 5, 2026",
+        "datetime": "2026-01-05",
+        "title": "Placeholder post title",
+        "author": {
+          "name": "Author 1",
+          "avatar": {
+            "assetRole": "avatar.person",
+            "assetRef": "ph-avatar-1"
+          }
+        }
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "article-body-1",
+      "type": "content.article-body",
+      "content": {
+        "blocks": [
+          {
+            "kind": "h2",
+            "text": "Placeholder heading"
+          },
+          {
+            "kind": "p",
+            "text": "Placeholder paragraph one."
+          },
+          {
+            "kind": "p",
+            "text": "Placeholder quote paragraph.",
+            "style": "quote"
+          },
+          {
+            "kind": "h3",
+            "text": "Placeholder subheading"
+          },
+          {
+            "kind": "p",
+            "text": "Placeholder paragraph two.",
+            "lead": "Lead:",
+            "links": [
+              {
+                "text": "link",
+                "href": "https://example.com/post"
+              }
+            ],
+            "codes": [
+              "code"
+            ]
+          },
+          {
+            "kind": "ul",
+            "items": [
+              {
+                "lead": "Lead",
+                "text": "Placeholder item."
+              },
+              {
+                "text": "Placeholder item two."
+              }
+            ]
+          },
+          {
+            "kind": "hr"
+          },
+          {
+            "kind": "img",
+            "image": {
+              "assetRole": "article.image",
+              "assetRef": "ph-article-img",
+              "alt": "Placeholder screenshot"
+            },
+            "width": 1920,
+            "height": 1080
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "article-footer-1",
+      "type": "content.article-footer",
+      "content": {
+        "author": {
+          "name": "Author 1",
+          "avatar": {
+            "assetRole": "avatar.person",
+            "assetRef": "ph-avatar-1"
+          }
+        },
+        "date": "January 5, 2026",
+        "datetime": "2026-01-05",
+        "shareLabel": "Share",
+        "copiedLabel": "Copied"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "download-compact-1",
+      "type": "cta.download-compact",
+      "content": {
+        "icon": {
+          "assetRole": "brand.app-icon",
+          "assetRef": "ph-app-icon",
+          "alt": "Placeholder icon"
+        },
+        "particlePoolRef": "ph-particle-pool",
+        "headline": "Placeholder call to action",
+        "primaryCta": {
+          "label": "Download",
+          "href": "/example-download",
+          "icon": "apple"
+        },
+        "mobileNote": "Placeholder mobile note",
+        "desktopNote": "Placeholder desktop note"
+      },
+      "motion": {
+        "pattern": "icon-press-and-burst",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "footer-1",
+      "type": "shell.footer",
+      "content": {
+        "copyright": "Copyright Example",
+        "primaryLinks": [
+          {
+            "label": "Docs",
+            "href": "https://example.com/docs"
+          },
+          {
+            "label": "Blog",
+            "href": "/example-blog"
+          }
+        ],
+        "legalLinks": [
+          {
+            "label": "Terms",
+            "href": "/example-terms"
+          },
+          {
+            "label": "Privacy",
+            "href": "/example-privacy"
+          },
+          {
+            "label": "Use policy",
+            "href": "/example-use"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://example.com/x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://example.com/slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://example.com/youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://example.com/reddit"
+          }
+        ],
+        "creditLabel": "Made by Example",
+        "creditHref": "https://example.com"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "image-lightbox-1",
+      "type": "shell.image-lightbox",
+      "content": {
+        "label": "Image gallery",
+        "closeLabel": "Close",
+        "previousLabel": "Previous",
+        "nextLabel": "Next"
+      },
+      "motion": {
+        "pattern": "dialog-fade",
+        "reducedMotionFallback": "opacity-only"
+      }
+    }
+  ]
+}

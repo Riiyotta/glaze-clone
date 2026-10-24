@@ -1,0 +1,239 @@
+{
+  "id": "page.generated-changelog",
+  "mode": "generated",
+  "route": "/changelog",
+  "template": "template.changelog",
+  "theme": "dark",
+  "head": {
+    "title": "Releases. Fernlight",
+    "description": "Every release, newest first."
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Overview",
+            "href": "/"
+          },
+          {
+            "label": "Plans",
+            "href": "/pricing"
+          },
+          {
+            "label": "Library",
+            "href": "/store"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          },
+          {
+            "label": "Releases",
+            "href": "/changelog"
+          }
+        ],
+        "activeLinkHref": "/changelog",
+        "signInLabel": "Sign in",
+        "signInHref": "/account",
+        "downloadLabel": "Download",
+        "downloadHref": "/download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example",
+        "logoAssetRole": "brand.wordmark-placeholder",
+        "logoAssetRef": "placeholder:wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "page-header-1",
+      "type": "hero.page-header",
+      "content": {
+        "title": "Releases",
+        "subtitle": "What changed in each version"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "release-entry-1",
+      "type": "content.release-entry",
+      "content": {
+        "version": "1.2.0",
+        "date": "March 5, 2026",
+        "datetime": "2026-03-05",
+        "href": "/changelog/1-2-0",
+        "title": "Faster search and calmer sync 1",
+        "blocks": [
+          {
+            "kind": "h2",
+            "text": "What's new"
+          },
+          {
+            "kind": "p",
+            "text": "Search now previews matches while you type.",
+            "codes": [
+              "notes/"
+            ]
+          },
+          {
+            "kind": "ul",
+            "items": [
+              {
+                "lead": "Sync",
+                "text": "background sync pauses on battery"
+              },
+              {
+                "text": "export keeps folder structure"
+              }
+            ]
+          },
+          {
+            "kind": "img",
+            "image": {
+              "assetRole": "media.user-supplied",
+              "assetRef": "user:release-image",
+              "alt": "Search preview supplied by the user"
+            },
+            "width": 2400,
+            "height": 1200
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "release-entry-2",
+      "type": "content.release-entry",
+      "content": {
+        "version": "1.1.0",
+        "date": "March 5, 2026",
+        "datetime": "2026-03-05",
+        "href": "/changelog/1-1-0",
+        "title": "Faster search and calmer sync 2",
+        "blocks": [
+          {
+            "kind": "h2",
+            "text": "What's new"
+          },
+          {
+            "kind": "p",
+            "text": "Search now previews matches while you type.",
+            "codes": [
+              "notes/"
+            ]
+          },
+          {
+            "kind": "ul",
+            "items": [
+              {
+                "lead": "Sync",
+                "text": "background sync pauses on battery"
+              },
+              {
+                "text": "export keeps folder structure"
+              }
+            ]
+          },
+          {
+            "kind": "img",
+            "image": {
+              "assetRole": "media.user-supplied",
+              "assetRef": "user:release-image",
+              "alt": "Search preview supplied by the user"
+            },
+            "width": 2400,
+            "height": 1200
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "footer-1",
+      "type": "shell.footer",
+      "content": {
+        "copyright": "Copyright Fernhill",
+        "primaryLinks": [
+          {
+            "label": "Guides",
+            "href": "/guides"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          }
+        ],
+        "legalLinks": [
+          {
+            "label": "Terms",
+            "href": "/terms"
+          },
+          {
+            "label": "Privacy",
+            "href": "/privacy"
+          },
+          {
+            "label": "Acceptable use",
+            "href": "/aup"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    }
+  ]
+}

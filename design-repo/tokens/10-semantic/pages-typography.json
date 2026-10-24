@@ -1,0 +1,761 @@
+{
+  "$description": "Semantic type roles for the page families beyond landing. Same shape as typography.json; verified against measured computed styles by extraction/verify_all.py check 13 (extraction/type_probes.json).",
+  "typography": {
+    "display.page-title": {
+      "family": "{foundation.font.family.display}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.4xl}",
+      "lineHeight": "{foundation.font.lineHeight.hero}",
+      "letterSpacing": "{foundation.font.letterSpacing.tight}",
+      "responsive": {
+        "480": {
+          "size": "{foundation.font.size.5xl}"
+        }
+      },
+      "usedBy": [
+        "hero.page-title",
+        "hero.awards-hero"
+      ],
+      "cite": [
+        "jsx.pricing.h1",
+        "jsx.blogindex.h1",
+        "jsx.awards.h1"
+      ]
+    },
+    "heading.legal-title": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.4xl}",
+      "lineHeight": "{foundation.font.lineHeight.hero}",
+      "letterSpacing": "{foundation.font.letterSpacing.tight}",
+      "responsive": {
+        "480": {
+          "size": "{foundation.font.size.5xl}"
+        }
+      },
+      "usedBy": [
+        "content.legal-header"
+      ],
+      "cite": [
+        "jsx.legal.h1",
+        "jsx.awardsterms.h1"
+      ]
+    },
+    "heading.state": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.2xl}",
+      "lineHeight": "{foundation.font.lineHeight.tight}",
+      "letterSpacing": "{foundation.font.letterSpacing.tight}",
+      "responsive": {
+        "480": {
+          "size": "{foundation.font.size.3xl}"
+        }
+      },
+      "usedBy": [
+        "cta.download-page"
+      ],
+      "cite": [
+        "jsx.download.h1"
+      ]
+    },
+    "heading.plan": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.3xl}",
+      "lineHeight": "{foundation.font.lineHeight.none}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "commerce.pricing-plans",
+        "component.plan-card"
+      ],
+      "cite": [
+        "jsx.pricing.card-title"
+      ]
+    },
+    "label.plan-feature": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.sm}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-18}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "commerce.pricing-plans",
+        "component.plan-card"
+      ],
+      "cite": [
+        "jsx.pricing.features"
+      ]
+    },
+    "label.badge": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.xs}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-16}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "commerce.pricing-plans",
+        "primitive.badge"
+      ],
+      "cite": [
+        "jsx.pricing.badge"
+      ]
+    },
+    "price.amount": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.xl}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-20}",
+      "letterSpacing": "{foundation.font.letterSpacing.price}",
+      "usedBy": [
+        "commerce.pricing-plans"
+      ],
+      "cite": [
+        "jsx.pricing.price"
+      ]
+    },
+    "price.unit": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.regular}",
+      "size": "{foundation.font.size.sm}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-14}",
+      "letterSpacing": "{foundation.font.letterSpacing.price}",
+      "note": "Also the plan caption at >=480; below 480 the caption is 14px with line height caption in tertiary (jsx.pricing.footer).",
+      "usedBy": [
+        "commerce.pricing-plans"
+      ],
+      "cite": [
+        "jsx.pricing.unit"
+      ]
+    },
+    "label.version": {
+      "family": "{foundation.font.family.mono}",
+      "weight": "{foundation.font.weight.regular}",
+      "size": "{foundation.font.size.xs}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-16}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "cta.download-page"
+      ],
+      "cite": [
+        "jsx.download.version"
+      ],
+      "note": "Plain text-xs: 12px with the Tailwind default 16px line height."
+    },
+    "body.legal": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.regular}",
+      "size": "{foundation.font.size.base}",
+      "lineHeight": "{foundation.font.lineHeight.1.6}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "content.legal-body"
+      ],
+      "cite": [
+        "jsx.legal.body"
+      ]
+    },
+    "text.legal-updated": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.regular}",
+      "size": "{foundation.font.size.sm}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-20}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "content.legal-header"
+      ],
+      "cite": [
+        "jsx.legal.updated"
+      ]
+    },
+    "heading.legal-h2": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.semibold}",
+      "size": "{foundation.font.size.2xl}",
+      "lineHeight": "{foundation.font.lineHeight.1.5}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "content.legal-body"
+      ],
+      "cite": [
+        "css.legal-prose"
+      ]
+    },
+    "heading.legal-h3": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.semibold}",
+      "size": "{foundation.font.size.base}",
+      "lineHeight": "{foundation.font.lineHeight.1.5}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "content.legal-body"
+      ],
+      "cite": [
+        "css.legal-prose"
+      ]
+    },
+    "heading.terms-h2": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.semibold}",
+      "size": "{foundation.font.size.3xl}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-36}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "content.legal-body"
+      ],
+      "cite": [
+        "jsx.awardsterms.body"
+      ]
+    },
+    "heading.terms-h3": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.semibold}",
+      "size": "{foundation.font.size.lg}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-28}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "content.legal-body"
+      ],
+      "cite": [
+        "jsx.awardsterms.h3"
+      ]
+    },
+    "body.page-subtitle": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.regular}",
+      "size": "{foundation.font.size.base}",
+      "lineHeight": "{foundation.font.lineHeight.relaxed}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "responsive": {
+        "480": {
+          "size": "{foundation.font.size.lg}"
+        }
+      },
+      "usedBy": [
+        "hero.page-title",
+        "hero.awards-hero"
+      ],
+      "cite": [
+        "jsx.blogindex.sub",
+        "jsx.awards.sub"
+      ]
+    },
+    "meta.date": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.regular}",
+      "size": "{foundation.font.size.md}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-22}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "content.post-card",
+        "content.article-header",
+        "content.article-footer",
+        "component.author-row"
+      ],
+      "cite": [
+        "jsx.blogindex.time",
+        "jsx.author.row"
+      ]
+    },
+    "heading.post-card": {
+      "family": "{foundation.font.family.display}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.28}",
+      "lineHeight": "{foundation.font.lineHeight.1.08}",
+      "letterSpacing": "{foundation.font.letterSpacing.tight}",
+      "responsive": {
+        "480": {
+          "size": "{foundation.font.size.hero}"
+        }
+      },
+      "usedBy": [
+        "content.post-card"
+      ],
+      "cite": [
+        "jsx.blogindex.title"
+      ]
+    },
+    "body.excerpt": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.regular}",
+      "size": "{foundation.font.size.base}",
+      "lineHeight": "{foundation.font.lineHeight.1.6}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "responsive": {
+        "480": {
+          "size": "{foundation.font.size.17}"
+        }
+      },
+      "usedBy": [
+        "content.post-card"
+      ],
+      "cite": [
+        "jsx.blogindex.excerpt"
+      ]
+    },
+    "heading.article": {
+      "family": "{foundation.font.family.display}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.32}",
+      "lineHeight": "{foundation.font.lineHeight.1.05}",
+      "letterSpacing": "{foundation.font.letterSpacing.tight}",
+      "responsive": {
+        "480": {
+          "size": "{foundation.font.size.4xl}"
+        }
+      },
+      "usedBy": [
+        "content.article-header"
+      ],
+      "cite": [
+        "jsx.blogpost.h1"
+      ]
+    },
+    "body.prose": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.regular}",
+      "size": "{foundation.font.size.base}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-25}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "responsive": {
+        "480": {
+          "size": "{foundation.font.size.17}",
+          "lineHeight": "{foundation.font.lineHeight.fixed-27}"
+        }
+      },
+      "usedBy": [
+        "content.article-body",
+        "content.release-entry"
+      ],
+      "cite": [
+        "jsx.prose.root"
+      ]
+    },
+    "heading.prose-h2": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.xl}",
+      "lineHeight": "{foundation.font.lineHeight.tight}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "content.article-body",
+        "content.release-entry"
+      ],
+      "cite": [
+        "jsx.prose.h2"
+      ]
+    },
+    "heading.prose-h3": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.lg}",
+      "lineHeight": "{foundation.font.lineHeight.1.3}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "content.article-body"
+      ],
+      "cite": [
+        "jsx.prose.h3"
+      ]
+    },
+    "heading.cta-compact": {
+      "family": "{foundation.font.family.display}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.3xl}",
+      "lineHeight": "{foundation.font.lineHeight.hero}",
+      "letterSpacing": "{foundation.font.letterSpacing.compact-cta}",
+      "responsive": {
+        "480": {
+          "size": "{foundation.font.size.4xl}"
+        }
+      },
+      "usedBy": [
+        "cta.download-compact"
+      ],
+      "cite": [
+        "jsx.compactcta.title"
+      ]
+    },
+    "heading.release": {
+      "family": "{foundation.font.family.display}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.3xl}",
+      "lineHeight": "{foundation.font.lineHeight.1.08}",
+      "letterSpacing": "{foundation.font.letterSpacing.tight}",
+      "usedBy": [
+        "content.release-entry"
+      ],
+      "cite": [
+        "jsx.changelog.title"
+      ]
+    },
+    "label.release-pill": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.sm}",
+      "lineHeight": "{foundation.font.lineHeight.none}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "content.release-entry"
+      ],
+      "cite": [
+        "jsx.changelog.pill"
+      ]
+    },
+    "meta.release-date": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.regular}",
+      "size": "{foundation.font.size.sm}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-20}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "content.release-entry"
+      ],
+      "cite": [
+        "jsx.changelog.aside"
+      ]
+    },
+    "heading.list-title": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.lg}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-22}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "store.category-nav",
+        "showcase.award-winners",
+        "showcase.award-entries"
+      ],
+      "cite": [
+        "jsx.store.h1",
+        "jsx.winners.finalists"
+      ]
+    },
+    "heading.shelf": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.base}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-22}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "store.app-shelves",
+        "store.app-grid",
+        "store.app-list"
+      ],
+      "cite": [
+        "jsx.slider.root",
+        "jsx.appdetail.listtitle"
+      ]
+    },
+    "label.app-name": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.sm}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-18}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "component.app-row"
+      ],
+      "cite": [
+        "jsx.approw.name"
+      ]
+    },
+    "text.app-meta": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.regular}",
+      "size": "{foundation.font.size.sm}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-18}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "component.app-row",
+        "store.app-about"
+      ],
+      "cite": [
+        "jsx.approw.name",
+        "jsx.appdetail.about"
+      ]
+    },
+    "label.chip": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.meta}",
+      "lineHeight": "{foundation.font.lineHeight.none}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "store.category-nav",
+        "component.category-chip"
+      ],
+      "cite": [
+        "jsx.store.chip"
+      ]
+    },
+    "heading.winner-name": {
+      "family": "{foundation.font.family.display}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.lg}",
+      "lineHeight": "{foundation.font.lineHeight.tight}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "showcase.award-winners"
+      ],
+      "cite": [
+        "jsx.winners.card"
+      ]
+    },
+    "body.winner-tagline": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.regular}",
+      "size": "{foundation.font.size.sm}",
+      "lineHeight": "{foundation.font.lineHeight.relaxed}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "showcase.award-winners"
+      ],
+      "cite": [
+        "jsx.winners.card"
+      ]
+    },
+    "label.medal": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.base}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-24}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "showcase.award-winners"
+      ],
+      "cite": [
+        "jsx.winners.card"
+      ]
+    },
+    "heading.prize": {
+      "family": "{foundation.font.family.display}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.2xl}",
+      "lineHeight": "{foundation.font.lineHeight.tight}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "responsive": {
+        "480": {
+          "size": "{foundation.font.size.3xl}"
+        }
+      },
+      "usedBy": [
+        "content.award-prizes"
+      ],
+      "cite": [
+        "jsx.prizes.title"
+      ]
+    },
+    "text.prize-sub": {
+      "family": "{foundation.font.family.display}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.lg}",
+      "lineHeight": "{foundation.font.lineHeight.tight}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "responsive": {
+        "480": {
+          "size": "{foundation.font.size.xl}"
+        }
+      },
+      "usedBy": [
+        "content.award-prizes"
+      ],
+      "cite": [
+        "jsx.prizes.sub"
+      ]
+    },
+    "label.legend": {
+      "family": "{foundation.font.family.display}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.sm}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-20}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "responsive": {
+        "480": {
+          "size": "{foundation.font.size.base}",
+          "lineHeight": "{foundation.font.lineHeight.fixed-24}"
+        }
+      },
+      "usedBy": [
+        "content.award-prizes"
+      ],
+      "cite": [
+        "jsx.prizes.legend"
+      ]
+    },
+    "heading.jury-name": {
+      "family": "{foundation.font.family.display}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.md}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-18.8}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "responsive": {
+        "760": {
+          "size": "{foundation.font.size.lg}",
+          "lineHeight": "{foundation.font.lineHeight.fixed-22.5}"
+        }
+      },
+      "usedBy": [
+        "content.award-jury"
+      ],
+      "cite": [
+        "jsx.jury.name"
+      ]
+    },
+    "text.jury-role": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.regular}",
+      "size": "{foundation.font.size.sm}",
+      "lineHeight": "{foundation.font.lineHeight.snug}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "content.award-jury"
+      ],
+      "cite": [
+        "jsx.jury.root"
+      ]
+    },
+    "heading.criteria": {
+      "family": "{foundation.font.family.display}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.xl}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-28}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "content.award-criteria"
+      ],
+      "cite": [
+        "jsx.criteria.title"
+      ]
+    },
+    "body.criteria": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.regular}",
+      "size": "{foundation.font.size.sm}",
+      "lineHeight": "{foundation.font.lineHeight.relaxed}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "responsive": {
+        "480": {
+          "size": "{foundation.font.size.base}",
+          "lineHeight": "{foundation.font.lineHeight.fixed-26}"
+        }
+      },
+      "usedBy": [
+        "content.award-criteria"
+      ],
+      "cite": [
+        "jsx.criteria.body"
+      ]
+    },
+    "heading.app-title": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.lg}",
+      "lineHeight": "{foundation.font.lineHeight.tight}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "responsive": {
+        "480": {
+          "size": "{foundation.font.size.xl}",
+          "lineHeight": "{foundation.font.lineHeight.fixed-26}"
+        }
+      },
+      "usedBy": [
+        "store.app-header"
+      ],
+      "cite": [
+        "jsx.appdetail.h1"
+      ]
+    },
+    "text.app-tagline": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.regular}",
+      "size": "{foundation.font.size.xs}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-16}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "responsive": {
+        "480": {
+          "size": "{foundation.font.size.sm}",
+          "lineHeight": "{foundation.font.lineHeight.fixed-18}"
+        }
+      },
+      "usedBy": [
+        "store.app-header"
+      ],
+      "cite": [
+        "jsx.appdetail.tagline"
+      ]
+    },
+    "label.stat": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.2xs}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-12}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "responsive": {
+        "480": {
+          "size": "{foundation.font.size.xs}",
+          "lineHeight": "{foundation.font.lineHeight.fixed-14}"
+        }
+      },
+      "note": "Rendered uppercase (text-transform).",
+      "usedBy": [
+        "store.app-stats",
+        "component.stat-cell"
+      ],
+      "cite": [
+        "jsx.appdetail.statlabel"
+      ]
+    },
+    "text.stat-value": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.regular}",
+      "size": "{foundation.font.size.xs}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-16}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "responsive": {
+        "480": {
+          "size": "{foundation.font.size.sm}",
+          "lineHeight": "{foundation.font.lineHeight.fixed-18}"
+        }
+      },
+      "usedBy": [
+        "store.app-stats",
+        "component.stat-cell"
+      ],
+      "cite": [
+        "jsx.appdetail.stat"
+      ]
+    },
+    "heading.carousel": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.semibold}",
+      "size": "{foundation.font.size.lg}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-22}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "usedBy": [
+        "store.featured-carousel"
+      ],
+      "cite": [
+        "jsx.carousel.title"
+      ]
+    },
+    "text.carousel-tagline": {
+      "family": "{foundation.font.family.sans}",
+      "weight": "{foundation.font.weight.medium}",
+      "size": "{foundation.font.size.sm}",
+      "lineHeight": "{foundation.font.lineHeight.fixed-16}",
+      "letterSpacing": "{foundation.font.letterSpacing.normal}",
+      "responsive": {
+        "480": {
+          "lineHeight": "{foundation.font.lineHeight.fixed-17}"
+        }
+      },
+      "usedBy": [
+        "store.featured-carousel"
+      ],
+      "cite": [
+        "jsx.carousel.tagline"
+      ]
+    }
+  }
+}

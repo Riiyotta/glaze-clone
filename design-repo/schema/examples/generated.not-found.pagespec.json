@@ -1,0 +1,149 @@
+{
+  "id": "page.generated-not-found",
+  "mode": "generated",
+  "route": "/*",
+  "template": "template.not-found",
+  "theme": "dark",
+  "head": {
+    "title": "Missing page",
+    "robots": "noindex"
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Overview",
+            "href": "/"
+          },
+          {
+            "label": "Plans",
+            "href": "/pricing"
+          },
+          {
+            "label": "Library",
+            "href": "/store"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          },
+          {
+            "label": "Releases",
+            "href": "/changelog"
+          }
+        ],
+        "activeLinkHref": null,
+        "signInLabel": "Sign in",
+        "signInHref": "/account",
+        "downloadLabel": "Download",
+        "downloadHref": "/download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example",
+        "logoAssetRole": "brand.wordmark-placeholder",
+        "logoAssetRef": "placeholder:wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "not-found-block-1",
+      "type": "content.not-found-block",
+      "content": {
+        "icon": {
+          "assetRole": "brand.app-icon-placeholder",
+          "assetRef": "placeholder:app-icon",
+          "alt": "Fernlight app icon placeholder"
+        },
+        "particlePoolRef": "placeholder:particle-pool",
+        "headline": "Nothing here",
+        "body": "That page has moved or never existed.",
+        "cta": {
+          "label": "Back to start",
+          "href": "/"
+        }
+      },
+      "motion": {
+        "pattern": "icon-press-and-burst",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "footer-1",
+      "type": "shell.footer",
+      "content": {
+        "copyright": "Copyright Fernhill",
+        "primaryLinks": [
+          {
+            "label": "Guides",
+            "href": "/guides"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          }
+        ],
+        "legalLinks": [
+          {
+            "label": "Terms",
+            "href": "/terms"
+          },
+          {
+            "label": "Privacy",
+            "href": "/privacy"
+          },
+          {
+            "label": "Acceptable use",
+            "href": "/aup"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    }
+  ]
+}

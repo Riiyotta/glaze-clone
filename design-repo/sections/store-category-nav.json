@@ -1,0 +1,167 @@
+{
+  "id": "section.store.category-nav",
+  "typeId": "store.category-nav",
+  "registryId": "section.store.category-nav",
+  "version": "1.0.0",
+  "category": "store",
+  "semantic": {
+    "id": "section.store.category-nav",
+    "category": "store"
+  },
+  "source": {
+    "id": "src.StoreView.div.6",
+    "file": "src/components/store/StoreView.jsx",
+    "tag": "div",
+    "domSelector": "main section > div > div.mt-6",
+    "citation": "jsx.store.nav.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Store title row (heading and a glass search pill) over a horizontally scrolling row of category chips; the active chip is brighter. Search results replace the heading with 'Search Results'.",
+  "scope": "Store index and store category pages.",
+  "composes": [
+    "component.category-chip",
+    "component.search-field",
+    "primitive.text"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "maxWords": 3
+      },
+      "searchLabel": {
+        "type": "string",
+        "maxWords": 3
+      },
+      "searchPlaceholder": {
+        "type": "string",
+        "maxWords": 2
+      },
+      "query": {
+        "type": "string",
+        "maxWords": 6
+      },
+      "activeCategory": {
+        "enum": [
+          "all",
+          "remixable",
+          "developer-tools",
+          "productivity",
+          "utilities",
+          "media",
+          "design",
+          "lifestyle",
+          "games-and-fun"
+        ]
+      },
+      "description": {
+        "type": "string",
+        "maxWords": 30
+      },
+      "categories": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "enum": [
+                "all",
+                "remixable",
+                "developer-tools",
+                "productivity",
+                "utilities",
+                "media",
+                "design",
+                "lifestyle",
+                "games-and-fun"
+              ]
+            },
+            "label": {
+              "type": "string",
+              "maxWords": 3
+            },
+            "href": {
+              "type": "string"
+            },
+            "icon": {
+              "enum": [
+                "star",
+                "shuffle",
+                "hammer",
+                "chart-line",
+                "wrench",
+                "headphones",
+                "paintbrush",
+                "heart",
+                "gamepad-2"
+              ]
+            }
+          },
+          "required": [
+            "value",
+            "label",
+            "href",
+            "icon"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 9,
+        "maxItems": 9
+      }
+    },
+    "required": [
+      "title",
+      "searchLabel",
+      "searchPlaceholder",
+      "activeCategory",
+      "categories"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Search pill 210x40 to 240x36; the glyph is 18 below 480."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "store.featured-carousel"
+    ],
+    "categoryMatchesRoute": true
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "widthWide": "{container.store-wide} from 1920",
+    "gutter": "{space.page-gutter}",
+    "marginTop": "{foundation.space.6}",
+    "rowGap": "{foundation.space.3}"
+  },
+  "measuredFrom": [
+    "jsx.store.titlebar",
+    "jsx.store.h1",
+    "jsx.store.search",
+    "jsx.store.debounce",
+    "jsx.store.chips",
+    "jsx.store.chip",
+    "spec.store.top"
+  ]
+}

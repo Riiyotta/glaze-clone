@@ -1,0 +1,465 @@
+{
+  "id": "page.generated-store-index",
+  "mode": "generated",
+  "route": "/store",
+  "template": "template.store-index",
+  "theme": "dark",
+  "head": {
+    "title": "Fernlight Library",
+    "description": "Small apps made by the community."
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Overview",
+            "href": "/"
+          },
+          {
+            "label": "Plans",
+            "href": "/pricing"
+          },
+          {
+            "label": "Library",
+            "href": "/store"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          },
+          {
+            "label": "Releases",
+            "href": "/changelog"
+          }
+        ],
+        "activeLinkHref": "/store",
+        "signInLabel": "Sign in",
+        "signInHref": "/account",
+        "downloadLabel": "Download",
+        "downloadHref": "/download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example",
+        "logoAssetRole": "brand.wordmark-placeholder",
+        "logoAssetRef": "placeholder:wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "featured-carousel-1",
+      "type": "store.featured-carousel",
+      "content": {
+        "label": "Featured tools",
+        "previousLabel": "Previous",
+        "nextLabel": "Next",
+        "slides": [
+          {
+            "name": "Showcase 1",
+            "tagline": "A calm tool for a single task.",
+            "href": "/app/showcase-1",
+            "cover": {
+              "assetRole": "media.generated",
+              "assetRef": "generated:cover-1"
+            },
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-1"
+            },
+            "award": "none"
+          },
+          {
+            "name": "Showcase 2",
+            "tagline": "A calm tool for a single task.",
+            "href": "/app/showcase-2",
+            "cover": {
+              "assetRole": "media.generated",
+              "assetRef": "generated:cover-2"
+            },
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-2"
+            },
+            "award": "none"
+          },
+          {
+            "name": "Showcase 3",
+            "tagline": "A calm tool for a single task.",
+            "href": "/app/showcase-3",
+            "cover": {
+              "assetRole": "media.generated",
+              "assetRef": "generated:cover-3"
+            },
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-3"
+            },
+            "award": "none"
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "carousel-autoplay",
+        "reducedMotionFallback": "static"
+      }
+    },
+    {
+      "id": "category-nav-1",
+      "type": "store.category-nav",
+      "content": {
+        "title": "Browse the library",
+        "searchLabel": "Search the library",
+        "searchPlaceholder": "Search",
+        "activeCategory": "all",
+        "categories": [
+          {
+            "value": "all",
+            "label": "Featured",
+            "href": "/store",
+            "icon": "star"
+          },
+          {
+            "value": "remixable",
+            "label": "Remixable",
+            "href": "/store/remixable",
+            "icon": "shuffle"
+          },
+          {
+            "value": "developer-tools",
+            "label": "Developer Tools",
+            "href": "/store/developer-tools",
+            "icon": "hammer"
+          },
+          {
+            "value": "productivity",
+            "label": "Productivity",
+            "href": "/store/productivity",
+            "icon": "chart-line"
+          },
+          {
+            "value": "utilities",
+            "label": "Utilities",
+            "href": "/store/utilities",
+            "icon": "wrench"
+          },
+          {
+            "value": "media",
+            "label": "Media",
+            "href": "/store/media",
+            "icon": "headphones"
+          },
+          {
+            "value": "design",
+            "label": "Design",
+            "href": "/store/design",
+            "icon": "paintbrush"
+          },
+          {
+            "value": "lifestyle",
+            "label": "Lifestyle",
+            "href": "/store/lifestyle",
+            "icon": "heart"
+          },
+          {
+            "value": "games-and-fun",
+            "label": "Games and Fun",
+            "href": "/store/games-and-fun",
+            "icon": "gamepad-2"
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "app-shelves-1",
+      "type": "store.app-shelves",
+      "content": {
+        "shelves": [
+          {
+            "title": "Our Picks",
+            "apps": [
+              {
+                "name": "Orbit 31",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 31",
+                "href": "/app/orbit-31-31",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-31"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-31"
+                }
+              },
+              {
+                "name": "Orbit 32",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 32",
+                "href": "/app/orbit-32-32",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-32"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-32"
+                }
+              },
+              {
+                "name": "Orbit 33",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 33",
+                "href": "/app/orbit-33-33",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-33"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-33"
+                }
+              },
+              {
+                "name": "Orbit 34",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 34",
+                "href": "/app/orbit-34-34",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-34"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-34"
+                }
+              }
+            ]
+          },
+          {
+            "title": "Trending",
+            "apps": [
+              {
+                "name": "Orbit 41",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 41",
+                "href": "/app/orbit-41-41",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-41"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-41"
+                }
+              },
+              {
+                "name": "Orbit 42",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 42",
+                "href": "/app/orbit-42-42",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-42"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-42"
+                }
+              },
+              {
+                "name": "Orbit 43",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 43",
+                "href": "/app/orbit-43-43",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-43"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-43"
+                }
+              },
+              {
+                "name": "Orbit 44",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 44",
+                "href": "/app/orbit-44-44",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-44"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-44"
+                }
+              }
+            ]
+          },
+          {
+            "title": "Made to Remix",
+            "apps": [
+              {
+                "name": "Orbit 51",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 51",
+                "href": "/app/orbit-51-51",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-51"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-51"
+                }
+              },
+              {
+                "name": "Orbit 52",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 52",
+                "href": "/app/orbit-52-52",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-52"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-52"
+                }
+              },
+              {
+                "name": "Orbit 53",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 53",
+                "href": "/app/orbit-53-53",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-53"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-53"
+                }
+              },
+              {
+                "name": "Orbit 54",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 54",
+                "href": "/app/orbit-54-54",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-54"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-54"
+                }
+              }
+            ],
+            "accessory": {
+              "label": "View all",
+              "href": "/store/remixable"
+            }
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "shelf-slide",
+        "reducedMotionFallback": "static"
+      }
+    },
+    {
+      "id": "footer-1",
+      "type": "shell.footer",
+      "content": {
+        "copyright": "Copyright Fernhill",
+        "primaryLinks": [
+          {
+            "label": "Guides",
+            "href": "/guides"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          }
+        ],
+        "legalLinks": [
+          {
+            "label": "Terms",
+            "href": "/terms"
+          },
+          {
+            "label": "Privacy",
+            "href": "/privacy"
+          },
+          {
+            "label": "Acceptable use",
+            "href": "/aup"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    }
+  ]
+}

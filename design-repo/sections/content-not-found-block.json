@@ -2,7 +2,7 @@
   "id": "section.content.not-found-block",
   "typeId": "content.not-found-block",
   "registryId": "section.content.not-found-block",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "category": "content",
   "semantic": {
     "id": "section.content.not-found-block",
@@ -17,7 +17,7 @@
   },
   "retrievalEligible": true,
   "purpose": "Centred error state with the clickable icon, heading, one sentence and a home button.",
-  "scope": "404 route (catch-all, /m, and slugs that do not exist).",
+  "scope": "The catch-all not-found route (also /m and the showcase tab ids, which are not routes).",
   "composes": [
     "component.glaze-icon-burst",
     "primitive.text",
@@ -30,7 +30,18 @@
         "type": "object",
         "properties": {
           "assetRole": {
-            "const": "brand.app-icon"
+            "enum": [
+              "brand.app-icon",
+              "brand.app-icon-placeholder",
+              "brand.app-icon-user-supplied"
+            ],
+            "referenceRoles": [
+              "brand.app-icon"
+            ],
+            "generatedRoles": [
+              "brand.app-icon-placeholder",
+              "brand.app-icon-user-supplied"
+            ]
           },
           "assetRef": {
             "type": "string"

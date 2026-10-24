@@ -2,7 +2,7 @@
   "id": "section.showcase.persona-tabs",
   "typeId": "showcase.persona-tabs",
   "registryId": "section.showcase.persona-tabs",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "category": "showcase",
   "semantic": {
     "id": "section.showcase.persona-tabs",
@@ -90,13 +90,31 @@
                         ]
                       },
                       "iconAssetRole": {
-                        "const": "app.icon"
+                        "enum": [
+                          "app.icon",
+                          "app.icon-generated"
+                        ],
+                        "referenceRoles": [
+                          "app.icon"
+                        ],
+                        "generatedRoles": [
+                          "app.icon-generated"
+                        ]
                       },
                       "iconAssetRef": {
                         "type": "string"
                       },
                       "avatarAssetRole": {
-                        "const": "avatar.person"
+                        "enum": [
+                          "avatar.person",
+                          "avatar.placeholder"
+                        ],
+                        "referenceRoles": [
+                          "avatar.person"
+                        ],
+                        "generatedRoles": [
+                          "avatar.placeholder"
+                        ]
                       },
                       "avatarAssetRef": {
                         "type": "string"
@@ -176,7 +194,18 @@
                         "maxWords": 2
                       },
                       "assetRole": {
-                        "const": "logo.partner"
+                        "enum": [
+                          "logo.partner",
+                          "logo.placeholder",
+                          "logo.user-supplied"
+                        ],
+                        "referenceRoles": [
+                          "logo.partner"
+                        ],
+                        "generatedRoles": [
+                          "logo.placeholder",
+                          "logo.user-supplied"
+                        ]
                       },
                       "assetRef": {
                         "type": "string"

@@ -1,0 +1,51 @@
+{
+  "registryId": "component.prose-blocks",
+  "version": "1.0.0",
+  "category": "content",
+  "description": "Article and release body: a flat list of blocks (h2, h3, paragraph, bullet list, divider, image). Paragraph text may carry bold, italic, code and link segments; images open the lightbox on blog posts and are inert on the changelog.",
+  "composes": [
+    "primitive.text",
+    "primitive.link",
+    "primitive.image",
+    "primitive.divider"
+  ],
+  "props": {
+    "blocks": {
+      "type": "array",
+      "items": "oneOf h2|h3|p|ul|hr|img (see sections/content-article-body.json)"
+    }
+  },
+  "layout": {
+    "bodyTypography": "{typography.body.prose}",
+    "bodyColour": "{color.text.prose}",
+    "blockGap": "{article.paragraphGap}",
+    "h2": "{typography.heading.prose-h2}",
+    "h3": "{typography.heading.prose-h3}",
+    "image": "radius {article.imageRadius}, vertical margin {article.imageMarginY}, border {color.border.separator}",
+    "divider": "margin {article.hrMargin}, {color.border.separator}",
+    "listMarker": "dash, {color.text.tertiary}",
+    "linkUnderline": "{color.link.prose-underline}"
+  },
+  "tokens": [
+    "typography.body.prose",
+    "color.text.prose",
+    "article.paragraphGap",
+    "typography.heading.prose-h2",
+    "typography.heading.prose-h3",
+    "article.imageRadius",
+    "article.imageMarginY",
+    "article.hrMargin",
+    "color.border.separator",
+    "color.text.tertiary",
+    "color.link.prose-underline"
+  ],
+  "measuredFrom": [
+    "jsx.prose.root",
+    "jsx.prose.h2",
+    "jsx.prose.h3",
+    "jsx.prose.img",
+    "jsx.prose.link",
+    "jsx.prose.code",
+    "css.markdown-list"
+  ]
+}

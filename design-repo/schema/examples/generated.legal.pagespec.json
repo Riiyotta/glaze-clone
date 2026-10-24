@@ -1,0 +1,201 @@
+{
+  "id": "page.generated-legal",
+  "mode": "generated",
+  "route": "/terms",
+  "template": "template.legal",
+  "theme": "dark",
+  "head": {
+    "title": "Fernlight Terms of Service"
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Overview",
+            "href": "/"
+          },
+          {
+            "label": "Plans",
+            "href": "/pricing"
+          },
+          {
+            "label": "Library",
+            "href": "/store"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          },
+          {
+            "label": "Releases",
+            "href": "/changelog"
+          }
+        ],
+        "activeLinkHref": null,
+        "signInLabel": "Sign in",
+        "signInHref": "/account",
+        "downloadLabel": "Download",
+        "downloadHref": "/download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example",
+        "logoAssetRole": "brand.wordmark-placeholder",
+        "logoAssetRef": "placeholder:wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "legal-header-1",
+      "type": "content.legal-header",
+      "content": {
+        "titleLines": [
+          "Fernlight Terms of Service"
+        ],
+        "lastUpdated": "12 March, 2026"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "legal-body-1",
+      "type": "content.legal-body",
+      "content": {
+        "typography": "policy",
+        "blocks": [
+          {
+            "kind": "p",
+            "text": "These terms describe how you may use the app and the services around it."
+          },
+          {
+            "kind": "h2",
+            "text": "1. Using the service"
+          },
+          {
+            "kind": "h3",
+            "text": "1.1 Accounts"
+          },
+          {
+            "kind": "p",
+            "text": "Keep your sign-in details private and tell us about any misuse of your account.",
+            "links": [
+              {
+                "text": "plans",
+                "href": "/pricing"
+              }
+            ]
+          },
+          {
+            "kind": "ul",
+            "items": [
+              {
+                "label": "Notes",
+                "text": "your notes stay yours"
+              },
+              {
+                "text": "we only process them to provide the service",
+                "children": [
+                  {
+                    "text": "no advertising use"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "h2",
+            "text": "2. Payments"
+          },
+          {
+            "kind": "p",
+            "text": "Plans renew monthly until cancelled and taxes are shown at checkout.",
+            "label": "Billing"
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "footer-1",
+      "type": "shell.footer",
+      "content": {
+        "copyright": "Copyright Fernhill",
+        "primaryLinks": [
+          {
+            "label": "Guides",
+            "href": "/guides"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          }
+        ],
+        "legalLinks": [
+          {
+            "label": "Terms",
+            "href": "/terms"
+          },
+          {
+            "label": "Privacy",
+            "href": "/privacy"
+          },
+          {
+            "label": "Acceptable use",
+            "href": "/aup"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    }
+  ]
+}

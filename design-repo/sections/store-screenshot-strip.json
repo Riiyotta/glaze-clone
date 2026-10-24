@@ -1,0 +1,142 @@
+{
+  "id": "section.store.screenshot-strip",
+  "typeId": "store.screenshot-strip",
+  "registryId": "section.store.screenshot-strip",
+  "version": "1.0.0",
+  "category": "store",
+  "semantic": {
+    "id": "section.store.screenshot-strip",
+    "category": "store"
+  },
+  "source": {
+    "id": "src.ScreenshotStrip.div",
+    "file": "src/components/store/ScreenshotStrip.jsx",
+    "tag": "div",
+    "domSelector": "main section > div > div.relative.-mx-4",
+    "citation": "jsx.shots.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Horizontal scroll-snap strip of screenshots (220 tall, 260 from 480) with edge fades and arrow buttons; a click opens the full-size gallery.",
+  "scope": "App detail pages with screenshots.",
+  "composes": [
+    "primitive.image",
+    "primitive.icon",
+    "primitive.button"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "shots": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "image": {
+              "type": "object",
+              "properties": {
+                "assetRole": {
+                  "enum": [
+                    "screenshot.app",
+                    "media.user-supplied",
+                    "media.generated"
+                  ],
+                  "referenceRoles": [
+                    "screenshot.app"
+                  ],
+                  "generatedRoles": [
+                    "media.user-supplied",
+                    "media.generated"
+                  ]
+                },
+                "assetRef": {
+                  "type": "string"
+                },
+                "alt": {
+                  "type": "string",
+                  "maxWords": 16
+                }
+              },
+              "required": [
+                "assetRole",
+                "assetRef"
+              ],
+              "additionalProperties": false
+            },
+            "width": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "image",
+            "width",
+            "height"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 1,
+        "maxItems": 10
+      },
+      "previousLabel": {
+        "type": "string",
+        "maxWords": 2
+      },
+      "nextLabel": {
+        "type": "string",
+        "maxWords": 2
+      }
+    },
+    "required": [
+      "shots",
+      "previousLabel",
+      "nextLabel"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Strip height 220 to 260."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "optional": true,
+    "mustFollow": [
+      "store.app-stats"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "bleed": "full container width plus the gutters",
+    "height": "{screenshotStrip.height} below 480, {screenshotStrip.heightWide} from 480",
+    "gap": "{screenshotStrip.gap}",
+    "radius": "{screenshotStrip.radius}"
+  },
+  "measuredFrom": [
+    "jsx.shots.root",
+    "jsx.shots.strip",
+    "jsx.shots.img",
+    "spec.store.top"
+  ]
+}

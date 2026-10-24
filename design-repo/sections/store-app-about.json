@@ -1,0 +1,79 @@
+{
+  "id": "section.store.app-about",
+  "typeId": "store.app-about",
+  "registryId": "section.store.app-about",
+  "version": "1.0.0",
+  "category": "store",
+  "semantic": {
+    "id": "section.store.app-about",
+    "category": "store"
+  },
+  "source": {
+    "id": "src.AppDetail.section",
+    "file": "src/components/store/AppDetail.jsx",
+    "tag": "section",
+    "domSelector": "main section > div > section",
+    "citation": "jsx.appabout.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Balanced description paragraph under a screen-reader-only 'About <app>' heading.",
+  "scope": "App detail pages.",
+  "composes": [
+    "primitive.text"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 4
+      },
+      "body": {
+        "type": "string",
+        "maxWords": 120
+      }
+    },
+    "required": [
+      "heading",
+      "body"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "No change (14/18 secondary)."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "store.app-stats"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "align": "left"
+  },
+  "measuredFrom": [
+    "jsx.appdetail.about",
+    "spec.store.top"
+  ]
+}

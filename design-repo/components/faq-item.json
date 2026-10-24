@@ -16,7 +16,7 @@
     },
     "answer": {
       "type": "string",
-      "maxWords": 60
+      "maxWords": 100
     },
     "link": {
       "type": "object",

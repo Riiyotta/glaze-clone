@@ -64,7 +64,7 @@
     "iconFade": "{motion.recipe.appicon.fade}"
   },
   "interaction": {
-    "primaryClick": "In the source clone a plain click opens an app-details dialog (lazy store component, added after this contract was measured). That dialog belongs to the store scope and is NOT modelled; only the card, its link target and its visual states are.",
+    "primaryClick": "A plain click opens the app-details dialog (shell.app-dialog, variant app-detail); a modified click or middle click follows the card's href to /app/<slug>. The dialog is a separate utility section (retrievalEligible false).",
     "modifiedClick": "Ctrl, Cmd, Shift, Alt or non-primary clicks follow the href normally."
   },
   "responsive": {

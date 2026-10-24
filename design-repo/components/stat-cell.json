@@ -1,0 +1,41 @@
+{
+  "registryId": "component.stat-cell",
+  "version": "1.0.0",
+  "category": "store",
+  "description": "Label over value cell; four cells share a bordered strip (Author, Size, Updated, Installs).",
+  "composes": [
+    "primitive.text"
+  ],
+  "props": {
+    "label": {
+      "type": "string",
+      "maxWords": 1
+    },
+    "value": {
+      "type": "string",
+      "maxWords": 3
+    }
+  },
+  "layout": {
+    "labelTypography": "{typography.label.stat}",
+    "valueTypography": "{typography.text.stat-value}",
+    "paddingX": "{stat.paddingX} below 480, {stat.paddingXWide} from 480",
+    "paddingY": "{stat.paddingY} below 480, {stat.paddingYWide} from 480",
+    "gap": "{stat.gap}",
+    "labelColour": "{color.text.tertiary}"
+  },
+  "tokens": [
+    "typography.label.stat",
+    "typography.text.stat-value",
+    "stat.paddingX",
+    "stat.paddingXWide",
+    "stat.paddingY",
+    "stat.paddingYWide",
+    "stat.gap",
+    "color.text.tertiary"
+  ],
+  "measuredFrom": [
+    "jsx.appdetail.stat",
+    "jsx.appdetail.statlabel"
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "repositoryId": "glaze-landing",
   "designFamily": "glaze",
-  "repositoryVersion": "1.1.0",
+  "repositoryVersion": "2.0.0",
   "status": "design-review-pending",
   "productionApproved": false,
   "supportedPlatforms": [
@@ -14,18 +14,18 @@
   "generationApprovedThemes": [
     "dark"
   ],
-  "pageSpecVersion": "1.1.0",
-  "tokenVersion": "1.0.0",
+  "pageSpecVersion": "2.0.0",
+  "tokenVersion": "1.1.0",
   "tokenCatalogVersion": "1.0.0",
   "tokenPolicyVersion": "1.0.0",
-  "sectionRegistryVersion": "1.1.0",
-  "componentRegistryVersion": "1.0.0",
-  "assetRegistryVersion": "1.0.0",
-  "allowlistVersion": "1.1.0",
-  "versionFieldNote": "Machine-checked by extraction/verify_all.py: allowlistVersion (must equal tokens/llm/component-allowlist.json version), tokenCatalogVersion, tokenPolicyVersion, and the whole counts block. Documentation-only, hand-maintained, nothing verifies them: repositoryVersion, pageSpecVersion, tokenVersion, sectionRegistryVersion, componentRegistryVersion, assetRegistryVersion. The wrapper-gate thresholds live in extraction/wrapper_gate.py and are enforced, not versioned.",
+  "sectionRegistryVersion": "2.0.0",
+  "componentRegistryVersion": "1.1.0",
+  "assetRegistryVersion": "2.0.0",
+  "allowlistVersion": "2.0.0",
+  "versionFieldNote": "Machine-checked by extraction/verify_all.py: repositoryVersion (must equal the newest `## x.y.z` heading of CHANGELOG.md), pageSpecVersion (must equal schema/pagespec.schema.json `version`), allowlistVersion (must equal tokens/llm/component-allowlist.json version), tokenCatalogVersion, tokenPolicyVersion, and the whole counts block. Documentation-only, hand-maintained, nothing verifies them: tokenVersion, sectionRegistryVersion, componentRegistryVersion, assetRegistryVersion. Versioning: patch = wording or evidence only; minor = any token, contract, budget, motion or asset-policy change; major = a PageSpec-breaking schema change (also bump pageSpecVersion). The wrapper-gate thresholds live in extraction/wrapper_gate.py and are enforced, not versioned.",
   "sourceProject": {
     "name": "Glaze landing clone (React 18, Vite 5, Tailwind 3.4)",
-    "description": "Study clone of a real, live commercial site (Glaze by Raycast). Brand marks, copy, app icons, avatars and screenshots are not licensed for reuse; see assets/asset-roles.json.",
+    "description": "Study clone of a real, live commercial site (Glaze by Raycast). Brand marks, copy, app icons, avatars and screenshots are not licensed for reuse; see assets/asset-roles.json. Pages built from it for another brand use PageSpec mode `generated`.",
     "measuredBreakpoints": [
       1440,
       1024,
@@ -36,41 +36,83 @@
   },
   "scope": {
     "modelledTemplates": [
+      "template.app-detail",
+      "template.awards",
+      "template.blog-index",
+      "template.blog-post",
+      "template.changelog",
+      "template.download",
       "template.landing",
+      "template.legal",
+      "template.not-found",
       "template.persona",
-      "template.not-found"
+      "template.pricing",
+      "template.store-category",
+      "template.store-index"
     ],
     "routes": [
       "/",
-      "/designers",
-      "/product-managers",
-      "/engineers",
+      "/*",
+      "/app/:slug",
+      "/aup",
+      "/awards",
+      "/awards/terms",
+      "/blog",
+      "/blog/:slug",
+      "/changelog",
       "/creators",
+      "/designers",
+      "/download",
+      "/engineers",
+      "/pricing",
+      "/privacy",
+      "/product-managers",
+      "/store",
+      "/store/design",
+      "/store/developer-tools",
+      "/store/games-and-fun",
+      "/store/lifestyle",
+      "/store/media",
+      "/store/productivity",
+      "/store/remixable",
+      "/store/utilities",
       "/teams",
-      "/* (404, includes /m)"
+      "/terms"
     ],
-    "deliberatelyNotModelled": "All other routes in the repo-level IA (pricing, download, awards, legal, blog, changelog, store, app detail). They were being specced and built concurrently. See README 'Adding a template'."
+    "routeTableTotal": "294 routes including the catch-all",
+    "deliberatelyNotModelled": "The in-page 'App not found' state of /app/<unknown slug> and the search / pagination states (?q=, ?page=, ?entriesQuery=, ?entriesPage=) of /store, /store/:category and /awards: they render on routes that are modelled. /app/:slug and /blog/:slug are pattern routes."
   },
   "counts": {
     "primitives": 10,
-    "components": 11,
-    "sections": 9,
-    "templates": 3,
-    "tokens": 311,
-    "typographyRoles": 20,
-    "motionRecipes": 21,
-    "assetRoles": 10,
-    "graphRules": 14,
-    "examplePageSpecs": 3,
-    "routeEntries": 7,
-    "citations": 199,
-    "measuredSectionHeights": 19
+    "components": 27,
+    "sections": 40,
+    "templates": 13,
+    "tokens": 400,
+    "typographyRoles": 69,
+    "motionRecipes": 30,
+    "assetRoles": 30,
+    "graphRules": 31,
+    "examplePageSpecs": 27,
+    "routeEntries": 27,
+    "citations": 435,
+    "measuredSectionHeights": 77,
+    "routesCovered": 294,
+    "generatedExamplePageSpecs": 13,
+    "typographyProbes": 74,
+    "layoutProbes": 62,
+    "specCrossChecks": 32,
+    "contentBudgets": 52,
+    "protectedHosts": 66,
+    "protectedPhrases": 680,
+    "protectedAssetFiles": 464
   },
   "entryPoints": {
     "generation": [
       "tokens/llm/token-catalog.json",
       "tokens/llm/component-allowlist.json",
       "assets/asset-roles.json",
+      "assets/source-protected.json",
+      "assets/protected-assets.json",
       "schema/pagespec.schema.json",
       "templates/templates.json",
       "schema/section-contract.schema.json"
@@ -86,7 +128,16 @@
     ],
     "evidence": [
       "extraction/measured-values.json",
-      "extraction/measure_section_heights.mjs"
+      "extraction/measure_section_heights.mjs",
+      "extraction/enumerate_routes.mjs",
+      "extraction/measure_type_probes.mjs",
+      "extraction/type_probes.json",
+      "extraction/measure_layout_probes.mjs",
+      "extraction/layout_probes.json",
+      "extraction/measure_content_budgets.mjs",
+      "extraction/derive_source_protected.mjs",
+      "extraction/measure_spec_crosscheck.mjs",
+      "extraction/spec_heights.json"
     ],
     "humanOnboarding": "README.md",
     "changeHistory": "CHANGELOG.md"
@@ -123,6 +174,6 @@
     "packages": [
       "jsonschema>=4"
     ],
-    "note": "Verification needs no node tooling. Install with: python3 -m pip install jsonschema. Only extraction/measure_section_heights.mjs (optional evidence tool that re-records section heights from a running build) needs Playwright."
+    "note": "Verification needs no node tooling. Install with: python3 -m pip install jsonschema. The extraction/*.mjs evidence tools (optional; they re-record routeTable, sectionHeights, typographyChecks, layoutChecks, contentBudgets and the protection lists from the source project) need node, esbuild (the source project's dev dependency) and Playwright for the browser ones."
   }
 }

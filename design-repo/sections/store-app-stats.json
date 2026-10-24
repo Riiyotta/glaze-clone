@@ -1,0 +1,161 @@
+{
+  "id": "section.store.app-stats",
+  "typeId": "store.app-stats",
+  "registryId": "section.store.app-stats",
+  "version": "1.0.0",
+  "category": "store",
+  "semantic": {
+    "id": "section.store.app-stats",
+    "category": "store"
+  },
+  "source": {
+    "id": "src.AppDetail.div.12",
+    "file": "src/components/store/AppDetail.jsx",
+    "tag": "div",
+    "domSelector": "main section > div > div.border-y",
+    "citation": "jsx.appstats.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Four-cell bordered strip: Author (avatar and name), Size, Updated, Installs.",
+  "scope": "App detail pages.",
+  "composes": [
+    "component.stat-cell",
+    "primitive.image",
+    "primitive.text"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "labels": {
+        "type": "object",
+        "properties": {
+          "author": {
+            "type": "string",
+            "maxWords": 1
+          },
+          "size": {
+            "type": "string",
+            "maxWords": 1
+          },
+          "updated": {
+            "type": "string",
+            "maxWords": 1
+          },
+          "installs": {
+            "type": "string",
+            "maxWords": 1
+          }
+        },
+        "required": [
+          "author",
+          "size",
+          "updated",
+          "installs"
+        ],
+        "additionalProperties": false
+      },
+      "author": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxWords": 4
+          },
+          "href": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "object",
+            "properties": {
+              "assetRole": {
+                "enum": [
+                  "avatar.person",
+                  "avatar.placeholder"
+                ],
+                "referenceRoles": [
+                  "avatar.person"
+                ],
+                "generatedRoles": [
+                  "avatar.placeholder"
+                ]
+              },
+              "assetRef": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "assetRole",
+              "assetRef"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "name",
+          "href",
+          "avatar"
+        ],
+        "additionalProperties": false
+      },
+      "size": {
+        "type": "string",
+        "maxWords": 3
+      },
+      "updated": {
+        "type": "string",
+        "maxWords": 3
+      },
+      "installs": {
+        "type": "string",
+        "maxWords": 2
+      }
+    },
+    "required": [
+      "labels",
+      "author",
+      "size",
+      "updated",
+      "installs"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Cell padding 10/4 to 12/12; label 10 to 12 uppercase; value 12 to 14; author cell max 40% to 50%."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "store.app-header"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "border": "{color.border.separator} top and bottom"
+  },
+  "measuredFrom": [
+    "jsx.appdetail.stats",
+    "jsx.appdetail.stat",
+    "jsx.appdetail.statlabel",
+    "spec.store.top"
+  ]
+}

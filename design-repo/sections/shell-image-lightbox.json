@@ -1,0 +1,91 @@
+{
+  "id": "section.shell.image-lightbox",
+  "typeId": "shell.image-lightbox",
+  "registryId": "section.shell.image-lightbox",
+  "version": "1.0.0",
+  "category": "shell",
+  "semantic": {
+    "id": "section.shell.image-lightbox",
+    "category": "shell"
+  },
+  "source": {
+    "id": "src.Lightbox.div",
+    "file": "src/components/blog/Lightbox.jsx",
+    "tag": "div",
+    "domSelector": "[role=\"dialog\"][aria-label=\"Screenshot gallery\"]",
+    "citation": "jsx.lightbox.source"
+  },
+  "retrievalEligible": false,
+  "retrievalIneligibleReason": "Utility overlay (image gallery dialog opened from article images): carries only control labels and re-shows images already present in the article body. It must never be returned as a standalone retrieval chunk.",
+  "purpose": "Full-screen gallery of the post's images: black backdrop, current image at 70vw with neighbours at 60% opacity, arrows and Escape, backdrop click closes.",
+  "scope": "Blog posts, opened on demand.",
+  "composes": [
+    "primitive.image",
+    "primitive.button",
+    "primitive.icon"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "label": {
+        "type": "string",
+        "maxWords": 4
+      },
+      "closeLabel": {
+        "type": "string",
+        "maxWords": 2
+      },
+      "previousLabel": {
+        "type": "string",
+        "maxWords": 2
+      },
+      "nextLabel": {
+        "type": "string",
+        "maxWords": 2
+      }
+    },
+    "required": [
+      "label",
+      "closeLabel",
+      "previousLabel",
+      "nextLabel"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "dialog-fade"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "No breakpoint change; the image is 70vw wide with a maximum height of 80vh."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "floating": true,
+    "trailsPage": true
+  },
+  "containerRules": {
+    "position": "fixed, full viewport",
+    "zIndex": "above the page and the nav",
+    "scrollLock": "body overflow hidden while open"
+  },
+  "measuredFrom": [
+    "jsx.lightbox.root",
+    "spec.blog.post"
+  ]
+}

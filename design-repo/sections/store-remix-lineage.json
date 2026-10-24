@@ -1,0 +1,103 @@
+{
+  "id": "section.store.remix-lineage",
+  "typeId": "store.remix-lineage",
+  "registryId": "section.store.remix-lineage",
+  "version": "1.0.0",
+  "category": "store",
+  "semantic": {
+    "id": "section.store.remix-lineage",
+    "category": "store"
+  },
+  "source": {
+    "id": "src.AppDetail.div.10",
+    "file": "src/components/store/AppDetail.jsx",
+    "tag": "div",
+    "domSelector": "main section > div > div.rounded-xl",
+    "citation": "jsx.lineage.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Banner under the header for a remixed app: 'Remixed from <app> by <author>' with a shuffle glyph.",
+  "scope": "App detail pages of remixed apps.",
+  "composes": [
+    "primitive.icon",
+    "primitive.link",
+    "primitive.text"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "prefix": {
+        "type": "string",
+        "maxWords": 2
+      },
+      "parentName": {
+        "type": "string",
+        "maxWords": 5
+      },
+      "parentHref": {
+        "type": "string"
+      },
+      "by": {
+        "type": "string",
+        "maxWords": 1
+      },
+      "authorName": {
+        "type": "string",
+        "maxWords": 4
+      },
+      "authorHref": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "prefix",
+      "parentName",
+      "parentHref",
+      "by",
+      "authorName",
+      "authorHref"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "No change."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "optional": true,
+    "mustFollow": [
+      "store.app-header"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "padding": "{lineage.paddingX} / {lineage.paddingY}",
+    "radius": "{lineage.radius}",
+    "fill": "{lineage.fill}",
+    "gap": "{lineage.gap}"
+  },
+  "measuredFrom": [
+    "jsx.appdetail.lineage",
+    "spec.store.top"
+  ]
+}

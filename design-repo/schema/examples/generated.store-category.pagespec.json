@@ -1,0 +1,363 @@
+{
+  "id": "page.generated-store-category",
+  "mode": "generated",
+  "route": "/store/design",
+  "template": "template.store-category",
+  "theme": "dark",
+  "head": {
+    "title": "Fernlight Library",
+    "description": "Small apps made by the community."
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Overview",
+            "href": "/"
+          },
+          {
+            "label": "Plans",
+            "href": "/pricing"
+          },
+          {
+            "label": "Library",
+            "href": "/store"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          },
+          {
+            "label": "Releases",
+            "href": "/changelog"
+          }
+        ],
+        "activeLinkHref": "/store",
+        "signInLabel": "Sign in",
+        "signInHref": "/account",
+        "downloadLabel": "Download",
+        "downloadHref": "/download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example",
+        "logoAssetRole": "brand.wordmark-placeholder",
+        "logoAssetRef": "placeholder:wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "featured-carousel-1",
+      "type": "store.featured-carousel",
+      "content": {
+        "label": "Featured tools",
+        "previousLabel": "Previous",
+        "nextLabel": "Next",
+        "slides": [
+          {
+            "name": "Showcase 1",
+            "tagline": "A calm tool for a single task.",
+            "href": "/app/showcase-1",
+            "cover": {
+              "assetRole": "media.generated",
+              "assetRef": "generated:cover-1"
+            },
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-1"
+            },
+            "award": "none"
+          },
+          {
+            "name": "Showcase 2",
+            "tagline": "A calm tool for a single task.",
+            "href": "/app/showcase-2",
+            "cover": {
+              "assetRole": "media.generated",
+              "assetRef": "generated:cover-2"
+            },
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-2"
+            },
+            "award": "none"
+          },
+          {
+            "name": "Showcase 3",
+            "tagline": "A calm tool for a single task.",
+            "href": "/app/showcase-3",
+            "cover": {
+              "assetRole": "media.generated",
+              "assetRef": "generated:cover-3"
+            },
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-3"
+            },
+            "award": "none"
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "carousel-autoplay",
+        "reducedMotionFallback": "static"
+      }
+    },
+    {
+      "id": "category-nav-1",
+      "type": "store.category-nav",
+      "content": {
+        "title": "Design",
+        "searchLabel": "Search the library",
+        "searchPlaceholder": "Search",
+        "activeCategory": "design",
+        "categories": [
+          {
+            "value": "all",
+            "label": "Featured",
+            "href": "/store",
+            "icon": "star"
+          },
+          {
+            "value": "remixable",
+            "label": "Remixable",
+            "href": "/store/remixable",
+            "icon": "shuffle"
+          },
+          {
+            "value": "developer-tools",
+            "label": "Developer Tools",
+            "href": "/store/developer-tools",
+            "icon": "hammer"
+          },
+          {
+            "value": "productivity",
+            "label": "Productivity",
+            "href": "/store/productivity",
+            "icon": "chart-line"
+          },
+          {
+            "value": "utilities",
+            "label": "Utilities",
+            "href": "/store/utilities",
+            "icon": "wrench"
+          },
+          {
+            "value": "media",
+            "label": "Media",
+            "href": "/store/media",
+            "icon": "headphones"
+          },
+          {
+            "value": "design",
+            "label": "Design",
+            "href": "/store/design",
+            "icon": "paintbrush"
+          },
+          {
+            "value": "lifestyle",
+            "label": "Lifestyle",
+            "href": "/store/lifestyle",
+            "icon": "heart"
+          },
+          {
+            "value": "games-and-fun",
+            "label": "Games and Fun",
+            "href": "/store/games-and-fun",
+            "icon": "gamepad-2"
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "app-grid-1",
+      "type": "store.app-grid",
+      "content": {
+        "groups": [
+          {
+            "apps": [
+              {
+                "name": "Harbor 1",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 61",
+                "href": "/app/harbor-1-61",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-61"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-61"
+                }
+              },
+              {
+                "name": "Harbor 2",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 62",
+                "href": "/app/harbor-2-62",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-62"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-62"
+                }
+              },
+              {
+                "name": "Harbor 3",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 63",
+                "href": "/app/harbor-3-63",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-63"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-63"
+                }
+              },
+              {
+                "name": "Harbor 4",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 64",
+                "href": "/app/harbor-4-64",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-64"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-64"
+                }
+              },
+              {
+                "name": "Harbor 5",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 65",
+                "href": "/app/harbor-5-65",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-65"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-65"
+                }
+              },
+              {
+                "name": "Harbor 6",
+                "tagline": "A quiet little tool for one job.",
+                "author": "Maker 66",
+                "href": "/app/harbor-6-66",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon-generated",
+                  "assetRef": "generated:icon-66"
+                },
+                "avatar": {
+                  "assetRole": "avatar.placeholder",
+                  "assetRef": "placeholder:avatar-66"
+                }
+              }
+            ]
+          }
+        ],
+        "page": 1,
+        "pageCount": 3,
+        "emptyLabel": "Nothing here yet"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "footer-1",
+      "type": "shell.footer",
+      "content": {
+        "copyright": "Copyright Fernhill",
+        "primaryLinks": [
+          {
+            "label": "Guides",
+            "href": "/guides"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          }
+        ],
+        "legalLinks": [
+          {
+            "label": "Terms",
+            "href": "/terms"
+          },
+          {
+            "label": "Privacy",
+            "href": "/privacy"
+          },
+          {
+            "label": "Acceptable use",
+            "href": "/aup"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    }
+  ]
+}

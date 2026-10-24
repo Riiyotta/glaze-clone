@@ -1,7 +1,72 @@
 {
-  "description": "Adjacency and rhythm rules for the three templates. `adjacency` is derived from every consecutive pair in templates/templates.json (extraction check recomputes it). Rules carry a severity; semantic_validate.py implements each rule id listed here and verify_all.py checks the two agree.",
+  "description": "Adjacency and rhythm rules for the thirteen templates. `adjacency` is derived from every consecutive pair in templates/templates.json (extraction check recomputes it). Rules carry a severity; semantic_validate.py implements each rule id listed here and verify_all.py checks the two agree. Rules GENERATED_MODE_* and REFERENCE_MODE_ROLE are the mode layer: they apply to the PageSpec `mode` field (reference | generated).",
   "adjacency": {
+    "commerce.pricing-plans": {
+      "canPrecede": [
+        "support.faq"
+      ]
+    },
+    "content.article-body": {
+      "canPrecede": [
+        "content.article-footer"
+      ]
+    },
+    "content.article-cover": {
+      "canPrecede": [
+        "content.article-header"
+      ]
+    },
+    "content.article-footer": {
+      "canPrecede": [
+        "cta.download-compact"
+      ]
+    },
+    "content.article-header": {
+      "canPrecede": [
+        "content.article-body"
+      ]
+    },
+    "content.award-criteria": {
+      "canPrecede": [
+        "cta.download-icon"
+      ]
+    },
+    "content.award-jury": {
+      "canPrecede": [
+        "content.award-criteria"
+      ]
+    },
+    "content.award-prizes": {
+      "canPrecede": [
+        "content.award-jury"
+      ]
+    },
+    "content.legal-body": {
+      "canPrecede": [
+        "shell.footer"
+      ]
+    },
+    "content.legal-header": {
+      "canPrecede": [
+        "content.legal-body"
+      ]
+    },
     "content.not-found-block": {
+      "canPrecede": [
+        "shell.footer"
+      ]
+    },
+    "content.post-card": {
+      "canPrecede": [
+        "shell.footer"
+      ]
+    },
+    "content.release-entry": {
+      "canPrecede": [
+        "shell.footer"
+      ]
+    },
+    "cta.download-compact": {
       "canPrecede": [
         "shell.footer"
       ]
@@ -16,25 +81,117 @@
         "support.faq"
       ]
     },
+    "hero.awards-hero": {
+      "canPrecede": [
+        "showcase.award-winners"
+      ]
+    },
     "hero.landing-hero": {
       "canPrecede": [
         "showcase.persona-tabs"
       ]
     },
+    "hero.page-header": {
+      "canPrecede": [
+        "content.post-card",
+        "content.release-entry"
+      ]
+    },
+    "hero.page-title": {
+      "canPrecede": [
+        "commerce.pricing-plans"
+      ]
+    },
     "shell.footer": {
       "canPrecede": [
+        "shell.app-dialog",
+        "shell.image-lightbox",
         "shell.youtube-overlay"
       ]
     },
     "shell.navbar": {
       "canPrecede": [
+        "content.article-cover",
+        "content.legal-header",
         "content.not-found-block",
-        "hero.landing-hero"
+        "cta.download-page",
+        "hero.awards-hero",
+        "hero.landing-hero",
+        "hero.page-header",
+        "hero.page-title",
+        "store.app-header",
+        "store.featured-carousel"
+      ]
+    },
+    "shell.youtube-overlay": {
+      "canPrecede": [
+        "shell.app-dialog"
+      ]
+    },
+    "showcase.award-entries": {
+      "canPrecede": [
+        "content.award-prizes"
+      ]
+    },
+    "showcase.award-winners": {
+      "canPrecede": [
+        "showcase.award-entries"
       ]
     },
     "showcase.persona-tabs": {
       "canPrecede": [
         "features.feature-grid"
+      ]
+    },
+    "store.app-about": {
+      "canPrecede": [
+        "store.app-list"
+      ]
+    },
+    "store.app-grid": {
+      "canPrecede": [
+        "shell.footer"
+      ]
+    },
+    "store.app-header": {
+      "canPrecede": [
+        "store.remix-lineage"
+      ]
+    },
+    "store.app-list": {
+      "canPrecede": [
+        "shell.footer"
+      ]
+    },
+    "store.app-shelves": {
+      "canPrecede": [
+        "shell.footer"
+      ]
+    },
+    "store.app-stats": {
+      "canPrecede": [
+        "store.screenshot-strip"
+      ]
+    },
+    "store.category-nav": {
+      "canPrecede": [
+        "store.app-grid",
+        "store.app-shelves"
+      ]
+    },
+    "store.featured-carousel": {
+      "canPrecede": [
+        "store.category-nav"
+      ]
+    },
+    "store.remix-lineage": {
+      "canPrecede": [
+        "store.app-stats"
+      ]
+    },
+    "store.screenshot-strip": {
+      "canPrecede": [
+        "store.app-about"
       ]
     },
     "support.faq": {
@@ -52,29 +209,29 @@
     {
       "id": "FOOTER_LAST",
       "severity": "error",
-      "text": "shell.footer is the last node, except that shell.youtube-overlay may follow it.",
-      "exception": "shell.youtube-overlay"
+      "text": "shell.footer is the last node, except that utility overlays (shell.youtube-overlay, shell.app-dialog, shell.image-lightbox) may follow it.",
+      "exception": "shell.youtube-overlay, shell.app-dialog, shell.image-lightbox"
     },
     {
       "id": "OVERLAY_LAST",
       "severity": "error",
-      "text": "shell.youtube-overlay, when present, is the final node."
+      "text": "Utility sections (shell.youtube-overlay, shell.app-dialog, shell.image-lightbox), when present, are the final nodes: nothing but utility sections follows the first one."
     },
     {
       "id": "ONE_PER_PAGE",
       "severity": "error",
-      "text": "Every section type appears at most once per page (no section here repeats)."
+      "text": "Every section type appears at most once per page, except sections the page's template declares repeatable (content.post-card, content.release-entry, store.app-list), which stay contiguous and within the template's maxCount."
     },
     {
       "id": "HERO_AFTER_NAV",
       "severity": "error",
-      "text": "hero.landing-hero, when present, directly follows shell.navbar.",
-      "exception": "template.not-found has no hero (noHero)."
+      "text": "Any hero.* section (hero.landing-hero, hero.page-title, hero.page-header, hero.awards-hero), when present, directly follows shell.navbar.",
+      "exception": "template.not-found and templates without a hero (noHero)."
     },
     {
       "id": "NOT_FOUND_NO_HERO",
       "severity": "error",
-      "text": "template.not-found contains no hero, showcase, features, faq or cta nodes."
+      "text": "template.not-found contains no hero, showcase, features, support, cta, commerce or store nodes."
     },
     {
       "id": "VIDEO_REFS_RESOLVE",
@@ -94,7 +251,7 @@
     {
       "id": "NAV_ACTIVE_LINK",
       "severity": "error",
-      "text": "navbar.activeLinkHref equals the template's navActiveLinkHref (the landing page marks '/', persona routes and the 404 mark none)."
+      "text": "navbar.activeLinkHref equals the template's navActiveLinkHref ('/' on the landing page, '/pricing', '/blog' for the index and posts, '/changelog', '/store' for the store and its categories; persona, legal, download, awards, app-detail and 404 mark none)."
     },
     {
       "id": "TABS_KIND_CONTENT",
@@ -109,12 +266,97 @@
     {
       "id": "MAX_TABS_UNIQUE_IDS",
       "severity": "error",
-      "text": "Tab ids and FAQ questions are unique within a page."
+      "text": "Tab ids, FAQ questions, pricing plan ids, store shelf titles and node ids are unique within a page."
     },
     {
       "id": "UTILITY_NOT_RETRIEVABLE",
       "severity": "error",
-      "text": "Utility overlays (shell.youtube-overlay) are retrievalEligible:false. A PageSpec node may not claim retrievalEligible:true for a section whose contract says false, and the pinned utility set in semantic_validate.UTILITY_SECTIONS may never be eligible."
+      "text": "Utility overlays (shell.youtube-overlay, shell.app-dialog, shell.image-lightbox) are retrievalEligible:false. A PageSpec node may not claim retrievalEligible:true for a section whose contract says false, and the pinned utility set in semantic_validate.UTILITY_SECTIONS may never be eligible."
+    },
+    {
+      "id": "CTA_BEFORE_FOOTER",
+      "severity": "error",
+      "text": "A closing conversion block (cta.download-icon, cta.download-compact) directly precedes shell.footer."
+    },
+    {
+      "id": "ROUTE_LEGAL_STYLE",
+      "severity": "error",
+      "text": "On template.legal the legal-body typography and the legal-header title line count follow the route (policy and one line for /terms, /privacy, /aup; terms and two lines for /awards/terms)."
+    },
+    {
+      "id": "ROUTE_STORE_CATEGORY",
+      "severity": "error",
+      "text": "store.category-nav.activeCategory equals the route's category (/store is 'all'; /store/<c> is c) and is one of the chips."
+    },
+    {
+      "id": "PAGINATION_BOUNDS",
+      "severity": "error",
+      "text": "store.app-grid and showcase.award-entries: page is not greater than pageCount."
+    },
+    {
+      "id": "PLAN_RULES",
+      "severity": "error",
+      "text": "commerce.pricing-plans has at most template.constraints.maxHighlightedPlans highlighted plans; plan ids are unique."
+    },
+    {
+      "id": "REPEATABLE_MAX_COUNT",
+      "severity": "error",
+      "text": "A repeatable template node (content.post-card, content.release-entry, store.app-list) appears at most its maxCount times."
+    },
+    {
+      "id": "REFERENCE_MODE_ROLE",
+      "severity": "error",
+      "text": "In mode reference an assetRole must be one of the field's referenceRoles (the roles observed on the source); generation-safe-only roles are not available."
+    },
+    {
+      "id": "GENERATED_MODE_REFERENCE_ASSET",
+      "severity": "error",
+      "text": "In mode generated no role whose availability is reference-only or blocked-for-generation (the source's mark, artwork, video, real people, third-party marks, live embeds) may appear."
+    },
+    {
+      "id": "GENERATED_MODE_ROLE",
+      "severity": "error",
+      "text": "In mode generated an assetRole must be one of the field's generatedRoles (generation-safe substitutes)."
+    },
+    {
+      "id": "GENERATED_MODE_ASSET_REF",
+      "severity": "error",
+      "text": "In mode generated every *Ref value (assetRef, logoAssetRef, particlePoolRef, ...) matches asset-roles.json assetRefPolicy.generatedModePattern (placeholder:, user: or generated:)."
+    },
+    {
+      "id": "GENERATED_MODE_SOURCE_BRAND",
+      "severity": "error",
+      "text": "In mode generated no string (route, head, headings, labels, alt text, hrefs, refs) matches asset-roles.json sourceBrand.patterns."
+    },
+    {
+      "id": "GENERATED_MODE_SOURCE_COPY",
+      "severity": "error",
+      "text": "In mode generated no string repeats a verbatim source phrase of assets/source-protected.json (3 or more words, derived from the real source)."
+    },
+    {
+      "id": "GENERATED_MODE_SOURCE_ENTITY",
+      "severity": "error",
+      "text": "In mode generated no string names a real person or company listed in assets/source-protected.json entities."
+    },
+    {
+      "id": "GENERATED_MODE_SOURCE_URL",
+      "severity": "error",
+      "text": "In mode generated no string contains a host listed in assets/source-protected.json hosts."
+    },
+    {
+      "id": "GENERATED_MODE_EXTERNAL_URL",
+      "severity": "error",
+      "text": "In mode generated every href / url value is a relative path, an anchor, or a URL on a reserved domain (example.com/.org/.net, *.example, *.invalid, *.test, *.localhost); any other absolute URL is rejected."
+    },
+    {
+      "id": "GENERATED_MODE_SOURCE_ASSET",
+      "severity": "error",
+      "text": "In mode generated no string contains the name of a file in assets/protected-assets.json (the source's public/ tree) or points into its asset folders."
+    },
+    {
+      "id": "GENERATED_MODE_PROTECTED_VALUE",
+      "severity": "error",
+      "text": "In mode generated an enum value marked blockedInGeneratedMode in the section contract (the third-party product mark in a plan row) is rejected."
     }
   ],
   "themeCompatibility": {

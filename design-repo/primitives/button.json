@@ -1,6 +1,6 @@
 {
   "registryId": "primitive.button",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "category": "action",
   "description": "Pill button / link-button. Four visual variants measured on / and /404. The only filled colour is the single accent.",
   "props": {
@@ -9,14 +9,16 @@
         "accent",
         "ghost",
         "chip",
-        "icon-close"
+        "icon-close",
+        "outline"
       ]
     },
     "size": {
       "enum": [
         "sm",
         "md",
-        "lg"
+        "lg",
+        "xs"
       ],
       "default": "md"
     },
@@ -71,7 +73,17 @@
       "cite": [
         "spec.states.accent",
         "jsx.hero.download"
-      ]
+      ],
+      "sizes-extra": {
+        "xs": {
+          "height": "{button.height.xs}",
+          "paddingX": "{button.paddingX.app-cta}",
+          "typography": "{typography.label.control}",
+          "cite": [
+            "jsx.appdetail.cta"
+          ]
+        }
+      }
     },
     "ghost": {
       "background": "{color.surface.ghost}",
@@ -149,6 +161,31 @@
       "cite": [
         "jsx.overlay.close",
         "spec.states.table"
+      ]
+    },
+    "outline": {
+      "background": "{color.surface.ghost-hover}",
+      "border": "{color.border.separator}",
+      "text": "{color.text.primary}",
+      "radius": "{radius.control}",
+      "typography": {
+        "xs": "{typography.label.control}"
+      },
+      "height": {
+        "xs": "{button.height.xs}"
+      },
+      "states": {
+        "hover": {
+          "background": "{color.surface.ghost-hover}"
+        },
+        "focus-visible": {
+          "shadow": "{elevation.focus}"
+        },
+        "transition": "{motion.recipe.hover.colors}"
+      },
+      "note": "App detail 'Remix' / 'Download' secondary action.",
+      "cite": [
+        "jsx.appdetail.cta2"
       ]
     }
   },

@@ -1,0 +1,124 @@
+{
+  "id": "section.content.award-criteria",
+  "typeId": "content.award-criteria",
+  "registryId": "section.content.award-criteria",
+  "version": "1.0.0",
+  "category": "content",
+  "semantic": {
+    "id": "section.content.award-criteria",
+    "category": "content"
+  },
+  "source": {
+    "id": "src.Sections.section.2",
+    "file": "src/components/awards/Sections.jsx",
+    "tag": "section",
+    "domSelector": "[data-anim=\"awards-below-fold\"] > div:nth-child(5) > section",
+    "citation": "jsx.criteria.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "'Selection criteria' heading and up to six criteria, each an icon, a title and a short paragraph; 1, 2 and 3 per row at 0, 700 and 1000.",
+  "scope": "Awards.",
+  "composes": [
+    "component.criteria-item",
+    "primitive.text",
+    "primitive.icon"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "maxWords": 3
+      },
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "maxWords": 4
+            },
+            "body": {
+              "type": "string",
+              "maxWords": 24
+            },
+            "icon": {
+              "enum": [
+                "palette",
+                "wrench",
+                "sparkles",
+                "badge",
+                "heart"
+              ]
+            }
+          },
+          "required": [
+            "title",
+            "body",
+            "icon"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 1,
+        "maxItems": 6
+      }
+    },
+    "required": [
+      "title",
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.1000}",
+      "change": "Three per row."
+    },
+    {
+      "at": "{foundation.breakpoint.700}",
+      "change": "Two per row."
+    },
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Title 30 to 44; body 14 to 16 with line height 26."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "content.award-jury"
+    ],
+    "mustPrecede": [
+      "cta.download-icon"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "marginTop": "{space.section-gap} below 480, {space.section-gap-wide} from 480",
+    "align": "centre"
+  },
+  "measuredFrom": [
+    "jsx.criteria.root",
+    "jsx.criteria.title",
+    "jsx.criteria.body",
+    "spec.marketing.awards"
+  ]
+}

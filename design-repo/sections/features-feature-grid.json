@@ -2,7 +2,7 @@
   "id": "section.features.feature-grid",
   "typeId": "features.feature-grid",
   "registryId": "section.features.feature-grid",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "category": "features",
   "semantic": {
     "id": "section.features.feature-grid",
@@ -46,7 +46,18 @@
                     "type": "object",
                     "properties": {
                       "assetRole": {
-                        "const": "screenshot.feature"
+                        "enum": [
+                          "screenshot.feature",
+                          "media.user-supplied",
+                          "media.generated"
+                        ],
+                        "referenceRoles": [
+                          "screenshot.feature"
+                        ],
+                        "generatedRoles": [
+                          "media.user-supplied",
+                          "media.generated"
+                        ]
                       },
                       "assetRef": {
                         "type": "string"
@@ -66,7 +77,18 @@
                     "type": "object",
                     "properties": {
                       "assetRole": {
-                        "const": "screenshot.feature"
+                        "enum": [
+                          "screenshot.feature",
+                          "media.user-supplied",
+                          "media.generated"
+                        ],
+                        "referenceRoles": [
+                          "screenshot.feature"
+                        ],
+                        "generatedRoles": [
+                          "media.user-supplied",
+                          "media.generated"
+                        ]
                       },
                       "assetRef": {
                         "type": "string"

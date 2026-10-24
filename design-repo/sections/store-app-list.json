@@ -1,0 +1,175 @@
+{
+  "id": "section.store.app-list",
+  "typeId": "store.app-list",
+  "registryId": "section.store.app-list",
+  "version": "1.0.0",
+  "category": "store",
+  "semantic": {
+    "id": "section.store.app-list",
+    "category": "store"
+  },
+  "source": {
+    "id": "src.AppDetail.div.13",
+    "file": "src/components/store/AppDetail.jsx",
+    "tag": "div",
+    "domSelector": "main section > div > div.mt-4",
+    "citation": "jsx.applist.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Titled two-column list of app rows ('Remixes', 'Suggested Apps'); the remix list marks each row with a shuffle glyph.",
+  "scope": "App detail pages.",
+  "composes": [
+    "component.app-row",
+    "primitive.text"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "maxWords": 2
+      },
+      "remixIcons": {
+        "type": "boolean"
+      },
+      "apps": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "maxWords": 5
+            },
+            "tagline": {
+              "type": "string",
+              "maxWords": 14
+            },
+            "author": {
+              "type": "string",
+              "maxWords": 4
+            },
+            "href": {
+              "type": "string"
+            },
+            "award": {
+              "enum": [
+                "none",
+                "gold",
+                "silver",
+                "bronze",
+                "finalist"
+              ]
+            },
+            "icon": {
+              "type": "object",
+              "properties": {
+                "assetRole": {
+                  "enum": [
+                    "app.icon",
+                    "app.icon-generated"
+                  ],
+                  "referenceRoles": [
+                    "app.icon"
+                  ],
+                  "generatedRoles": [
+                    "app.icon-generated"
+                  ]
+                },
+                "assetRef": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "assetRole",
+                "assetRef"
+              ],
+              "additionalProperties": false
+            },
+            "avatar": {
+              "type": "object",
+              "properties": {
+                "assetRole": {
+                  "enum": [
+                    "avatar.person",
+                    "avatar.placeholder"
+                  ],
+                  "referenceRoles": [
+                    "avatar.person"
+                  ],
+                  "generatedRoles": [
+                    "avatar.placeholder"
+                  ]
+                },
+                "assetRef": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "assetRole",
+                "assetRef"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "name",
+            "tagline",
+            "href",
+            "icon"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 1,
+        "maxItems": 8
+      }
+    },
+    "required": [
+      "title",
+      "remixIcons",
+      "apps"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.640}",
+      "change": "One column to two (Tailwind sm)."
+    }
+  ],
+  "constraints": {
+    "repeatable": true,
+    "maxPerPage": 2,
+    "mustFollow": [
+      "store.app-about"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "marginTop": "{foundation.space.4}",
+    "rowGap": "{shelf.rowGap}"
+  },
+  "measuredFrom": [
+    "jsx.appdetail.list",
+    "jsx.appdetail.listtitle",
+    "jsx.approw.root",
+    "spec.store.top"
+  ]
+}

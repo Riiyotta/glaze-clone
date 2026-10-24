@@ -1,0 +1,157 @@
+{
+  "id": "section.content.award-prizes",
+  "typeId": "content.award-prizes",
+  "registryId": "section.content.award-prizes",
+  "version": "1.0.0",
+  "category": "content",
+  "semantic": {
+    "id": "section.content.award-prizes",
+    "category": "content"
+  },
+  "source": {
+    "id": "src.Sections.fieldset",
+    "file": "src/components/awards/Sections.jsx",
+    "tag": "fieldset",
+    "domSelector": "[data-anim=\"awards-below-fold\"] > div:nth-child(3) > fieldset",
+    "citation": "jsx.prizes.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Bordered fieldset with a centred legend ('Cash prizes for winners') and four prize cards (medal, tier, amount), plus an 'Eligible Countries' tooltip trigger under it.",
+  "scope": "Awards.",
+  "composes": [
+    "component.prize-card",
+    "component.info-tooltip",
+    "primitive.text",
+    "primitive.image"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "legend": {
+        "type": "string",
+        "maxWords": 5
+      },
+      "prizes": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "maxWords": 3
+            },
+            "amount": {
+              "type": "string",
+              "maxWords": 3
+            },
+            "image": {
+              "type": "object",
+              "properties": {
+                "assetRole": {
+                  "enum": [
+                    "badge.award",
+                    "badge.award-generated"
+                  ],
+                  "referenceRoles": [
+                    "badge.award"
+                  ],
+                  "generatedRoles": [
+                    "badge.award-generated"
+                  ]
+                },
+                "assetRef": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "assetRole",
+                "assetRef"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "title",
+            "amount",
+            "image"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 4,
+        "maxItems": 4
+      },
+      "eligibility": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 2
+          },
+          "text": {
+            "type": "string",
+            "maxWords": 80
+          }
+        },
+        "required": [
+          "label",
+          "text"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "legend",
+      "prizes",
+      "eligibility"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.760}",
+      "change": "Prizes 2 to 4 columns."
+    },
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Medal 64 to 72; fieldset padding 12/40 to 24/48; legend 14 to 16."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "exactPrizes": 4
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "marginTop": "{space.section-gap} below 480, {space.section-gap-wide} from 480",
+    "radius": "{prize.fieldsetRadius}",
+    "border": "{color.border.primary}",
+    "padding": "{prize.fieldsetPadX} / {prize.fieldsetPadY} below 480, {prize.fieldsetPadXWide} / {prize.fieldsetPadYWide} from 480",
+    "rowGap": "{prize.rowGap}"
+  },
+  "measuredFrom": [
+    "jsx.prizes.root",
+    "jsx.prizes.fieldset",
+    "jsx.prizes.legend",
+    "jsx.prizes.title",
+    "jsx.prizes.sub",
+    "jsx.prizes.eligible",
+    "spec.marketing.awards"
+  ]
+}

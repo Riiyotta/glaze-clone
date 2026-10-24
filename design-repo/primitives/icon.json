@@ -1,6 +1,6 @@
 {
   "registryId": "primitive.icon",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "category": "media",
   "description": "Closed inline-SVG icon set. Glyph geometry lives in the host app (src/components/icons.jsx); the contract fixes names, sizes and stroke only. Colour is always currentColor.",
   "props": {
@@ -134,6 +134,107 @@
       "set": "brand glyph",
       "size": "{foundation.iconSize.20}",
       "licensing": "Raycast trademark: reuse the shipped glyph only, never redraw."
+    },
+    "check-small": {
+      "set": "lucide",
+      "stroke": "1.8 round",
+      "size": "{foundation.iconSize.14}",
+      "note": "Plan feature check (viewBox 24, path M20 6 9 17l-5-5)."
+    },
+    "info": {
+      "set": "lucide",
+      "stroke": "2 round",
+      "size": "{foundation.iconSize.12}",
+      "sizeLarge": "{foundation.iconSize.14}"
+    },
+    "third-party-mark": {
+      "set": "brand glyph",
+      "size": "{foundation.iconSize.14}",
+      "licensing": "third-party trademark; blocked in generated mode"
+    },
+    "search": {
+      "set": "lucide",
+      "stroke": "2 round",
+      "size": "{foundation.iconSize.16}",
+      "sizeNarrow": "{foundation.iconSize.18}"
+    },
+    "clear": {
+      "set": "lucide",
+      "stroke": "2 round",
+      "size": "{foundation.iconSize.14}"
+    },
+    "chevron-left": {
+      "set": "lucide",
+      "stroke": "2 round",
+      "size": "{foundation.iconSize.16}"
+    },
+    "chevron-right": {
+      "set": "lucide",
+      "stroke": "2 round",
+      "size": "{foundation.iconSize.16}"
+    },
+    "arrow-up-right": {
+      "set": "custom",
+      "size": "{foundation.iconSize.20}"
+    },
+    "star": {
+      "set": "lucide",
+      "size": "{foundation.iconSize.16}"
+    },
+    "shuffle": {
+      "set": "lucide",
+      "size": "{foundation.iconSize.16}"
+    },
+    "hammer": {
+      "set": "lucide",
+      "size": "{foundation.iconSize.16}"
+    },
+    "chart-line": {
+      "set": "lucide",
+      "size": "{foundation.iconSize.16}"
+    },
+    "wrench": {
+      "set": "lucide",
+      "size": "{foundation.iconSize.16}"
+    },
+    "headphones": {
+      "set": "lucide",
+      "size": "{foundation.iconSize.16}"
+    },
+    "paintbrush": {
+      "set": "lucide",
+      "size": "{foundation.iconSize.16}"
+    },
+    "heart": {
+      "set": "lucide",
+      "size": "{foundation.iconSize.16}"
+    },
+    "gamepad-2": {
+      "set": "lucide",
+      "size": "{foundation.iconSize.16}"
+    },
+    "globe": {
+      "set": "lucide",
+      "size": "{foundation.iconSize.16}"
+    },
+    "social-threads": {
+      "set": "brand glyph",
+      "size": "{foundation.iconSize.16}",
+      "licensing": "third-party trademark"
+    },
+    "social-bluesky": {
+      "set": "brand glyph",
+      "size": "{foundation.iconSize.16}",
+      "licensing": "third-party trademark"
+    },
+    "social-linkedin": {
+      "set": "brand glyph",
+      "size": "{foundation.iconSize.16}",
+      "licensing": "third-party trademark"
+    },
+    "criteria-set": {
+      "set": "custom, five glyphs by index",
+      "size": "{foundation.iconSize.20}"
     }
   },
   "tokens": [
@@ -150,6 +251,10 @@
   ],
   "measuredFrom": [
     "src.icons",
-    "spec.svg"
+    "spec.svg",
+    "jsx.pricing.feature",
+    "jsx.store.chip",
+    "jsx.jury.links",
+    "jsx.criteria.title"
   ]
 }

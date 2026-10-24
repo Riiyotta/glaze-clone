@@ -1,5 +1,6 @@
 {
   "id": "page.persona-designers",
+  "mode": "reference",
   "route": "/designers",
   "template": "template.persona",
   "theme": "dark",

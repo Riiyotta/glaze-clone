@@ -1,0 +1,220 @@
+{
+  "$description": "Document heights the clone's own specs (specs/SPEC_*.md, CLONE_SPEC.md) recorded on the LIVE site, per route and width. extraction/measure_spec_crosscheck.mjs records what the clone renders today next to them (measured-values.json specCrossCheck); verify_all.py check 18 compares the two. This is a cross-check of recorded numbers, not a visual parity measurement: there is no live-site capture pipeline here, and the clone's long text pages use placeholder prose, so differences on those routes are expected and must be explained.",
+  "tolerancePct": 1.0,
+  "entries": [
+    {
+      "route": "/pricing",
+      "viewport": 1440,
+      "specPx": 2566,
+      "specCite": "spec.marketing.pricing"
+    },
+    {
+      "route": "/pricing",
+      "viewport": 390,
+      "specPx": 2822,
+      "specCite": "spec.marketing.pricing"
+    },
+    {
+      "route": "/awards",
+      "viewport": 1440,
+      "specPx": 5145,
+      "specCite": "spec.marketing.awards"
+    },
+    {
+      "route": "/awards",
+      "viewport": 390,
+      "specPx": 5657,
+      "specCite": "spec.marketing.awards"
+    },
+    {
+      "route": "/awards/terms",
+      "viewport": 1440,
+      "specPx": 6175,
+      "specCite": "spec.marketing.awardsterms",
+      "explained": "Awards terms body is deterministic placeholder text sized to the original paragraph lengths; line wrapping differs from the real text."
+    },
+    {
+      "route": "/awards/terms",
+      "viewport": 390,
+      "specPx": 8541,
+      "specCite": "spec.marketing.awardsterms",
+      "explained": "Awards terms body is deterministic placeholder text sized to the original paragraph lengths; line wrapping differs from the real text."
+    },
+    {
+      "route": "/blog",
+      "viewport": 1440,
+      "specPx": 3296,
+      "specCite": "spec.blog.index"
+    },
+    {
+      "route": "/blog",
+      "viewport": 390,
+      "specPx": 2524,
+      "specCite": "spec.blog.index"
+    },
+    {
+      "route": "/blog/how-teams-use-glaze",
+      "viewport": 1440,
+      "specPx": 4877,
+      "specCite": "spec.blog.post",
+      "explained": "Post bodies are deterministic placeholder prose sized to the original word counts; wrapping and image heights differ slightly from the real text."
+    },
+    {
+      "route": "/blog/how-teams-use-glaze",
+      "viewport": 390,
+      "specPx": 4935,
+      "specCite": "spec.blog.post",
+      "explained": "Post bodies are deterministic placeholder prose sized to the original word counts; wrapping and image heights differ slightly from the real text."
+    },
+    {
+      "route": "/blog/why-glaze-when-claude-code-and-codex-exist",
+      "viewport": 1440,
+      "specPx": 2910,
+      "specCite": "spec.blog.post",
+      "explained": "Post bodies are deterministic placeholder prose sized to the original word counts; wrapping and image heights differ slightly from the real text."
+    },
+    {
+      "route": "/blog/why-glaze-when-claude-code-and-codex-exist",
+      "viewport": 390,
+      "specPx": 3028,
+      "specCite": "spec.blog.post",
+      "explained": "Post bodies are deterministic placeholder prose sized to the original word counts; wrapping and image heights differ slightly from the real text."
+    },
+    {
+      "route": "/blog/affiliate-program",
+      "viewport": 1440,
+      "specPx": 2839,
+      "specCite": "spec.blog.post",
+      "explained": "Post bodies are deterministic placeholder prose sized to the original word counts; wrapping and image heights differ slightly from the real text."
+    },
+    {
+      "route": "/blog/affiliate-program",
+      "viewport": 390,
+      "specPx": 2956,
+      "specCite": "spec.blog.post",
+      "explained": "Post bodies are deterministic placeholder prose sized to the original word counts; wrapping and image heights differ slightly from the real text."
+    },
+    {
+      "route": "/blog/how-we-use-glaze-at-raycast",
+      "viewport": 1440,
+      "specPx": 7155,
+      "specCite": "spec.blog.post",
+      "explained": "Post bodies are deterministic placeholder prose sized to the original word counts; wrapping and image heights differ slightly from the real text."
+    },
+    {
+      "route": "/blog/how-we-use-glaze-at-raycast",
+      "viewport": 390,
+      "specPx": 6619,
+      "specCite": "spec.blog.post",
+      "explained": "Post bodies are deterministic placeholder prose sized to the original word counts; wrapping and image heights differ slightly from the real text."
+    },
+    {
+      "route": "/store",
+      "viewport": 1440,
+      "specPx": 1718,
+      "specCite": "spec.store.top"
+    },
+    {
+      "route": "/store",
+      "viewport": 390,
+      "specPx": 3241,
+      "specCite": "spec.store.top"
+    },
+    {
+      "route": "/app/my-stash-CDBw9Z",
+      "viewport": 1440,
+      "specPx": 1449,
+      "specCite": "spec.store.top",
+      "explained": "The About text of an app is placeholder prose (src/data/store-about-placeholder.js) of a different length than the real description."
+    },
+    {
+      "route": "/app/my-stash-CDBw9Z",
+      "viewport": 390,
+      "specPx": 1473,
+      "specCite": "spec.store.top",
+      "explained": "The About text of an app is placeholder prose (src/data/store-about-placeholder.js) of a different length than the real description."
+    },
+    {
+      "route": "/app/elsewhere-khfW1h",
+      "viewport": 1440,
+      "specPx": 1431,
+      "specCite": "spec.store.top",
+      "explained": "The About text of an app is placeholder prose (src/data/store-about-placeholder.js) of a different length than the real description."
+    },
+    {
+      "route": "/app/elsewhere-khfW1h",
+      "viewport": 390,
+      "specPx": 1509,
+      "specCite": "spec.store.top",
+      "explained": "The About text of an app is placeholder prose (src/data/store-about-placeholder.js) of a different length than the real description."
+    },
+    {
+      "route": "/app/the-last-blockbuster-oRLCOs",
+      "viewport": 1440,
+      "specPx": 1395,
+      "specCite": "spec.store.top",
+      "explained": "The About text of an app is placeholder prose (src/data/store-about-placeholder.js) of a different length than the real description."
+    },
+    {
+      "route": "/app/the-last-blockbuster-oRLCOs",
+      "viewport": 390,
+      "specPx": 1491,
+      "specCite": "spec.store.top",
+      "explained": "The About text of an app is placeholder prose (src/data/store-about-placeholder.js) of a different length than the real description."
+    },
+    {
+      "route": "/terms",
+      "viewport": 1440,
+      "specPx": 27375,
+      "specCite": "spec.legal.b",
+      "explained": "Legal bodies are deterministic placeholder text sized to the original block lengths; line wrapping differs from the real text."
+    },
+    {
+      "route": "/terms",
+      "viewport": 390,
+      "specPx": 45431,
+      "specCite": "spec.legal.b",
+      "explained": "Legal bodies are deterministic placeholder text sized to the original block lengths; line wrapping differs from the real text."
+    },
+    {
+      "route": "/privacy",
+      "viewport": 1440,
+      "specPx": 10042,
+      "specCite": "spec.legal.b",
+      "explained": "Legal bodies are deterministic placeholder text sized to the original block lengths; line wrapping differs from the real text."
+    },
+    {
+      "route": "/privacy",
+      "viewport": 390,
+      "specPx": 16061,
+      "specCite": "spec.legal.b",
+      "explained": "Legal bodies are deterministic placeholder text sized to the original block lengths; line wrapping differs from the real text."
+    },
+    {
+      "route": "/aup",
+      "viewport": 1440,
+      "specPx": 12817,
+      "specCite": "spec.legal.b",
+      "explained": "Legal bodies are deterministic placeholder text sized to the original block lengths; line wrapping differs from the real text."
+    },
+    {
+      "route": "/aup",
+      "viewport": 390,
+      "specPx": 19584,
+      "specCite": "spec.legal.b",
+      "explained": "Legal bodies are deterministic placeholder text sized to the original block lengths; line wrapping differs from the real text."
+    },
+    {
+      "route": "/",
+      "viewport": 1440,
+      "specPx": 6141,
+      "specCite": "spec.persona.diff"
+    },
+    {
+      "route": "/",
+      "viewport": 390,
+      "specPx": 5683,
+      "specCite": "spec.persona.diff"
+    }
+  ]
+}

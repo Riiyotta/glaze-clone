@@ -2,7 +2,7 @@
   "id": "section.support.faq",
   "typeId": "support.faq",
   "registryId": "section.support.faq",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "category": "support",
   "semantic": {
     "id": "section.support.faq",
@@ -17,7 +17,7 @@
   },
   "retrievalEligible": true,
   "purpose": "Single-open accordion that dims once scrolled past.",
-  "scope": "Landing and persona routes.",
+  "scope": "Landing, persona and pricing routes (the pricing page has a longer list).",
   "composes": [
     "component.faq-item"
   ],
@@ -39,7 +39,7 @@
             },
             "answer": {
               "type": "string",
-              "maxWords": 60
+              "maxWords": 100
             },
             "link": {
               "type": "object",

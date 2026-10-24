@@ -1,0 +1,136 @@
+{
+  "id": "section.content.article-footer",
+  "typeId": "content.article-footer",
+  "registryId": "section.content.article-footer",
+  "version": "1.0.0",
+  "category": "content",
+  "semantic": {
+    "id": "section.content.article-footer",
+    "category": "content"
+  },
+  "source": {
+    "id": "src.BlogPost.footer",
+    "file": "src/pages/BlogPost.jsx",
+    "tag": "footer",
+    "domSelector": "article > footer",
+    "citation": "jsx.blogpost.footer.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Closing row of a post: author, dot, date, and a Share button that uses the share sheet or copies the link ('Copied' for 1600ms).",
+  "scope": "Blog posts.",
+  "composes": [
+    "component.author-row",
+    "primitive.text",
+    "primitive.button"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "author": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxWords": 4
+          },
+          "avatar": {
+            "type": "object",
+            "properties": {
+              "assetRole": {
+                "enum": [
+                  "avatar.person",
+                  "avatar.placeholder"
+                ],
+                "referenceRoles": [
+                  "avatar.person"
+                ],
+                "generatedRoles": [
+                  "avatar.placeholder"
+                ]
+              },
+              "assetRef": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "assetRole",
+              "assetRef"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "name",
+          "avatar"
+        ],
+        "additionalProperties": false
+      },
+      "date": {
+        "type": "string",
+        "maxWords": 3
+      },
+      "datetime": {
+        "type": "string",
+        "pattern": "^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$",
+        "description": "ISO date, e.g. the datetime attribute"
+      },
+      "shareLabel": {
+        "type": "string",
+        "maxWords": 1
+      },
+      "copiedLabel": {
+        "type": "string",
+        "maxWords": 1
+      }
+    },
+    "required": [
+      "author",
+      "date",
+      "datetime",
+      "shareLabel",
+      "copiedLabel"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Top margin 64 to 80 and padding 40 to 48."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "content.article-body"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.content}",
+    "gutter": "{space.page-gutter}",
+    "marginTop": "{article.footerTop} below 480, {article.footerTopWide} from 480",
+    "paddingTop": "{article.footerPad} below 480, {article.footerPadWide} from 480",
+    "separator": "primitive.divider#entry-border"
+  },
+  "measuredFrom": [
+    "jsx.blogpost.footer",
+    "jsx.blogpost.share",
+    "jsx.blogpost.copied",
+    "spec.blog.post"
+  ]
+}

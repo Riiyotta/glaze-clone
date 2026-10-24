@@ -1,0 +1,56 @@
+{
+  "registryId": "component.shelf",
+  "version": "1.0.0",
+  "category": "store",
+  "description": "Paged slider of app rows with a title, optional accessory link and previous/next glass buttons. Page size depends on the column count (1/2/3/4 columns).",
+  "composes": [
+    "component.app-row",
+    "primitive.text",
+    "primitive.icon",
+    "primitive.glass-surface"
+  ],
+  "props": {
+    "title": {
+      "type": "string",
+      "maxWords": 3
+    },
+    "accessoryLabel": {
+      "type": "string",
+      "optional": true,
+      "maxWords": 2
+    },
+    "accessoryHref": {
+      "type": "string",
+      "optional": true
+    },
+    "items": {
+      "type": "array",
+      "items": "component.app-row props"
+    }
+  },
+  "layout": {
+    "title": "{typography.heading.shelf}",
+    "headerMinHeight": "{shelf.headerMinHeight}",
+    "arrow": "{shelf.arrow}",
+    "columnGap": "{shelf.columnGap}",
+    "rowGap": "{shelf.rowGap}",
+    "columns": "1 below 480, 2 from 480, 3 from 768, 4 from {foundation.breakpoint.1920}"
+  },
+  "motion": {
+    "slide": "{motion.recipe.shelf.slide}"
+  },
+  "tokens": [
+    "typography.heading.shelf",
+    "shelf.headerMinHeight",
+    "shelf.arrow",
+    "shelf.columnGap",
+    "shelf.rowGap",
+    "motion.recipe.shelf.slide"
+  ],
+  "measuredFrom": [
+    "jsx.slider.root",
+    "jsx.slider.track",
+    "jsx.slider.button",
+    "jsx.slider.cols"
+  ]
+}

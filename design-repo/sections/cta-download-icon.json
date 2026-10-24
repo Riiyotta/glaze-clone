@@ -2,7 +2,7 @@
   "id": "section.cta.download-icon",
   "typeId": "cta.download-icon",
   "registryId": "section.cta.download-icon",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "category": "cta",
   "semantic": {
     "id": "section.cta.download-icon",
@@ -17,7 +17,7 @@
   },
   "retrievalEligible": true,
   "purpose": "Closing call to action: clickable icon, headline, download button and requirements note.",
-  "scope": "Landing and persona routes.",
+  "scope": "Landing, persona, pricing and awards routes.",
   "composes": [
     "component.glaze-icon-burst",
     "primitive.text",
@@ -30,7 +30,18 @@
         "type": "object",
         "properties": {
           "assetRole": {
-            "const": "brand.app-icon"
+            "enum": [
+              "brand.app-icon",
+              "brand.app-icon-placeholder",
+              "brand.app-icon-user-supplied"
+            ],
+            "referenceRoles": [
+              "brand.app-icon"
+            ],
+            "generatedRoles": [
+              "brand.app-icon-placeholder",
+              "brand.app-icon-user-supplied"
+            ]
           },
           "assetRef": {
             "type": "string"

@@ -1,0 +1,59 @@
+{
+  "registryId": "component.jury-card",
+  "version": "1.0.0",
+  "category": "content",
+  "description": "Greyscale round photo, name, 'Role, Org' with an underlined organisation link, and a row of 14-16px link icons.",
+  "composes": [
+    "primitive.image",
+    "primitive.text",
+    "primitive.link",
+    "primitive.icon"
+  ],
+  "props": {
+    "name": {
+      "type": "string",
+      "maxWords": 4
+    },
+    "role": {
+      "type": "string",
+      "maxWords": 4
+    },
+    "org": {
+      "type": "string",
+      "maxWords": 3
+    },
+    "orgHref": {
+      "type": "string"
+    },
+    "photoAssetRole": {
+      "enum": [
+        "person.photo",
+        "avatar.placeholder"
+      ]
+    },
+    "links": {
+      "type": "array",
+      "items": "label maxWords 3, href, icon website|x|threads|bluesky|linkedin",
+      "maxItems": 4
+    }
+  },
+  "layout": {
+    "photo": "{jury.photo} below 760, {jury.photoWide} from 760",
+    "photoFilter": "greyscale",
+    "nameTypography": "{typography.heading.jury-name}",
+    "roleTypography": "{typography.text.jury-role}",
+    "linkGap": "{jury.linkGap}"
+  },
+  "tokens": [
+    "jury.photo",
+    "jury.photoWide",
+    "typography.heading.jury-name",
+    "typography.text.jury-role",
+    "jury.linkGap"
+  ],
+  "measuredFrom": [
+    "jsx.jury.photo",
+    "jsx.jury.name",
+    "jsx.jury.links"
+  ]
+}

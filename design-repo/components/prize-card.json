@@ -1,0 +1,43 @@
+{
+  "registryId": "component.prize-card",
+  "version": "1.0.0",
+  "category": "content",
+  "description": "Medal image over a tier title and an amount; four per row at >=760, two per row below.",
+  "composes": [
+    "primitive.image",
+    "primitive.text"
+  ],
+  "props": {
+    "title": {
+      "type": "string",
+      "maxWords": 3
+    },
+    "amount": {
+      "type": "string",
+      "maxWords": 3
+    },
+    "imageAssetRole": {
+      "enum": [
+        "badge.award",
+        "badge.award-generated"
+      ]
+    }
+  },
+  "layout": {
+    "icon": "{prize.icon} below 480, {prize.iconWide} from 480",
+    "titleTypography": "{typography.heading.prize}",
+    "amountTypography": "{typography.text.prize-sub}",
+    "amountColour": "{color.text.secondary}"
+  },
+  "tokens": [
+    "prize.icon",
+    "prize.iconWide",
+    "typography.heading.prize",
+    "typography.text.prize-sub",
+    "color.text.secondary"
+  ],
+  "measuredFrom": [
+    "jsx.prizes.title",
+    "jsx.prizes.sub"
+  ]
+}

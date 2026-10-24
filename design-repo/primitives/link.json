@@ -1,6 +1,6 @@
 {
   "registryId": "primitive.link",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "category": "navigation",
   "description": "Text and icon links. Local routes use the router Link; absolute URLs render a plain anchor (src/router.jsx), so an href can change from absolute to local without markup changes.",
   "props": {
@@ -12,7 +12,9 @@
         "footer",
         "inline-underline",
         "with-arrow",
-        "social"
+        "social",
+        "prose-inline",
+        "legal-inline"
       ]
     },
     "href": {
@@ -29,7 +31,7 @@
   },
   "variants": {
     "nav": {
-      "typography": "{typography.label.control}",
+      "typography": "{typography.label.nav-link}",
       "text": "{color.text.secondary}",
       "height": "{navPill.linkHeight}",
       "states": {
@@ -43,7 +45,7 @@
       ]
     },
     "nav-active": {
-      "typography": "{typography.label.control}",
+      "typography": "{typography.label.nav-link}",
       "text": "{color.text.primary}",
       "aria": "aria-current=page",
       "cite": [
@@ -122,6 +124,34 @@
       },
       "cite": [
         "jsx.footer.social"
+      ]
+    },
+    "prose-inline": {
+      "text": "{color.text.primary}",
+      "underline": "{color.link.prose-underline}",
+      "states": {
+        "hover": {
+          "text": "{color.text.secondary}"
+        },
+        "transition": "{motion.recipe.hover.colors}"
+      },
+      "note": "Absolute http(s) links in prose open in a new tab with rel noopener noreferrer.",
+      "cite": [
+        "jsx.prose.link"
+      ]
+    },
+    "legal-inline": {
+      "text": "{color.text.primary}",
+      "underline": "currentColor",
+      "states": {
+        "hover": {
+          "text": "{color.text.secondary}"
+        },
+        "transition": "{motion.recipe.hover.colors}"
+      },
+      "cite": [
+        "css.legal-prose",
+        "jsx.legal.root"
       ]
     }
   },

@@ -1,0 +1,155 @@
+{
+  "$description": "Layout tokens for the page families beyond landing. Containers hold raw values here (the only layer besides foundation allowed to).",
+  "container": {
+    "page-header": {
+      "$type": "dimension",
+      "$value": "680px",
+      "$description": "Blog / changelog title block.",
+      "$extensions": {
+        "cite": [
+          "jsx.blogindex.header"
+        ]
+      }
+    },
+    "page-subtitle": {
+      "$type": "dimension",
+      "$value": "440px",
+      "$description": "Subtitle at >=480.",
+      "$extensions": {
+        "cite": [
+          "jsx.blogindex.sub"
+        ]
+      }
+    },
+    "awards-subtitle": {
+      "$type": "dimension",
+      "$value": "720px",
+      "$extensions": {
+        "cite": [
+          "jsx.awards.sub"
+        ]
+      }
+    },
+    "changelog-wide": {
+      "$type": "dimension",
+      "$value": "1240px",
+      "$description": "Changelog list at >=1280.",
+      "$extensions": {
+        "cite": [
+          "jsx.changelog.wrap"
+        ]
+      }
+    },
+    "changelog-column": {
+      "$type": "dimension",
+      "$value": "640px",
+      "$description": "Release body column at >=1280 (minmax(0,640px)).",
+      "$extensions": {
+        "cite": [
+          "jsx.changelog.entry"
+        ]
+      }
+    },
+    "awards-video": {
+      "$type": "dimension",
+      "$value": "1280px",
+      "$extensions": {
+        "cite": [
+          "jsx.awards.video"
+        ]
+      }
+    },
+    "compact-cta": {
+      "$type": "dimension",
+      "$value": "420px",
+      "$extensions": {
+        "cite": [
+          "jsx.compactcta.section"
+        ]
+      }
+    },
+    "store-wide": {
+      "$type": "dimension",
+      "$value": "1440px",
+      "$description": "Store column at >=1920.",
+      "$extensions": {
+        "cite": [
+          "jsx.store.wrap"
+        ]
+      }
+    },
+    "featured-card": {
+      "$type": "dimension",
+      "$value": "960px",
+      "$description": "Carousel card width cap: min(960px, 100vw - 32px); 1440 cap and 48px inset at >=1920.",
+      "$extensions": {
+        "cite": [
+          "css.store-hero"
+        ]
+      }
+    }
+  },
+  "zIndex": {
+    "winner-backdrop": {
+      "$type": "number",
+      "$value": 80,
+      "$extensions": {
+        "cite": [
+          "jsx.winners.dialog"
+        ]
+      }
+    },
+    "winner-dialog": {
+      "$type": "number",
+      "$value": 90,
+      "$extensions": {
+        "cite": [
+          "jsx.winners.dialog"
+        ]
+      }
+    },
+    "tooltip": {
+      "$type": "number",
+      "$value": 20010,
+      "$extensions": {
+        "cite": [
+          "jsx.tooltip.panel"
+        ]
+      }
+    }
+  },
+  "sectionPadding": {
+    "legal-top": {
+      "$value": "{foundation.space.43}",
+      "$description": "Legal / awards-terms / blog post top padding at >=480 (172px)."
+    },
+    "post-top-narrow": {
+      "$value": "{foundation.space.33}",
+      "$description": "Blog post top padding below 480 (132px)."
+    },
+    "page-bottom": {
+      "$value": "{foundation.space.20}"
+    },
+    "legal-bottom": {
+      "$value": "{foundation.space.24}"
+    },
+    "app-top-narrow": {
+      "$value": "{foundation.space.19}",
+      "$description": "Store and app pages (76px)."
+    },
+    "app-top": {
+      "$value": "{foundation.space.20}",
+      "$description": "Store and app pages at >=480 (80px)."
+    },
+    "app-bottom": {
+      "$value": "{foundation.space.14}"
+    },
+    "faq-top-pricing": {
+      "$value": "{foundation.space.32}",
+      "$description": "FAQ margin-top on /pricing below 480 (128px); 180px from 480."
+    },
+    "faq-top-pricing-wide": {
+      "$value": "{foundation.space.45}"
+    }
+  }
+}

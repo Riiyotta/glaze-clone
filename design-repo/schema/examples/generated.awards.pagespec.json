@@ -1,0 +1,564 @@
+{
+  "id": "page.generated-awards",
+  "mode": "generated",
+  "route": "/awards",
+  "template": "template.awards",
+  "theme": "dark",
+  "head": {
+    "title": "Fernlight Contest",
+    "description": "Build something small and useful for a chance to win."
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Overview",
+            "href": "/"
+          },
+          {
+            "label": "Plans",
+            "href": "/pricing"
+          },
+          {
+            "label": "Library",
+            "href": "/store"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          },
+          {
+            "label": "Releases",
+            "href": "/changelog"
+          }
+        ],
+        "activeLinkHref": null,
+        "signInLabel": "Sign in",
+        "signInHref": "/account",
+        "downloadLabel": "Download",
+        "downloadHref": "/download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example",
+        "logoAssetRole": "brand.wordmark-placeholder",
+        "logoAssetRef": "placeholder:wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "awards-hero-1",
+      "type": "hero.awards-hero",
+      "content": {
+        "video": {
+          "assetRole": "video.user-supplied",
+          "assetRef": "user:contest-loop",
+          "alt": "Looping contest animation supplied by the user"
+        },
+        "title": "Fernlight Contest",
+        "subtitle": "The results are in. Meet the winners and finalists below.",
+        "sponsor": {
+          "label": "Supported by",
+          "href": "https://sponsor.example",
+          "logo": {
+            "assetRole": "logo.placeholder",
+            "assetRef": "placeholder:sponsor",
+            "alt": "Sponsor placeholder"
+          }
+        }
+      },
+      "motion": {
+        "pattern": "awards-entrance",
+        "reducedMotionFallback": "opacity-only"
+      }
+    },
+    {
+      "id": "award-winners-1",
+      "type": "showcase.award-winners",
+      "content": {
+        "winners": {
+          "gold": {
+            "name": "Pocket Atlas",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 1",
+            "href": "/app/pocket-atlas-1",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-1"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-1"
+            }
+          },
+          "silver": {
+            "name": "Tidy Tray",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 2",
+            "href": "/app/tidy-tray-2",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-2"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-2"
+            }
+          },
+          "bronze": {
+            "name": "Moss Timer",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 3",
+            "href": "/app/moss-timer-3",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-3"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-3"
+            }
+          }
+        },
+        "medal": {
+          "assetRole": "badge.award-generated",
+          "assetRef": "generated:medal"
+        },
+        "finalistsTitle": "Shortlist",
+        "finalists": [
+          {
+            "name": "Quiet Clock",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 10",
+            "href": "/app/quiet-clock-10",
+            "award": "finalist",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-10"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-10"
+            }
+          },
+          {
+            "name": "Leaf Notes",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 11",
+            "href": "/app/leaf-notes-11",
+            "award": "finalist",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-11"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-11"
+            }
+          },
+          {
+            "name": "Pine Board",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 12",
+            "href": "/app/pine-board-12",
+            "award": "finalist",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-12"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-12"
+            }
+          },
+          {
+            "name": "Dune Calendar",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 13",
+            "href": "/app/dune-calendar-13",
+            "award": "finalist",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-13"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-13"
+            }
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "award-entries-1",
+      "type": "showcase.award-entries",
+      "content": {
+        "title": "Browse 24 entries",
+        "total": 24,
+        "searchLabel": "Search the entries",
+        "searchPlaceholder": "Search",
+        "emptyTitle": "Nothing matched",
+        "emptyBody": "Try another word.",
+        "page": 1,
+        "pageCount": 1,
+        "entries": [
+          {
+            "name": "Sketch Pad 1",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 21",
+            "href": "/app/sketch-pad-1-21",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-21"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-21"
+            }
+          },
+          {
+            "name": "Sketch Pad 2",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 22",
+            "href": "/app/sketch-pad-2-22",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-22"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-22"
+            }
+          },
+          {
+            "name": "Sketch Pad 3",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 23",
+            "href": "/app/sketch-pad-3-23",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-23"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-23"
+            }
+          },
+          {
+            "name": "Sketch Pad 4",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 24",
+            "href": "/app/sketch-pad-4-24",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-24"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-24"
+            }
+          },
+          {
+            "name": "Sketch Pad 5",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 25",
+            "href": "/app/sketch-pad-5-25",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-25"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-25"
+            }
+          },
+          {
+            "name": "Sketch Pad 6",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 26",
+            "href": "/app/sketch-pad-6-26",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-26"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-26"
+            }
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "award-prizes-1",
+      "type": "content.award-prizes",
+      "content": {
+        "legend": "Prizes for winners",
+        "prizes": [
+          {
+            "title": "First",
+            "amount": "$1,000",
+            "image": {
+              "assetRole": "badge.award-generated",
+              "assetRef": "generated:medal-0"
+            }
+          },
+          {
+            "title": "Second",
+            "amount": "$500",
+            "image": {
+              "assetRole": "badge.award-generated",
+              "assetRef": "generated:medal-1"
+            }
+          },
+          {
+            "title": "Third",
+            "amount": "$250",
+            "image": {
+              "assetRole": "badge.award-generated",
+              "assetRef": "generated:medal-2"
+            }
+          },
+          {
+            "title": "Shortlisted",
+            "amount": "$100 each",
+            "image": {
+              "assetRole": "badge.award-generated",
+              "assetRef": "generated:medal-3"
+            }
+          }
+        ],
+        "eligibility": {
+          "label": "Eligibility",
+          "text": "Open to residents of countries where the prize provider operates, subject to local law."
+        }
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "award-jury-1",
+      "type": "content.award-jury",
+      "content": {
+        "title": "The panel",
+        "jurors": [
+          {
+            "name": "Rowan Ellis",
+            "role": "Editor,",
+            "org": "Fieldnotes",
+            "orgHref": "https://fieldnotes.example",
+            "photo": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:juror-1"
+            },
+            "links": [
+              {
+                "label": "website",
+                "href": "https://juror1.example",
+                "icon": "website"
+              }
+            ]
+          },
+          {
+            "name": "Priya Nandakumar",
+            "role": "Editor,",
+            "org": "Fieldnotes",
+            "orgHref": "https://fieldnotes.example",
+            "photo": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:juror-2"
+            },
+            "links": [
+              {
+                "label": "website",
+                "href": "https://juror2.example",
+                "icon": "website"
+              }
+            ]
+          },
+          {
+            "name": "Tomas Brandt",
+            "role": "Editor,",
+            "org": "Fieldnotes",
+            "orgHref": "https://fieldnotes.example",
+            "photo": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:juror-3"
+            },
+            "links": [
+              {
+                "label": "website",
+                "href": "https://juror3.example",
+                "icon": "website"
+              }
+            ]
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "award-criteria-1",
+      "type": "content.award-criteria",
+      "content": {
+        "title": "Judging criteria",
+        "items": [
+          {
+            "title": "Craft",
+            "body": "Care in the details of the interface and the writing inside it.",
+            "icon": "palette"
+          },
+          {
+            "title": "Usefulness",
+            "body": "A clear job that the app does reliably.",
+            "icon": "wrench"
+          },
+          {
+            "title": "Originality",
+            "body": "A fresh idea or an unexpected take on a familiar one.",
+            "icon": "sparkles"
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "download-icon-1",
+      "type": "cta.download-icon",
+      "content": {
+        "icon": {
+          "assetRole": "brand.app-icon-placeholder",
+          "assetRef": "placeholder:app-icon",
+          "alt": "Fernlight app icon placeholder"
+        },
+        "particlePoolRef": "placeholder:particle-pool",
+        "headline": "Ready when you are",
+        "primaryCta": {
+          "label": "Download",
+          "href": "/download",
+          "icon": "apple"
+        },
+        "mobileHref": "/account",
+        "requirementsNote": "Requires a recent Mac with Apple Silicon"
+      },
+      "motion": {
+        "pattern": "icon-press-and-burst",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "footer-1",
+      "type": "shell.footer",
+      "content": {
+        "copyright": "Copyright Fernhill",
+        "primaryLinks": [
+          {
+            "label": "Guides",
+            "href": "/guides"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          }
+        ],
+        "legalLinks": [
+          {
+            "label": "Terms",
+            "href": "/terms"
+          },
+          {
+            "label": "Privacy",
+            "href": "/privacy"
+          },
+          {
+            "label": "Acceptable use",
+            "href": "/aup"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "app-dialog-1",
+      "type": "shell.app-dialog",
+      "content": {
+        "variant": "winner-summary",
+        "closeLabel": "Dismiss",
+        "previousLabel": "Back",
+        "nextLabel": "Forward",
+        "fullPageLabel": "Open full page"
+      },
+      "motion": {
+        "pattern": "dialog-fade",
+        "reducedMotionFallback": "opacity-only"
+      }
+    }
+  ]
+}

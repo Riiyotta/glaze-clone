@@ -1,0 +1,125 @@
+{
+  "motion": {
+    "recipe": {
+      "entrance.awards-video": {
+        "$description": "Awards hero video wrapper fades in; inline opacity 0, duration override 800ms.",
+        "keyframes": "{foundation.keyframes.fade-in}",
+        "duration": "{foundation.duration.800}",
+        "easing": "{foundation.easing.css-ease-out}",
+        "fill": "both",
+        "delay": "{foundation.delay.0}",
+        "trigger": "page load",
+        "reducedMotion": "opacity 1, no animation",
+        "cite": [
+          "spec.marketing.awards.motion",
+          "jsx.awards.fade"
+        ]
+      },
+      "entrance.awards-rows": {
+        "$description": "Sponsor row, h1 and subtitle: fade-in-up at 100/200/300ms.",
+        "keyframes": "{foundation.keyframes.fade-in-up}",
+        "duration": "{foundation.duration.600}",
+        "easing": "{foundation.easing.css-ease-out}",
+        "fill": "both",
+        "delays": [
+          "{foundation.delay.100}",
+          "{foundation.delay.200}",
+          "{foundation.delay.300}"
+        ],
+        "trigger": "page load",
+        "reducedMotion": "opacity 1, no transform, no animation",
+        "cite": [
+          "spec.marketing.awards.motion",
+          "jsx.awards.rows"
+        ]
+      },
+      "carousel.slide": {
+        "$description": "Store featured carousel: one step slides the track by card width + gap.",
+        "properties": [
+          "transform"
+        ],
+        "duration": "{foundation.duration.260}",
+        "easing": "{foundation.easing.css-ease-out}",
+        "trigger": "arrow, dot, drag release, wheel, or autoplay",
+        "reducedMotion": "no transition (jump)",
+        "cite": [
+          "jsx.carousel.timing"
+        ]
+      },
+      "carousel.autoplay": {
+        "$description": "Advance by one every 4000ms; paused while hovered, animating or dragging.",
+        "interval": "{foundation.duration.4000}",
+        "trigger": "timer",
+        "reducedMotion": "do not autoplay",
+        "cite": [
+          "jsx.carousel.timing"
+        ]
+      },
+      "shelf.slide": {
+        "$description": "Store shelf pages slide by 100% of the track.",
+        "properties": [
+          "transform"
+        ],
+        "duration": "{foundation.duration.500}",
+        "easing": "{foundation.easing.slider}",
+        "trigger": "arrow, wheel",
+        "reducedMotion": "no transition (motion-reduce:transition-none in source)",
+        "cite": [
+          "jsx.slider.track"
+        ]
+      },
+      "search.expand": {
+        "$description": "Search pill width change (awards entries below 624 expands on tap).",
+        "properties": [
+          "width",
+          "padding"
+        ],
+        "duration": "{foundation.duration.200}",
+        "easing": "{foundation.easing.standard}",
+        "trigger": "tap on the icon button",
+        "reducedMotion": "no transition",
+        "cite": [
+          "jsx.entries.search"
+        ]
+      },
+      "tooltip.fade": {
+        "$description": "Info and eligibility tooltips: opacity only, no delay.",
+        "properties": [
+          "opacity"
+        ],
+        "duration": "{foundation.duration.150}",
+        "easing": "{foundation.easing.standard}",
+        "trigger": "hover, focus, click",
+        "reducedMotion": "no transition",
+        "cite": [
+          "jsx.tooltip.fade",
+          "jsx.tooltip.panel"
+        ]
+      },
+      "dialog.fade": {
+        "$description": "Lightbox and winner dialog: lightbox-in keyframe, opacity 0 to 1.",
+        "properties": [
+          "opacity"
+        ],
+        "duration": "{foundation.duration.200}",
+        "easing": "{foundation.easing.css-ease-out}",
+        "fill": "both",
+        "trigger": "open",
+        "reducedMotion": "opacity 1, no animation",
+        "cite": [
+          "jsx.lightbox.root",
+          "jsx.winners.dialog"
+        ]
+      },
+      "share.copied": {
+        "$description": "Share button label swaps to 'Copied' and back after 1600ms (clipboard fallback).",
+        "hold": "{foundation.duration.1600}",
+        "trigger": "click on Share when navigator.share is unavailable",
+        "reducedMotion": "label swap is not animated",
+        "cite": [
+          "jsx.blogpost.copied"
+        ]
+      }
+    }
+  }
+}

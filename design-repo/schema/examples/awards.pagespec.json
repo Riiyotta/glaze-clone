@@ -1,0 +1,564 @@
+{
+  "id": "page.awards",
+  "mode": "reference",
+  "route": "/awards",
+  "template": "template.awards",
+  "theme": "dark",
+  "head": {
+    "title": "Placeholder awards title",
+    "description": "Placeholder awards description."
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Link 1",
+            "href": "/example-1"
+          },
+          {
+            "label": "Link 2",
+            "href": "/example-2"
+          },
+          {
+            "label": "Link 3",
+            "href": "/example-3"
+          },
+          {
+            "label": "Link 4",
+            "href": "/example-4"
+          },
+          {
+            "label": "Link 5",
+            "href": "/example-5"
+          }
+        ],
+        "activeLinkHref": null,
+        "signInLabel": "Sign in",
+        "signInHref": "/example-sign-in",
+        "downloadLabel": "Download",
+        "downloadHref": "/example-download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://example.com/x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://example.com/slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://example.com/youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://example.com/reddit"
+          }
+        ],
+        "creditLabel": "Made by Example",
+        "creditHref": "https://example.com",
+        "logoAssetRole": "brand.wordmark",
+        "logoAssetRef": "ph-wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "awards-hero-1",
+      "type": "hero.awards-hero",
+      "content": {
+        "video": {
+          "assetRole": "video.awards-hero",
+          "assetRef": "ph-awards-video",
+          "alt": "Placeholder video"
+        },
+        "title": "Placeholder awards",
+        "subtitle": "Placeholder subtitle sentence.",
+        "sponsor": {
+          "label": "Sponsored by",
+          "href": "https://example.com/sponsor",
+          "logo": {
+            "assetRole": "logo.sponsor",
+            "assetRef": "ph-sponsor",
+            "alt": "Placeholder sponsor"
+          }
+        }
+      },
+      "motion": {
+        "pattern": "awards-entrance",
+        "reducedMotionFallback": "opacity-only"
+      }
+    },
+    {
+      "id": "award-winners-1",
+      "type": "showcase.award-winners",
+      "content": {
+        "winners": {
+          "gold": {
+            "name": "App 1",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 1",
+            "href": "/example/app-1",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-1"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-1"
+            }
+          },
+          "silver": {
+            "name": "App 2",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 2",
+            "href": "/example/app-2",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-2"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-2"
+            }
+          },
+          "bronze": {
+            "name": "App 3",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 3",
+            "href": "/example/app-3",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-3"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-3"
+            }
+          }
+        },
+        "medal": {
+          "assetRole": "badge.award",
+          "assetRef": "ph-medal"
+        },
+        "finalistsTitle": "Finalists",
+        "finalists": [
+          {
+            "name": "App 10",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 10",
+            "href": "/example/app-10",
+            "award": "finalist",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-10"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-10"
+            }
+          },
+          {
+            "name": "App 11",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 11",
+            "href": "/example/app-11",
+            "award": "finalist",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-11"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-11"
+            }
+          },
+          {
+            "name": "App 12",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 12",
+            "href": "/example/app-12",
+            "award": "finalist",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-12"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-12"
+            }
+          },
+          {
+            "name": "App 13",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 13",
+            "href": "/example/app-13",
+            "award": "finalist",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-13"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-13"
+            }
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "award-entries-1",
+      "type": "showcase.award-entries",
+      "content": {
+        "title": "Browse 24 Entries",
+        "total": 24,
+        "searchLabel": "Search entries",
+        "searchPlaceholder": "Search",
+        "emptyTitle": "No entries found",
+        "emptyBody": "Try a different search.",
+        "page": 1,
+        "pageCount": 1,
+        "entries": [
+          {
+            "name": "App 21",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 21",
+            "href": "/example/app-21",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-21"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-21"
+            }
+          },
+          {
+            "name": "App 22",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 22",
+            "href": "/example/app-22",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-22"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-22"
+            }
+          },
+          {
+            "name": "App 23",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 23",
+            "href": "/example/app-23",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-23"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-23"
+            }
+          },
+          {
+            "name": "App 24",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 24",
+            "href": "/example/app-24",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-24"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-24"
+            }
+          },
+          {
+            "name": "App 25",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 25",
+            "href": "/example/app-25",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-25"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-25"
+            }
+          },
+          {
+            "name": "App 26",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 26",
+            "href": "/example/app-26",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-26"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-26"
+            }
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "award-prizes-1",
+      "type": "content.award-prizes",
+      "content": {
+        "legend": "Cash prizes",
+        "prizes": [
+          {
+            "title": "Gold",
+            "amount": "$1,000",
+            "image": {
+              "assetRole": "badge.award",
+              "assetRef": "ph-medal-0"
+            }
+          },
+          {
+            "title": "Silver",
+            "amount": "$500",
+            "image": {
+              "assetRole": "badge.award",
+              "assetRef": "ph-medal-1"
+            }
+          },
+          {
+            "title": "Bronze",
+            "amount": "$250",
+            "image": {
+              "assetRole": "badge.award",
+              "assetRef": "ph-medal-2"
+            }
+          },
+          {
+            "title": "Finalists",
+            "amount": "$100 each",
+            "image": {
+              "assetRole": "badge.award",
+              "assetRef": "ph-medal-3"
+            }
+          }
+        ],
+        "eligibility": {
+          "label": "Eligible",
+          "text": "Placeholder eligibility sentence."
+        }
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "award-jury-1",
+      "type": "content.award-jury",
+      "content": {
+        "title": "The jury",
+        "jurors": [
+          {
+            "name": "Juror 1",
+            "role": "Role,",
+            "org": "Org",
+            "orgHref": "https://example.com/org",
+            "photo": {
+              "assetRole": "person.photo",
+              "assetRef": "ph-juror-1"
+            },
+            "links": [
+              {
+                "label": "website",
+                "href": "https://example.com/juror-1",
+                "icon": "website"
+              }
+            ]
+          },
+          {
+            "name": "Juror 2",
+            "role": "Role,",
+            "org": "Org",
+            "orgHref": "https://example.com/org",
+            "photo": {
+              "assetRole": "person.photo",
+              "assetRef": "ph-juror-2"
+            },
+            "links": [
+              {
+                "label": "website",
+                "href": "https://example.com/juror-2",
+                "icon": "website"
+              }
+            ]
+          },
+          {
+            "name": "Juror 3",
+            "role": "Role,",
+            "org": "Org",
+            "orgHref": "https://example.com/org",
+            "photo": {
+              "assetRole": "person.photo",
+              "assetRef": "ph-juror-3"
+            },
+            "links": [
+              {
+                "label": "website",
+                "href": "https://example.com/juror-3",
+                "icon": "website"
+              }
+            ]
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "award-criteria-1",
+      "type": "content.award-criteria",
+      "content": {
+        "title": "Selection criteria",
+        "items": [
+          {
+            "title": "Criterion 1",
+            "body": "Placeholder body sentence.",
+            "icon": "palette"
+          },
+          {
+            "title": "Criterion 2",
+            "body": "Placeholder body sentence.",
+            "icon": "wrench"
+          },
+          {
+            "title": "Criterion 3",
+            "body": "Placeholder body sentence.",
+            "icon": "sparkles"
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "download-icon-1",
+      "type": "cta.download-icon",
+      "content": {
+        "icon": {
+          "assetRole": "brand.app-icon",
+          "assetRef": "ph-app-icon",
+          "alt": "Placeholder icon"
+        },
+        "particlePoolRef": "ph-particle-pool",
+        "headline": "Placeholder call to action",
+        "primaryCta": {
+          "label": "Download",
+          "href": "/example-download",
+          "icon": "apple"
+        },
+        "mobileHref": "/example-sign-up",
+        "requirementsNote": "Placeholder requirements note"
+      },
+      "motion": {
+        "pattern": "icon-press-and-burst",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "footer-1",
+      "type": "shell.footer",
+      "content": {
+        "copyright": "Copyright Example",
+        "primaryLinks": [
+          {
+            "label": "Docs",
+            "href": "https://example.com/docs"
+          },
+          {
+            "label": "Blog",
+            "href": "/example-blog"
+          }
+        ],
+        "legalLinks": [
+          {
+            "label": "Terms",
+            "href": "/example-terms"
+          },
+          {
+            "label": "Privacy",
+            "href": "/example-privacy"
+          },
+          {
+            "label": "Use policy",
+            "href": "/example-use"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://example.com/x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://example.com/slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://example.com/youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://example.com/reddit"
+          }
+        ],
+        "creditLabel": "Made by Example",
+        "creditHref": "https://example.com"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "app-dialog-1",
+      "type": "shell.app-dialog",
+      "content": {
+        "variant": "winner-summary",
+        "closeLabel": "Close",
+        "previousLabel": "Previous",
+        "nextLabel": "Next",
+        "fullPageLabel": "Open page"
+      },
+      "motion": {
+        "pattern": "dialog-fade",
+        "reducedMotionFallback": "opacity-only"
+      }
+    }
+  ]
+}

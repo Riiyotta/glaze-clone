@@ -1,0 +1,177 @@
+{
+  "id": "section.hero.awards-hero",
+  "typeId": "hero.awards-hero",
+  "registryId": "section.hero.awards-hero",
+  "version": "1.0.0",
+  "category": "hero",
+  "semantic": {
+    "id": "section.hero.awards-hero",
+    "category": "hero"
+  },
+  "source": {
+    "id": "src.Awards.section",
+    "file": "src/pages/Awards.jsx",
+    "tag": "section",
+    "domSelector": "main > section",
+    "citation": "jsx.awards.hero.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Awards opening block on a black page: a looping video (full-bleed, 16:9, side fades), then a sponsor row, a display title and a subtitle that overlap the video bottom edge.",
+  "scope": "Awards.",
+  "composes": [
+    "primitive.image",
+    "primitive.text",
+    "primitive.container"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "video": {
+        "type": "object",
+        "properties": {
+          "assetRole": {
+            "enum": [
+              "video.awards-hero",
+              "video.user-supplied"
+            ],
+            "referenceRoles": [
+              "video.awards-hero"
+            ],
+            "generatedRoles": [
+              "video.user-supplied"
+            ]
+          },
+          "assetRef": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string",
+            "maxWords": 16
+          }
+        },
+        "required": [
+          "assetRole",
+          "assetRef"
+        ],
+        "additionalProperties": false
+      },
+      "sponsor": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 3
+          },
+          "href": {
+            "type": "string"
+          },
+          "logo": {
+            "type": "object",
+            "properties": {
+              "assetRole": {
+                "enum": [
+                  "logo.sponsor",
+                  "logo.placeholder",
+                  "logo.user-supplied"
+                ],
+                "referenceRoles": [
+                  "logo.sponsor"
+                ],
+                "generatedRoles": [
+                  "logo.placeholder",
+                  "logo.user-supplied"
+                ]
+              },
+              "assetRef": {
+                "type": "string"
+              },
+              "alt": {
+                "type": "string",
+                "maxWords": 16
+              }
+            },
+            "required": [
+              "assetRole",
+              "assetRef"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "label",
+          "href",
+          "logo"
+        ],
+        "additionalProperties": false
+      },
+      "title": {
+        "type": "string",
+        "maxWords": 4
+      },
+      "subtitle": {
+        "type": "string",
+        "maxWords": 20
+      }
+    },
+    "required": [
+      "video",
+      "title",
+      "subtitle"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "awards-entrance"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.624}",
+      "change": "Section top padding clamp goes to 0 and the title block overlaps the video by clamp(-144px,-11vw,-48px); below 624 the overlap is -28 and the video sits 85 below the top at 390."
+    },
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Title 36 to 48; subtitle 16 to 18."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "shell.navbar"
+    ],
+    "pageTheme": "awards-black"
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "videoMaxWidth": "{container.awards-video}",
+    "gutter": "{space.page-gutter}",
+    "background": "{color.bg.awards}",
+    "subtitleMaxWidth": "{container.awards-subtitle}",
+    "align": "centre"
+  },
+  "measuredFrom": [
+    "jsx.awards.hero",
+    "jsx.awards.video",
+    "jsx.awards.rows",
+    "jsx.awards.sponsor",
+    "jsx.awards.h1",
+    "jsx.awards.sub",
+    "jsx.awards.fade",
+    "jsx.awards.theme",
+    "css.awards.bg",
+    "spec.marketing.awards",
+    "spec.marketing.awards.motion"
+  ]
+}

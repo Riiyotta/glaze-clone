@@ -1,0 +1,363 @@
+{
+  "id": "page.store-category",
+  "mode": "reference",
+  "route": "/store/remixable",
+  "template": "template.store-category",
+  "theme": "dark",
+  "head": {
+    "title": "Placeholder store title",
+    "description": "Placeholder store description."
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Link 1",
+            "href": "/example-1"
+          },
+          {
+            "label": "Link 2",
+            "href": "/example-2"
+          },
+          {
+            "label": "Link 3",
+            "href": "/example-3"
+          },
+          {
+            "label": "Link 4",
+            "href": "/example-4"
+          },
+          {
+            "label": "Link 5",
+            "href": "/example-5"
+          }
+        ],
+        "activeLinkHref": "/store",
+        "signInLabel": "Sign in",
+        "signInHref": "/example-sign-in",
+        "downloadLabel": "Download",
+        "downloadHref": "/example-download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://example.com/x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://example.com/slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://example.com/youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://example.com/reddit"
+          }
+        ],
+        "creditLabel": "Made by Example",
+        "creditHref": "https://example.com",
+        "logoAssetRole": "brand.wordmark",
+        "logoAssetRef": "ph-wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "featured-carousel-1",
+      "type": "store.featured-carousel",
+      "content": {
+        "label": "Featured apps",
+        "previousLabel": "Previous",
+        "nextLabel": "Next",
+        "slides": [
+          {
+            "name": "App 1",
+            "tagline": "Placeholder tagline.",
+            "href": "/example/app-1",
+            "cover": {
+              "assetRole": "cover.image",
+              "assetRef": "ph-cover-1"
+            },
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-1"
+            },
+            "award": "none"
+          },
+          {
+            "name": "App 2",
+            "tagline": "Placeholder tagline.",
+            "href": "/example/app-2",
+            "cover": {
+              "assetRole": "cover.image",
+              "assetRef": "ph-cover-2"
+            },
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-2"
+            },
+            "award": "none"
+          },
+          {
+            "name": "App 3",
+            "tagline": "Placeholder tagline.",
+            "href": "/example/app-3",
+            "cover": {
+              "assetRole": "cover.image",
+              "assetRef": "ph-cover-3"
+            },
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-3"
+            },
+            "award": "none"
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "carousel-autoplay",
+        "reducedMotionFallback": "static"
+      }
+    },
+    {
+      "id": "category-nav-1",
+      "type": "store.category-nav",
+      "content": {
+        "title": "Browse",
+        "searchLabel": "Search store",
+        "searchPlaceholder": "Search",
+        "activeCategory": "remixable",
+        "categories": [
+          {
+            "value": "all",
+            "label": "Featured",
+            "href": "/store",
+            "icon": "star"
+          },
+          {
+            "value": "remixable",
+            "label": "Remixable",
+            "href": "/store/remixable",
+            "icon": "shuffle"
+          },
+          {
+            "value": "developer-tools",
+            "label": "Developer Tools",
+            "href": "/store/developer-tools",
+            "icon": "hammer"
+          },
+          {
+            "value": "productivity",
+            "label": "Productivity",
+            "href": "/store/productivity",
+            "icon": "chart-line"
+          },
+          {
+            "value": "utilities",
+            "label": "Utilities",
+            "href": "/store/utilities",
+            "icon": "wrench"
+          },
+          {
+            "value": "media",
+            "label": "Media",
+            "href": "/store/media",
+            "icon": "headphones"
+          },
+          {
+            "value": "design",
+            "label": "Design",
+            "href": "/store/design",
+            "icon": "paintbrush"
+          },
+          {
+            "value": "lifestyle",
+            "label": "Lifestyle",
+            "href": "/store/lifestyle",
+            "icon": "heart"
+          },
+          {
+            "value": "games-and-fun",
+            "label": "Games and Fun",
+            "href": "/store/games-and-fun",
+            "icon": "gamepad-2"
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "app-grid-1",
+      "type": "store.app-grid",
+      "content": {
+        "groups": [
+          {
+            "apps": [
+              {
+                "name": "App 61",
+                "tagline": "Placeholder tagline.",
+                "author": "Author 61",
+                "href": "/example/app-61",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon",
+                  "assetRef": "ph-icon-61"
+                },
+                "avatar": {
+                  "assetRole": "avatar.person",
+                  "assetRef": "ph-avatar-61"
+                }
+              },
+              {
+                "name": "App 62",
+                "tagline": "Placeholder tagline.",
+                "author": "Author 62",
+                "href": "/example/app-62",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon",
+                  "assetRef": "ph-icon-62"
+                },
+                "avatar": {
+                  "assetRole": "avatar.person",
+                  "assetRef": "ph-avatar-62"
+                }
+              },
+              {
+                "name": "App 63",
+                "tagline": "Placeholder tagline.",
+                "author": "Author 63",
+                "href": "/example/app-63",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon",
+                  "assetRef": "ph-icon-63"
+                },
+                "avatar": {
+                  "assetRole": "avatar.person",
+                  "assetRef": "ph-avatar-63"
+                }
+              },
+              {
+                "name": "App 64",
+                "tagline": "Placeholder tagline.",
+                "author": "Author 64",
+                "href": "/example/app-64",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon",
+                  "assetRef": "ph-icon-64"
+                },
+                "avatar": {
+                  "assetRole": "avatar.person",
+                  "assetRef": "ph-avatar-64"
+                }
+              },
+              {
+                "name": "App 65",
+                "tagline": "Placeholder tagline.",
+                "author": "Author 65",
+                "href": "/example/app-65",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon",
+                  "assetRef": "ph-icon-65"
+                },
+                "avatar": {
+                  "assetRole": "avatar.person",
+                  "assetRef": "ph-avatar-65"
+                }
+              },
+              {
+                "name": "App 66",
+                "tagline": "Placeholder tagline.",
+                "author": "Author 66",
+                "href": "/example/app-66",
+                "award": "none",
+                "icon": {
+                  "assetRole": "app.icon",
+                  "assetRef": "ph-icon-66"
+                },
+                "avatar": {
+                  "assetRole": "avatar.person",
+                  "assetRef": "ph-avatar-66"
+                }
+              }
+            ]
+          }
+        ],
+        "page": 1,
+        "pageCount": 3,
+        "emptyLabel": "No apps found"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "footer-1",
+      "type": "shell.footer",
+      "content": {
+        "copyright": "Copyright Example",
+        "primaryLinks": [
+          {
+            "label": "Docs",
+            "href": "https://example.com/docs"
+          },
+          {
+            "label": "Blog",
+            "href": "/example-blog"
+          }
+        ],
+        "legalLinks": [
+          {
+            "label": "Terms",
+            "href": "/example-terms"
+          },
+          {
+            "label": "Privacy",
+            "href": "/example-privacy"
+          },
+          {
+            "label": "Use policy",
+            "href": "/example-use"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://example.com/x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://example.com/slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://example.com/youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://example.com/reddit"
+          }
+        ],
+        "creditLabel": "Made by Example",
+        "creditHref": "https://example.com"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    }
+  ]
+}

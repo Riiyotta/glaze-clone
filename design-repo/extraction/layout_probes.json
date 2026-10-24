@@ -1,0 +1,911 @@
+{
+  "$description": "Spacing, size and radius probes: a route, a CSS selector (first match), a viewport list and, per property, the expected value as an expression over tokens ({path.to.token} resolves to px), `vw` (viewport width) and min/max. extraction/measure_layout_probes.mjs records the computed values at 1440, 768 and 390px into measured-values.json layoutChecks; verify_all.py check 17 evaluates every expression and fails when a token or contract value differs from what the clone renders (tolerance 0.51px: sub-pixel layout). Probes whose id starts with `motion.` compare computed animation / transition durations and delays (ms) with the motion tokens. `overflowRoutes` at `overflowViewports`: the document must not scroll horizontally (scrollWidth equals the viewport width).",
+  "tolerancePx": 0.51,
+  "probes": [
+    {
+      "id": "landing.hero-padding",
+      "route": "/",
+      "selector": "#overview section",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "paddingTop": {
+          "1440": "{sectionPadding.hero-top}",
+          "390": "{sectionPadding.hero-top-narrow}"
+        },
+        "paddingLeft": "{space.page-gutter}"
+      }
+    },
+    {
+      "id": "landing.faq-margin",
+      "route": "/",
+      "selector": "#faq",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "marginTop": {
+          "1440": "{space.section-gap-wide}",
+          "390": "{space.section-gap}"
+        }
+      }
+    },
+    {
+      "id": "landing.cta-padding",
+      "route": "/",
+      "selector": "#download",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "paddingTop": {
+          "1440": "{sectionPadding.cta-top}",
+          "390": "{sectionPadding.cta-top-narrow}"
+        },
+        "paddingBottom": {
+          "1440": "{sectionPadding.cta-bottom}",
+          "390": "{sectionPadding.cta-bottom-narrow}"
+        }
+      }
+    },
+    {
+      "id": "landing.feature-card",
+      "route": "/",
+      "selector": "#features div.rounded-2xl",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "borderTopLeftRadius": "{radius.card}"
+      }
+    },
+    {
+      "id": "landing.app-card",
+      "route": "/",
+      "selector": "#persona-panel a",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "minHeight": {
+          "1440": "{appCard.minHeightWide}",
+          "390": "{appCard.minHeight}"
+        },
+        "paddingTop": "{appCard.padding}",
+        "borderTopLeftRadius": "{appCard.radius}"
+      }
+    },
+    {
+      "id": "landing.footer",
+      "route": "/",
+      "selector": "footer.mt-auto",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "paddingBottom": {
+          "1440": "{sectionPadding.footer-bottom}",
+          "390": "{sectionPadding.footer-bottom-narrow}"
+        }
+      }
+    },
+    {
+      "id": "notfound.padding",
+      "route": "/does-not-exist",
+      "selector": "main > section",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "paddingTop": "{sectionPadding.notfound-y}"
+      }
+    },
+    {
+      "id": "pricing.section",
+      "route": "/pricing",
+      "selector": "main > section:first-of-type",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "paddingTop": {
+          "1440": "{sectionPadding.hero-top}",
+          "390": "{sectionPadding.hero-top-narrow}"
+        }
+      }
+    },
+    {
+      "id": "pricing.grid",
+      "route": "/pricing",
+      "selector": "main section div.grid",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "columnGap": "{planCard.gap}",
+        "width": {
+          "1440": "{container.page}",
+          "390": "vw - 32"
+        }
+      }
+    },
+    {
+      "id": "pricing.card",
+      "route": "/pricing",
+      "selector": "main article",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "paddingTop": "{planCard.padding}",
+        "paddingLeft": "{planCard.padding}",
+        "borderTopLeftRadius": "{planCard.radius}",
+        "width": {
+          "1440": "({container.page} - 2 * {planCard.gap}) / 3",
+          "390": "vw - 32"
+        }
+      }
+    },
+    {
+      "id": "pricing.faq-margin",
+      "route": "/pricing",
+      "selector": "#faq",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "marginTop": {
+          "1440": "{sectionPadding.faq-top-pricing-wide}",
+          "390": "{sectionPadding.faq-top-pricing}"
+        }
+      }
+    },
+    {
+      "id": "download.icon",
+      "route": "/download",
+      "selector": "main img",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "width": "{downloadPage.icon}",
+        "height": "{downloadPage.icon}"
+      }
+    },
+    {
+      "id": "legal.section",
+      "route": "/terms",
+      "selector": "main > section",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "paddingTop": "{sectionPadding.legal-top}",
+        "paddingBottom": "{sectionPadding.legal-bottom}"
+      }
+    },
+    {
+      "id": "legal.column",
+      "route": "/terms",
+      "selector": ".legal-prose",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "width": {
+          "1440": "{container.content}",
+          "390": "vw - 32"
+        }
+      }
+    },
+    {
+      "id": "legal.header-gap",
+      "route": "/terms",
+      "selector": "main section h1",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "marginBottom": "{legal.headerGap}"
+      }
+    },
+    {
+      "id": "legal.updated-gap",
+      "route": "/terms",
+      "selector": "main section > div > p",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "marginBottom": "{legal.updatedGap}"
+      }
+    },
+    {
+      "id": "legal.list-indent",
+      "route": "/terms",
+      "selector": ".legal-prose ul",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "paddingLeft": "{legal.listIndent}"
+      }
+    },
+    {
+      "id": "terms.schedule",
+      "route": "/awards/terms",
+      "selector": "main div.border-t",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "marginTop": "{legal.scheduleTop}",
+        "paddingTop": "{legal.schedulePad}"
+      }
+    },
+    {
+      "id": "blog.header",
+      "route": "/blog",
+      "selector": "main section > div.mb-12",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "width": {
+          "1440": "{container.page-header}",
+          "390": "vw - 32"
+        },
+        "marginBottom": {
+          "1440": "{pageHeader.marginBottomWide}",
+          "390": "{pageHeader.marginBottom}"
+        }
+      }
+    },
+    {
+      "id": "blog.card",
+      "route": "/blog",
+      "selector": "main article:nth-child(2)",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "paddingTop": {
+          "1440": "{postCard.paddingYWide}",
+          "390": "{postCard.paddingY}"
+        },
+        "width": {
+          "1440": "{container.content}",
+          "390": "vw - 32"
+        }
+      }
+    },
+    {
+      "id": "blog.cover",
+      "route": "/blog",
+      "selector": "main article a img",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "borderTopLeftRadius": "{postCard.radius}",
+        "height": {
+          "1440": "{container.content} / 1.9",
+          "390": "(vw - 32) / 1.9"
+        }
+      }
+    },
+    {
+      "id": "blog.date-gap",
+      "route": "/blog",
+      "selector": "main article time",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "marginTop": "{postCard.dateGap}"
+      }
+    },
+    {
+      "id": "post.section",
+      "route": "/blog/how-teams-use-glaze",
+      "selector": "main > section",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "paddingTop": {
+          "1440": "{sectionPadding.legal-top}",
+          "390": "{sectionPadding.post-top-narrow}"
+        }
+      }
+    },
+    {
+      "id": "post.cover",
+      "route": "/blog/how-teams-use-glaze",
+      "selector": "main article > div:first-child",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "borderTopLeftRadius": "{article.coverRadius}"
+      }
+    },
+    {
+      "id": "post.header",
+      "route": "/blog/how-teams-use-glaze",
+      "selector": "main article header",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "marginTop": "{article.headerGap}"
+      }
+    },
+    {
+      "id": "post.image",
+      "route": "/blog/how-teams-use-glaze",
+      "selector": ".markdown-content img",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "borderTopLeftRadius": "{article.imageRadius}",
+        "marginTop": "{article.imageMarginY}"
+      }
+    },
+    {
+      "id": "post.footer",
+      "route": "/blog/how-teams-use-glaze",
+      "selector": "main article > footer",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "marginTop": {
+          "1440": "{article.footerTopWide}",
+          "390": "{article.footerTop}"
+        },
+        "paddingTop": {
+          "1440": "{article.footerPadWide}",
+          "390": "{article.footerPad}"
+        }
+      }
+    },
+    {
+      "id": "post.cta-compact",
+      "route": "/blog/how-teams-use-glaze",
+      "selector": "main article section",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "marginTop": {
+          "1440": "{foundation.space.24}",
+          "390": "{foundation.space.20}"
+        }
+      }
+    },
+    {
+      "id": "changelog.entry",
+      "route": "/changelog",
+      "selector": "main article",
+      "viewports": [
+        1440,
+        768
+      ],
+      "expect": {
+        "paddingTop": {
+          "1440": "{release.paddingYWide}",
+          "768": "{release.paddingY}"
+        }
+      }
+    },
+    {
+      "id": "changelog.list",
+      "route": "/changelog",
+      "selector": "main section > div.max-w-content",
+      "viewports": [
+        1440,
+        768
+      ],
+      "expect": {
+        "width": {
+          "1440": "{container.changelog-wide}",
+          "768": "{container.content}"
+        }
+      }
+    },
+    {
+      "id": "changelog.pill",
+      "route": "/changelog",
+      "selector": "main article aside span",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "paddingLeft": "{release.pillPaddingX}",
+        "paddingTop": "{release.pillPaddingY}"
+      }
+    },
+    {
+      "id": "awards.video",
+      "route": "/awards",
+      "selector": "main video",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "width": {
+          "1440": "{container.awards-video}",
+          "390": "vw"
+        }
+      }
+    },
+    {
+      "id": "awards.winner-card",
+      "route": "/awards",
+      "selector": "main section.dialog-focus-surface button",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "paddingTop": "{winnerCard.paddingY}",
+        "paddingLeft": "{winnerCard.paddingX}",
+        "borderTopLeftRadius": "{winnerCard.radius}"
+      }
+    },
+    {
+      "id": "awards.prizes",
+      "route": "/awards",
+      "selector": "main fieldset",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "paddingTop": {
+          "1440": "{prize.fieldsetPadYWide}",
+          "390": "{prize.fieldsetPadY}"
+        },
+        "paddingLeft": {
+          "1440": "{prize.fieldsetPadXWide}",
+          "390": "{prize.fieldsetPadX}"
+        },
+        "borderTopLeftRadius": "{prize.fieldsetRadius}"
+      }
+    },
+    {
+      "id": "awards.prize-icon",
+      "route": "/awards",
+      "selector": "main fieldset article img",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "width": {
+          "1440": "{prize.iconWide}",
+          "390": "{prize.icon}"
+        }
+      }
+    },
+    {
+      "id": "awards.jury-photo",
+      "route": "/awards",
+      "selector": "main section.text-center img",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "width": {
+          "1440": "{jury.photoWide}",
+          "390": "{jury.photo}"
+        }
+      }
+    },
+    {
+      "id": "awards.search",
+      "route": "/awards",
+      "selector": "#entries .liquid-glass",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "height": {
+          "1440": "{searchPill.heightWide}",
+          "390": "{searchPill.height}"
+        },
+        "width": {
+          "1440": "{searchPill.widthWide}",
+          "390": "{searchPill.height}"
+        }
+      },
+      "note": "Below 624 the awards search is a 40px icon button that expands on tap (measured collapsed)."
+    },
+    {
+      "id": "store.section",
+      "route": "/store",
+      "selector": "main > section",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "paddingTop": {
+          "1440": "{sectionPadding.app-top}",
+          "390": "{sectionPadding.app-top-narrow}"
+        },
+        "paddingBottom": "{sectionPadding.page-bottom}"
+      }
+    },
+    {
+      "id": "store.carousel-card",
+      "route": "/store",
+      "selector": "main section.store-hero [role=\"button\"][tabindex=\"0\"]",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "width": "min({container.featured-card}, vw - 32)",
+        "height": "min(max({foundation.space.55}, 0.38 * vw), {foundation.space.90})",
+        "borderTopLeftRadius": {
+          "1440": "{carouselCard.radiusWide}",
+          "390": "{carouselCard.radius}"
+        }
+      }
+    },
+    {
+      "id": "store.chip",
+      "route": "/store",
+      "selector": "nav[aria-label=\"Store categories\"] a",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "height": "{categoryChip.height}",
+        "columnGap": "{categoryChip.gap}"
+      }
+    },
+    {
+      "id": "store.search",
+      "route": "/store",
+      "selector": "main .liquid-glass.ml-auto",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "height": {
+          "1440": "{searchPill.heightWide}",
+          "390": "{searchPill.height}"
+        },
+        "width": {
+          "1440": "{searchPill.widthWide}",
+          "390": "{searchPill.width}"
+        }
+      }
+    },
+    {
+      "id": "store.app-row",
+      "route": "/store",
+      "selector": "main a[aria-label^=\"Open\"]",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "height": "{appRow.height}",
+        "columnGap": "{appRow.gap}",
+        "borderTopLeftRadius": "{appRow.radius}"
+      }
+    },
+    {
+      "id": "app.icon",
+      "route": "/app/my-stash-CDBw9Z",
+      "selector": "main section span.glaze-app-icon-glass",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "width": {
+          "1440": "{appHeader.iconSizeWide}",
+          "390": "{appHeader.iconSize}"
+        }
+      }
+    },
+    {
+      "id": "app.cover",
+      "route": "/app/my-stash-CDBw9Z",
+      "selector": "main section > div > div:first-child",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "height": "min(max({foundation.space.55}, 0.38 * vw), {foundation.space.90})",
+        "borderTopLeftRadius": {
+          "1440": "{appHeader.coverRadiusWide}",
+          "390": "{appHeader.coverRadius}"
+        }
+      }
+    },
+    {
+      "id": "app.cta",
+      "route": "/app/my-stash-CDBw9Z",
+      "selector": "main a.bg-accent",
+      "viewports": [
+        1440
+      ],
+      "expect": {
+        "height": "{appHeader.ctaHeight}",
+        "paddingLeft": "{appHeader.ctaPaddingX}"
+      }
+    },
+    {
+      "id": "app.stats",
+      "route": "/app/my-stash-CDBw9Z",
+      "selector": "main div.border-y > div:nth-child(2)",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "paddingTop": {
+          "1440": "{stat.paddingYWide}",
+          "390": "{stat.paddingY}"
+        },
+        "paddingLeft": {
+          "1440": "{stat.paddingXWide}",
+          "390": "{stat.paddingX}"
+        }
+      }
+    },
+    {
+      "id": "app.shots",
+      "route": "/app/my-stash-CDBw9Z",
+      "selector": "main div.relative.-mx-4",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "height": {
+          "1440": "{screenshotStrip.heightWide}",
+          "390": "{screenshotStrip.height}"
+        }
+      }
+    },
+    {
+      "id": "app.lineage",
+      "route": "/app/airwayfl-XD7JA5",
+      "selector": "main div.rounded-xl",
+      "viewports": [
+        1440,
+        390
+      ],
+      "expect": {
+        "paddingLeft": "{lineage.paddingX}",
+        "paddingTop": "{lineage.paddingY}",
+        "borderTopLeftRadius": "{lineage.radius}"
+      }
+    },
+    {
+      "id": "motion.awards-video",
+      "route": "/awards",
+      "selector": "[data-anim=\"awards-video-fade\"]",
+      "viewports": [
+        1440
+      ],
+      "expect": {
+        "animationDuration": "{foundation.duration.800}",
+        "animationDelay": "{foundation.delay.0}"
+      }
+    },
+    {
+      "id": "motion.awards-sponsor",
+      "route": "/awards",
+      "selector": "[data-anim=\"awards-sponsor\"]",
+      "viewports": [
+        1440
+      ],
+      "expect": {
+        "animationDuration": "{foundation.duration.600}",
+        "animationDelay": "{foundation.delay.100}"
+      }
+    },
+    {
+      "id": "motion.awards-title",
+      "route": "/awards",
+      "selector": "[data-anim=\"awards-title\"]",
+      "viewports": [
+        1440
+      ],
+      "expect": {
+        "animationDelay": "{foundation.delay.200}"
+      }
+    },
+    {
+      "id": "motion.awards-subtitle",
+      "route": "/awards",
+      "selector": "[data-anim=\"awards-subtitle\"]",
+      "viewports": [
+        1440
+      ],
+      "expect": {
+        "animationDelay": "{foundation.delay.300}"
+      }
+    },
+    {
+      "id": "motion.awards-below",
+      "route": "/awards",
+      "selector": "[data-anim=\"awards-below-fold\"]",
+      "viewports": [
+        1440
+      ],
+      "expect": {
+        "animationDuration": "{foundation.duration.600}",
+        "animationDelay": "{foundation.delay.500}"
+      }
+    },
+    {
+      "id": "motion.landing-hero-h1",
+      "route": "/",
+      "selector": "[data-anim=\"hero-fade-2\"]",
+      "viewports": [
+        1440
+      ],
+      "expect": {
+        "animationDuration": "{foundation.duration.600}",
+        "animationDelay": "{foundation.delay.100}"
+      }
+    },
+    {
+      "id": "motion.landing-below",
+      "route": "/",
+      "selector": "[data-anim=\"below-fold-fade\"]",
+      "viewports": [
+        1440
+      ],
+      "expect": {
+        "animationDuration": "{foundation.duration.600}",
+        "animationDelay": "{foundation.delay.500}"
+      }
+    },
+    {
+      "id": "motion.faq-dim",
+      "route": "/",
+      "selector": "#faq",
+      "viewports": [
+        1440
+      ],
+      "expect": {
+        "transitionDuration": "{foundation.duration.600}"
+      }
+    },
+    {
+      "id": "motion.shelf-track",
+      "route": "/store",
+      "selector": "main div.will-change-transform",
+      "viewports": [
+        1440
+      ],
+      "expect": {
+        "transitionDuration": "{foundation.duration.500}"
+      }
+    },
+    {
+      "id": "motion.search-expand",
+      "route": "/awards",
+      "selector": "#entries .liquid-glass",
+      "viewports": [
+        1440
+      ],
+      "expect": {
+        "transitionDuration": "{foundation.duration.200}"
+      }
+    },
+    {
+      "id": "motion.chip-hover",
+      "route": "/store",
+      "selector": "nav[aria-label=\"Store categories\"] a",
+      "viewports": [
+        1440
+      ],
+      "expect": {
+        "transitionDuration": "{foundation.duration.150}"
+      }
+    },
+    {
+      "id": "motion.app-row-hover",
+      "route": "/store",
+      "selector": "main a[aria-label^=\"Open\"]",
+      "viewports": [
+        1440
+      ],
+      "expect": {
+        "transitionDuration": "{foundation.duration.150}"
+      }
+    },
+    {
+      "id": "motion.plan-card-static",
+      "route": "/pricing",
+      "selector": "main article",
+      "viewports": [
+        1440
+      ],
+      "expect": {
+        "transitionDuration": "{foundation.delay.0}"
+      }
+    },
+    {
+      "id": "motion.post-card-static",
+      "route": "/blog",
+      "selector": "main article",
+      "viewports": [
+        1440
+      ],
+      "expect": {
+        "animationDuration": "{foundation.delay.0}"
+      }
+    }
+  ],
+  "overflowRoutes": [
+    "/",
+    "/designers",
+    "/does-not-exist",
+    "/pricing",
+    "/download",
+    "/awards",
+    "/terms",
+    "/awards/terms",
+    "/blog",
+    "/blog/how-teams-use-glaze",
+    "/changelog",
+    "/store",
+    "/store/design",
+    "/app/my-stash-CDBw9Z",
+    "/app/airwayfl-XD7JA5"
+  ],
+  "overflowViewports": [
+    1440,
+    768,
+    390
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "registryId": "component.criteria-item",
+  "version": "1.0.0",
+  "category": "content",
+  "description": "Icon and title on one line over a balanced paragraph.",
+  "composes": [
+    "primitive.icon",
+    "primitive.text"
+  ],
+  "props": {
+    "title": {
+      "type": "string",
+      "maxWords": 4
+    },
+    "body": {
+      "type": "string",
+      "maxWords": 24
+    },
+    "icon": {
+      "enum": [
+        "palette",
+        "wrench",
+        "sparkles",
+        "badge",
+        "heart"
+      ]
+    }
+  },
+  "layout": {
+    "titleTypography": "{typography.heading.criteria}",
+    "bodyTypography": "{typography.body.criteria}",
+    "icon": "{foundation.iconSize.20}",
+    "colour": "{color.text.secondary}"
+  },
+  "tokens": [
+    "typography.heading.criteria",
+    "typography.body.criteria",
+    "foundation.iconSize.20",
+    "color.text.secondary"
+  ],
+  "measuredFrom": [
+    "jsx.criteria.title",
+    "jsx.criteria.body"
+  ]
+}

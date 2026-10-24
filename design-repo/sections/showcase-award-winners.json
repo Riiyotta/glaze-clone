@@ -1,0 +1,459 @@
+{
+  "id": "section.showcase.award-winners",
+  "typeId": "showcase.award-winners",
+  "registryId": "section.showcase.award-winners",
+  "version": "1.0.0",
+  "category": "showcase",
+  "semantic": {
+    "id": "section.showcase.award-winners",
+    "category": "showcase"
+  },
+  "source": {
+    "id": "src.Winners.section",
+    "file": "src/components/awards/Winners.jsx",
+    "tag": "section",
+    "domSelector": "[data-anim=\"awards-below-fold\"] > div:nth-child(1) > section",
+    "citation": "jsx.winners.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Gold winner card full width, silver and bronze side by side (stacked below 624), then a 'Finalists' title and a grid of app rows. Winner cards are buttons that open the winner details.",
+  "scope": "Awards.",
+  "composes": [
+    "component.winner-card",
+    "component.app-row",
+    "primitive.badge",
+    "primitive.text"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "winners": {
+        "type": "object",
+        "properties": {
+          "gold": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "maxWords": 5
+              },
+              "tagline": {
+                "type": "string",
+                "maxWords": 10
+              },
+              "author": {
+                "type": "string",
+                "maxWords": 4
+              },
+              "href": {
+                "type": "string"
+              },
+              "icon": {
+                "type": "object",
+                "properties": {
+                  "assetRole": {
+                    "enum": [
+                      "app.icon",
+                      "app.icon-generated"
+                    ],
+                    "referenceRoles": [
+                      "app.icon"
+                    ],
+                    "generatedRoles": [
+                      "app.icon-generated"
+                    ]
+                  },
+                  "assetRef": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "assetRole",
+                  "assetRef"
+                ],
+                "additionalProperties": false
+              },
+              "avatar": {
+                "type": "object",
+                "properties": {
+                  "assetRole": {
+                    "enum": [
+                      "avatar.person",
+                      "avatar.placeholder"
+                    ],
+                    "referenceRoles": [
+                      "avatar.person"
+                    ],
+                    "generatedRoles": [
+                      "avatar.placeholder"
+                    ]
+                  },
+                  "assetRef": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "assetRole",
+                  "assetRef"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "name",
+              "tagline",
+              "href",
+              "icon"
+            ],
+            "additionalProperties": false
+          },
+          "silver": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "maxWords": 5
+              },
+              "tagline": {
+                "type": "string",
+                "maxWords": 10
+              },
+              "author": {
+                "type": "string",
+                "maxWords": 4
+              },
+              "href": {
+                "type": "string"
+              },
+              "icon": {
+                "type": "object",
+                "properties": {
+                  "assetRole": {
+                    "enum": [
+                      "app.icon",
+                      "app.icon-generated"
+                    ],
+                    "referenceRoles": [
+                      "app.icon"
+                    ],
+                    "generatedRoles": [
+                      "app.icon-generated"
+                    ]
+                  },
+                  "assetRef": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "assetRole",
+                  "assetRef"
+                ],
+                "additionalProperties": false
+              },
+              "avatar": {
+                "type": "object",
+                "properties": {
+                  "assetRole": {
+                    "enum": [
+                      "avatar.person",
+                      "avatar.placeholder"
+                    ],
+                    "referenceRoles": [
+                      "avatar.person"
+                    ],
+                    "generatedRoles": [
+                      "avatar.placeholder"
+                    ]
+                  },
+                  "assetRef": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "assetRole",
+                  "assetRef"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "name",
+              "tagline",
+              "href",
+              "icon"
+            ],
+            "additionalProperties": false
+          },
+          "bronze": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "maxWords": 5
+              },
+              "tagline": {
+                "type": "string",
+                "maxWords": 10
+              },
+              "author": {
+                "type": "string",
+                "maxWords": 4
+              },
+              "href": {
+                "type": "string"
+              },
+              "icon": {
+                "type": "object",
+                "properties": {
+                  "assetRole": {
+                    "enum": [
+                      "app.icon",
+                      "app.icon-generated"
+                    ],
+                    "referenceRoles": [
+                      "app.icon"
+                    ],
+                    "generatedRoles": [
+                      "app.icon-generated"
+                    ]
+                  },
+                  "assetRef": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "assetRole",
+                  "assetRef"
+                ],
+                "additionalProperties": false
+              },
+              "avatar": {
+                "type": "object",
+                "properties": {
+                  "assetRole": {
+                    "enum": [
+                      "avatar.person",
+                      "avatar.placeholder"
+                    ],
+                    "referenceRoles": [
+                      "avatar.person"
+                    ],
+                    "generatedRoles": [
+                      "avatar.placeholder"
+                    ]
+                  },
+                  "assetRef": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "assetRole",
+                  "assetRef"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "name",
+              "tagline",
+              "href",
+              "icon"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "gold",
+          "silver",
+          "bronze"
+        ],
+        "additionalProperties": false
+      },
+      "medal": {
+        "type": "object",
+        "properties": {
+          "assetRole": {
+            "enum": [
+              "badge.award",
+              "badge.award-generated"
+            ],
+            "referenceRoles": [
+              "badge.award"
+            ],
+            "generatedRoles": [
+              "badge.award-generated"
+            ]
+          },
+          "assetRef": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "assetRole",
+          "assetRef"
+        ],
+        "additionalProperties": false
+      },
+      "finalistsTitle": {
+        "type": "string",
+        "maxWords": 2
+      },
+      "finalists": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "maxWords": 5
+            },
+            "tagline": {
+              "type": "string",
+              "maxWords": 14
+            },
+            "author": {
+              "type": "string",
+              "maxWords": 4
+            },
+            "href": {
+              "type": "string"
+            },
+            "award": {
+              "enum": [
+                "none",
+                "gold",
+                "silver",
+                "bronze",
+                "finalist"
+              ]
+            },
+            "icon": {
+              "type": "object",
+              "properties": {
+                "assetRole": {
+                  "enum": [
+                    "app.icon",
+                    "app.icon-generated"
+                  ],
+                  "referenceRoles": [
+                    "app.icon"
+                  ],
+                  "generatedRoles": [
+                    "app.icon-generated"
+                  ]
+                },
+                "assetRef": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "assetRole",
+                "assetRef"
+              ],
+              "additionalProperties": false
+            },
+            "avatar": {
+              "type": "object",
+              "properties": {
+                "assetRole": {
+                  "enum": [
+                    "avatar.person",
+                    "avatar.placeholder"
+                  ],
+                  "referenceRoles": [
+                    "avatar.person"
+                  ],
+                  "generatedRoles": [
+                    "avatar.placeholder"
+                  ]
+                },
+                "assetRef": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "assetRole",
+                "assetRef"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "name",
+            "tagline",
+            "href",
+            "icon"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 1,
+        "maxItems": 12
+      }
+    },
+    "required": [
+      "winners",
+      "medal",
+      "finalistsTitle",
+      "finalists"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.624}",
+      "change": "Silver and bronze go two-up; finalist descriptions appear."
+    },
+    {
+      "at": "{foundation.breakpoint.768}",
+      "change": "Finalist grid 2 to 3 columns."
+    },
+    {
+      "at": "{foundation.breakpoint.1920}",
+      "change": "Finalist grid 4 columns."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "hero.awards-hero"
+    ],
+    "tierOrder": [
+      "gold",
+      "silver",
+      "bronze"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "marginTop": "{foundation.space.14} from 480, {foundation.space.10} below 480",
+    "cardGap": "{winnerCard.stackGap}",
+    "finalistsTop": "{foundation.space.20} from 480, {foundation.space.16} below 480",
+    "gridGap": "{shelf.columnGap} / {shelf.rowGap}"
+  },
+  "measuredFrom": [
+    "jsx.winners.section",
+    "jsx.winners.card",
+    "jsx.winners.finalists",
+    "jsx.winners.grid",
+    "jsx.awardcard.root",
+    "data.awards.winners",
+    "spec.marketing.awards"
+  ]
+}

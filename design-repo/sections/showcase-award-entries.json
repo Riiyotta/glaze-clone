@@ -1,0 +1,221 @@
+{
+  "id": "section.showcase.award-entries",
+  "typeId": "showcase.award-entries",
+  "registryId": "section.showcase.award-entries",
+  "version": "1.0.0",
+  "category": "showcase",
+  "semantic": {
+    "id": "section.showcase.award-entries",
+    "category": "showcase"
+  },
+  "source": {
+    "id": "src.Entries.section",
+    "file": "src/components/awards/Entries.jsx",
+    "tag": "section",
+    "domSelector": "#entries > section",
+    "citation": "jsx.entries.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "'Browse N Entries' heading with a search pill, a 2/3/4-column grid of app rows (24 per page) and numbered pagination; search replaces the heading with a result count and hides the pager.",
+  "scope": "Awards.",
+  "composes": [
+    "component.app-row",
+    "component.search-field",
+    "component.pagination",
+    "primitive.text"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "maxWords": 4
+      },
+      "total": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "searchLabel": {
+        "type": "string",
+        "maxWords": 3
+      },
+      "searchPlaceholder": {
+        "type": "string",
+        "maxWords": 2
+      },
+      "emptyTitle": {
+        "type": "string",
+        "maxWords": 4
+      },
+      "emptyBody": {
+        "type": "string",
+        "maxWords": 6
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "pageCount": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "entries": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "maxWords": 5
+            },
+            "tagline": {
+              "type": "string",
+              "maxWords": 14
+            },
+            "author": {
+              "type": "string",
+              "maxWords": 4
+            },
+            "href": {
+              "type": "string"
+            },
+            "award": {
+              "enum": [
+                "none",
+                "gold",
+                "silver",
+                "bronze",
+                "finalist"
+              ]
+            },
+            "icon": {
+              "type": "object",
+              "properties": {
+                "assetRole": {
+                  "enum": [
+                    "app.icon",
+                    "app.icon-generated"
+                  ],
+                  "referenceRoles": [
+                    "app.icon"
+                  ],
+                  "generatedRoles": [
+                    "app.icon-generated"
+                  ]
+                },
+                "assetRef": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "assetRole",
+                "assetRef"
+              ],
+              "additionalProperties": false
+            },
+            "avatar": {
+              "type": "object",
+              "properties": {
+                "assetRole": {
+                  "enum": [
+                    "avatar.person",
+                    "avatar.placeholder"
+                  ],
+                  "referenceRoles": [
+                    "avatar.person"
+                  ],
+                  "generatedRoles": [
+                    "avatar.placeholder"
+                  ]
+                },
+                "assetRef": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "assetRole",
+                "assetRef"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "name",
+            "tagline",
+            "href",
+            "icon"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 0,
+        "maxItems": 24
+      }
+    },
+    "required": [
+      "title",
+      "total",
+      "searchLabel",
+      "searchPlaceholder",
+      "page",
+      "pageCount",
+      "entries"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.624}",
+      "change": "Search pill is expanded by default (below 624 it is a 40px icon button that expands on tap); row descriptions show."
+    },
+    {
+      "at": "{foundation.breakpoint.768}",
+      "change": "Grid 2 to 3 columns."
+    },
+    {
+      "at": "{foundation.breakpoint.1920}",
+      "change": "Grid 4 columns."
+    },
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Pager Previous/Next lose their text."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "pageWithinCount": true,
+    "mustFollow": [
+      "showcase.award-winners"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "marginTop": "{foundation.space.32} from 480, {foundation.space.24} below 480",
+    "gridGap": "{shelf.columnGap} / {shelf.rowGap}",
+    "anchor": "#entries"
+  },
+  "measuredFrom": [
+    "jsx.entries.root",
+    "jsx.entries.search",
+    "jsx.entries.pager",
+    "jsx.entries.window",
+    "jsx.awardcard.root",
+    "spec.marketing.awards"
+  ]
+}

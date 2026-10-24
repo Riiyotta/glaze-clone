@@ -1,6 +1,6 @@
 {
   "registryId": "primitive.divider",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "category": "layout",
   "description": "Three dividers actually used: gradient hairline (mobile menu), 1px vertical rule (nav pill) and FAQ list separators.",
   "variants": {
@@ -26,6 +26,15 @@
       "note": "divide-y between items plus a border-bottom on the list.",
       "cite": [
         "jsx.faq.list"
+      ]
+    },
+    "entry-border": {
+      "width": "{foundation.space.px}",
+      "colour": "{color.border.separator}",
+      "note": "border-top between post cards and release entries; the first has none (the last release also has a bottom border).",
+      "cite": [
+        "jsx.blogindex.card",
+        "jsx.changelog.entry"
       ]
     }
   },

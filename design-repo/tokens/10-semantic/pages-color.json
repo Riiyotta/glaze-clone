@@ -1,0 +1,42 @@
+{
+  "$description": "Semantic roles for the page families beyond landing.",
+  "color": {
+    "bg": {
+      "awards": "{foundation.color.neutral.black}"
+    },
+    "text": {
+      "prose": "{foundation.color.white-alpha.a80}",
+      "over-cover": "{foundation.color.white-alpha.a72}",
+      "secondary-awards": "{foundation.color.neutral.600}",
+      "tertiary-awards": "{foundation.color.neutral.700}"
+    },
+    "surface": {
+      "dialog": "{foundation.color.neutral.950}",
+      "plan-highlight": "{foundation.color.white-alpha.a05}",
+      "card-quiet": "{foundation.color.white-alpha.a04}",
+      "pill": "{foundation.color.white-alpha.a08}",
+      "chip-rest": "{foundation.color.white-alpha.a025}",
+      "code": "{foundation.color.white-alpha.a06}",
+      "pill-over-cover": "{foundation.color.black-alpha.a35}"
+    },
+    "border": {
+      "cover-pill": "{foundation.color.white-alpha.a15}"
+    },
+    "scrim": {
+      "cover": "{foundation.color.black-alpha.a85}",
+      "carousel": "{foundation.color.black-alpha.a65}",
+      "winner-dialog": "{foundation.color.black-alpha.a75}"
+    },
+    "link": {
+      "prose-underline": "{foundation.color.white-alpha.a30}"
+    }
+  },
+  "radius": {
+    "dialog": "{foundation.radius.dialog}",
+    "dialog-wide": "{foundation.radius.dialog-wide}",
+    "prose-image": "{foundation.radius.lg}",
+    "code": "{foundation.radius.sm}",
+    "cover": "{foundation.radius.frame}",
+    "cover-large": "{foundation.radius.card}"
+  }
+}

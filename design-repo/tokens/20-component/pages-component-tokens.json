@@ -1,0 +1,190 @@
+{
+  "$description": "Component-scoped sizing for the page families beyond landing, composed from foundation/semantic tokens (specs/SPEC_*.md measurements, src class strings).",
+  "planCard": {
+    "padding": "{foundation.space.5}",
+    "radius": "{radius.card}",
+    "borderColor": "{color.border.separator}",
+    "highlightFill": "{color.surface.plan-highlight}",
+    "gap": "{foundation.space.3}",
+    "featureGap": "{foundation.space.3}",
+    "featureIcon": "{foundation.iconSize.14}",
+    "infoIcon": "{foundation.iconSize.12}",
+    "titleToFeatures": "{foundation.space.8}",
+    "titleToFeaturesWide": "{foundation.space.14}",
+    "footerTop": "{foundation.space.10}",
+    "footerTopWide": "{foundation.space.16}"
+  },
+  "badge": {
+    "paddingX": "{foundation.space.2}",
+    "paddingY": "{foundation.space.0.5}",
+    "fill": "{color.surface.pill}",
+    "radius": "{radius.control}"
+  },
+  "pageHeader": {
+    "gapBelowTitle": "{foundation.space.4}",
+    "marginBottom": "{foundation.space.12}",
+    "marginBottomWide": "{foundation.space.16}"
+  },
+  "postCard": {
+    "paddingY": "{foundation.space.10}",
+    "paddingYWide": "{foundation.space.16}",
+    "dateGap": "{foundation.space.8}",
+    "titleGap": "{foundation.space.4}",
+    "authorGap": "{foundation.space.5}",
+    "excerptGap": "{foundation.space.5}",
+    "radius": "{radius.cover}",
+    "coverAspect": "1.9 / 1"
+  },
+  "authorRow": {
+    "gap": "{foundation.space.3}",
+    "avatar": "{foundation.iconSize.24}"
+  },
+  "article": {
+    "coverRadius": "{radius.cover-large}",
+    "headerGap": "{foundation.space.10}",
+    "bodyGap": "{foundation.space.8}",
+    "footerTop": "{foundation.space.16}",
+    "footerTopWide": "{foundation.space.20}",
+    "footerPad": "{foundation.space.10}",
+    "footerPadWide": "{foundation.space.12}",
+    "imageRadius": "{radius.prose-image}",
+    "imageMarginY": "{foundation.space.6}",
+    "paragraphGap": "{foundation.space.5}",
+    "hrMargin": "{foundation.space.7}"
+  },
+  "release": {
+    "paddingY": "{foundation.space.10}",
+    "paddingYWide": "{foundation.space.16}",
+    "pillPaddingX": "{foundation.space.3}",
+    "pillPaddingY": "{foundation.space.1}",
+    "stickyTop": "{foundation.space.29}",
+    "columnGap": "{foundation.space.16}",
+    "bodyGap": "{foundation.space.6}"
+  },
+  "legal": {
+    "blockGap": "{foundation.space.4}",
+    "listIndent": "{foundation.space.6}",
+    "listItemGap": "{foundation.space.2}",
+    "h2Top": "{foundation.space.6}",
+    "h3Top": "{foundation.space.2}",
+    "scheduleTop": "{foundation.space.16}",
+    "schedulePad": "{foundation.space.12}",
+    "headerGap": "{foundation.space.3}",
+    "updatedGap": "{foundation.space.8}"
+  },
+  "winnerCard": {
+    "paddingX": "{foundation.space.8}",
+    "paddingY": "{foundation.space.12}",
+    "radius": "{radius.card}",
+    "medal": "{foundation.iconSize.24}",
+    "icon": "{foundation.iconSize.80}",
+    "gap": "{foundation.space.2}",
+    "stackGap": "{foundation.space.3}"
+  },
+  "prize": {
+    "icon": "{foundation.iconSize.64}",
+    "iconWide": "{foundation.iconSize.72}",
+    "fieldsetRadius": "{radius.panel}",
+    "fieldsetPadX": "{foundation.space.3}",
+    "fieldsetPadXWide": "{foundation.space.6}",
+    "fieldsetPadY": "{foundation.space.10}",
+    "fieldsetPadYWide": "{foundation.space.12}",
+    "rowGap": "{foundation.space.12}"
+  },
+  "jury": {
+    "photo": "{foundation.iconSize.88}",
+    "photoWide": "{foundation.iconSize.104}",
+    "nameGap": "{foundation.space.4}",
+    "linkGap": "{foundation.space.2.5}",
+    "rowGap": "{foundation.space.8}",
+    "rowGapWide": "{foundation.space.12}"
+  },
+  "searchPill": {
+    "height": "{foundation.iconSize.40}",
+    "heightWide": "{foundation.iconSize.36}",
+    "width": "{foundation.space.52.5}",
+    "widthWide": "{foundation.space.60}",
+    "radius": "{radius.control}"
+  },
+  "pager": {
+    "cell": "{foundation.space.8}",
+    "gap": "{foundation.space.1}",
+    "marginTop": "{foundation.space.8}"
+  },
+  "appRow": {
+    "height": "{foundation.space.18}",
+    "gap": "{foundation.space.3}",
+    "radius": "{radius.card}",
+    "authorAvatar": "{foundation.iconSize.14}",
+    "iconSize": "{foundation.iconSize.64}"
+  },
+  "categoryChip": {
+    "height": "{foundation.space.8}",
+    "paddingX": "{foundation.space.2.25}",
+    "gap": "{foundation.space.1.5}",
+    "trackGap": "{foundation.space.0.75}",
+    "icon": "{foundation.space.3.25}"
+  },
+  "shelf": {
+    "arrow": "{foundation.iconSize.28}",
+    "headerMinHeight": "{foundation.space.7}",
+    "columnGap": "{foundation.space.5}",
+    "rowGap": "{foundation.space.1}"
+  },
+  "carouselCard": {
+    "gap": "{foundation.space.4}",
+    "radius": "{radius.card}",
+    "dotHeight": "{foundation.space.0.75}",
+    "dotWidth": "{foundation.space.7}",
+    "dotWidthWide": "{foundation.space.9}",
+    "radiusWide": "{radius.panel}"
+  },
+  "appHeader": {
+    "iconSize": "{foundation.iconSize.80}",
+    "iconSizeWide": "{foundation.iconSize.112}",
+    "gap": "{foundation.space.4}",
+    "gapWide": "{foundation.space.6}",
+    "ctaHeight": "{foundation.space.8}",
+    "ctaPaddingX": "{foundation.space.3.5}",
+    "ctaGap": "{foundation.space.2}",
+    "coverRadius": "{radius.card}",
+    "coverRadiusWide": "{radius.panel}",
+    "coverPad": "{foundation.space.4}",
+    "coverPadWide": "{foundation.space.5}"
+  },
+  "stat": {
+    "paddingY": "{foundation.space.2.5}",
+    "paddingYWide": "{foundation.space.3}",
+    "paddingX": "{foundation.space.1}",
+    "paddingXWide": "{foundation.space.3}",
+    "gap": "{foundation.space.0.5}"
+  },
+  "lineage": {
+    "paddingX": "{foundation.space.4}",
+    "paddingY": "{foundation.space.2.5}",
+    "radius": "{radius.card}",
+    "fill": "{color.surface.card-quiet}",
+    "gap": "{foundation.space.2}"
+  },
+  "screenshotStrip": {
+    "height": "{foundation.space.55}",
+    "heightWide": "{foundation.space.65}",
+    "gap": "{foundation.space.3}",
+    "radius": "{foundation.radius.lg}"
+  },
+  "downloadPage": {
+    "icon": "{foundation.iconSize.112}",
+    "iconGap": "{foundation.space.8}",
+    "buttonTop": "{foundation.space.6}",
+    "noteTop": "{foundation.space.4}",
+    "versionRow": "{foundation.space.5}"
+  },
+  "button": {
+    "height": {
+      "xs": "{foundation.space.8}"
+    },
+    "paddingX": {
+      "app-cta": "{foundation.space.3.5}"
+    }
+  }
+}

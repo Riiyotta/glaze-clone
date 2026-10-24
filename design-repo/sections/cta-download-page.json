@@ -1,0 +1,167 @@
+{
+  "id": "section.cta.download-page",
+  "typeId": "cta.download-page",
+  "registryId": "section.cta.download-page",
+  "version": "1.0.0",
+  "category": "cta",
+  "semantic": {
+    "id": "section.cta.download-page",
+    "category": "cta"
+  },
+  "source": {
+    "id": "src.Download.div",
+    "file": "src/pages/Download.jsx",
+    "tag": "div",
+    "domSelector": "main > div",
+    "citation": "jsx.download.block.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Dedicated download screen: clickable icon (particle burst), title, one line, Download button and a requirements note, then a monospace version line. Centred in the viewport; no footer.",
+  "scope": "Download.",
+  "composes": [
+    "component.glaze-icon-burst",
+    "primitive.text",
+    "primitive.button"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "icon": {
+        "type": "object",
+        "properties": {
+          "assetRole": {
+            "enum": [
+              "brand.app-icon",
+              "brand.app-icon-placeholder",
+              "brand.app-icon-user-supplied"
+            ],
+            "referenceRoles": [
+              "brand.app-icon"
+            ],
+            "generatedRoles": [
+              "brand.app-icon-placeholder",
+              "brand.app-icon-user-supplied"
+            ]
+          },
+          "assetRef": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string",
+            "maxWords": 16
+          }
+        },
+        "required": [
+          "assetRole",
+          "assetRef"
+        ],
+        "additionalProperties": false
+      },
+      "particlePoolRef": {
+        "type": "string"
+      },
+      "headline": {
+        "type": "string",
+        "maxWords": 4
+      },
+      "subheadline": {
+        "type": "string",
+        "maxWords": 10
+      },
+      "primaryCta": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 4
+          },
+          "href": {
+            "type": "string"
+          },
+          "icon": {
+            "enum": [
+              "apple",
+              "none"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "href",
+          "icon"
+        ],
+        "additionalProperties": false
+      },
+      "mobileNote": {
+        "type": "string",
+        "maxWords": 10
+      },
+      "desktopNote": {
+        "type": "string",
+        "maxWords": 10
+      },
+      "versionLabel": {
+        "type": "string",
+        "maxWords": 3
+      }
+    },
+    "required": [
+      "icon",
+      "particlePoolRef",
+      "headline",
+      "subheadline",
+      "primaryCta",
+      "mobileNote",
+      "desktopNote",
+      "versionLabel"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "icon-press-and-burst"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Title 24/30 to 30/37.5; the button and the desktop note appear; below 480 only the shorter 'Available for ...' note shows, above the (hidden) button."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "fillsViewport": true,
+    "mustFollow": [
+      "shell.navbar"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.narrow}",
+    "gutter": "{space.page-gutter}",
+    "align": "centred both ways in the viewport",
+    "iconSize": "{downloadPage.icon} at every width",
+    "iconGap": "{downloadPage.iconGap}",
+    "buttonTop": "{downloadPage.buttonTop}",
+    "versionRow": "{downloadPage.versionRow}"
+  },
+  "measuredFrom": [
+    "jsx.download.main",
+    "jsx.download.h1",
+    "jsx.download.sub",
+    "jsx.download.button",
+    "jsx.download.note",
+    "jsx.download.version",
+    "spec.marketing.download"
+  ]
+}

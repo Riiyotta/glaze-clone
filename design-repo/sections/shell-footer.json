@@ -2,7 +2,7 @@
   "id": "section.shell.footer",
   "typeId": "shell.footer",
   "registryId": "section.shell.footer",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "category": "shell",
   "semantic": {
     "id": "section.shell.footer",
@@ -12,12 +12,12 @@
     "id": "src.Footer.footer",
     "file": "src/components/Footer.jsx",
     "tag": "footer",
-    "domSelector": "footer",
+    "domSelector": "footer.mt-auto",
     "citation": "jsx.footer.root"
   },
   "retrievalEligible": true,
   "purpose": "Legal links, socials and the maker credit.",
-  "scope": "All routes in scope.",
+  "scope": "Every route except /download.",
   "composes": [
     "primitive.link",
     "primitive.icon"
@@ -152,7 +152,9 @@
     "onePerPage": true,
     "mustBeLast": true,
     "mustBeLastExcept": [
-      "shell.youtube-overlay"
+      "shell.youtube-overlay",
+      "shell.app-dialog",
+      "shell.image-lightbox"
     ]
   },
   "containerRules": {

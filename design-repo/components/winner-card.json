@@ -1,0 +1,64 @@
+{
+  "registryId": "component.winner-card",
+  "version": "1.0.0",
+  "category": "showcase",
+  "description": "Awards winner card: medal and tier label in the top-left corner, 80px app icon, name, two-line tagline and author. A button that opens the winner dialog.",
+  "composes": [
+    "primitive.app-icon",
+    "primitive.badge",
+    "primitive.text",
+    "primitive.image"
+  ],
+  "props": {
+    "tier": {
+      "enum": [
+        "gold",
+        "silver",
+        "bronze"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "maxWords": 5
+    },
+    "tagline": {
+      "type": "string",
+      "maxWords": 10
+    },
+    "author": {
+      "type": "string",
+      "maxWords": 4
+    }
+  },
+  "layout": {
+    "paddingX": "{winnerCard.paddingX}",
+    "paddingY": "{winnerCard.paddingY}",
+    "radius": "{winnerCard.radius}",
+    "border": "{color.border.separator}",
+    "medal": "{winnerCard.medal}",
+    "icon": "{winnerCard.icon}",
+    "nameTypography": "{typography.heading.winner-name}",
+    "taglineTypography": "{typography.body.winner-tagline}",
+    "labelTypography": "{typography.label.medal}"
+  },
+  "states": {
+    "hover": {
+      "background": "{color.surface.ghost}",
+      "transition": "{motion.recipe.hover.colors}"
+    }
+  },
+  "tokens": [
+    "winnerCard.paddingX",
+    "winnerCard.paddingY",
+    "winnerCard.radius",
+    "color.border.separator",
+    "winnerCard.medal",
+    "winnerCard.icon",
+    "typography.heading.winner-name",
+    "typography.body.winner-tagline",
+    "typography.label.medal"
+  ],
+  "measuredFrom": [
+    "jsx.winners.card"
+  ]
+}

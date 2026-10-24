@@ -1,0 +1,41 @@
+{
+  "registryId": "component.pagination",
+  "version": "1.0.0",
+  "category": "store",
+  "description": "Previous / numbered pages / Next on a three-column grid. Numbers use a window (first, last, current plus neighbours, gaps of one number filled, larger gaps shown as an ellipsis); Previous and Next lose their label below 480.",
+  "composes": [
+    "primitive.link",
+    "primitive.icon"
+  ],
+  "props": {
+    "page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "pageCount": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "layout": {
+    "cell": "{pager.cell}",
+    "gap": "{pager.gap}",
+    "marginTop": "{pager.marginTop}",
+    "typography": "{typography.label.control}",
+    "currentFill": "{color.surface.ghost-hover}",
+    "disabledOpacity": "{foundation.opacity.disabled}"
+  },
+  "tokens": [
+    "pager.cell",
+    "pager.gap",
+    "pager.marginTop",
+    "typography.label.control",
+    "color.surface.ghost-hover",
+    "foundation.opacity.disabled"
+  ],
+  "measuredFrom": [
+    "jsx.pagination.root",
+    "jsx.pagination.window",
+    "jsx.entries.pager"
+  ]
+}

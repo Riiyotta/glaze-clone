@@ -1,0 +1,42 @@
+{
+  "registryId": "component.author-row",
+  "version": "1.0.0",
+  "category": "content",
+  "description": "Round 24px avatar over a ring in the page colour, then the author name truncated to one line.",
+  "composes": [
+    "primitive.image",
+    "primitive.text"
+  ],
+  "props": {
+    "name": {
+      "type": "string",
+      "maxWords": 4
+    },
+    "avatarAssetRole": {
+      "enum": [
+        "avatar.person",
+        "avatar.placeholder"
+      ]
+    },
+    "avatarAssetRef": {
+      "type": "string"
+    }
+  },
+  "layout": {
+    "gap": "{authorRow.gap}",
+    "avatar": "{authorRow.avatar}",
+    "typography": "{typography.meta.date}",
+    "colour": "{color.text.tertiary}",
+    "ring": "{color.bg.page}"
+  },
+  "tokens": [
+    "authorRow.gap",
+    "authorRow.avatar",
+    "typography.meta.date",
+    "color.text.tertiary"
+  ],
+  "measuredFrom": [
+    "jsx.author.row",
+    "jsx.author.avatar"
+  ]
+}

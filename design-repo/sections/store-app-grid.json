@@ -1,0 +1,212 @@
+{
+  "id": "section.store.app-grid",
+  "typeId": "store.app-grid",
+  "registryId": "section.store.app-grid",
+  "version": "1.0.0",
+  "category": "store",
+  "semantic": {
+    "id": "section.store.app-grid",
+    "category": "store"
+  },
+  "source": {
+    "id": "src.StoreView.div.3",
+    "file": "src/components/store/StoreView.jsx",
+    "tag": "div",
+    "domSelector": "main section > div > div.mt-8 > div",
+    "citation": "jsx.store.grid.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Category listing: optional titled groups of app rows (the remixable page adds a 'Made to Remix' group above 'All Remixable Apps'), numbered pagination (24 per page), and a 'No apps found' state for empty searches.",
+  "scope": "Store category pages (and store search results).",
+  "composes": [
+    "component.shelf",
+    "component.app-row",
+    "component.pagination",
+    "primitive.text"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "groups": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "maxWords": 4
+            },
+            "apps": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "maxWords": 5
+                  },
+                  "tagline": {
+                    "type": "string",
+                    "maxWords": 14
+                  },
+                  "author": {
+                    "type": "string",
+                    "maxWords": 4
+                  },
+                  "href": {
+                    "type": "string"
+                  },
+                  "award": {
+                    "enum": [
+                      "none",
+                      "gold",
+                      "silver",
+                      "bronze",
+                      "finalist"
+                    ]
+                  },
+                  "icon": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "app.icon",
+                          "app.icon-generated"
+                        ],
+                        "referenceRoles": [
+                          "app.icon"
+                        ],
+                        "generatedRoles": [
+                          "app.icon-generated"
+                        ]
+                      },
+                      "assetRef": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "assetRef"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "avatar": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "avatar.person",
+                          "avatar.placeholder"
+                        ],
+                        "referenceRoles": [
+                          "avatar.person"
+                        ],
+                        "generatedRoles": [
+                          "avatar.placeholder"
+                        ]
+                      },
+                      "assetRef": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "assetRef"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "name",
+                  "tagline",
+                  "href",
+                  "icon"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 24
+            }
+          },
+          "required": [
+            "apps"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 1,
+        "maxItems": 2
+      },
+      "page": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "pageCount": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "emptyLabel": {
+        "type": "string",
+        "maxWords": 3
+      }
+    },
+    "required": [
+      "groups",
+      "page",
+      "pageCount",
+      "emptyLabel"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "2 columns (1 below 480)."
+    },
+    {
+      "at": "{foundation.breakpoint.768}",
+      "change": "3 columns."
+    },
+    {
+      "at": "{foundation.breakpoint.1920}",
+      "change": "4 columns."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "pageWithinCount": true,
+    "mustFollow": [
+      "store.category-nav"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "marginTop": "{foundation.space.8}",
+    "gridGap": "{shelf.columnGap} / {shelf.rowGap}"
+  },
+  "measuredFrom": [
+    "jsx.store.grid",
+    "jsx.store.remix",
+    "jsx.store.noapps",
+    "jsx.store.body",
+    "jsx.pagination.root",
+    "jsx.pagination.window",
+    "spec.store.top"
+  ]
+}

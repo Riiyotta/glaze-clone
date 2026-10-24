@@ -1,0 +1,49 @@
+{
+  "registryId": "component.search-field",
+  "version": "1.0.0",
+  "category": "store",
+  "description": "Glass pill with a search glyph and a text input; 250ms debounced into the URL (?q=) on the store, 300ms into ?entriesQuery= on awards. Below 624 on /awards it starts as an icon button and expands on tap. On /awards below 624 the collapsed pill is a 40px icon button.",
+  "composes": [
+    "primitive.glass-surface",
+    "primitive.icon",
+    "primitive.text"
+  ],
+  "props": {
+    "placeholder": {
+      "type": "string",
+      "maxWords": 2
+    },
+    "ariaLabel": {
+      "type": "string",
+      "maxWords": 3
+    },
+    "query": {
+      "type": "string",
+      "maxWords": 6
+    }
+  },
+  "layout": {
+    "height": "{searchPill.height} below 480, {searchPill.heightWide} from 480",
+    "width": "{searchPill.width} below 480, {searchPill.widthWide} from 480",
+    "radius": "{searchPill.radius}",
+    "surface": "primitive.glass-surface#glass",
+    "typography": "{typography.label.control}"
+  },
+  "motion": {
+    "expand": "{motion.recipe.search.expand}"
+  },
+  "tokens": [
+    "searchPill.height",
+    "searchPill.heightWide",
+    "searchPill.width",
+    "searchPill.widthWide",
+    "searchPill.radius",
+    "typography.label.control",
+    "motion.recipe.search.expand"
+  ],
+  "measuredFrom": [
+    "jsx.store.search",
+    "jsx.entries.search",
+    "jsx.store.debounce"
+  ]
+}

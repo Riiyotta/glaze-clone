@@ -1,28 +1,48 @@
 {
-  "description": "Three page shapes cover the two built route families: the landing page (and five persona variants) and the 404. Out of scope by decision: pricing, download, awards, legal, blog, changelog, store and app-detail templates (listed in the repo-level IA, still being built). Add a template by appending an entry here, section contracts under sections/, the allowlist, graph and schema (see README 'Adding a template').",
+  "description": "Thirteen page shapes cover every route of the clone's real route table (src/route-modules/*.js, recorded in extraction/measured-values.json routeTable): landing, persona, not-found, pricing, download, awards, legal (including the awards terms), blog index, blog post, changelog, store index, store category and app detail. Long-form pages are decomposed (legal header + body, article cover + header + body + footer, one node per post card or release). Add a template by appending an entry here, section contracts under sections/, the allowlist, graph and schema (see README 'Adding a template').",
   "scope": {
     "built": [
       "/",
-      "/designers",
-      "/product-managers",
-      "/engineers",
+      "/app/:slug",
+      "/aup",
+      "/awards",
+      "/awards/terms",
+      "/blog",
+      "/blog/:slug",
+      "/changelog",
       "/creators",
+      "/designers",
+      "/download",
+      "/engineers",
+      "/pricing",
+      "/privacy",
+      "/product-managers",
+      "/store",
+      "/store/design",
+      "/store/developer-tools",
+      "/store/games-and-fun",
+      "/store/lifestyle",
+      "/store/media",
+      "/store/productivity",
+      "/store/remixable",
+      "/store/utilities",
       "/teams",
-      "/* (404)"
+      "/terms",
+      "/* (404, includes /m)"
     ],
-    "notModelled": "Every other route in the repo-level IA. Do not guess their structure from this repo."
+    "notModelled": "The in-page 'App not found' state of /app/<unknown slug> (no footer, not a separate route); search-result states (?q=, ?page=, ?entriesQuery=, ?entriesPage=) of /store, /store/:category and /awards."
   },
   "templates": {
     "template.landing": {
       "id": "template.landing",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "name": "Landing page",
       "routes": [
         "/"
       ],
       "routeKind": "static",
       "evidence": "measured",
-      "description": "Home page. Hero, persona showcase, feature grid, FAQ, download CTA, footer, video overlay.",
+      "description": "Home page. Hero, persona showcase, feature grid, FAQ, download CTA, footer, video overlay and the app-details dialog.",
       "nodes": [
         {
           "section": "shell.navbar",
@@ -63,6 +83,11 @@
           "section": "shell.youtube-overlay",
           "required": true,
           "repeatable": false
+        },
+        {
+          "section": "shell.app-dialog",
+          "required": false,
+          "repeatable": false
         }
       ],
       "constraints": {
@@ -100,16 +125,26 @@
           ],
           "motion": "{motion.recipe.entrance.below-fold}",
           "layout": "block, sections stack with their own top margins"
+        },
+        {
+          "id": "dialog-portal",
+          "kind": "portal",
+          "holds": [
+            "shell.app-dialog"
+          ],
+          "note": "Portaled to <body> when a card is opened; not part of the page flow."
         }
       ],
       "cite": [
         "jsx.landing.root",
+        "jsx.router.table",
+        "jsx.router.match",
         "ia.template.landing"
       ]
     },
     "template.persona": {
       "id": "template.persona",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "name": "Persona landing",
       "routes": [
         "/designers",
@@ -161,17 +196,22 @@
           "section": "shell.youtube-overlay",
           "required": true,
           "repeatable": false
+        },
+        {
+          "section": "shell.app-dialog",
+          "required": false,
+          "repeatable": false
         }
       ],
       "constraints": {
-        "navActiveLinkHref": null,
         "routeInitialTab": {
           "/designers": "design",
           "/product-managers": "personal",
           "/engineers": "development",
           "/creators": "creativity",
           "/teams": "teams"
-        }
+        },
+        "navActiveLinkHref": null
       },
       "containers": [
         {
@@ -202,25 +242,33 @@
             "shell.footer"
           ],
           "motion": "{motion.recipe.entrance.below-fold}"
+        },
+        {
+          "id": "dialog-portal",
+          "kind": "portal",
+          "holds": [
+            "shell.app-dialog"
+          ],
+          "note": "Portaled to <body> when a card is opened; not part of the page flow."
         }
       ],
-      "unlistedSlugs": "Six showcase tab ids (design, development, creativity, personal, fun, productivity) are NOT routes; they render template.not-found.",
       "cite": [
         "jsx.landing.root",
-        "spec.persona.diff",
+        "jsx.router.layout",
+        "jsx.router.active",
         "ia.template.persona"
       ]
     },
     "template.not-found": {
       "id": "template.not-found",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "name": "Not found",
       "routes": [
         "/*"
       ],
       "routeKind": "catch-all",
       "evidence": "measured",
-      "description": "HTTP 404 page for /m, the six non-route persona slugs and any unknown path. No entrance animations.",
+      "description": "404: centred icon, heading, one sentence and a Go Home button, then the footer.",
       "nodes": [
         {
           "section": "shell.navbar",
@@ -239,8 +287,7 @@
         }
       ],
       "constraints": {
-        "navActiveLinkHref": null,
-        "noHero": true
+        "navActiveLinkHref": null
       },
       "containers": [
         {
@@ -262,8 +309,824 @@
       ],
       "cite": [
         "jsx.notfound.page",
-        "spec.404",
+        "jsx.router.notfound",
         "ia.template.not-found"
+      ]
+    },
+    "template.pricing": {
+      "id": "template.pricing",
+      "version": "2.0.0",
+      "name": "Pricing",
+      "routes": [
+        "/pricing"
+      ],
+      "routeKind": "static",
+      "evidence": "measured",
+      "description": "Page title, three plan cards, the pricing FAQ (same FAQ section as the landing page, 12 items, more air above), the download CTA and the footer.",
+      "nodes": [
+        {
+          "section": "shell.navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "hero.page-title",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "commerce.pricing-plans",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "support.faq",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "cta.download-icon",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "shell.footer",
+          "required": true,
+          "repeatable": false
+        }
+      ],
+      "constraints": {
+        "navActiveLinkHref": "/pricing",
+        "maxHighlightedPlans": 1
+      },
+      "containers": [
+        {
+          "id": "nav-layer",
+          "kind": "fixed-chrome",
+          "holds": [
+            "shell.navbar"
+          ],
+          "note": "Rendered by the router layout outside <main>."
+        },
+        {
+          "id": "main",
+          "kind": "main",
+          "classContract": "flex column, min-height 100dvh",
+          "holds": [
+            "hero.page-title",
+            "commerce.pricing-plans",
+            "support.faq",
+            "cta.download-icon",
+            "shell.footer"
+          ]
+        }
+      ],
+      "cite": [
+        "jsx.pricing.root",
+        "jsx.routemod.marketing",
+        "jsx.pricing.cta",
+        "data.pricing.faqs",
+        "spec.marketing.pricing",
+        "ia.template.pricing"
+      ]
+    },
+    "template.download": {
+      "id": "template.download",
+      "version": "2.0.0",
+      "name": "Download",
+      "routes": [
+        "/download"
+      ],
+      "routeKind": "static",
+      "evidence": "measured",
+      "description": "Download screen: icon, title, one line, button, requirements and version, centred in the viewport. Navbar only, no footer.",
+      "nodes": [
+        {
+          "section": "shell.navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "cta.download-page",
+          "required": true,
+          "repeatable": false
+        }
+      ],
+      "constraints": {
+        "navActiveLinkHref": null,
+        "noFooter": true
+      },
+      "containers": [
+        {
+          "id": "nav-layer",
+          "kind": "fixed-chrome",
+          "holds": [
+            "shell.navbar"
+          ],
+          "note": "Rendered by the router layout outside <main>."
+        },
+        {
+          "id": "main",
+          "kind": "main",
+          "classContract": "flex column, min-height 100dvh",
+          "holds": [
+            "cta.download-page"
+          ]
+        }
+      ],
+      "cite": [
+        "jsx.download.root",
+        "jsx.routemod.marketing",
+        "spec.marketing.download",
+        "ia.template.download"
+      ]
+    },
+    "template.awards": {
+      "id": "template.awards",
+      "version": "2.0.0",
+      "name": "Awards",
+      "routes": [
+        "/awards"
+      ],
+      "routeKind": "static",
+      "evidence": "measured",
+      "description": "Black-themed awards page: hero video and title, winners and finalists, searchable entries, prizes, jury, criteria, download CTA and footer, plus the winner dialog.",
+      "nodes": [
+        {
+          "section": "shell.navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "hero.awards-hero",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "showcase.award-winners",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "showcase.award-entries",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "content.award-prizes",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "content.award-jury",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "content.award-criteria",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "cta.download-icon",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "shell.footer",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "shell.app-dialog",
+          "required": false,
+          "repeatable": false
+        }
+      ],
+      "constraints": {
+        "navActiveLinkHref": null,
+        "pageTheme": "awards-black"
+      },
+      "containers": [
+        {
+          "id": "nav-layer",
+          "kind": "fixed-chrome",
+          "holds": [
+            "shell.navbar"
+          ],
+          "note": "Rendered by the router layout outside <main>."
+        },
+        {
+          "id": "main",
+          "kind": "main",
+          "classContract": "flex column, min-height 100dvh",
+          "holds": [
+            "hero.awards-hero",
+            "below-fold"
+          ]
+        },
+        {
+          "id": "below-fold",
+          "kind": "motion-wrapper",
+          "holds": [
+            "showcase.award-winners",
+            "showcase.award-entries",
+            "content.award-prizes",
+            "content.award-jury",
+            "content.award-criteria",
+            "cta.download-icon",
+            "shell.footer"
+          ],
+          "motion": "{motion.recipe.entrance.below-fold}",
+          "layout": "block; each block carries its own top margin",
+          "note": "The awards page uses the same 600ms fade at 500ms delay as the landing page (SPEC_marketing 3.11)."
+        },
+        {
+          "id": "overlay-layer",
+          "kind": "portal",
+          "holds": [
+            "shell.app-dialog"
+          ],
+          "note": "Opened on demand; fixed to the viewport and trailing the page."
+        }
+      ],
+      "cite": [
+        "jsx.awards.root",
+        "jsx.awards.main",
+        "jsx.awards.below",
+        "jsx.winners.root",
+        "jsx.routemod.marketing",
+        "spec.marketing.awards",
+        "ia.template.awards"
+      ]
+    },
+    "template.legal": {
+      "id": "template.legal",
+      "version": "2.0.0",
+      "name": "Legal document",
+      "routes": [
+        "/terms",
+        "/privacy",
+        "/aup",
+        "/awards/terms"
+      ],
+      "routeKind": "fixed-set",
+      "evidence": "measured",
+      "description": "Long-form legal text: title and last-updated header, then the body. /awards/terms is the same shape with the terms typography and a two-line title.",
+      "nodes": [
+        {
+          "section": "shell.navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "content.legal-header",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "content.legal-body",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "shell.footer",
+          "required": true,
+          "repeatable": false
+        }
+      ],
+      "constraints": {
+        "navActiveLinkHref": null,
+        "routeTypography": {
+          "/terms": "policy",
+          "/privacy": "policy",
+          "/aup": "policy",
+          "/awards/terms": "terms"
+        },
+        "routeTitleLines": {
+          "/terms": 1,
+          "/privacy": 1,
+          "/aup": 1,
+          "/awards/terms": 2
+        }
+      },
+      "containers": [
+        {
+          "id": "nav-layer",
+          "kind": "fixed-chrome",
+          "holds": [
+            "shell.navbar"
+          ],
+          "note": "Rendered by the router layout outside <main>."
+        },
+        {
+          "id": "main",
+          "kind": "main",
+          "classContract": "flex column, min-height 100dvh",
+          "holds": [
+            "content.legal-header",
+            "content.legal-body",
+            "shell.footer"
+          ]
+        }
+      ],
+      "cite": [
+        "jsx.legal.root",
+        "jsx.awardsterms.root",
+        "jsx.routemod.legal",
+        "jsx.routemod.marketing",
+        "spec.marketing.awardsterms",
+        "ia.template.legal"
+      ]
+    },
+    "template.blog-index": {
+      "id": "template.blog-index",
+      "version": "2.0.0",
+      "name": "Blog index",
+      "routes": [
+        "/blog"
+      ],
+      "routeKind": "static",
+      "evidence": "measured",
+      "description": "Page header (title and subtitle) over a stack of post cards.",
+      "nodes": [
+        {
+          "section": "shell.navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "hero.page-header",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "content.post-card",
+          "required": true,
+          "repeatable": true,
+          "maxCount": 20
+        },
+        {
+          "section": "shell.footer",
+          "required": true,
+          "repeatable": false
+        }
+      ],
+      "constraints": {
+        "navActiveLinkHref": "/blog"
+      },
+      "containers": [
+        {
+          "id": "nav-layer",
+          "kind": "fixed-chrome",
+          "holds": [
+            "shell.navbar"
+          ],
+          "note": "Rendered by the router layout outside <main>."
+        },
+        {
+          "id": "main",
+          "kind": "main",
+          "classContract": "flex column, min-height 100dvh",
+          "holds": [
+            "hero.page-header",
+            "content.post-card",
+            "shell.footer"
+          ]
+        }
+      ],
+      "cite": [
+        "jsx.blogindex.root",
+        "jsx.blogindex.section",
+        "jsx.routemod.blog",
+        "spec.blog.index",
+        "ia.template.blog-index"
+      ]
+    },
+    "template.blog-post": {
+      "id": "template.blog-post",
+      "version": "2.0.0",
+      "name": "Blog post",
+      "routes": [
+        "/blog/:slug"
+      ],
+      "routeKind": "pattern",
+      "evidence": "measured",
+      "description": "Cover, header, prose body, closing row, compact download CTA, footer, and the image lightbox.",
+      "nodes": [
+        {
+          "section": "shell.navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "content.article-cover",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "content.article-header",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "content.article-body",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "content.article-footer",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "cta.download-compact",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "shell.footer",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "shell.image-lightbox",
+          "required": true,
+          "repeatable": false
+        }
+      ],
+      "constraints": {
+        "navActiveLinkHref": "/blog"
+      },
+      "routeParams": {
+        "slug": {
+          "kind": "post-slug",
+          "count": 4,
+          "known": [
+            "/blog/how-teams-use-glaze",
+            "/blog/why-glaze-when-claude-code-and-codex-exist",
+            "/blog/affiliate-program",
+            "/blog/how-we-use-glaze-at-raycast"
+          ],
+          "note": "The clone serves four posts (validate: getPost). A reference PageSpec uses a known slug or any slug; a generated PageSpec chooses its own slug, which must not name the source brand (the known slugs contain it)."
+        }
+      },
+      "containers": [
+        {
+          "id": "nav-layer",
+          "kind": "fixed-chrome",
+          "holds": [
+            "shell.navbar"
+          ],
+          "note": "Rendered by the router layout outside <main>."
+        },
+        {
+          "id": "main",
+          "kind": "main",
+          "classContract": "flex column, min-height 100dvh",
+          "holds": [
+            "content.article-cover",
+            "content.article-header",
+            "content.article-body",
+            "content.article-footer",
+            "cta.download-compact",
+            "shell.footer"
+          ]
+        },
+        {
+          "id": "overlay-layer",
+          "kind": "portal",
+          "holds": [
+            "shell.image-lightbox"
+          ],
+          "note": "Opened on demand; fixed to the viewport and trailing the page."
+        }
+      ],
+      "cite": [
+        "jsx.blogpost.root",
+        "jsx.blogpost.article",
+        "jsx.routemod.blog",
+        "spec.blog.post",
+        "ia.template.blog-post"
+      ]
+    },
+    "template.changelog": {
+      "id": "template.changelog",
+      "version": "2.0.0",
+      "name": "Changelog",
+      "routes": [
+        "/changelog"
+      ],
+      "routeKind": "static",
+      "evidence": "measured",
+      "description": "Page header over release entries, newest first.",
+      "nodes": [
+        {
+          "section": "shell.navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "hero.page-header",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "content.release-entry",
+          "required": true,
+          "repeatable": true,
+          "maxCount": 60
+        },
+        {
+          "section": "shell.footer",
+          "required": true,
+          "repeatable": false
+        }
+      ],
+      "constraints": {
+        "navActiveLinkHref": "/changelog"
+      },
+      "containers": [
+        {
+          "id": "nav-layer",
+          "kind": "fixed-chrome",
+          "holds": [
+            "shell.navbar"
+          ],
+          "note": "Rendered by the router layout outside <main>."
+        },
+        {
+          "id": "main",
+          "kind": "main",
+          "classContract": "flex column, min-height 100dvh",
+          "holds": [
+            "hero.page-header",
+            "content.release-entry",
+            "shell.footer"
+          ]
+        }
+      ],
+      "cite": [
+        "jsx.changelog.root",
+        "jsx.changelog.h1",
+        "jsx.routemod.blog",
+        "spec.blog.changelog",
+        "ia.template.changelog"
+      ]
+    },
+    "template.store-index": {
+      "id": "template.store-index",
+      "version": "2.0.0",
+      "name": "Store index",
+      "routes": [
+        "/store"
+      ],
+      "routeKind": "static",
+      "evidence": "measured",
+      "description": "Featured carousel, title row with search and category chips, and the home shelves. /store?q= renders the search-results state (an app grid) on the same route.",
+      "nodes": [
+        {
+          "section": "shell.navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "store.featured-carousel",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "store.category-nav",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "store.app-shelves",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "shell.footer",
+          "required": true,
+          "repeatable": false
+        }
+      ],
+      "constraints": {
+        "navActiveLinkHref": "/store",
+        "routeCategory": {
+          "/store": "all"
+        }
+      },
+      "containers": [
+        {
+          "id": "nav-layer",
+          "kind": "fixed-chrome",
+          "holds": [
+            "shell.navbar"
+          ],
+          "note": "Rendered by the router layout outside <main>."
+        },
+        {
+          "id": "main",
+          "kind": "main",
+          "classContract": "flex column, min-height 100dvh",
+          "holds": [
+            "store.featured-carousel",
+            "store.category-nav",
+            "store.app-shelves",
+            "shell.footer"
+          ]
+        }
+      ],
+      "cite": [
+        "jsx.store.root",
+        "jsx.routemod.store",
+        "data.store.snapshot",
+        "spec.store.top",
+        "ia.template.store-index"
+      ]
+    },
+    "template.store-category": {
+      "id": "template.store-category",
+      "version": "2.0.0",
+      "name": "Store category",
+      "routes": [
+        "/store/remixable",
+        "/store/developer-tools",
+        "/store/productivity",
+        "/store/utilities",
+        "/store/media",
+        "/store/design",
+        "/store/lifestyle",
+        "/store/games-and-fun"
+      ],
+      "routeKind": "fixed-set",
+      "evidence": "measured",
+      "description": "Featured carousel, title row with search and category chips, then a paged grid (the remixable page adds a Made to Remix group).",
+      "nodes": [
+        {
+          "section": "shell.navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "store.featured-carousel",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "store.category-nav",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "store.app-grid",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "shell.footer",
+          "required": true,
+          "repeatable": false
+        }
+      ],
+      "constraints": {
+        "navActiveLinkHref": "/store",
+        "routeCategory": {
+          "/store/remixable": "remixable",
+          "/store/developer-tools": "developer-tools",
+          "/store/productivity": "productivity",
+          "/store/utilities": "utilities",
+          "/store/media": "media",
+          "/store/design": "design",
+          "/store/lifestyle": "lifestyle",
+          "/store/games-and-fun": "games-and-fun"
+        }
+      },
+      "containers": [
+        {
+          "id": "nav-layer",
+          "kind": "fixed-chrome",
+          "holds": [
+            "shell.navbar"
+          ],
+          "note": "Rendered by the router layout outside <main>."
+        },
+        {
+          "id": "main",
+          "kind": "main",
+          "classContract": "flex column, min-height 100dvh",
+          "holds": [
+            "store.featured-carousel",
+            "store.category-nav",
+            "store.app-grid",
+            "shell.footer"
+          ]
+        }
+      ],
+      "cite": [
+        "jsx.store.root",
+        "jsx.routemod.store",
+        "data.store.snapshot",
+        "spec.store.top",
+        "ia.template.store-category"
+      ]
+    },
+    "template.app-detail": {
+      "id": "template.app-detail",
+      "version": "2.0.0",
+      "name": "App detail",
+      "routes": [
+        "/app/:slug"
+      ],
+      "routeKind": "pattern",
+      "evidence": "measured",
+      "description": "App header (cover or plain), optional remix lineage, stats strip, optional screenshots, about text and up to two app lists (Remixes, Suggested Apps). An unknown slug renders the in-page 'App not found' state, which is not modelled as a template.",
+      "nodes": [
+        {
+          "section": "shell.navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "store.app-header",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "store.remix-lineage",
+          "required": false,
+          "repeatable": false
+        },
+        {
+          "section": "store.app-stats",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "store.screenshot-strip",
+          "required": false,
+          "repeatable": false
+        },
+        {
+          "section": "store.app-about",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "store.app-list",
+          "required": false,
+          "repeatable": true,
+          "maxCount": 2
+        },
+        {
+          "section": "shell.footer",
+          "required": true,
+          "repeatable": false
+        }
+      ],
+      "constraints": {
+        "navActiveLinkHref": null,
+        "unknownSlugState": "App not found (no footer): documented, not a template"
+      },
+      "routeParams": {
+        "slug": {
+          "kind": "snapshot-slug",
+          "count": 265,
+          "note": "Any slug matches the route; only snapshot slugs render an app. The slugs are listed in the clone's src/data/store-head-index.js."
+        }
+      },
+      "containers": [
+        {
+          "id": "nav-layer",
+          "kind": "fixed-chrome",
+          "holds": [
+            "shell.navbar"
+          ],
+          "note": "Rendered by the router layout outside <main>."
+        },
+        {
+          "id": "main",
+          "kind": "main",
+          "classContract": "flex column, min-height 100dvh",
+          "holds": [
+            "store.app-header",
+            "store.remix-lineage",
+            "store.app-stats",
+            "store.screenshot-strip",
+            "store.app-about",
+            "store.app-list",
+            "shell.footer"
+          ]
+        }
+      ],
+      "cite": [
+        "jsx.apppage.root",
+        "jsx.apppage.notfound",
+        "jsx.appdetail.root",
+        "jsx.routemod.store",
+        "spec.store.top",
+        "ia.template.app-detail"
       ]
     }
   }

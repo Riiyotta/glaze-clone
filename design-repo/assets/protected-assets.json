@@ -1,0 +1,1869 @@
+{
+ "$description": "Every file the source project serves from public/ (derived by extraction/derive_source_protected.mjs). A generated-mode PageSpec may not reference any of them: no string may contain a file name or a stem of at least 8 characters, and no string may point into the source asset folders.",
+ "counts": {
+  "files": 464,
+  "bytes": 169196940
+ },
+ "pathPatterns": [
+  "(^|/)assets/(store|apps|blog|marketing|fonts)/",
+  "(^|/)assets/[A-Za-z0-9._@-]+\\.(png|jpe?g|svg|mp4|webp|woff2?)$"
+ ],
+ "files": [
+  {
+   "path": "apple-touch-icon.png",
+   "bytes": 53214
+  },
+  {
+   "path": "assets/23195f6d-e9e4-4faa-a3e3-7b30d30b0a0d.png",
+   "bytes": 3623
+  },
+  {
+   "path": "assets/31563923-eea3-4295-a6e8-d242253db2d3-icon-512.png",
+   "bytes": 11497
+  },
+  {
+   "path": "assets/57abf693-7ec3-43d4-a66e-f289eb8531c2-icon-512.png",
+   "bytes": 38410
+  },
+  {
+   "path": "assets/a2cdde28-b8da-4caf-aa0c-bd9175b45132.jpg",
+   "bytes": 842
+  },
+  {
+   "path": "assets/afcfa53d-6a5a-4c04-bc5b-124e7641e501.jpg",
+   "bytes": 1022
+  },
+  {
+   "path": "assets/app-icon-PC60coqE.png",
+   "bytes": 322901
+  },
+  {
+   "path": "assets/app-icon1-B6nyDjUn.png",
+   "bytes": 92582
+  },
+  {
+   "path": "assets/app-icon10-CkBmQBFY.png",
+   "bytes": 96201
+  },
+  {
+   "path": "assets/app-icon11-BLP9K6-T.png",
+   "bytes": 106828
+  },
+  {
+   "path": "assets/app-icon12-r_ceZ9Ek.png",
+   "bytes": 55361
+  },
+  {
+   "path": "assets/app-icon13-BT4UL4Qn.png",
+   "bytes": 78151
+  },
+  {
+   "path": "assets/app-icon14-C80wEv97.png",
+   "bytes": 102442
+  },
+  {
+   "path": "assets/app-icon15-_lEqsNc-.png",
+   "bytes": 92160
+  },
+  {
+   "path": "assets/app-icon16-Djwb4XYP.png",
+   "bytes": 101218
+  },
+  {
+   "path": "assets/app-icon17-Dq0CjLqB.png",
+   "bytes": 96178
+  },
+  {
+   "path": "assets/app-icon2-DjnGgdo3.png",
+   "bytes": 92525
+  },
+  {
+   "path": "assets/app-icon3-CJBSEBl6.png",
+   "bytes": 80701
+  },
+  {
+   "path": "assets/app-icon4-aPALpHlP.png",
+   "bytes": 43219
+  },
+  {
+   "path": "assets/app-icon5-Cqa_0ar_.png",
+   "bytes": 85073
+  },
+  {
+   "path": "assets/app-icon6-1ZpMIA6w.png",
+   "bytes": 119925
+  },
+  {
+   "path": "assets/app-icon7-BrPwq4JI.png",
+   "bytes": 66386
+  },
+  {
+   "path": "assets/app-icon8-nORZcwze.png",
+   "bytes": 88713
+  },
+  {
+   "path": "assets/app-icon9-rnjqIe5j.png",
+   "bytes": 92796
+  },
+  {
+   "path": "assets/apple-touch-icon.png",
+   "bytes": 53214
+  },
+  {
+   "path": "assets/apps/ai-skills-browser-vMg0FR-avatar.jpg",
+   "bytes": 996
+  },
+  {
+   "path": "assets/apps/ai-skills-browser-vMg0FR-icon.png",
+   "bytes": 65674
+  },
+  {
+   "path": "assets/apps/alto-cvSTku-avatar.png",
+   "bytes": 1788
+  },
+  {
+   "path": "assets/apps/alto-cvSTku-icon.png",
+   "bytes": 58240
+  },
+  {
+   "path": "assets/apps/awesome-script-commands-Hi544G-avatar.jpg",
+   "bytes": 1013
+  },
+  {
+   "path": "assets/apps/awesome-script-commands-Hi544G-icon.png",
+   "bytes": 57336
+  },
+  {
+   "path": "assets/apps/cs-glaze-synth-9TGenH-avatar.png",
+   "bytes": 765
+  },
+  {
+   "path": "assets/apps/cs-glaze-synth-9TGenH-icon.png",
+   "bytes": 49606
+  },
+  {
+   "path": "assets/apps/elsewhere-khfW1h-avatar.jpg",
+   "bytes": 1479
+  },
+  {
+   "path": "assets/apps/elsewhere-khfW1h-icon.png",
+   "bytes": 64911
+  },
+  {
+   "path": "assets/apps/flor-8Q7yXM-avatar.png",
+   "bytes": 3623
+  },
+  {
+   "path": "assets/apps/flor-8Q7yXM-icon.png",
+   "bytes": 85882
+  },
+  {
+   "path": "assets/apps/font-finder-O2kYPe-avatar.jpg",
+   "bytes": 962
+  },
+  {
+   "path": "assets/apps/font-finder-O2kYPe-icon.png",
+   "bytes": 63179
+  },
+  {
+   "path": "assets/apps/icon-keeper-x9TGum-avatar.jpg",
+   "bytes": 1479
+  },
+  {
+   "path": "assets/apps/icon-keeper-x9TGum-icon.png",
+   "bytes": 68516
+  },
+  {
+   "path": "assets/apps/image-sequencer-IxkyCn-avatar.png",
+   "bytes": 1426
+  },
+  {
+   "path": "assets/apps/image-sequencer-IxkyCn-icon.png",
+   "bytes": 40718
+  },
+  {
+   "path": "assets/apps/mia-calendar-N2NgPq-avatar.jpg",
+   "bytes": 1022
+  },
+  {
+   "path": "assets/apps/mia-calendar-N2NgPq-icon.png",
+   "bytes": 38410
+  },
+  {
+   "path": "assets/apps/my-stash-CDBw9Z-avatar.jpg",
+   "bytes": 713
+  },
+  {
+   "path": "assets/apps/my-stash-CDBw9Z-icon.png",
+   "bytes": 68482
+  },
+  {
+   "path": "assets/apps/paper-shaders-bjDU1y-avatar.jpg",
+   "bytes": 1092
+  },
+  {
+   "path": "assets/apps/paper-shaders-bjDU1y-icon.png",
+   "bytes": 54489
+  },
+  {
+   "path": "assets/apps/pixel-runner-dZpJ2d-avatar.png",
+   "bytes": 878
+  },
+  {
+   "path": "assets/apps/pixel-runner-dZpJ2d-icon.png",
+   "bytes": 64941
+  },
+  {
+   "path": "assets/apps/pro-usage-2iVSvr-avatar.jpg",
+   "bytes": 891
+  },
+  {
+   "path": "assets/apps/pro-usage-2iVSvr-icon.png",
+   "bytes": 32595
+  },
+  {
+   "path": "assets/apps/radius-match-6p1dce-avatar.jpg",
+   "bytes": 906
+  },
+  {
+   "path": "assets/apps/radius-match-6p1dce-icon.png",
+   "bytes": 53340
+  },
+  {
+   "path": "assets/apps/raycast-maze-Meh4qI-avatar.png",
+   "bytes": 2068
+  },
+  {
+   "path": "assets/apps/raycast-maze-Meh4qI-icon.png",
+   "bytes": 61295
+  },
+  {
+   "path": "assets/apps/reading-corner-k3tfty-avatar.jpg",
+   "bytes": 842
+  },
+  {
+   "path": "assets/apps/reading-corner-k3tfty-icon.png",
+   "bytes": 11497
+  },
+  {
+   "path": "assets/apps/the-last-blockbuster-oRLCOs-avatar.png",
+   "bytes": 3092
+  },
+  {
+   "path": "assets/apps/the-last-blockbuster-oRLCOs-icon.png",
+   "bytes": 94877
+  },
+  {
+   "path": "assets/apps/toob-riVQfp-avatar.jpg",
+   "bytes": 856
+  },
+  {
+   "path": "assets/apps/toob-riVQfp-icon.png",
+   "bytes": 72408
+  },
+  {
+   "path": "assets/apps/yolo-PSjYlj-avatar.jpg",
+   "bytes": 996
+  },
+  {
+   "path": "assets/apps/yolo-PSjYlj-icon.png",
+   "bytes": 56682
+  },
+  {
+   "path": "assets/award-bronze@2x-CZBT3HSE.png",
+   "bytes": 31085
+  },
+  {
+   "path": "assets/award-gold@2x-C2t6avtW.png",
+   "bytes": 34636
+  },
+  {
+   "path": "assets/award-silver@2x-Bg8X11yF.png",
+   "bytes": 18507
+  },
+  {
+   "path": "assets/blog/avatars/pedro-duarte.png",
+   "bytes": 104945
+  },
+  {
+   "path": "assets/blog/avatars/stephanie.png",
+   "bytes": 221311
+  },
+  {
+   "path": "assets/blog/avatars/thomas-paul-mann.png",
+   "bytes": 30501
+  },
+  {
+   "path": "assets/blog/changelog/0-10-0-0-1.png",
+   "bytes": 597958
+  },
+  {
+   "path": "assets/blog/changelog/0-11-0-0-1.png",
+   "bytes": 3243444
+  },
+  {
+   "path": "assets/blog/changelog/0-12-0-0-1.png",
+   "bytes": 1060023
+  },
+  {
+   "path": "assets/blog/changelog/0-13-0-0-1.jpg",
+   "bytes": 648828
+  },
+  {
+   "path": "assets/blog/changelog/0-14-0-0-1.jpg",
+   "bytes": 1326586
+  },
+  {
+   "path": "assets/blog/changelog/0-14-0-0-2.jpg",
+   "bytes": 1331204
+  },
+  {
+   "path": "assets/blog/changelog/0-14-0-0-3.jpg",
+   "bytes": 1562757
+  },
+  {
+   "path": "assets/blog/changelog/0-7-0-0-1.png",
+   "bytes": 545445
+  },
+  {
+   "path": "assets/blog/changelog/0-9-0-0-1.png",
+   "bytes": 1022344
+  },
+  {
+   "path": "assets/blog/changelog/0-9-0-0-2.png",
+   "bytes": 879379
+  },
+  {
+   "path": "assets/blog/changelog/0-9-0-0-3.png",
+   "bytes": 1261684
+  },
+  {
+   "path": "assets/blog/covers/affiliate-program.png",
+   "bytes": 374068
+  },
+  {
+   "path": "assets/blog/covers/how-teams-use-glaze.png",
+   "bytes": 9171987
+  },
+  {
+   "path": "assets/blog/covers/how-we-use-glaze-at-raycast.png",
+   "bytes": 3448848
+  },
+  {
+   "path": "assets/blog/covers/why-glaze-when-claude-code-and-codex-exist.png",
+   "bytes": 1951128
+  },
+  {
+   "path": "assets/blog/how-teams-use-glaze/linear-app-2.png",
+   "bytes": 195386
+  },
+  {
+   "path": "assets/blog/how-teams-use-glaze/linear-app.png",
+   "bytes": 425971
+  },
+  {
+   "path": "assets/blog/how-teams-use-glaze/vercel-app.png",
+   "bytes": 369596
+  },
+  {
+   "path": "assets/blog/how-we-use-glaze-at-raycast/crm@2x.png",
+   "bytes": 1481616
+  },
+  {
+   "path": "assets/blog/how-we-use-glaze-at-raycast/extension-review@2x.png",
+   "bytes": 1328522
+  },
+  {
+   "path": "assets/blog/how-we-use-glaze-at-raycast/mini-linear@2x.png",
+   "bytes": 701535
+  },
+  {
+   "path": "assets/blog/how-we-use-glaze-at-raycast/quality@2x.png",
+   "bytes": 1112387
+  },
+  {
+   "path": "assets/blog/how-we-use-glaze-at-raycast/raydb@2x.png",
+   "bytes": 1200183
+  },
+  {
+   "path": "assets/blog/optimized/avatar-pedro-duarte.png",
+   "bytes": 10250
+  },
+  {
+   "path": "assets/blog/optimized/avatar-stephanie.png",
+   "bytes": 13948
+  },
+  {
+   "path": "assets/blog/optimized/avatar-thomas-paul-mann.png",
+   "bytes": 9066
+  },
+  {
+   "path": "assets/blog/optimized/changelog-0-10-0-0-1.jpg",
+   "bytes": 87206
+  },
+  {
+   "path": "assets/blog/optimized/changelog-0-11-0-0-1.jpg",
+   "bytes": 258991
+  },
+  {
+   "path": "assets/blog/optimized/changelog-0-12-0-0-1.jpg",
+   "bytes": 83085
+  },
+  {
+   "path": "assets/blog/optimized/changelog-0-13-0-0-1.jpg",
+   "bytes": 282554
+  },
+  {
+   "path": "assets/blog/optimized/changelog-0-14-0-0-1.jpg",
+   "bytes": 112836
+  },
+  {
+   "path": "assets/blog/optimized/changelog-0-14-0-0-2.jpg",
+   "bytes": 93611
+  },
+  {
+   "path": "assets/blog/optimized/changelog-0-14-0-0-3.jpg",
+   "bytes": 106714
+  },
+  {
+   "path": "assets/blog/optimized/changelog-0-7-0-0-1.jpg",
+   "bytes": 76226
+  },
+  {
+   "path": "assets/blog/optimized/changelog-0-9-0-0-1.jpg",
+   "bytes": 90677
+  },
+  {
+   "path": "assets/blog/optimized/changelog-0-9-0-0-2.jpg",
+   "bytes": 61962
+  },
+  {
+   "path": "assets/blog/optimized/changelog-0-9-0-0-3.jpg",
+   "bytes": 84284
+  },
+  {
+   "path": "assets/blog/optimized/cover-affiliate-program.jpg",
+   "bytes": 104754
+  },
+  {
+   "path": "assets/blog/optimized/cover-how-teams-use-glaze.jpg",
+   "bytes": 105366
+  },
+  {
+   "path": "assets/blog/optimized/cover-how-we-use-glaze-at-raycast.jpg",
+   "bytes": 105233
+  },
+  {
+   "path": "assets/blog/optimized/cover-why-glaze-when-claude-code-and-codex-exist.jpg",
+   "bytes": 99000
+  },
+  {
+   "path": "assets/blog/optimized/how-teams-use-glaze-linear-app-2-lg.jpg",
+   "bytes": 90925
+  },
+  {
+   "path": "assets/blog/optimized/how-teams-use-glaze-linear-app-2.jpg",
+   "bytes": 49158
+  },
+  {
+   "path": "assets/blog/optimized/how-teams-use-glaze-linear-app-lg.jpg",
+   "bytes": 195936
+  },
+  {
+   "path": "assets/blog/optimized/how-teams-use-glaze-linear-app.jpg",
+   "bytes": 106208
+  },
+  {
+   "path": "assets/blog/optimized/how-teams-use-glaze-vercel-app-lg.jpg",
+   "bytes": 133320
+  },
+  {
+   "path": "assets/blog/optimized/how-teams-use-glaze-vercel-app.jpg",
+   "bytes": 74787
+  },
+  {
+   "path": "assets/blog/optimized/raycast-crm-lg.jpg",
+   "bytes": 253954
+  },
+  {
+   "path": "assets/blog/optimized/raycast-crm.jpg",
+   "bytes": 122548
+  },
+  {
+   "path": "assets/blog/optimized/raycast-extension-review-lg.jpg",
+   "bytes": 293933
+  },
+  {
+   "path": "assets/blog/optimized/raycast-extension-review.jpg",
+   "bytes": 159473
+  },
+  {
+   "path": "assets/blog/optimized/raycast-mini-linear-lg.jpg",
+   "bytes": 454419
+  },
+  {
+   "path": "assets/blog/optimized/raycast-mini-linear.jpg",
+   "bytes": 237897
+  },
+  {
+   "path": "assets/blog/optimized/raycast-quality-lg.jpg",
+   "bytes": 354880
+  },
+  {
+   "path": "assets/blog/optimized/raycast-quality.jpg",
+   "bytes": 190966
+  },
+  {
+   "path": "assets/blog/optimized/raycast-raydb-lg.jpg",
+   "bytes": 416720
+  },
+  {
+   "path": "assets/blog/optimized/raycast-raydb.jpg",
+   "bytes": 215293
+  },
+  {
+   "path": "assets/c886a4dc-f178-4660-91b0-92fd8d1ddd92-icon-512.png",
+   "bytes": 58240
+  },
+  {
+   "path": "assets/cf580281-dca7-4aca-8f9d-6992989902ab-icon-512.png",
+   "bytes": 85882
+  },
+  {
+   "path": "assets/da759704-000f-4910-b1e2-db28610ec355.png",
+   "bytes": 1788
+  },
+  {
+   "path": "assets/favicon.ico",
+   "bytes": 8254
+  },
+  {
+   "path": "assets/favicon.svg",
+   "bytes": 41534
+  },
+  {
+   "path": "assets/feature-agent-m@2x-SqlCEaw_.png",
+   "bytes": 118440
+  },
+  {
+   "path": "assets/feature-agent@2x-DiXdV7jJ.png",
+   "bytes": 385109
+  },
+  {
+   "path": "assets/feature-annotate-m@2x-BUOqd2MG.png",
+   "bytes": 22720
+  },
+  {
+   "path": "assets/feature-annotate@2x-CEgsXauF.png",
+   "bytes": 44083
+  },
+  {
+   "path": "assets/feature-byo-agent-m@2x-DzJfhShO.png",
+   "bytes": 55863
+  },
+  {
+   "path": "assets/feature-byo-agent@2x-O6LGWpOW.png",
+   "bytes": 145764
+  },
+  {
+   "path": "assets/feature-publish-m@2x-CA9HDStp.png",
+   "bytes": 74483
+  },
+  {
+   "path": "assets/feature-publish@2x-BAnZng48.png",
+   "bytes": 114221
+  },
+  {
+   "path": "assets/feature-store-m@2x-D2JyDUG_.png",
+   "bytes": 312035
+  },
+  {
+   "path": "assets/feature-store@2x-C0XIoenz.png",
+   "bytes": 51891
+  },
+  {
+   "path": "assets/feature-teams-m@2x-DAeBdK0q.png",
+   "bytes": 103475
+  },
+  {
+   "path": "assets/feature-teams@2x-BMpRWF7u.png",
+   "bytes": 161531
+  },
+  {
+   "path": "assets/fonts/instrument-sans-latin-CclBWeUS.woff2",
+   "bytes": 29904
+  },
+  {
+   "path": "assets/fonts/instrument-sans-latin-ext-oUstOPQL.woff2",
+   "bytes": 11092
+  },
+  {
+   "path": "assets/fonts/inter-latin-8kRkwJBP.woff2",
+   "bytes": 48432
+  },
+  {
+   "path": "assets/fonts/inter-latin-ext-B_-bZUTo.woff2",
+   "bytes": 85272
+  },
+  {
+   "path": "assets/intro-loop-0kts42Ml.mp4",
+   "bytes": 3540300
+  },
+  {
+   "path": "assets/logo-full-DAu7MkQ8.svg",
+   "bytes": 43046
+  },
+  {
+   "path": "assets/marketing/anthropic-wordmark.svg",
+   "bytes": 1758
+  },
+  {
+   "path": "assets/marketing/award-peoples-choice@2x-C7Vw5M8e.png",
+   "bytes": 35052
+  },
+  {
+   "path": "assets/marketing/awards-hero-84xk2ZFP.mp4",
+   "bytes": 1379396
+  },
+  {
+   "path": "assets/marketing/claude-mark.svg",
+   "bytes": 1977
+  },
+  {
+   "path": "assets/marketing/jury-aaron-epstein-CI99EqL_.jpg",
+   "bytes": 330525
+  },
+  {
+   "path": "assets/marketing/jury-casey-newton-CgjmWGYh.jpg",
+   "bytes": 16508
+  },
+  {
+   "path": "assets/marketing/jury-nate-parrott-DBsKCChd.jpg",
+   "bytes": 22951
+  },
+  {
+   "path": "assets/marketing/jury-thomas-paul-mann-DxpUeMsu.jpg",
+   "bytes": 17943
+  },
+  {
+   "path": "assets/marketing/jury-zeh-fernandes-BrsmNVwG.jpg",
+   "bytes": 30375
+  },
+  {
+   "path": "assets/og-glaze@2x.jpg",
+   "bytes": 590090
+  },
+  {
+   "path": "assets/store/ai-skills-browser-vMg0FR-icon.png",
+   "bytes": 264789
+  },
+  {
+   "path": "assets/store/amber-vZzCwc-icon.png",
+   "bytes": 275515
+  },
+  {
+   "path": "assets/store/animatic-viewer-L9l7uv-icon.png",
+   "bytes": 266448
+  },
+  {
+   "path": "assets/store/apex-G9U92C-icon.png",
+   "bytes": 272790
+  },
+  {
+   "path": "assets/store/ascii-capture-KxyppG-icon.png",
+   "bytes": 312138
+  },
+  {
+   "path": "assets/store/avatar-adam.png",
+   "bytes": 12754
+  },
+  {
+   "path": "assets/store/avatar-aedelheit.png",
+   "bytes": 10093
+  },
+  {
+   "path": "assets/store/avatar-ajayodedra00000.jpg",
+   "bytes": 4668
+  },
+  {
+   "path": "assets/store/avatar-alendamadzic.png",
+   "bytes": 171452
+  },
+  {
+   "path": "assets/store/avatar-alexi.build.jpg",
+   "bytes": 57828
+  },
+  {
+   "path": "assets/store/avatar-artsvuni.jpg",
+   "bytes": 791896
+  },
+  {
+   "path": "assets/store/avatar-asubbotin.jpg",
+   "bytes": 4096
+  },
+  {
+   "path": "assets/store/avatar-aumchauhan.jpg",
+   "bytes": 2446
+  },
+  {
+   "path": "assets/store/avatar-bursi.romain.jpg",
+   "bytes": 4144
+  },
+  {
+   "path": "assets/store/avatar-dferg.jpg",
+   "bytes": 5756
+  },
+  {
+   "path": "assets/store/avatar-dillon.jpg",
+   "bytes": 30032
+  },
+  {
+   "path": "assets/store/avatar-erbilnas.jpg",
+   "bytes": 4518
+  },
+  {
+   "path": "assets/store/avatar-extrastu888.png",
+   "bytes": 1231
+  },
+  {
+   "path": "assets/store/avatar-farthergate.jpg",
+   "bytes": 7105401
+  },
+  {
+   "path": "assets/store/avatar-heydorofeev.jpg",
+   "bytes": 5228
+  },
+  {
+   "path": "assets/store/avatar-imaikosuke.png",
+   "bytes": 14428
+  },
+  {
+   "path": "assets/store/avatar-jac.jpg",
+   "bytes": 3251
+  },
+  {
+   "path": "assets/store/avatar-joao.png",
+   "bytes": 791
+  },
+  {
+   "path": "assets/store/avatar-joshdprts.jpg",
+   "bytes": 48260
+  },
+  {
+   "path": "assets/store/avatar-kristina.jpg",
+   "bytes": 2846
+  },
+  {
+   "path": "assets/store/avatar-lefty.v0.gif",
+   "bytes": 95966
+  },
+  {
+   "path": "assets/store/avatar-lexav.png",
+   "bytes": 505492
+  },
+  {
+   "path": "assets/store/avatar-litomore.jpg",
+   "bytes": 3709
+  },
+  {
+   "path": "assets/store/avatar-lukeberrypi.jpg",
+   "bytes": 4087
+  },
+  {
+   "path": "assets/store/avatar-marcelo.png",
+   "bytes": 1000
+  },
+  {
+   "path": "assets/store/avatar-mauc.thomas.jpg",
+   "bytes": 4272
+  },
+  {
+   "path": "assets/store/avatar-mayven.png",
+   "bytes": 363457
+  },
+  {
+   "path": "assets/store/avatar-melvin.lauber.jpg",
+   "bytes": 479524
+  },
+  {
+   "path": "assets/store/avatar-muntyan.dana.jpg",
+   "bytes": 4443
+  },
+  {
+   "path": "assets/store/avatar-nichlas.png",
+   "bytes": 1711
+  },
+  {
+   "path": "assets/store/avatar-noman.jpeg",
+   "bytes": 830440
+  },
+  {
+   "path": "assets/store/avatar-novikoff.jpeg",
+   "bytes": 5711748
+  },
+  {
+   "path": "assets/store/avatar-Olli0103.jpg",
+   "bytes": 4767
+  },
+  {
+   "path": "assets/store/avatar-pedro.jpg",
+   "bytes": 5720
+  },
+  {
+   "path": "assets/store/avatar-ridemountainpig.png",
+   "bytes": 5697
+  },
+  {
+   "path": "assets/store/avatar-s.peacock.jpg",
+   "bytes": 1269160
+  },
+  {
+   "path": "assets/store/avatar-sambit.biswas2.jpg",
+   "bytes": 3306
+  },
+  {
+   "path": "assets/store/avatar-samekelzo.png",
+   "bytes": 5768
+  },
+  {
+   "path": "assets/store/avatar-samuel.jpg",
+   "bytes": 3357
+  },
+  {
+   "path": "assets/store/avatar-scottmillergavin.png",
+   "bytes": 14831
+  },
+  {
+   "path": "assets/store/avatar-shivraj-roy.png",
+   "bytes": 2675
+  },
+  {
+   "path": "assets/store/avatar-slack.png",
+   "bytes": 349601
+  },
+  {
+   "path": "assets/store/avatar-tan.png",
+   "bytes": 2863322
+  },
+  {
+   "path": "assets/store/avatar-thomas.jpg",
+   "bytes": 2697
+  },
+  {
+   "path": "assets/store/avatar-unnamedd.jpg",
+   "bytes": 4888
+  },
+  {
+   "path": "assets/store/avatar-vladbahara.jpg",
+   "bytes": 4083
+  },
+  {
+   "path": "assets/store/avatar-vollbio.png",
+   "bytes": 252235
+  },
+  {
+   "path": "assets/store/avatar-will.be.yassine.png",
+   "bytes": 1165
+  },
+  {
+   "path": "assets/store/avatar-yannglt.jpg",
+   "bytes": 3399
+  },
+  {
+   "path": "assets/store/avatar-zibonnn.jpg",
+   "bytes": 4834
+  },
+  {
+   "path": "assets/store/awesome-script-commands-Hi544G-icon.png",
+   "bytes": 220252
+  },
+  {
+   "path": "assets/store/brand-icons-IydK5q-icon.png",
+   "bytes": 196737
+  },
+  {
+   "path": "assets/store/clip-that-h1OVuq-icon.png",
+   "bytes": 273424
+  },
+  {
+   "path": "assets/store/collections-rlLRUx-icon.png",
+   "bytes": 216070
+  },
+  {
+   "path": "assets/store/colorkit-gY80LA-icon.png",
+   "bytes": 325190
+  },
+  {
+   "path": "assets/store/cs-glaze-synth-9TGenH-hero.png",
+   "bytes": 748170
+  },
+  {
+   "path": "assets/store/cs-glaze-synth-9TGenH-icon.png",
+   "bytes": 228237
+  },
+  {
+   "path": "assets/store/cursor-sentinel-h1pvbv-icon.png",
+   "bytes": 267013
+  },
+  {
+   "path": "assets/store/curves-a8OtIv-icon.png",
+   "bytes": 242304
+  },
+  {
+   "path": "assets/store/defaults-G62ohp-icon.png",
+   "bytes": 248140
+  },
+  {
+   "path": "assets/store/diffcheck-72vYWq-icon.png",
+   "bytes": 226640
+  },
+  {
+   "path": "assets/store/dino-rocket-biBVb1-icon.png",
+   "bytes": 302854
+  },
+  {
+   "path": "assets/store/dithermint-C5rwqe-icon.png",
+   "bytes": 236043
+  },
+  {
+   "path": "assets/store/elsewhere-khfW1h-cover.png",
+   "bytes": 1840969
+  },
+  {
+   "path": "assets/store/elsewhere-khfW1h-icon.png",
+   "bytes": 260232
+  },
+  {
+   "path": "assets/store/elsewhere-khfW1h-shot-1.png",
+   "bytes": 1561521
+  },
+  {
+   "path": "assets/store/elsewhere-khfW1h-shot-2.png",
+   "bytes": 1531518
+  },
+  {
+   "path": "assets/store/elsewhere-khfW1h-shot-3.png",
+   "bytes": 2238987
+  },
+  {
+   "path": "assets/store/elsewhere-khfW1h-shot-4.png",
+   "bytes": 1578906
+  },
+  {
+   "path": "assets/store/elsewhere-khfW1h-shot-5.png",
+   "bytes": 1631072
+  },
+  {
+   "path": "assets/store/emoji-generator-AOV7jA-icon.png",
+   "bytes": 209503
+  },
+  {
+   "path": "assets/store/esv-reader-cbXWPr-icon.png",
+   "bytes": 221488
+  },
+  {
+   "path": "assets/store/fileorganizer-b8Z199-icon.png",
+   "bytes": 241630
+  },
+  {
+   "path": "assets/store/floating-youtube-JUv9e2-icon.png",
+   "bytes": 228191
+  },
+  {
+   "path": "assets/store/foam-case-designer-4ItSi9-icon.png",
+   "bytes": 343548
+  },
+  {
+   "path": "assets/store/font-finder-O2kYPe-hero.png",
+   "bytes": 1743616
+  },
+  {
+   "path": "assets/store/font-finder-O2kYPe-icon.png",
+   "bytes": 279025
+  },
+  {
+   "path": "assets/store/funky-mirror-yHoT78-hero.png",
+   "bytes": 573917
+  },
+  {
+   "path": "assets/store/funky-mirror-yHoT78-icon.png",
+   "bytes": 277881
+  },
+  {
+   "path": "assets/store/gradient-studio-RKHl03-icon.png",
+   "bytes": 241413
+  },
+  {
+   "path": "assets/store/gradient-wallpaper-AJuY62-icon.png",
+   "bytes": 264195
+  },
+  {
+   "path": "assets/store/grandpa-yells-xdYvMx-icon.png",
+   "bytes": 294357
+  },
+  {
+   "path": "assets/store/health-fusion-ikcWiD-icon.png",
+   "bytes": 340566
+  },
+  {
+   "path": "assets/store/highlight-puwjxR-icon.png",
+   "bytes": 331859
+  },
+  {
+   "path": "assets/store/icon-composer-pro-max-T84s2x-icon.png",
+   "bytes": 286847
+  },
+  {
+   "path": "assets/store/icon-keeper-x9TGum-hero.png",
+   "bytes": 1185231
+  },
+  {
+   "path": "assets/store/icon-keeper-x9TGum-icon.png",
+   "bytes": 274667
+  },
+  {
+   "path": "assets/store/image-sequencer-IxkyCn-icon.png",
+   "bytes": 147957
+  },
+  {
+   "path": "assets/store/image-sequencer-IxkyCn-shot-1.png",
+   "bytes": 1252620
+  },
+  {
+   "path": "assets/store/image-sequencer-IxkyCn-shot-2.png",
+   "bytes": 1206201
+  },
+  {
+   "path": "assets/store/image-sequencer-IxkyCn-shot-3.png",
+   "bytes": 1439918
+  },
+  {
+   "path": "assets/store/image-sequencer-IxkyCn-shot-4.png",
+   "bytes": 1421273
+  },
+  {
+   "path": "assets/store/image-sequencer-IxkyCn-shot-5.png",
+   "bytes": 1399221
+  },
+  {
+   "path": "assets/store/image-sequencer-quick-slideshow-Z0idNt-icon.png",
+   "bytes": 147957
+  },
+  {
+   "path": "assets/store/image-sequencer-quick-slideshow-Z0idNt-shot-1.png",
+   "bytes": 3594787
+  },
+  {
+   "path": "assets/store/image-title-and-caption-editor-fxAFH2-icon.png",
+   "bytes": 241427
+  },
+  {
+   "path": "assets/store/kalcy-gSzJCA-icon.png",
+   "bytes": 187792
+  },
+  {
+   "path": "assets/store/kalcy-gSzJCA-shot-1.png",
+   "bytes": 4130592
+  },
+  {
+   "path": "assets/store/kalcy-gSzJCA-shot-2.png",
+   "bytes": 3758954
+  },
+  {
+   "path": "assets/store/kalcy-gSzJCA-shot-3.png",
+   "bytes": 4032049
+  },
+  {
+   "path": "assets/store/kalcy-gSzJCA-shot-4.png",
+   "bytes": 3748131
+  },
+  {
+   "path": "assets/store/kalcy-gSzJCA-shot-5.png",
+   "bytes": 3879833
+  },
+  {
+   "path": "assets/store/kanban-GG7B7o-icon.png",
+   "bytes": 261151
+  },
+  {
+   "path": "assets/store/life-dashboard-OgIVbc-icon.png",
+   "bytes": 313305
+  },
+  {
+   "path": "assets/store/liquid-commander-84kacm-hero.jpeg",
+   "bytes": 971119
+  },
+  {
+   "path": "assets/store/liquid-commander-84kacm-icon.png",
+   "bytes": 164898
+  },
+  {
+   "path": "assets/store/logos-QKNEHI-icon.png",
+   "bytes": 191058
+  },
+  {
+   "path": "assets/store/macbook-duo-yUKOJp-icon.png",
+   "bytes": 257461
+  },
+  {
+   "path": "assets/store/markdown-tagger-gkm45Q-icon.png",
+   "bytes": 201137
+  },
+  {
+   "path": "assets/store/mia-calendar-N2NgPq-hero.jpeg",
+   "bytes": 1426891
+  },
+  {
+   "path": "assets/store/mia-calendar-N2NgPq-icon.png",
+   "bytes": 111607
+  },
+  {
+   "path": "assets/store/moodboard-0LJlsa-icon.png",
+   "bytes": 225792
+  },
+  {
+   "path": "assets/store/my-stash-CDBw9Z-cover.png",
+   "bytes": 1185544
+  },
+  {
+   "path": "assets/store/my-stash-CDBw9Z-icon.png",
+   "bytes": 295694
+  },
+  {
+   "path": "assets/store/my-stash-CDBw9Z-shot-1.png",
+   "bytes": 1989163
+  },
+  {
+   "path": "assets/store/my-stash-CDBw9Z-shot-2.png",
+   "bytes": 1452322
+  },
+  {
+   "path": "assets/store/my-stash-CDBw9Z-shot-3.png",
+   "bytes": 1392381
+  },
+  {
+   "path": "assets/store/my-stash-CDBw9Z-shot-4.png",
+   "bytes": 1959056
+  },
+  {
+   "path": "assets/store/my-stash-CDBw9Z-shot-5.png",
+   "bytes": 1061518
+  },
+  {
+   "path": "assets/store/my-stash-CDBw9Z-shot-6.png",
+   "bytes": 1206508
+  },
+  {
+   "path": "assets/store/netstatus-menubar-aBCeWV-icon.png",
+   "bytes": 201671
+  },
+  {
+   "path": "assets/store/optimized/ai-skills-browser-vMg0FR-icon.png",
+   "bytes": 73742
+  },
+  {
+   "path": "assets/store/optimized/amber-vZzCwc-icon.png",
+   "bytes": 75334
+  },
+  {
+   "path": "assets/store/optimized/animatic-viewer-L9l7uv-icon.png",
+   "bytes": 70555
+  },
+  {
+   "path": "assets/store/optimized/apex-G9U92C-icon.png",
+   "bytes": 74680
+  },
+  {
+   "path": "assets/store/optimized/ascii-capture-KxyppG-icon.png",
+   "bytes": 85849
+  },
+  {
+   "path": "assets/store/optimized/avatar-adam.png",
+   "bytes": 12754
+  },
+  {
+   "path": "assets/store/optimized/avatar-aedelheit.png",
+   "bytes": 10093
+  },
+  {
+   "path": "assets/store/optimized/avatar-ajayodedra00000.jpg",
+   "bytes": 4668
+  },
+  {
+   "path": "assets/store/optimized/avatar-alendamadzic.png",
+   "bytes": 13776
+  },
+  {
+   "path": "assets/store/optimized/avatar-alexi.build.jpg",
+   "bytes": 4188
+  },
+  {
+   "path": "assets/store/optimized/avatar-artsvuni.jpg",
+   "bytes": 3818
+  },
+  {
+   "path": "assets/store/optimized/avatar-asubbotin.jpg",
+   "bytes": 4096
+  },
+  {
+   "path": "assets/store/optimized/avatar-aumchauhan.jpg",
+   "bytes": 2446
+  },
+  {
+   "path": "assets/store/optimized/avatar-bursi.romain.jpg",
+   "bytes": 4144
+  },
+  {
+   "path": "assets/store/optimized/avatar-dferg.jpg",
+   "bytes": 5756
+  },
+  {
+   "path": "assets/store/optimized/avatar-dillon.jpg",
+   "bytes": 2623
+  },
+  {
+   "path": "assets/store/optimized/avatar-erbilnas.jpg",
+   "bytes": 4518
+  },
+  {
+   "path": "assets/store/optimized/avatar-extrastu888.png",
+   "bytes": 1231
+  },
+  {
+   "path": "assets/store/optimized/avatar-farthergate.jpg",
+   "bytes": 5291
+  },
+  {
+   "path": "assets/store/optimized/avatar-heydorofeev.jpg",
+   "bytes": 5228
+  },
+  {
+   "path": "assets/store/optimized/avatar-imaikosuke.png",
+   "bytes": 14428
+  },
+  {
+   "path": "assets/store/optimized/avatar-jac.jpg",
+   "bytes": 3251
+  },
+  {
+   "path": "assets/store/optimized/avatar-joao.png",
+   "bytes": 791
+  },
+  {
+   "path": "assets/store/optimized/avatar-joshdprts.jpg",
+   "bytes": 3911
+  },
+  {
+   "path": "assets/store/optimized/avatar-kristina.jpg",
+   "bytes": 2846
+  },
+  {
+   "path": "assets/store/optimized/avatar-lefty.v0.gif",
+   "bytes": 95966
+  },
+  {
+   "path": "assets/store/optimized/avatar-lexav.png",
+   "bytes": 10723
+  },
+  {
+   "path": "assets/store/optimized/avatar-litomore.jpg",
+   "bytes": 3709
+  },
+  {
+   "path": "assets/store/optimized/avatar-lukeberrypi.jpg",
+   "bytes": 4087
+  },
+  {
+   "path": "assets/store/optimized/avatar-marcelo.png",
+   "bytes": 1000
+  },
+  {
+   "path": "assets/store/optimized/avatar-mauc.thomas.jpg",
+   "bytes": 4272
+  },
+  {
+   "path": "assets/store/optimized/avatar-mayven.png",
+   "bytes": 13891
+  },
+  {
+   "path": "assets/store/optimized/avatar-melvin.lauber.jpg",
+   "bytes": 2454
+  },
+  {
+   "path": "assets/store/optimized/avatar-muntyan.dana.jpg",
+   "bytes": 4443
+  },
+  {
+   "path": "assets/store/optimized/avatar-nichlas.png",
+   "bytes": 1711
+  },
+  {
+   "path": "assets/store/optimized/avatar-noman.jpeg",
+   "bytes": 2241
+  },
+  {
+   "path": "assets/store/optimized/avatar-novikoff.jpeg",
+   "bytes": 7377
+  },
+  {
+   "path": "assets/store/optimized/avatar-Olli0103.jpg",
+   "bytes": 4767
+  },
+  {
+   "path": "assets/store/optimized/avatar-pedro.jpg",
+   "bytes": 5720
+  },
+  {
+   "path": "assets/store/optimized/avatar-ridemountainpig.png",
+   "bytes": 5697
+  },
+  {
+   "path": "assets/store/optimized/avatar-s.peacock.jpg",
+   "bytes": 9231
+  },
+  {
+   "path": "assets/store/optimized/avatar-sambit.biswas2.jpg",
+   "bytes": 3306
+  },
+  {
+   "path": "assets/store/optimized/avatar-samekelzo.png",
+   "bytes": 5768
+  },
+  {
+   "path": "assets/store/optimized/avatar-samuel.jpg",
+   "bytes": 3357
+  },
+  {
+   "path": "assets/store/optimized/avatar-scottmillergavin.png",
+   "bytes": 14831
+  },
+  {
+   "path": "assets/store/optimized/avatar-shivraj-roy.png",
+   "bytes": 2675
+  },
+  {
+   "path": "assets/store/optimized/avatar-slack.png",
+   "bytes": 14745
+  },
+  {
+   "path": "assets/store/optimized/avatar-tan.png",
+   "bytes": 9533
+  },
+  {
+   "path": "assets/store/optimized/avatar-thomas.jpg",
+   "bytes": 2697
+  },
+  {
+   "path": "assets/store/optimized/avatar-unnamedd.jpg",
+   "bytes": 4888
+  },
+  {
+   "path": "assets/store/optimized/avatar-vladbahara.jpg",
+   "bytes": 4083
+  },
+  {
+   "path": "assets/store/optimized/avatar-vollbio.png",
+   "bytes": 16840
+  },
+  {
+   "path": "assets/store/optimized/avatar-will.be.yassine.png",
+   "bytes": 1165
+  },
+  {
+   "path": "assets/store/optimized/avatar-yannglt.jpg",
+   "bytes": 3399
+  },
+  {
+   "path": "assets/store/optimized/avatar-zibonnn.jpg",
+   "bytes": 4834
+  },
+  {
+   "path": "assets/store/optimized/awesome-script-commands-Hi544G-icon.png",
+   "bytes": 63900
+  },
+  {
+   "path": "assets/store/optimized/brand-icons-IydK5q-icon.png",
+   "bytes": 55856
+  },
+  {
+   "path": "assets/store/optimized/clip-that-h1OVuq-icon.png",
+   "bytes": 69627
+  },
+  {
+   "path": "assets/store/optimized/collections-rlLRUx-icon.png",
+   "bytes": 59509
+  },
+  {
+   "path": "assets/store/optimized/colorkit-gY80LA-icon.png",
+   "bytes": 95326
+  },
+  {
+   "path": "assets/store/optimized/cs-glaze-synth-9TGenH-hero.jpg",
+   "bytes": 367232
+  },
+  {
+   "path": "assets/store/optimized/cs-glaze-synth-9TGenH-icon.png",
+   "bytes": 57292
+  },
+  {
+   "path": "assets/store/optimized/cursor-sentinel-h1pvbv-icon.png",
+   "bytes": 74023
+  },
+  {
+   "path": "assets/store/optimized/curves-a8OtIv-icon.png",
+   "bytes": 65561
+  },
+  {
+   "path": "assets/store/optimized/defaults-G62ohp-icon.png",
+   "bytes": 68975
+  },
+  {
+   "path": "assets/store/optimized/diffcheck-72vYWq-icon.png",
+   "bytes": 62529
+  },
+  {
+   "path": "assets/store/optimized/dino-rocket-biBVb1-icon.png",
+   "bytes": 85626
+  },
+  {
+   "path": "assets/store/optimized/dithermint-C5rwqe-icon.png",
+   "bytes": 60175
+  },
+  {
+   "path": "assets/store/optimized/elsewhere-khfW1h-cover.jpg",
+   "bytes": 214539
+  },
+  {
+   "path": "assets/store/optimized/elsewhere-khfW1h-icon.png",
+   "bytes": 72294
+  },
+  {
+   "path": "assets/store/optimized/elsewhere-khfW1h-shot-1.png",
+   "bytes": 553592
+  },
+  {
+   "path": "assets/store/optimized/elsewhere-khfW1h-shot-2.png",
+   "bytes": 547793
+  },
+  {
+   "path": "assets/store/optimized/elsewhere-khfW1h-shot-3.jpg",
+   "bytes": 104849
+  },
+  {
+   "path": "assets/store/optimized/elsewhere-khfW1h-shot-4.png",
+   "bytes": 600954
+  },
+  {
+   "path": "assets/store/optimized/elsewhere-khfW1h-shot-5.png",
+   "bytes": 587068
+  },
+  {
+   "path": "assets/store/optimized/emoji-generator-AOV7jA-icon.png",
+   "bytes": 58770
+  },
+  {
+   "path": "assets/store/optimized/esv-reader-cbXWPr-icon.png",
+   "bytes": 62612
+  },
+  {
+   "path": "assets/store/optimized/fileorganizer-b8Z199-icon.png",
+   "bytes": 63165
+  },
+  {
+   "path": "assets/store/optimized/floating-youtube-JUv9e2-icon.png",
+   "bytes": 64435
+  },
+  {
+   "path": "assets/store/optimized/foam-case-designer-4ItSi9-icon.png",
+   "bytes": 88554
+  },
+  {
+   "path": "assets/store/optimized/font-finder-O2kYPe-hero.jpg",
+   "bytes": 215684
+  },
+  {
+   "path": "assets/store/optimized/font-finder-O2kYPe-icon.png",
+   "bytes": 71260
+  },
+  {
+   "path": "assets/store/optimized/funky-mirror-yHoT78-hero.jpg",
+   "bytes": 244293
+  },
+  {
+   "path": "assets/store/optimized/funky-mirror-yHoT78-icon.png",
+   "bytes": 79595
+  },
+  {
+   "path": "assets/store/optimized/gradient-studio-RKHl03-icon.png",
+   "bytes": 61509
+  },
+  {
+   "path": "assets/store/optimized/gradient-wallpaper-AJuY62-icon.png",
+   "bytes": 71687
+  },
+  {
+   "path": "assets/store/optimized/grandpa-yells-xdYvMx-icon.png",
+   "bytes": 81880
+  },
+  {
+   "path": "assets/store/optimized/health-fusion-ikcWiD-icon.png",
+   "bytes": 95229
+  },
+  {
+   "path": "assets/store/optimized/highlight-puwjxR-icon.png",
+   "bytes": 91484
+  },
+  {
+   "path": "assets/store/optimized/icon-composer-pro-max-T84s2x-icon.png",
+   "bytes": 79724
+  },
+  {
+   "path": "assets/store/optimized/icon-keeper-x9TGum-hero.jpg",
+   "bytes": 168852
+  },
+  {
+   "path": "assets/store/optimized/icon-keeper-x9TGum-icon.png",
+   "bytes": 74974
+  },
+  {
+   "path": "assets/store/optimized/image-sequencer-IxkyCn-icon.png",
+   "bytes": 44047
+  },
+  {
+   "path": "assets/store/optimized/image-sequencer-IxkyCn-shot-1.jpg",
+   "bytes": 71173
+  },
+  {
+   "path": "assets/store/optimized/image-sequencer-IxkyCn-shot-2.png",
+   "bytes": 598518
+  },
+  {
+   "path": "assets/store/optimized/image-sequencer-IxkyCn-shot-3.jpg",
+   "bytes": 79513
+  },
+  {
+   "path": "assets/store/optimized/image-sequencer-IxkyCn-shot-4.jpg",
+   "bytes": 80002
+  },
+  {
+   "path": "assets/store/optimized/image-sequencer-IxkyCn-shot-5.jpg",
+   "bytes": 80624
+  },
+  {
+   "path": "assets/store/optimized/image-sequencer-quick-slideshow-Z0idNt-icon.png",
+   "bytes": 44047
+  },
+  {
+   "path": "assets/store/optimized/image-sequencer-quick-slideshow-Z0idNt-shot-1.jpg",
+   "bytes": 172870
+  },
+  {
+   "path": "assets/store/optimized/image-title-and-caption-editor-fxAFH2-icon.png",
+   "bytes": 64609
+  },
+  {
+   "path": "assets/store/optimized/kalcy-gSzJCA-icon.png",
+   "bytes": 49030
+  },
+  {
+   "path": "assets/store/optimized/kalcy-gSzJCA-shot-1.jpg",
+   "bytes": 165187
+  },
+  {
+   "path": "assets/store/optimized/kalcy-gSzJCA-shot-2.jpg",
+   "bytes": 118887
+  },
+  {
+   "path": "assets/store/optimized/kalcy-gSzJCA-shot-3.jpg",
+   "bytes": 145251
+  },
+  {
+   "path": "assets/store/optimized/kalcy-gSzJCA-shot-4.jpg",
+   "bytes": 121703
+  },
+  {
+   "path": "assets/store/optimized/kalcy-gSzJCA-shot-5.jpg",
+   "bytes": 128433
+  },
+  {
+   "path": "assets/store/optimized/kanban-GG7B7o-icon.png",
+   "bytes": 64013
+  },
+  {
+   "path": "assets/store/optimized/life-dashboard-OgIVbc-icon.png",
+   "bytes": 88622
+  },
+  {
+   "path": "assets/store/optimized/liquid-commander-84kacm-hero.jpg",
+   "bytes": 194725
+  },
+  {
+   "path": "assets/store/optimized/liquid-commander-84kacm-icon.png",
+   "bytes": 43624
+  },
+  {
+   "path": "assets/store/optimized/logos-QKNEHI-icon.png",
+   "bytes": 51030
+  },
+  {
+   "path": "assets/store/optimized/macbook-duo-yUKOJp-icon.png",
+   "bytes": 70972
+  },
+  {
+   "path": "assets/store/optimized/markdown-tagger-gkm45Q-icon.png",
+   "bytes": 52758
+  },
+  {
+   "path": "assets/store/optimized/mia-calendar-N2NgPq-hero.jpg",
+   "bytes": 179599
+  },
+  {
+   "path": "assets/store/optimized/mia-calendar-N2NgPq-icon.png",
+   "bytes": 38551
+  },
+  {
+   "path": "assets/store/optimized/moodboard-0LJlsa-icon.png",
+   "bytes": 62272
+  },
+  {
+   "path": "assets/store/optimized/my-stash-CDBw9Z-cover.jpg",
+   "bytes": 82908
+  },
+  {
+   "path": "assets/store/optimized/my-stash-CDBw9Z-icon.png",
+   "bytes": 77137
+  },
+  {
+   "path": "assets/store/optimized/my-stash-CDBw9Z-shot-1.jpg",
+   "bytes": 138537
+  },
+  {
+   "path": "assets/store/optimized/my-stash-CDBw9Z-shot-2.jpg",
+   "bytes": 96187
+  },
+  {
+   "path": "assets/store/optimized/my-stash-CDBw9Z-shot-3.jpg",
+   "bytes": 85340
+  },
+  {
+   "path": "assets/store/optimized/my-stash-CDBw9Z-shot-4.jpg",
+   "bytes": 140944
+  },
+  {
+   "path": "assets/store/optimized/my-stash-CDBw9Z-shot-5.jpg",
+   "bytes": 58742
+  },
+  {
+   "path": "assets/store/optimized/my-stash-CDBw9Z-shot-6.jpg",
+   "bytes": 72773
+  },
+  {
+   "path": "assets/store/optimized/netstatus-menubar-aBCeWV-icon.png",
+   "bytes": 53221
+  },
+  {
+   "path": "assets/store/optimized/outside-bkH281-icon.png",
+   "bytes": 57819
+  },
+  {
+   "path": "assets/store/optimized/palette-65yIqh-icon.png",
+   "bytes": 50238
+  },
+  {
+   "path": "assets/store/optimized/pdf-toolkit-wmBfSO-icon.png",
+   "bytes": 26005
+  },
+  {
+   "path": "assets/store/optimized/quick-transparent-ggTRMi-icon.png",
+   "bytes": 39085
+  },
+  {
+   "path": "assets/store/optimized/radical-s4LsSN-icon.png",
+   "bytes": 61728
+  },
+  {
+   "path": "assets/store/optimized/radius-match-6p1dce-icon.png",
+   "bytes": 59269
+  },
+  {
+   "path": "assets/store/optimized/raycast-maze-Meh4qI-icon.png",
+   "bytes": 68879
+  },
+  {
+   "path": "assets/store/optimized/rayfm-Af8oi9-icon.png",
+   "bytes": 74402
+  },
+  {
+   "path": "assets/store/optimized/sampler-daIOtZ-hero.jpg",
+   "bytes": 193340
+  },
+  {
+   "path": "assets/store/optimized/sampler-daIOtZ-icon.png",
+   "bytes": 74216
+  },
+  {
+   "path": "assets/store/optimized/shader-walls-r63Yjl-icon.png",
+   "bytes": 75466
+  },
+  {
+   "path": "assets/store/optimized/substrack-Sxg9zV-icon.png",
+   "bytes": 39293
+  },
+  {
+   "path": "assets/store/optimized/sumscribe-zM3HxL-icon.png",
+   "bytes": 74043
+  },
+  {
+   "path": "assets/store/optimized/the-dock-u2upth-icon.png",
+   "bytes": 61184
+  },
+  {
+   "path": "assets/store/optimized/the-last-blockbuster-oRLCOs-cover.jpg",
+   "bytes": 378091
+  },
+  {
+   "path": "assets/store/optimized/the-last-blockbuster-oRLCOs-icon.png",
+   "bytes": 99694
+  },
+  {
+   "path": "assets/store/optimized/the-last-blockbuster-oRLCOs-shot-1.jpg",
+   "bytes": 338361
+  },
+  {
+   "path": "assets/store/optimized/the-last-blockbuster-oRLCOs-shot-2.jpg",
+   "bytes": 334978
+  },
+  {
+   "path": "assets/store/optimized/the-last-blockbuster-oRLCOs-shot-3.jpg",
+   "bytes": 394975
+  },
+  {
+   "path": "assets/store/optimized/this-STOdhd-icon.png",
+   "bytes": 64438
+  },
+  {
+   "path": "assets/store/optimized/voxel-studio-W1Zhxy-icon.png",
+   "bytes": 77987
+  },
+  {
+   "path": "assets/store/optimized/vsual-yJ5G1q-icon.png",
+   "bytes": 72126
+  },
+  {
+   "path": "assets/store/optimized/x-check-WGefMt-icon.png",
+   "bytes": 73604
+  },
+  {
+   "path": "assets/store/optimized/yolo-PSjYlj-icon.png",
+   "bytes": 63480
+  },
+  {
+   "path": "assets/store/outside-bkH281-icon.png",
+   "bytes": 195160
+  },
+  {
+   "path": "assets/store/palette-65yIqh-icon.png",
+   "bytes": 180810
+  },
+  {
+   "path": "assets/store/pdf-toolkit-wmBfSO-icon.png",
+   "bytes": 78276
+  },
+  {
+   "path": "assets/store/quick-transparent-ggTRMi-icon.png",
+   "bytes": 95294
+  },
+  {
+   "path": "assets/store/radical-s4LsSN-icon.png",
+   "bytes": 223824
+  },
+  {
+   "path": "assets/store/radius-match-6p1dce-icon.png",
+   "bytes": 224316
+  },
+  {
+   "path": "assets/store/raycast-maze-Meh4qI-icon.png",
+   "bytes": 252133
+  },
+  {
+   "path": "assets/store/rayfm-Af8oi9-icon.png",
+   "bytes": 267645
+  },
+  {
+   "path": "assets/store/sampler-daIOtZ-hero.png",
+   "bytes": 1239366
+  },
+  {
+   "path": "assets/store/sampler-daIOtZ-icon.png",
+   "bytes": 279477
+  },
+  {
+   "path": "assets/store/shader-walls-r63Yjl-icon.png",
+   "bytes": 256679
+  },
+  {
+   "path": "assets/store/substrack-Sxg9zV-icon.png",
+   "bytes": 149020
+  },
+  {
+   "path": "assets/store/sumscribe-zM3HxL-icon.png",
+   "bytes": 261414
+  },
+  {
+   "path": "assets/store/the-dock-u2upth-icon.png",
+   "bytes": 242100
+  },
+  {
+   "path": "assets/store/the-last-blockbuster-oRLCOs-cover.png",
+   "bytes": 1938799
+  },
+  {
+   "path": "assets/store/the-last-blockbuster-oRLCOs-icon.png",
+   "bytes": 359263
+  },
+  {
+   "path": "assets/store/the-last-blockbuster-oRLCOs-shot-1.png",
+   "bytes": 2091606
+  },
+  {
+   "path": "assets/store/the-last-blockbuster-oRLCOs-shot-2.png",
+   "bytes": 2154618
+  },
+  {
+   "path": "assets/store/the-last-blockbuster-oRLCOs-shot-3.png",
+   "bytes": 2390208
+  },
+  {
+   "path": "assets/store/this-STOdhd-icon.png",
+   "bytes": 242575
+  },
+  {
+   "path": "assets/store/voxel-studio-W1Zhxy-icon.png",
+   "bytes": 281847
+  },
+  {
+   "path": "assets/store/vsual-yJ5G1q-icon.png",
+   "bytes": 288776
+  },
+  {
+   "path": "assets/store/x-check-WGefMt-icon.png",
+   "bytes": 260455
+  },
+  {
+   "path": "assets/store/yolo-PSjYlj-icon.png",
+   "bytes": 232518
+  },
+  {
+   "path": "favicon.ico",
+   "bytes": 8254
+  },
+  {
+   "path": "favicon.svg",
+   "bytes": 41534
+  },
+  {
+   "path": "og-glaze@2x.jpg",
+   "bytes": 590090
+  }
+ ]
+}

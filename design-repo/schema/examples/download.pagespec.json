@@ -1,0 +1,97 @@
+{
+  "id": "page.download",
+  "mode": "reference",
+  "route": "/download",
+  "template": "template.download",
+  "theme": "dark",
+  "head": {
+    "title": "Placeholder download title"
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Link 1",
+            "href": "/example-1"
+          },
+          {
+            "label": "Link 2",
+            "href": "/example-2"
+          },
+          {
+            "label": "Link 3",
+            "href": "/example-3"
+          },
+          {
+            "label": "Link 4",
+            "href": "/example-4"
+          },
+          {
+            "label": "Link 5",
+            "href": "/example-5"
+          }
+        ],
+        "activeLinkHref": null,
+        "signInLabel": "Sign in",
+        "signInHref": "/example-sign-in",
+        "downloadLabel": "Download",
+        "downloadHref": "/example-download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://example.com/x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://example.com/slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://example.com/youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://example.com/reddit"
+          }
+        ],
+        "creditLabel": "Made by Example",
+        "creditHref": "https://example.com",
+        "logoAssetRole": "brand.wordmark",
+        "logoAssetRef": "ph-wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "download-page-1",
+      "type": "cta.download-page",
+      "content": {
+        "icon": {
+          "assetRole": "brand.app-icon",
+          "assetRef": "ph-app-icon",
+          "alt": "Placeholder icon"
+        },
+        "particlePoolRef": "ph-particle-pool",
+        "headline": "Placeholder download",
+        "subheadline": "Placeholder one line",
+        "primaryCta": {
+          "label": "Download",
+          "href": "/example-download",
+          "icon": "apple"
+        },
+        "mobileNote": "Placeholder mobile note",
+        "desktopNote": "Placeholder desktop note",
+        "versionLabel": "v 1.0.0"
+      },
+      "motion": {
+        "pattern": "icon-press-and-burst",
+        "reducedMotionFallback": "none"
+      }
+    }
+  ]
+}

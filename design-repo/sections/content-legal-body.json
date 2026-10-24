@@ -1,0 +1,299 @@
+{
+  "id": "section.content.legal-body",
+  "typeId": "content.legal-body",
+  "registryId": "section.content.legal-body",
+  "version": "1.0.0",
+  "category": "content",
+  "semantic": {
+    "id": "section.content.legal-body",
+    "category": "content"
+  },
+  "source": {
+    "id": "src.LegalPage.div",
+    "file": "src/pages/LegalPage.jsx",
+    "tag": "div",
+    "domSelector": ".legal-prose",
+    "citation": "jsx.legal.body.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Long-form legal text in a 640px column: h2 and h3 headings, paragraphs (optional bold label lead and trailing links), bullet lists with one nested level, and for the awards terms a Schedule divider.",
+  "scope": "Terms, privacy, acceptable use and the awards terms (typography policy or terms).",
+  "composes": [
+    "component.legal-blocks",
+    "primitive.text",
+    "primitive.link"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "typography": {
+        "enum": [
+          "policy",
+          "terms"
+        ]
+      },
+      "blocks": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 220,
+        "items": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "h2"
+                },
+                "text": {
+                  "type": "string",
+                  "maxWords": 12
+                }
+              },
+              "required": [
+                "kind",
+                "text"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "h3"
+                },
+                "text": {
+                  "type": "string",
+                  "maxWords": 20
+                }
+              },
+              "required": [
+                "kind",
+                "text"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "p"
+                },
+                "label": {
+                  "type": "string",
+                  "maxWords": 4
+                },
+                "text": {
+                  "type": "string",
+                  "maxWords": 450
+                },
+                "links": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "text": {
+                        "type": "string",
+                        "maxWords": 8
+                      },
+                      "href": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "text",
+                      "href"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 0,
+                  "maxItems": 4
+                }
+              },
+              "required": [
+                "kind",
+                "text"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "ul"
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "type": "string",
+                        "maxWords": 4
+                      },
+                      "text": {
+                        "type": "string",
+                        "maxWords": 100
+                      },
+                      "links": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "text": {
+                              "type": "string",
+                              "maxWords": 8
+                            },
+                            "href": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "text",
+                            "href"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "minItems": 0,
+                        "maxItems": 4
+                      },
+                      "children": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "type": "string",
+                              "maxWords": 4
+                            },
+                            "text": {
+                              "type": "string",
+                              "maxWords": 100
+                            },
+                            "links": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "text": {
+                                    "type": "string",
+                                    "maxWords": 8
+                                  },
+                                  "href": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "text",
+                                  "href"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "minItems": 0,
+                              "maxItems": 4
+                            }
+                          },
+                          "required": [
+                            "text"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "minItems": 1,
+                        "maxItems": 12
+                      }
+                    },
+                    "required": [
+                      "text"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 24
+                }
+              },
+              "required": [
+                "kind",
+                "items"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "const": "schedule"
+                },
+                "eyebrow": {
+                  "type": "string",
+                  "maxWords": 4
+                },
+                "title": {
+                  "type": "string",
+                  "maxWords": 8
+                }
+              },
+              "required": [
+                "kind",
+                "eyebrow",
+                "title"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      }
+    },
+    "required": [
+      "typography",
+      "blocks"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "No change: the column is 640 wide with 16 side padding at every width; only the title above scales."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "content.legal-header"
+    ],
+    "routeTypography": true,
+    "longForm": true
+  },
+  "containerRules": {
+    "width": "{container.content}",
+    "gutter": "{space.page-gutter}",
+    "paddingBottom": "{sectionPadding.legal-bottom}",
+    "blockGap": "{legal.blockGap}"
+  },
+  "measuredFrom": [
+    "jsx.legal.body",
+    "jsx.legal.list",
+    "css.legal-prose",
+    "css.legal-prose.ul",
+    "jsx.awardsterms.body",
+    "jsx.awardsterms.schedule",
+    "jsx.awardsterms.label",
+    "data.legal.terms",
+    "data.awardsterms.blocks",
+    "spec.legal.b"
+  ]
+}

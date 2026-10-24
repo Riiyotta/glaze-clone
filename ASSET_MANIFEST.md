@@ -1,8 +1,8 @@
-Source: https://www.glaze.app/m (404 page) and https://www.glaze.app/ (landing page)
+Source: https://www.glaze.app/m (404 page) and https://www.glaze.app/ (landing page); the section "Assets of the other routes" at the end covers the remaining routes.
 
 # Asset manifest
 
-Every asset loaded by the live `/` and `/m` pages, with original URL, local path, format, dimensions and bytes. Local paths are relative to `/Users/riyaghosh/V3/glaze/` and served by Vite at `/assets/...`. Status: **existing** = already present before this run (contents verified byte-identical to live where checked); **downloaded** = fetched in this run.
+Every asset loaded by the live `/` and `/m` pages, with original URL, local path, format, dimensions and bytes. Local paths are relative to `the project root ` and served by Vite at `/assets/...`. Status: **existing** = already present before this run (contents verified byte-identical to live where checked); **downloaded** = fetched in this run.
 
 ## Fonts (`public/assets/fonts/`)
 
@@ -143,3 +143,29 @@ These correspond to the `<link rel=preload>` originals on `api.glazeapp.com`. Th
 - `/api/download?cta=*`: server redirect to the app binary. Link to it; do not mirror.
 - PostHog (`us-assets.i.posthog.com`) and Dub (`/_proxy/dub/script`) analytics: not needed.
 - JS/CSS bundles: reference copies of `styles-CpdsjlmX.css` and `index-BNXJhYAk.js` are in `_reference/original_files/`.
+
+## Assets of the other routes
+
+The clone also serves pricing, download, awards, legal, blog, changelog, store and app-detail pages. Their assets live in the same `public/` tree. `design-repo/assets/protected-assets.json` lists every file of that tree and `design-repo/assets/asset-roles.json` `observedAssets` maps each one to exactly one asset role (`design-repo/extraction/verify_all.py` check 7c). The store, blog and awards images are copies of the live site's own files and of its storage URLs (see `specs/store-assets-hotlink.tsv` and the tables above). None of them is licensed for reuse, and a generated-mode PageSpec may not reference any of them.
+
+public/ total: 464 files, 169,196,940 bytes
+
+| Role (design-repo) | Availability | Files | Bytes | Folders | Used by section |
+|---|---|---:|---:|---|---|
+| `app.icon` | reference-only | 154 | 21,480,202 | public/assets/, public/assets/apps/, public/assets/store/, public/assets/store/optimized/ | showcase.award-entries, showcase.award-winners, showcase.persona-tabs, store.app-grid, store.app-header, store.app-list, store.app-shelves, store.featured-carousel |
+| `article.image` | reference-only | 46 | 24,983,411 | public/assets/blog/changelog/, public/assets/blog/how-teams-use-glaze/, public/assets/blog/how-we-use-glaze-at-raycast/, public/assets/blog/optimized/ | content.article-body, content.release-entry |
+| `avatar.person` | reference-only | 130 | 21,891,923 | public/assets/, public/assets/apps/, public/assets/blog/avatars/, public/assets/blog/optimized/, public/assets/store/, public/assets/store/optimized/ | content.article-footer, content.article-header, content.post-card, showcase.award-entries, showcase.award-winners, showcase.persona-tabs, store.app-grid, store.app-list, store.app-shelves, store.app-stats |
+| `badge.award` | reference-only | 4 | 119,280 | public/assets/, public/assets/marketing/ | content.award-prizes, showcase.award-winners, showcase.persona-tabs |
+| `brand.app-icon` | reference-only | 1 | 322,901 | public/assets/ | content.not-found-block, cta.download-compact, cta.download-icon, cta.download-page |
+| `brand.wordmark` | reference-only | 1 | 43,046 | public/assets/ | shell.navbar |
+| `cover.image` | reference-only | 28 | 30,453,269 | public/assets/blog/covers/, public/assets/blog/optimized/, public/assets/store/, public/assets/store/optimized/ | content.article-cover, content.post-card, store.app-header, store.featured-carousel |
+| `logo.sponsor` | blocked-for-generation | 1 | 1,758 | public/assets/marketing/ | hero.awards-hero |
+| `mark.third-party` | blocked-for-generation | 1 | 1,977 | public/assets/marketing/ | commerce.pricing-plans |
+| `particle.app-icon` | reference-only | 17 | 1,490,459 | public/assets/ | content.not-found-block, cta.download-compact, cta.download-icon, cta.download-page |
+| `person.photo` | blocked-for-generation | 5 | 418,302 | public/assets/marketing/ | content.award-jury |
+| `screenshot.app` | reference-only | 50 | 59,920,217 | public/assets/store/, public/assets/store/optimized/ | store.screenshot-strip |
+| `screenshot.feature` | reference-only | 12 | 1,589,615 | public/assets/ | features.feature-grid |
+| `video.awards-hero` | reference-only | 1 | 1,379,396 | public/assets/marketing/ | hero.awards-hero |
+| `video.hero-loop` | reference-only | 1 | 3,540,300 | public/assets/ | hero.landing-hero |
+| `none:font` | n/a (not a PageSpec asset) | 4 | 174,700 | public/assets/fonts/ | tokens / document head |
+| `none:site-meta` | n/a (not a PageSpec asset) | 8 | 1,386,184 | public/./, public/assets/ | tokens / document head |

@@ -1,0 +1,149 @@
+{
+  "id": "section.cta.download-compact",
+  "typeId": "cta.download-compact",
+  "registryId": "section.cta.download-compact",
+  "version": "1.0.0",
+  "category": "cta",
+  "semantic": {
+    "id": "section.cta.download-compact",
+    "category": "cta"
+  },
+  "source": {
+    "id": "src.DownloadCTA.section.2",
+    "file": "src/components/DownloadCTA.jsx",
+    "tag": "section",
+    "domSelector": "article > section",
+    "citation": "jsx.compactcta.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Compact closing call to action under a blog post: smaller icon, 'What will you build?'-style headline, Download button (>=480) or a one-line availability note (<480).",
+  "scope": "Blog posts.",
+  "composes": [
+    "component.glaze-icon-burst",
+    "primitive.text",
+    "primitive.button"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "icon": {
+        "type": "object",
+        "properties": {
+          "assetRole": {
+            "enum": [
+              "brand.app-icon",
+              "brand.app-icon-placeholder",
+              "brand.app-icon-user-supplied"
+            ],
+            "referenceRoles": [
+              "brand.app-icon"
+            ],
+            "generatedRoles": [
+              "brand.app-icon-placeholder",
+              "brand.app-icon-user-supplied"
+            ]
+          },
+          "assetRef": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string",
+            "maxWords": 16
+          }
+        },
+        "required": [
+          "assetRole",
+          "assetRef"
+        ],
+        "additionalProperties": false
+      },
+      "particlePoolRef": {
+        "type": "string"
+      },
+      "headline": {
+        "type": "string",
+        "maxWords": 6
+      },
+      "primaryCta": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 4
+          },
+          "href": {
+            "type": "string"
+          },
+          "icon": {
+            "enum": [
+              "apple",
+              "none"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "href",
+          "icon"
+        ],
+        "additionalProperties": false
+      },
+      "mobileNote": {
+        "type": "string",
+        "maxWords": 8
+      },
+      "desktopNote": {
+        "type": "string",
+        "maxWords": 8
+      }
+    },
+    "required": [
+      "icon",
+      "particlePoolRef",
+      "headline",
+      "primaryCta",
+      "mobileNote",
+      "desktopNote"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "icon-press-and-burst"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Icon 64 to 80; headline 30 to 36; top margin 80 to 96 and the 16 top padding goes; the button replaces the mobile note."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustPrecede": [
+      "shell.footer"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.compact-cta}",
+    "gutter": "{space.page-gutter}",
+    "align": "centre"
+  },
+  "measuredFrom": [
+    "jsx.compactcta.section",
+    "jsx.compactcta.title",
+    "jsx.blogpost.cta",
+    "spec.blog.post"
+  ]
+}

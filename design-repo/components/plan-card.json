@@ -1,0 +1,81 @@
+{
+  "registryId": "component.plan-card",
+  "version": "1.0.0",
+  "category": "commerce",
+  "description": "One pricing plan: title, optional lead line, feature list with check or third-party mark, optional badge and info tooltip, and a footer with either a price or a caption. The highlighted plan has a faint fill.",
+  "composes": [
+    "primitive.text",
+    "primitive.icon",
+    "primitive.badge",
+    "component.info-tooltip"
+  ],
+  "props": {
+    "title": {
+      "type": "string",
+      "maxWords": 3
+    },
+    "highlighted": {
+      "type": "boolean",
+      "default": false
+    },
+    "lead": {
+      "type": "string",
+      "optional": true,
+      "maxWords": 6
+    },
+    "features": {
+      "type": "array",
+      "items": "text maxWords 8; optional badge maxWords 4; optional info maxWords 24; icon check|third-party-mark"
+    },
+    "price": {
+      "type": "object",
+      "optional": true,
+      "props": {
+        "amount": "string maxWords 1",
+        "unit": "string maxWords 3"
+      }
+    },
+    "caption": {
+      "type": "string",
+      "optional": true,
+      "maxWords": 5
+    }
+  },
+  "layout": {
+    "padding": "{planCard.padding}",
+    "radius": "{planCard.radius}",
+    "border": "{color.border.separator}",
+    "fill": "none; highlighted uses {planCard.highlightFill}",
+    "titleTypography": "{typography.heading.plan}",
+    "featureTypography": "{typography.label.plan-feature}",
+    "featureGap": "{planCard.featureGap}",
+    "footerTop": "{planCard.footerTop} below 760, auto margin plus {planCard.footerTopWide} padding from 760",
+    "inset": "inner top highlight in {color.surface.card-quiet} (measured inset box-shadow: zero blur, one hairline, white at 4%)"
+  },
+  "states": {
+    "highlighted": {
+      "fill": "{color.surface.plan-highlight}"
+    },
+    "no-hover": {
+      "note": "Cards are not clickable and have no hover state (SPEC_marketing 1.2)."
+    }
+  },
+  "tokens": [
+    "planCard.padding",
+    "planCard.radius",
+    "planCard.highlightFill",
+    "planCard.featureGap",
+    "planCard.footerTop",
+    "planCard.footerTopWide",
+    "typography.heading.plan",
+    "typography.label.plan-feature",
+    "color.border.separator"
+  ],
+  "measuredFrom": [
+    "jsx.pricing.card",
+    "jsx.pricing.card-title",
+    "jsx.pricing.features",
+    "jsx.pricing.footer",
+    "spec.marketing.pricing"
+  ]
+}

@@ -1,5 +1,6 @@
 {
   "id": "page.landing",
+  "mode": "reference",
   "route": "/",
   "template": "template.landing",
   "theme": "dark",

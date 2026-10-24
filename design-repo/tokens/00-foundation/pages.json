@@ -1,0 +1,730 @@
+{
+  "$description": "Foundation values added for the page families beyond the landing page and 404 (pricing, download, legal, blog, changelog, awards, store, app detail). Every value cites the source line or measured spec it came from.",
+  "foundation": {
+    "color": {
+      "neutral": {
+        "black": {
+          "$type": "color",
+          "$value": "#000000",
+          "$description": "/awards page background (html, body, --bg).",
+          "$extensions": {
+            "cite": [
+              "jsx.awards.theme",
+              "css.awards.bg"
+            ]
+          }
+        },
+        "600": {
+          "$type": "color",
+          "$value": "#999999",
+          "$description": "/awards only: text-secondary becomes #999 because --bg is #000.",
+          "$extensions": {
+            "cite": [
+              "css.awards.secondary"
+            ]
+          }
+        },
+        "700": {
+          "$type": "color",
+          "$value": "#666666",
+          "$description": "/awards only: text-tertiary becomes #666.",
+          "$extensions": {
+            "cite": [
+              "css.awards.secondary"
+            ]
+          }
+        }
+      },
+      "white-alpha": {
+        "a15": {
+          "$type": "color",
+          "$value": "rgba(255,255,255,0.15)",
+          "$description": "Featured pill border.",
+          "$extensions": {
+            "cite": [
+              "jsx.appdetail.cover"
+            ]
+          }
+        },
+        "a35": {
+          "$type": "color",
+          "$value": "rgba(255,255,255,0.35)",
+          "$description": "Carousel dot hover.",
+          "$extensions": {
+            "cite": [
+              "jsx.carousel.dots"
+            ]
+          }
+        },
+        "a72": {
+          "$type": "color",
+          "$value": "rgba(255,255,255,0.72)",
+          "$description": "Tagline over a cover image.",
+          "$extensions": {
+            "cite": [
+              "jsx.carousel.tagline"
+            ]
+          }
+        },
+        "a80": {
+          "$type": "color",
+          "$value": "rgba(255,255,255,0.8)",
+          "$description": "Article / changelog prose body.",
+          "$extensions": {
+            "cite": [
+              "jsx.prose.root"
+            ]
+          }
+        }
+      },
+      "black-alpha": {
+        "a35": {
+          "$type": "color",
+          "$value": "rgba(0,0,0,0.35)",
+          "$description": "Award pill background.",
+          "$extensions": {
+            "cite": [
+              "jsx.awardpill.root"
+            ]
+          }
+        },
+        "a65": {
+          "$type": "color",
+          "$value": "rgba(0,0,0,0.65)",
+          "$description": "Carousel cover gradient start.",
+          "$extensions": {
+            "cite": [
+              "jsx.carousel.card"
+            ]
+          }
+        },
+        "a75": {
+          "$type": "color",
+          "$value": "rgba(0,0,0,0.75)",
+          "$description": "Winner dialog backdrop.",
+          "$extensions": {
+            "cite": [
+              "jsx.winners.dialog"
+            ]
+          }
+        },
+        "a85": {
+          "$type": "color",
+          "$value": "rgba(0,0,0,0.85)",
+          "$description": "App header cover gradient start.",
+          "$extensions": {
+            "cite": [
+              "jsx.appdetail.cover"
+            ]
+          }
+        }
+      }
+    },
+    "font": {
+      "weight": {
+        "semibold": {
+          "$type": "fontWeight",
+          "$value": 600,
+          "$description": "Legal and awards-terms h2/h3 and bold lead-ins.",
+          "$extensions": {
+            "cite": [
+              "css.legal-prose"
+            ]
+          }
+        }
+      },
+      "size": {
+        "17": {
+          "$type": "dimension",
+          "$value": "17px",
+          "$description": "Article/changelog prose and blog excerpt at >=480.",
+          "$extensions": {
+            "cite": [
+              "jsx.prose.root",
+              "jsx.blogindex.excerpt"
+            ]
+          }
+        },
+        "28": {
+          "$type": "dimension",
+          "$value": "28px",
+          "$description": "Blog card title below 480; compact CTA title is 30.",
+          "$extensions": {
+            "cite": [
+              "jsx.blogindex.title"
+            ]
+          }
+        },
+        "32": {
+          "$type": "dimension",
+          "$value": "32px",
+          "$description": "Blog post h1 below 480.",
+          "$extensions": {
+            "cite": [
+              "jsx.blogpost.h1"
+            ]
+          }
+        },
+        "4xl": {
+          "$type": "dimension",
+          "$value": "36px",
+          "$description": "Page titles below 480 (Tailwind text-4xl).",
+          "$extensions": {
+            "cite": [
+              "jsx.pricing.h1",
+              "spec.type.scale"
+            ]
+          }
+        }
+      },
+      "lineHeight": {
+        "1.05": {
+          "$type": "number",
+          "$value": 1.05,
+          "$description": "Blog post h1.",
+          "$extensions": {
+            "cite": [
+              "jsx.blogpost.h1"
+            ]
+          }
+        },
+        "1.08": {
+          "$type": "number",
+          "$value": 1.08,
+          "$description": "Blog card title, changelog release title.",
+          "$extensions": {
+            "cite": [
+              "jsx.blogindex.title",
+              "jsx.changelog.title"
+            ]
+          }
+        },
+        "1.3": {
+          "$type": "number",
+          "$value": 1.3,
+          "$description": "Prose h3.",
+          "$extensions": {
+            "cite": [
+              "jsx.prose.h3"
+            ]
+          }
+        },
+        "1.5": {
+          "$type": "number",
+          "$value": 1.5,
+          "$description": "Legal h2/h3 (.legal-prose).",
+          "$extensions": {
+            "cite": [
+              "css.legal-prose"
+            ]
+          }
+        },
+        "1.6": {
+          "$type": "number",
+          "$value": 1.6,
+          "$description": "Legal body, blog excerpt.",
+          "$extensions": {
+            "cite": [
+              "jsx.legal.body",
+              "jsx.blogindex.excerpt"
+            ]
+          }
+        },
+        "fixed-12": {
+          "$type": "dimension",
+          "$value": "12px",
+          "$description": "Stat label below 480 (leading-3).",
+          "$extensions": {
+            "cite": [
+              "jsx.appdetail.statlabel"
+            ]
+          }
+        },
+        "fixed-14": {
+          "$type": "dimension",
+          "$value": "14px",
+          "$description": "Plan price unit and caption (leading-[14px]).",
+          "$extensions": {
+            "cite": [
+              "jsx.pricing.unit"
+            ]
+          }
+        },
+        "fixed-17": {
+          "$type": "dimension",
+          "$value": "17px",
+          "$description": "Carousel tagline at >=480.",
+          "$extensions": {
+            "cite": [
+              "jsx.carousel.tagline"
+            ]
+          }
+        },
+        "fixed-18": {
+          "$type": "dimension",
+          "$value": "18px",
+          "$description": "Plan features, app rows, app detail meta (leading-[18px]).",
+          "$extensions": {
+            "cite": [
+              "jsx.pricing.features",
+              "jsx.approw.name"
+            ]
+          }
+        },
+        "fixed-18.8": {
+          "$type": "dimension",
+          "$value": "18.8px",
+          "$description": "Jury name below 760.",
+          "$extensions": {
+            "cite": [
+              "jsx.jury.name"
+            ]
+          }
+        },
+        "fixed-22": {
+          "$type": "dimension",
+          "$value": "22px",
+          "$description": "Store and finalist headings, post date and author row (leading-[22px]).",
+          "$extensions": {
+            "cite": [
+              "jsx.store.h1",
+              "jsx.blogindex.time"
+            ]
+          }
+        },
+        "fixed-22.5": {
+          "$type": "dimension",
+          "$value": "22.5px",
+          "$description": "Jury name at >=760.",
+          "$extensions": {
+            "cite": [
+              "jsx.jury.name"
+            ]
+          }
+        },
+        "fixed-25": {
+          "$type": "dimension",
+          "$value": "25px",
+          "$description": "Prose body below 480 (leading-[25px]).",
+          "$extensions": {
+            "cite": [
+              "jsx.prose.root"
+            ]
+          }
+        },
+        "fixed-26": {
+          "$type": "dimension",
+          "$value": "26px",
+          "$description": "App detail title at >=480.",
+          "$extensions": {
+            "cite": [
+              "jsx.appdetail.h1"
+            ]
+          }
+        },
+        "fixed-27": {
+          "$type": "dimension",
+          "$value": "27px",
+          "$description": "Prose body at >=480.",
+          "$extensions": {
+            "cite": [
+              "jsx.prose.root"
+            ]
+          }
+        },
+        "fixed-36": {
+          "$type": "dimension",
+          "$value": "36px",
+          "$description": "Awards-terms h2 (leading-9).",
+          "$extensions": {
+            "cite": [
+              "jsx.awardsterms.body"
+            ]
+          }
+        }
+      },
+      "letterSpacing": {
+        "price": {
+          "$type": "dimension",
+          "$value": "0.022px",
+          "$description": "Plan price block (tracking-[0.022px]).",
+          "$extensions": {
+            "cite": [
+              "jsx.pricing.footer"
+            ]
+          }
+        },
+        "compact-cta": {
+          "$type": "dimension",
+          "$value": "-0.9px",
+          "$description": "Compact download CTA title: fixed -0.9px at both sizes (tracking-[-0.9px]).",
+          "$extensions": {
+            "cite": [
+              "jsx.compactcta.title"
+            ]
+          }
+        }
+      }
+    },
+    "space": {
+      "2.25": {
+        "$type": "dimension",
+        "$value": "9px",
+        "$description": "Store chip horizontal padding.",
+        "$extensions": {
+          "cite": [
+            "jsx.store.chip"
+          ]
+        }
+      },
+      "7.5": {
+        "$type": "dimension",
+        "$value": "30px",
+        "$description": "Jury photo hit area.",
+        "$extensions": {
+          "cite": [
+            "jsx.jury.photo"
+          ]
+        }
+      },
+      "18": {
+        "$type": "dimension",
+        "$value": "72px",
+        "$description": "App row height (h-[72px]).",
+        "$extensions": {
+          "cite": [
+            "jsx.approw.root"
+          ]
+        }
+      },
+      "19": {
+        "$type": "dimension",
+        "$value": "76px",
+        "$description": "Store/app page top padding below 480.",
+        "$extensions": {
+          "cite": [
+            "jsx.store.section"
+          ]
+        }
+      },
+      "22": {
+        "$type": "dimension",
+        "$value": "88px",
+        "$description": "Jury photo below 760.",
+        "$extensions": {
+          "cite": [
+            "jsx.jury.photo"
+          ]
+        }
+      },
+      "26": {
+        "$type": "dimension",
+        "$value": "104px",
+        "$description": "Jury photo at >=760.",
+        "$extensions": {
+          "cite": [
+            "jsx.jury.photo"
+          ]
+        }
+      },
+      "29": {
+        "$type": "dimension",
+        "$value": "116px",
+        "$description": "Changelog sticky label top offset.",
+        "$extensions": {
+          "cite": [
+            "jsx.changelog.aside"
+          ]
+        }
+      },
+      "33": {
+        "$type": "dimension",
+        "$value": "132px",
+        "$description": "Blog post top padding below 480.",
+        "$extensions": {
+          "cite": [
+            "jsx.blogpost.section"
+          ]
+        }
+      },
+      "43": {
+        "$type": "dimension",
+        "$value": "172px",
+        "$description": "Legal and blog post top padding.",
+        "$extensions": {
+          "cite": [
+            "jsx.legal.section",
+            "jsx.blogpost.section"
+          ]
+        }
+      },
+      "45": {
+        "$type": "dimension",
+        "$value": "180px",
+        "$description": "Pricing FAQ top margin at >=480.",
+        "$extensions": {
+          "cite": [
+            "jsx.pricing.faq"
+          ]
+        }
+      },
+      "52.5": {
+        "$type": "dimension",
+        "$value": "210px",
+        "$description": "Search pill width below 480.",
+        "$extensions": {
+          "cite": [
+            "jsx.store.search"
+          ]
+        }
+      },
+      "60": {
+        "$type": "dimension",
+        "$value": "240px",
+        "$description": "Search pill width at >=480.",
+        "$extensions": {
+          "cite": [
+            "jsx.store.search"
+          ]
+        }
+      },
+      "65": {
+        "$type": "dimension",
+        "$value": "260px",
+        "$description": "Screenshot strip height at >=480.",
+        "$extensions": {
+          "cite": [
+            "jsx.shots.root"
+          ]
+        }
+      },
+      "90": {
+        "$type": "dimension",
+        "$value": "360px",
+        "$description": "Cover / carousel card max height.",
+        "$extensions": {
+          "cite": [
+            "jsx.carousel.card"
+          ]
+        }
+      },
+      "3.25": {
+        "$type": "dimension",
+        "$value": "13px",
+        "$description": "Store chip icon.",
+        "$extensions": {
+          "cite": [
+            "jsx.store.chip"
+          ]
+        }
+      }
+    },
+    "radius": {
+      "dialog": {
+        "$type": "dimension",
+        "$value": "32px",
+        "$description": "Winner dialog below 480.",
+        "$extensions": {
+          "cite": [
+            "jsx.winners.dialog"
+          ]
+        }
+      },
+      "dialog-wide": {
+        "$type": "dimension",
+        "$value": "44px",
+        "$description": "Winner dialog at >=480.",
+        "$extensions": {
+          "cite": [
+            "jsx.winners.dialog"
+          ]
+        }
+      }
+    },
+    "iconSize": {
+      "12": {
+        "$type": "dimension",
+        "$value": "12px",
+        "$description": "Info glyph in plan tooltips.",
+        "$extensions": {
+          "cite": [
+            "jsx.pricing.feature"
+          ]
+        }
+      },
+      "28": {
+        "$type": "dimension",
+        "$value": "28px",
+        "$description": "Slider arrow, stat icon.",
+        "$extensions": {
+          "cite": [
+            "jsx.slider.button"
+          ]
+        }
+      },
+      "36": {
+        "$type": "dimension",
+        "$value": "36px",
+        "$description": "Search pill and carousel edge button.",
+        "$extensions": {
+          "cite": [
+            "jsx.entries.search"
+          ]
+        }
+      },
+      "40": {
+        "$type": "dimension",
+        "$value": "40px",
+        "$description": "Search pill below 480.",
+        "$extensions": {
+          "cite": [
+            "jsx.entries.search"
+          ]
+        }
+      },
+      "88": {
+        "$type": "dimension",
+        "$value": "88px",
+        "$description": "Jury photo below 760.",
+        "$extensions": {
+          "cite": [
+            "jsx.jury.photo"
+          ]
+        }
+      },
+      "104": {
+        "$type": "dimension",
+        "$value": "104px",
+        "$description": "Jury photo at >=760.",
+        "$extensions": {
+          "cite": [
+            "jsx.jury.photo"
+          ]
+        }
+      }
+    },
+    "duration": {
+      "260": {
+        "$type": "duration",
+        "$value": "260ms",
+        "$description": "Store carousel slide.",
+        "$extensions": {
+          "cite": [
+            "jsx.carousel.timing"
+          ]
+        }
+      },
+      "500": {
+        "$type": "duration",
+        "$value": "500ms",
+        "$description": "Store shelf page slide.",
+        "$extensions": {
+          "cite": [
+            "jsx.slider.track"
+          ]
+        }
+      },
+      "800": {
+        "$type": "duration",
+        "$value": "800ms",
+        "$description": "Awards hero video fade-in.",
+        "$extensions": {
+          "cite": [
+            "jsx.awards.fade"
+          ]
+        }
+      },
+      "1600": {
+        "$type": "duration",
+        "$value": "1600ms",
+        "$description": "'Copied' label hold on the blog Share button.",
+        "$extensions": {
+          "cite": [
+            "jsx.blogpost.copied"
+          ]
+        }
+      },
+      "4000": {
+        "$type": "duration",
+        "$value": "4000ms",
+        "$description": "Store carousel autoplay interval.",
+        "$extensions": {
+          "cite": [
+            "jsx.carousel.timing"
+          ]
+        }
+      }
+    },
+    "easing": {
+      "slider": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.22,
+          1,
+          0.36,
+          1
+        ],
+        "$description": "Store shelf slide.",
+        "$extensions": {
+          "cite": [
+            "jsx.slider.track"
+          ]
+        }
+      }
+    },
+    "breakpoint": {
+      "760": {
+        "$type": "dimension",
+        "$value": "760px",
+        "$description": "Pricing card footer, prizes 4-col, jury 5-up, Slider 3-col.",
+        "$extensions": {
+          "cite": [
+            "jsx.pricing.features",
+            "jsx.prizes.fieldset"
+          ]
+        }
+      },
+      "992": {
+        "$type": "dimension",
+        "$value": "992px",
+        "$description": "Pricing grid 1 -> 3 columns.",
+        "$extensions": {
+          "cite": [
+            "jsx.pricing.grid"
+          ]
+        }
+      },
+      "1000": {
+        "$type": "dimension",
+        "$value": "1000px",
+        "$description": "Awards criteria 3-up.",
+        "$extensions": {
+          "cite": [
+            "jsx.criteria.root"
+          ]
+        }
+      },
+      "1920": {
+        "$type": "dimension",
+        "$value": "1920px",
+        "$description": "Store and winners grids go 4-up; carousel card widens.",
+        "$extensions": {
+          "cite": [
+            "jsx.slider.cols",
+            "css.store-hero"
+          ]
+        }
+      },
+      "640": {
+        "$type": "dimension",
+        "$value": "640px",
+        "$description": "Tailwind sm: app detail lists 1 -> 2 columns.",
+        "$extensions": {
+          "cite": [
+            "jsx.appdetail.list"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "id": "section.content.article-cover",
+  "typeId": "content.article-cover",
+  "registryId": "section.content.article-cover",
+  "version": "1.0.0",
+  "category": "content",
+  "semantic": {
+    "id": "section.content.article-cover",
+    "category": "content"
+  },
+  "source": {
+    "id": "src.BlogPost.div",
+    "file": "src/pages/BlogPost.jsx",
+    "tag": "div",
+    "domSelector": "article > div:first-child",
+    "citation": "jsx.blogpost.cover.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Blog post cover image in a rounded, bordered frame (aspect 1.9:1).",
+  "scope": "Blog posts.",
+  "composes": [
+    "primitive.image"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "image": {
+        "type": "object",
+        "properties": {
+          "assetRole": {
+            "enum": [
+              "cover.image",
+              "media.generated",
+              "media.user-supplied"
+            ],
+            "referenceRoles": [
+              "cover.image"
+            ],
+            "generatedRoles": [
+              "media.generated",
+              "media.user-supplied"
+            ]
+          },
+          "assetRef": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string",
+            "maxWords": 16
+          }
+        },
+        "required": [
+          "assetRole",
+          "assetRef"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "image"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Page top padding 132 to 172 (the cover is the first block)."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "shell.navbar"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.content}",
+    "gutter": "{space.page-gutter}",
+    "paddingTop": "{sectionPadding.post-top-narrow} below 480, {sectionPadding.legal-top} from 480",
+    "radius": "{article.coverRadius}",
+    "border": "{color.border.separator}",
+    "fill": "{color.surface.card-quiet}"
+  },
+  "measuredFrom": [
+    "jsx.blogpost.section",
+    "jsx.blogpost.cover",
+    "spec.blog.post"
+  ]
+}

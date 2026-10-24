@@ -1,0 +1,204 @@
+{
+  "id": "section.commerce.pricing-plans",
+  "typeId": "commerce.pricing-plans",
+  "registryId": "section.commerce.pricing-plans",
+  "version": "1.0.0",
+  "category": "commerce",
+  "semantic": {
+    "id": "section.commerce.pricing-plans",
+    "category": "commerce"
+  },
+  "source": {
+    "id": "src.Pricing.div",
+    "file": "src/pages/Pricing.jsx",
+    "tag": "div",
+    "domSelector": "main > section:first-of-type > div > div.grid",
+    "citation": "jsx.pricing.grid.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Plan comparison cards in a 3-column grid: title, optional lead line, check-list with optional badge and info tooltip, then a price or a caption pinned to the bottom. At most one plan is highlighted.",
+  "scope": "Pricing.",
+  "composes": [
+    "component.plan-card",
+    "component.info-tooltip",
+    "primitive.badge",
+    "primitive.icon",
+    "primitive.text"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "plans": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z][a-z-]*$"
+            },
+            "title": {
+              "type": "string",
+              "maxWords": 3
+            },
+            "highlighted": {
+              "type": "boolean"
+            },
+            "lead": {
+              "type": "string",
+              "maxWords": 6
+            },
+            "features": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "maxWords": 8
+                  },
+                  "badge": {
+                    "type": "string",
+                    "maxWords": 4
+                  },
+                  "info": {
+                    "type": "string",
+                    "maxWords": 24
+                  },
+                  "icon": {
+                    "enum": [
+                      "check",
+                      "third-party-mark"
+                    ],
+                    "blockedInGeneratedMode": [
+                      "third-party-mark"
+                    ]
+                  }
+                },
+                "required": [
+                  "text"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 10
+            },
+            "price": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "string",
+                  "maxWords": 1
+                },
+                "unit": {
+                  "type": "string",
+                  "maxWords": 3
+                }
+              },
+              "required": [
+                "amount",
+                "unit"
+              ],
+              "additionalProperties": false
+            },
+            "caption": {
+              "type": "string",
+              "maxWords": 5
+            }
+          },
+          "required": [
+            "id",
+            "title",
+            "features"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "oneOf": [
+                {
+                  "required": [
+                    "price"
+                  ],
+                  "not": {
+                    "required": [
+                      "caption"
+                    ]
+                  }
+                },
+                {
+                  "required": [
+                    "caption"
+                  ],
+                  "not": {
+                    "required": [
+                      "price"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "minItems": 1,
+        "maxItems": 3
+      }
+    },
+    "required": [
+      "plans"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.992}",
+      "change": "Grid goes from one column to three (gap 12)."
+    },
+    {
+      "at": "{foundation.breakpoint.760}",
+      "change": "Feature block margin 32 to 56; the footer is pushed to the card bottom with 64 of top padding."
+    },
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Caption swaps from a tertiary 14/18.9 line to a secondary 14/14 line."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "maxHighlighted": 1,
+    "mustFollow": [
+      "hero.page-title"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "marginTop": "{foundation.space.8}",
+    "gridGap": "{planCard.gap}"
+  },
+  "measuredFrom": [
+    "jsx.pricing.grid",
+    "jsx.pricing.card",
+    "jsx.pricing.features",
+    "jsx.pricing.feature",
+    "jsx.pricing.footer",
+    "data.pricing.plans",
+    "spec.marketing.pricing",
+    "spec.marketing.pricing.responsive"
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "id": "section.shell.app-dialog",
+  "typeId": "shell.app-dialog",
+  "registryId": "section.shell.app-dialog",
+  "version": "1.0.0",
+  "category": "shell",
+  "semantic": {
+    "id": "section.shell.app-dialog",
+    "category": "shell"
+  },
+  "source": {
+    "id": "src.AppDialog.div",
+    "file": "src/components/store/AppDialog.jsx",
+    "tag": "div",
+    "domSelector": "[role=\"dialog\"][aria-label$=\"details\"]",
+    "citation": "jsx.appdialog.source"
+  },
+  "retrievalEligible": false,
+  "retrievalIneligibleReason": "Utility overlay (app details dialog opened from a card): it re-renders the app detail body that the /app/<slug> route already owns and adds only control labels. It must never be returned as a standalone retrieval chunk.",
+  "purpose": "Centred dialog opened from an app card (landing persona tabs) or a winner card (awards): app detail body (or a winner summary) with a close button and previous/next app buttons; scroll lock, Escape closes, Arrow keys step through the opener's apps.",
+  "scope": "Landing, persona routes and awards, opened on demand.",
+  "composes": [
+    "primitive.app-icon",
+    "primitive.button",
+    "primitive.icon",
+    "component.app-row"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "variant": {
+        "enum": [
+          "app-detail",
+          "winner-summary"
+        ]
+      },
+      "closeLabel": {
+        "type": "string",
+        "maxWords": 3
+      },
+      "previousLabel": {
+        "type": "string",
+        "maxWords": 2
+      },
+      "nextLabel": {
+        "type": "string",
+        "maxWords": 2
+      },
+      "fullPageLabel": {
+        "type": "string",
+        "maxWords": 5
+      }
+    },
+    "required": [
+      "variant",
+      "closeLabel"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "dialog-fade"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Frame radius 32 to 44; the app header drops its cover treatment inside the dialog; CTAs show from 480."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "floating": true,
+    "trailsPage": true
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "inset": "{foundation.space.4} each side",
+    "zIndex": "{zIndex.winner-dialog} over a backdrop at {zIndex.winner-backdrop}",
+    "radius": "{radius.dialog} below 480, {radius.dialog-wide} from 480",
+    "fill": "{color.surface.dialog}"
+  },
+  "measuredFrom": [
+    "jsx.appdialog.root",
+    "jsx.winners.dialog",
+    "jsx.persona.appdialog"
+  ]
+}

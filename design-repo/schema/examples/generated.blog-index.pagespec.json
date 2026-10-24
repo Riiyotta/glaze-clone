@@ -1,0 +1,220 @@
+{
+  "id": "page.generated-blog-index",
+  "mode": "generated",
+  "route": "/blog",
+  "template": "template.blog-index",
+  "theme": "dark",
+  "head": {
+    "title": "Fernlight Journal",
+    "description": "Short essays on writing, tools and habits."
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Overview",
+            "href": "/"
+          },
+          {
+            "label": "Plans",
+            "href": "/pricing"
+          },
+          {
+            "label": "Library",
+            "href": "/store"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          },
+          {
+            "label": "Releases",
+            "href": "/changelog"
+          }
+        ],
+        "activeLinkHref": "/blog",
+        "signInLabel": "Sign in",
+        "signInHref": "/account",
+        "downloadLabel": "Download",
+        "downloadHref": "/download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example",
+        "logoAssetRole": "brand.wordmark-placeholder",
+        "logoAssetRef": "placeholder:wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "page-header-1",
+      "type": "hero.page-header",
+      "content": {
+        "title": "Journal",
+        "subtitle": "Notes on writing with calmer tools."
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "post-card-1",
+      "type": "content.post-card",
+      "content": {
+        "href": "/blog/field-notes-1",
+        "cover": {
+          "assetRole": "media.generated",
+          "assetRef": "generated:cover-1",
+          "alt": "Abstract generated cover 1"
+        },
+        "date": "March 5, 2026",
+        "datetime": "2026-03-05",
+        "title": "Field notes, issue 1",
+        "author": {
+          "name": "Mira Sandoval",
+          "avatar": {
+            "assetRole": "avatar.placeholder",
+            "assetRef": "placeholder:author-1"
+          }
+        },
+        "excerpt": "A short look at how small habits shape a calmer writing practice."
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "post-card-2",
+      "type": "content.post-card",
+      "content": {
+        "href": "/blog/field-notes-2",
+        "cover": {
+          "assetRole": "media.generated",
+          "assetRef": "generated:cover-2",
+          "alt": "Abstract generated cover 2"
+        },
+        "date": "March 5, 2026",
+        "datetime": "2026-03-05",
+        "title": "Field notes, issue 2",
+        "author": {
+          "name": "Jonas Heller",
+          "avatar": {
+            "assetRole": "avatar.placeholder",
+            "assetRef": "placeholder:author-2"
+          }
+        },
+        "excerpt": "A short look at how small habits shape a calmer writing practice."
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "post-card-3",
+      "type": "content.post-card",
+      "content": {
+        "href": "/blog/field-notes-3",
+        "cover": {
+          "assetRole": "media.generated",
+          "assetRef": "generated:cover-3",
+          "alt": "Abstract generated cover 3"
+        },
+        "date": "March 5, 2026",
+        "datetime": "2026-03-05",
+        "title": "Field notes, issue 3",
+        "author": {
+          "name": "Jonas Heller",
+          "avatar": {
+            "assetRole": "avatar.placeholder",
+            "assetRef": "placeholder:author-3"
+          }
+        },
+        "excerpt": "A short look at how small habits shape a calmer writing practice."
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "footer-1",
+      "type": "shell.footer",
+      "content": {
+        "copyright": "Copyright Fernhill",
+        "primaryLinks": [
+          {
+            "label": "Guides",
+            "href": "/guides"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          }
+        ],
+        "legalLinks": [
+          {
+            "label": "Terms",
+            "href": "/terms"
+          },
+          {
+            "label": "Privacy",
+            "href": "/privacy"
+          },
+          {
+            "label": "Acceptable use",
+            "href": "/aup"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "id": "section.store.app-header",
+  "typeId": "store.app-header",
+  "registryId": "section.store.app-header",
+  "version": "1.0.0",
+  "category": "store",
+  "semantic": {
+    "id": "section.store.app-header",
+    "category": "store"
+  },
+  "source": {
+    "id": "src.AppDetail.div.7",
+    "file": "src/components/store/AppDetail.jsx",
+    "tag": "div",
+    "domSelector": "main section > div > div:first-child",
+    "citation": "jsx.appheader.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "App detail header: squircle icon (112 from 480), name, award pill, optional Glaze-AI badge, tagline and two actions. With a featured image the block is a rounded cover with a bottom gradient and a 'Featured' pill; without one it is plain.",
+  "scope": "App detail pages (/app/<slug>).",
+  "composes": [
+    "primitive.app-icon",
+    "primitive.badge",
+    "primitive.button",
+    "primitive.image",
+    "primitive.text",
+    "component.info-tooltip"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "maxWords": 5
+      },
+      "tagline": {
+        "type": "string",
+        "maxWords": 14
+      },
+      "icon": {
+        "type": "object",
+        "properties": {
+          "assetRole": {
+            "enum": [
+              "app.icon",
+              "app.icon-generated"
+            ],
+            "referenceRoles": [
+              "app.icon"
+            ],
+            "generatedRoles": [
+              "app.icon-generated"
+            ]
+          },
+          "assetRef": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "assetRole",
+          "assetRef"
+        ],
+        "additionalProperties": false
+      },
+      "cover": {
+        "type": "object",
+        "properties": {
+          "assetRole": {
+            "enum": [
+              "cover.image",
+              "media.generated",
+              "media.user-supplied"
+            ],
+            "referenceRoles": [
+              "cover.image"
+            ],
+            "generatedRoles": [
+              "media.generated",
+              "media.user-supplied"
+            ]
+          },
+          "assetRef": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "assetRole",
+          "assetRef"
+        ],
+        "additionalProperties": false
+      },
+      "featuredLabel": {
+        "type": "string",
+        "maxWords": 2
+      },
+      "award": {
+        "enum": [
+          "none",
+          "gold",
+          "silver",
+          "bronze",
+          "finalist"
+        ]
+      },
+      "aiBadge": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 2
+          },
+          "purpose": {
+            "type": "string",
+            "maxWords": 30
+          }
+        },
+        "required": [
+          "label",
+          "purpose"
+        ],
+        "additionalProperties": false
+      },
+      "primaryCta": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 4
+          },
+          "href": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "label",
+          "href"
+        ],
+        "additionalProperties": false
+      },
+      "secondaryCta": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 3
+          },
+          "href": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "remix",
+              "download"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "href",
+          "kind"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "name",
+      "tagline",
+      "icon",
+      "primaryCta",
+      "secondaryCta"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Icon 80 to 112; name 18 to 20; tagline 12 to 14; the actions appear (hidden below 480); cover radius 18 to 26."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "shell.navbar"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "paddingTop": "{sectionPadding.app-top-narrow} below 480, {sectionPadding.app-top} from 480",
+    "coverHeight": "clamp({foundation.space.55}, 38vw, {foundation.space.90})",
+    "gap": "{appHeader.gap} below 480, {appHeader.gapWide} from 480",
+    "coverPad": "{appHeader.coverPad} below 480, {appHeader.coverPadWide} from 480"
+  },
+  "measuredFrom": [
+    "jsx.apppage.section",
+    "jsx.appdetail.header",
+    "jsx.appdetail.cover",
+    "jsx.appdetail.h1",
+    "jsx.appdetail.tagline",
+    "jsx.appdetail.cta",
+    "jsx.appdetail.cta2",
+    "jsx.appdetail.ai",
+    "spec.store.top"
+  ]
+}

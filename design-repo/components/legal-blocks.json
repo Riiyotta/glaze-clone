@@ -1,0 +1,51 @@
+{
+  "registryId": "component.legal-blocks",
+  "version": "1.0.0",
+  "category": "content",
+  "description": "Legal text blocks: h2, h3, paragraph (optional bold label lead and trailing links), nested bullet list. Two typographic styles: policy and awards-terms.",
+  "composes": [
+    "primitive.text",
+    "primitive.link"
+  ],
+  "props": {
+    "blocks": {
+      "type": "array",
+      "items": "oneOf h2|h3|p|ul|schedule (see sections/content-legal-body.json)"
+    },
+    "typography": {
+      "enum": [
+        "policy",
+        "terms"
+      ]
+    }
+  },
+  "layout": {
+    "body": "{typography.body.legal}",
+    "blockGap": "{legal.blockGap}",
+    "policyH2": "{typography.heading.legal-h2}",
+    "policyH3": "{typography.heading.legal-h3}",
+    "termsH2": "{typography.heading.terms-h2}",
+    "termsH3": "{typography.heading.terms-h3}",
+    "listIndent": "{legal.listIndent}",
+    "listItemGap": "{legal.listItemGap}",
+    "linkStyle": "underline, colour to {color.text.secondary} on hover"
+  },
+  "tokens": [
+    "typography.body.legal",
+    "legal.blockGap",
+    "typography.heading.legal-h2",
+    "typography.heading.legal-h3",
+    "typography.heading.terms-h2",
+    "typography.heading.terms-h3",
+    "legal.listIndent",
+    "legal.listItemGap",
+    "color.text.secondary"
+  ],
+  "measuredFrom": [
+    "jsx.legal.body",
+    "jsx.legal.list",
+    "css.legal-prose",
+    "css.legal-prose.ul",
+    "jsx.awardsterms.body"
+  ]
+}

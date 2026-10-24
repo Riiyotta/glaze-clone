@@ -1,6 +1,6 @@
 {
-  "$description": "Closed assetRole vocabulary. Every media field in a PageSpec names one role. The source is Glaze by Raycast, a real live commercial product, so several roles forbid generation outright. verify_all.py pins each role to its policy value (not just enum membership).",
-  "version": "1.0.0",
+  "$description": "Closed assetRole vocabulary. Every media field in a PageSpec names one role. The source is Glaze by Raycast, a real live commercial product. Every role carries `availability`: reference-only roles may appear only in `mode: reference` PageSpecs and name generation-safe substitutes; blocked-for-generation roles are protected third-party or personal content (real trademarks, real people, live endpoints) that never appear in a generated page; generation-safe roles (placeholder, generated, user-supplied) may appear in `mode: generated`. verify_all.py pins each role to its policy value AND its availability (not just enum membership).",
+  "version": "2.0.0",
   "policyEnum": [
     "may-generate-new",
     "must-reuse-exact",
@@ -10,85 +10,239 @@
   "globalRules": [
     "AI generation must never reproduce Glaze or Raycast logos, marks or app icons.",
     "Never use real users' avatars, names, or real app icons or screenshots.",
-    "Never copy the source site's marketing copy; example PageSpec content is placeholder text.",
-    "Asset files are not shipped in this repo; assetRef values are host-resolved ids."
+    "Never copy the source site's marketing copy; example PageSpec content is placeholder text (reference mode) or original copy for a fictional brand (generated mode).",
+    "Asset files are not shipped in this repo; assetRef values are host-resolved ids (placeholder:, user: or generated: in generated mode).",
+    "A generated page never links to the source's hosts (glaze.app, raycast.com, api.glazeapp.com, ...); use relative paths, # anchors or reserved .example / .invalid hosts."
   ],
   "roles": {
+    "app.icon": {
+      "policy": "may-generate-new",
+      "usedBy": [
+        "showcase.award-entries",
+        "showcase.award-winners",
+        "showcase.persona-tabs",
+        "store.app-grid",
+        "store.app-header",
+        "store.app-list",
+        "store.app-shelves",
+        "store.featured-carousel"
+      ],
+      "description": "Squircle icon inside an app card.",
+      "guidance": "Generate neutral abstract placeholder art (flat gradient or simple shape). Never reproduce a real app's icon or a Glaze/Raycast mark.",
+      "availability": "reference-only",
+      "generatedModeGuidance": "Observed files are real third-party apps' icons. A generated page uses generated abstract placeholder art, never one of those files.",
+      "generationSafeSubstitutes": [
+        "app.icon-generated"
+      ],
+      "observed": 154
+    },
+    "app.icon-generated": {
+      "policy": "may-generate-new",
+      "availability": "generation-safe",
+      "usedBy": [
+        "showcase.award-entries",
+        "showcase.award-winners",
+        "showcase.persona-tabs",
+        "store.app-grid",
+        "store.app-header",
+        "store.app-list",
+        "store.app-shelves",
+        "store.featured-carousel"
+      ],
+      "description": "Generated abstract icon for an app card in a generated page.",
+      "guidance": "Flat gradient or simple shape; never a real app's icon.",
+      "generatedModeGuidance": "Replaces app.icon in generated mode.",
+      "observed": 0
+    },
+    "article.image": {
+      "policy": "must-not-fabricate",
+      "availability": "reference-only",
+      "usedBy": [
+        "content.article-body",
+        "content.release-entry"
+      ],
+      "description": "Screenshots inside blog posts and release notes.",
+      "guidance": "Real product UI of the source. Do not fabricate or paraphrase it; reuse only with a licence, or use a neutral placeholder.",
+      "generatedModeGuidance": "Real screenshots of the source product. Generated pages use screenshots the user supplies or generated imagery.",
+      "generationSafeSubstitutes": [
+        "media.user-supplied",
+        "media.generated"
+      ],
+      "observed": 46
+    },
+    "avatar.person": {
+      "policy": "may-generate-new",
+      "usedBy": [
+        "content.article-footer",
+        "content.article-header",
+        "content.post-card",
+        "showcase.award-entries",
+        "showcase.award-winners",
+        "showcase.persona-tabs",
+        "store.app-grid",
+        "store.app-list",
+        "store.app-shelves",
+        "store.app-stats"
+      ],
+      "description": "Round author avatar on an app card.",
+      "guidance": "Use a synthetic, clearly generic avatar (initial on a flat colour, or abstract shape). Never use or imitate a real user's photo, and never use a real person's name.",
+      "availability": "reference-only",
+      "generatedModeGuidance": "Observed files are real people's photos. A generated page uses neutral placeholder avatars.",
+      "generationSafeSubstitutes": [
+        "avatar.placeholder"
+      ],
+      "observed": 130
+    },
+    "avatar.placeholder": {
+      "policy": "may-generate-new",
+      "availability": "generation-safe",
+      "usedBy": [
+        "content.article-footer",
+        "content.article-header",
+        "content.award-jury",
+        "content.post-card",
+        "showcase.award-entries",
+        "showcase.award-winners",
+        "showcase.persona-tabs",
+        "store.app-grid",
+        "store.app-list",
+        "store.app-shelves",
+        "store.app-stats"
+      ],
+      "description": "Neutral placeholder avatar (initial on a flat colour or abstract shape).",
+      "guidance": "Never a photo, never a real person's likeness.",
+      "generatedModeGuidance": "Replaces avatar.person and person.photo in generated mode.",
+      "observed": 0
+    },
+    "badge.award": {
+      "policy": "must-reuse-exact",
+      "usedBy": [
+        "content.award-prizes",
+        "showcase.award-winners",
+        "showcase.persona-tabs"
+      ],
+      "derivedFrom": "showcase.persona-tabs tabs[].apps[].award enum (the medal image follows the tier)",
+      "description": "Gold, silver or bronze award medal after an app name.",
+      "guidance": "Reuse the exact shipped medal or omit the badge. Do not redraw.",
+      "availability": "reference-only",
+      "generatedModeGuidance": "The source's award medals belong to its own awards programme. A generated page may show only generated medals for its own programme.",
+      "generationSafeSubstitutes": [
+        "badge.award-generated"
+      ],
+      "observed": 4
+    },
+    "badge.award-generated": {
+      "policy": "may-generate-new",
+      "availability": "generation-safe",
+      "usedBy": [
+        "content.award-prizes",
+        "showcase.award-winners"
+      ],
+      "description": "Generated medal for the generated brand's own programme.",
+      "guidance": "Generate new medal art; do not reproduce the source's gold, silver or bronze medals.",
+      "generatedModeGuidance": "Replaces badge.award in generated mode.",
+      "observed": 0
+    },
+    "brand.app-icon": {
+      "policy": "must-reuse-exact",
+      "usedBy": [
+        "content.not-found-block",
+        "cta.download-compact",
+        "cta.download-icon",
+        "cta.download-page"
+      ],
+      "description": "The large Glaze app icon (CTA, 404).",
+      "guidance": "Reuse the shipped file exactly. AI generation must never reproduce or approximate the Glaze or Raycast logo or app icon.",
+      "availability": "reference-only",
+      "generatedModeGuidance": "The source product's app icon. Never reproduce, redraw or imitate it; use a neutral placeholder icon or the user's own.",
+      "generationSafeSubstitutes": [
+        "brand.app-icon-placeholder",
+        "brand.app-icon-user-supplied"
+      ],
+      "observed": 1
+    },
+    "brand.app-icon-placeholder": {
+      "policy": "may-generate-new",
+      "availability": "generation-safe",
+      "usedBy": [
+        "content.not-found-block",
+        "cta.download-compact",
+        "cta.download-icon",
+        "cta.download-page"
+      ],
+      "description": "Neutral placeholder app icon for the generated brand.",
+      "guidance": "Generate a flat geometric icon. It must not resemble the source product's icon.",
+      "generatedModeGuidance": "Use when the user supplies no icon.",
+      "observed": 0
+    },
+    "brand.app-icon-user-supplied": {
+      "policy": "must-reuse-exact",
+      "availability": "generation-safe",
+      "usedBy": [
+        "content.not-found-block",
+        "cta.download-compact",
+        "cta.download-icon",
+        "cta.download-page"
+      ],
+      "description": "The generated brand's own app icon, supplied by the user.",
+      "guidance": "Use the exact supplied file; never the source icon.",
+      "generatedModeGuidance": "Preferred whenever the user provides an icon.",
+      "observed": 0
+    },
     "brand.wordmark": {
       "policy": "must-reuse-exact",
       "usedBy": [
         "shell.navbar"
       ],
       "description": "Glaze wordmark SVG in the nav pill and mobile panel.",
-      "guidance": "Reuse the shipped file exactly. Never redraw, recolour, restyle or invent a wordmark. If the host has no licence to ship it, omit it."
-    },
-    "brand.app-icon": {
-      "policy": "must-reuse-exact",
-      "usedBy": [
-        "cta.download-icon",
-        "content.not-found-block"
+      "guidance": "Reuse the shipped file exactly. Never redraw, recolour, restyle or invent a wordmark. If the host has no licence to ship it, omit it.",
+      "availability": "reference-only",
+      "generatedModeGuidance": "The source brand's wordmark. A generated site is a different brand: use a neutral placeholder wordmark or the file the user supplies.",
+      "generationSafeSubstitutes": [
+        "brand.wordmark-placeholder",
+        "brand.wordmark-user-supplied"
       ],
-      "description": "The large Glaze app icon (CTA, 404).",
-      "guidance": "Reuse the shipped file exactly. AI generation must never reproduce or approximate the Glaze or Raycast logo or app icon."
+      "observed": 1
     },
-    "particle.app-icon": {
-      "policy": "must-reuse-exact",
-      "usedBy": [
-        "cta.download-icon",
-        "content.not-found-block"
-      ],
-      "derivedFrom": "cta.download-icon.particlePoolRef (host-resolved pool id, no direct asset field)",
-      "description": "Pool of 17 app icons thrown by the click burst.",
-      "guidance": "Reuse the shipped pool, or ship the burst with generic placeholder squares. Never generate lookalikes of real app icons."
-    },
-    "app.icon": {
+    "brand.wordmark-placeholder": {
       "policy": "may-generate-new",
+      "availability": "generation-safe",
       "usedBy": [
-        "showcase.persona-tabs"
+        "shell.navbar"
       ],
-      "description": "Squircle icon inside an app card.",
-      "guidance": "Generate neutral abstract placeholder art (flat gradient or simple shape). Never reproduce a real app's icon or a Glaze/Raycast mark."
+      "description": "Neutral placeholder wordmark for the generated brand.",
+      "guidance": "Generate a plain text wordmark or geometric monogram. It must not resemble the source wordmark (no lettering style, colour or shape taken from it).",
+      "generatedModeGuidance": "Use when the user supplies no wordmark.",
+      "observed": 0
     },
-    "avatar.person": {
+    "brand.wordmark-user-supplied": {
+      "policy": "must-reuse-exact",
+      "availability": "generation-safe",
+      "usedBy": [
+        "shell.navbar"
+      ],
+      "description": "The generated brand's own wordmark, supplied by the user.",
+      "guidance": "Use the exact supplied file. Never redraw, recolour or substitute the source wordmark.",
+      "generatedModeGuidance": "Preferred whenever the user provides a wordmark.",
+      "observed": 0
+    },
+    "cover.image": {
       "policy": "may-generate-new",
+      "availability": "reference-only",
       "usedBy": [
-        "showcase.persona-tabs"
+        "content.article-cover",
+        "content.post-card",
+        "store.app-header",
+        "store.featured-carousel"
       ],
-      "description": "Round author avatar on an app card.",
-      "guidance": "Use a synthetic, clearly generic avatar (initial on a flat colour, or abstract shape). Never use or imitate a real user's photo, and never use a real person's name."
-    },
-    "badge.award": {
-      "policy": "must-reuse-exact",
-      "usedBy": [
-        "showcase.persona-tabs"
+      "description": "Blog and store cover artwork of the source (its own brand imagery and its publishers' screenshots).",
+      "guidance": "Generate new artwork in the design system's palette; never reuse, trace or restyle the source's covers.",
+      "generatedModeGuidance": "Cover and featured imagery of the source. Generated pages use generated or user-supplied imagery.",
+      "generationSafeSubstitutes": [
+        "media.generated",
+        "media.user-supplied"
       ],
-      "derivedFrom": "showcase.persona-tabs tabs[].apps[].award enum (the medal image follows the tier)",
-      "description": "Gold, silver or bronze award medal after an app name.",
-      "guidance": "Reuse the exact shipped medal or omit the badge. Do not redraw."
-    },
-    "screenshot.feature": {
-      "policy": "must-not-fabricate",
-      "usedBy": [
-        "features.feature-grid"
-      ],
-      "description": "Product screenshot in a feature card (desktop and mobile crops).",
-      "guidance": "Real product UI. Do not fabricate or paraphrase it. Reuse the exact shipped file, or use a neutral wireframe placeholder clearly marked as such."
-    },
-    "video.hero-loop": {
-      "policy": "must-reuse-exact",
-      "usedBy": [
-        "hero.landing-hero"
-      ],
-      "description": "Autoplay muted intro loop in the hero.",
-      "guidance": "Reuse the shipped file or a static poster. Do not synthesise footage of the real product."
-    },
-    "logo.partner": {
-      "policy": "must-not-fabricate",
-      "usedBy": [
-        "showcase.persona-tabs"
-      ],
-      "description": "Company marks on the team tab.",
-      "guidance": "Real third-party trademarks. Use only the exact shipped glyph for a company that has agreed, otherwise generic placeholder shapes. Never invent or alter a company mark."
+      "observed": 28
     },
     "embed.video": {
       "policy": "must-not-reuse-live-endpoint",
@@ -96,7 +250,421 @@
         "shell.youtube-overlay"
       ],
       "description": "Third-party video embed target (YouTube) opened by the overlay.",
-      "guidance": "External domains are intentionally not cloned. Examples use a placeholder URL. Do not point generated pages at the live source site's videos."
+      "guidance": "External domains are intentionally not cloned. Examples use a placeholder URL. Do not point generated pages at the live source site's videos.",
+      "availability": "blocked-for-generation",
+      "generatedModeGuidance": "Live third-party video endpoints of the source (its YouTube videos). Blocked: a generated page may only point at a video the user supplies.",
+      "generationSafeSubstitutes": [
+        "video.user-supplied"
+      ],
+      "observed": 0
+    },
+    "logo.partner": {
+      "policy": "must-not-fabricate",
+      "usedBy": [
+        "showcase.persona-tabs"
+      ],
+      "description": "Company marks on the team tab.",
+      "guidance": "Real third-party trademarks. Use only the exact shipped glyph for a company that has agreed, otherwise generic placeholder shapes. Never invent or alter a company mark.",
+      "availability": "blocked-for-generation",
+      "generatedModeGuidance": "Real third-party trademarks shown on the source. Blocked: use an explicit placeholder logo or a logo the user supplies for their own customers.",
+      "generationSafeSubstitutes": [
+        "logo.placeholder",
+        "logo.user-supplied"
+      ],
+      "observed": 0
+    },
+    "logo.placeholder": {
+      "policy": "may-generate-new",
+      "availability": "generation-safe",
+      "usedBy": [
+        "hero.awards-hero",
+        "showcase.persona-tabs"
+      ],
+      "description": "Explicit placeholder logo for a customer, partner or sponsor in a generated page.",
+      "guidance": "A plain labelled placeholder shape; never a real company's mark.",
+      "generatedModeGuidance": "Replaces logo.partner and logo.sponsor in generated mode.",
+      "observed": 0
+    },
+    "logo.sponsor": {
+      "policy": "must-not-fabricate",
+      "availability": "blocked-for-generation",
+      "usedBy": [
+        "hero.awards-hero"
+      ],
+      "description": "A sponsor's wordmark (a real third-party company).",
+      "guidance": "A real company's trademark. Never create or reproduce it; use an explicit placeholder.",
+      "generatedModeGuidance": "A real sponsor's mark. Blocked: use a placeholder logo or one the user supplies for their own sponsor.",
+      "generationSafeSubstitutes": [
+        "logo.placeholder",
+        "logo.user-supplied"
+      ],
+      "observed": 1
+    },
+    "logo.user-supplied": {
+      "policy": "must-reuse-exact",
+      "availability": "generation-safe",
+      "usedBy": [
+        "hero.awards-hero",
+        "showcase.persona-tabs"
+      ],
+      "description": "A logo the user supplies for their own customer, partner or sponsor.",
+      "guidance": "Use the exact supplied file.",
+      "generatedModeGuidance": "Preferred over the placeholder whenever the user provides a logo.",
+      "observed": 0
+    },
+    "mark.third-party": {
+      "policy": "must-not-fabricate",
+      "availability": "blocked-for-generation",
+      "usedBy": [
+        "commerce.pricing-plans"
+      ],
+      "description": "A third-party product mark shown as a glyph in a plan row.",
+      "guidance": "A real trademark. Never reproduce it.",
+      "generatedModeGuidance": "A real product mark. Blocked: generated plan rows use the check glyph.",
+      "generationSafeSubstitutes": [],
+      "derivedFrom": "commerce.pricing-plans plans[].features[].icon enum value 'third-party-mark' (blockedInGeneratedMode)",
+      "observed": 1
+    },
+    "media.generated": {
+      "policy": "may-generate-new",
+      "availability": "generation-safe",
+      "usedBy": [
+        "content.article-body",
+        "content.article-cover",
+        "content.post-card",
+        "content.release-entry",
+        "features.feature-grid",
+        "store.app-header",
+        "store.featured-carousel",
+        "store.screenshot-strip"
+      ],
+      "description": "Generated imagery for covers and in-page images (abstract, in the design system's palette).",
+      "guidance": "Do not reproduce, trace or restyle any source image.",
+      "generatedModeGuidance": "Replaces the reference-only cover, article and screenshot roles.",
+      "observed": 0
+    },
+    "media.user-supplied": {
+      "policy": "must-reuse-exact",
+      "availability": "generation-safe",
+      "usedBy": [
+        "content.article-body",
+        "content.article-cover",
+        "content.post-card",
+        "content.release-entry",
+        "features.feature-grid",
+        "store.app-header",
+        "store.featured-carousel",
+        "store.screenshot-strip"
+      ],
+      "description": "Images or screenshots the user supplies for their own product.",
+      "guidance": "Use only the supplied file; never one captured from the source site.",
+      "generatedModeGuidance": "Use for product screenshots and photography.",
+      "observed": 0
+    },
+    "particle.app-icon": {
+      "policy": "must-reuse-exact",
+      "usedBy": [
+        "cta.download-icon",
+        "content.not-found-block",
+        "cta.download-page",
+        "cta.download-compact"
+      ],
+      "derivedFrom": "cta.download-icon.particlePoolRef (host-resolved pool id, no direct asset field)",
+      "description": "Pool of 17 app icons thrown by the click burst.",
+      "guidance": "Reuse the shipped pool, or ship the burst with generic placeholder squares. Never generate lookalikes of real app icons.",
+      "availability": "reference-only",
+      "generatedModeGuidance": "The source's pool of 17 app icons thrown by the click burst. A generated page ships the burst with generic placeholder squares (particle.placeholder).",
+      "generationSafeSubstitutes": [
+        "particle.placeholder"
+      ],
+      "observed": 17
+    },
+    "particle.placeholder": {
+      "policy": "may-generate-new",
+      "availability": "generation-safe",
+      "usedBy": [
+        "cta.download-icon",
+        "content.not-found-block",
+        "cta.download-page",
+        "cta.download-compact"
+      ],
+      "description": "Generic squares or shapes thrown by the click burst on a generated page.",
+      "guidance": "Generate simple abstract shapes; never lookalikes of real app icons.",
+      "generatedModeGuidance": "The only particle pool a generated page may reference (particlePoolRef must be a placeholder: ref).",
+      "derivedFrom": "cta.download-icon / cta.download-page / cta.download-compact / content.not-found-block particlePoolRef (a placeholder: ref in generated mode)",
+      "observed": 0
+    },
+    "person.photo": {
+      "policy": "must-not-fabricate",
+      "availability": "blocked-for-generation",
+      "usedBy": [
+        "content.award-jury"
+      ],
+      "description": "Portraits of real named people (the awards jury).",
+      "guidance": "Real people's likeness. Never generate, reuse or imitate a real person's photo; use a neutral placeholder.",
+      "generatedModeGuidance": "Real named people. Blocked: use neutral placeholder avatars.",
+      "generationSafeSubstitutes": [
+        "avatar.placeholder"
+      ],
+      "observed": 5
+    },
+    "screenshot.app": {
+      "policy": "must-not-fabricate",
+      "availability": "reference-only",
+      "usedBy": [
+        "store.screenshot-strip"
+      ],
+      "description": "Screenshots of third-party apps in the store strip.",
+      "guidance": "Real third-party app UIs. Never fabricate or reproduce them.",
+      "generatedModeGuidance": "Real third-party app screenshots. Generated pages use user-supplied or generated imagery for their own apps.",
+      "generationSafeSubstitutes": [
+        "media.user-supplied",
+        "media.generated"
+      ],
+      "observed": 50
+    },
+    "screenshot.feature": {
+      "policy": "must-not-fabricate",
+      "usedBy": [
+        "features.feature-grid"
+      ],
+      "description": "Product screenshot in a feature card (desktop and mobile crops).",
+      "guidance": "Real product UI. Do not fabricate or paraphrase it. Reuse the exact shipped file, or use a neutral wireframe placeholder clearly marked as such.",
+      "availability": "reference-only",
+      "generatedModeGuidance": "Screenshots of the source product's UI. A generated page uses screenshots the user supplies for their own product, or generated imagery.",
+      "generationSafeSubstitutes": [
+        "media.user-supplied",
+        "media.generated"
+      ],
+      "observed": 12
+    },
+    "video.awards-hero": {
+      "policy": "must-reuse-exact",
+      "availability": "reference-only",
+      "usedBy": [
+        "hero.awards-hero"
+      ],
+      "description": "The awards hero loop (an abstract liquid-metal brand mark in motion).",
+      "guidance": "The source's own brand video. Reuse only the supplied file; never recreate or imitate it for another brand.",
+      "generatedModeGuidance": "The source brand's video. Generated pages use a video the user supplies.",
+      "generationSafeSubstitutes": [
+        "video.user-supplied"
+      ],
+      "observed": 1
+    },
+    "video.hero-loop": {
+      "policy": "must-reuse-exact",
+      "usedBy": [
+        "hero.landing-hero"
+      ],
+      "description": "Autoplay muted intro loop in the hero.",
+      "guidance": "Reuse the shipped file or a static poster. Do not synthesise footage of the real product.",
+      "availability": "reference-only",
+      "generatedModeGuidance": "The source's own product video. A generated page uses a video the user supplies.",
+      "generationSafeSubstitutes": [
+        "video.user-supplied"
+      ],
+      "observed": 1
+    },
+    "video.user-supplied": {
+      "policy": "must-reuse-exact",
+      "availability": "generation-safe",
+      "usedBy": [
+        "hero.awards-hero",
+        "hero.landing-hero",
+        "shell.youtube-overlay"
+      ],
+      "description": "Video the user supplies for their own product.",
+      "guidance": "Use only the supplied file; never the source's videos and never fabricated footage of real products or people.",
+      "generatedModeGuidance": "The only video role a generated page may use.",
+      "observed": 0
+    }
+  },
+  "availabilityValues": [
+    "reference-only",
+    "generation-safe",
+    "blocked-for-generation"
+  ],
+  "modes": {
+    "field": "PageSpec.mode (required, closed enum)",
+    "reference": "A clone or fidelity-validation page for the SOURCE brand. Only the roles each section field lists as referenceRoles; reference-only roles are available, generation-safe-only roles are not.",
+    "generated": "A new page for ANY OTHER brand. Only generation-safe roles, only the generatedRoles each field lists; no text, alt text, label, route or URL may name the source brand (source-protected.json), reuse verbatim source copy, use a source host or point at a source asset (protected-assets.json); assetRef values must be placeholder:, user: or generated: refs."
+  },
+  "assetRefPolicy": {
+    "generatedModePattern": "^(placeholder|user|generated):[a-z0-9][a-z0-9._-]*$",
+    "note": "In generated mode every assetRef, logoAssetRef, particlePoolRef (any key ending in Ref) must match. Reference mode accepts any host-resolved id."
+  },
+  "protectionLists": {
+    "sourceProtected": "assets/source-protected.json",
+    "protectedAssets": "assets/protected-assets.json",
+    "derivedBy": "extraction/derive_source_protected.mjs"
+  },
+  "sourceBrand": {
+    "names": [
+      "Glaze",
+      "Glaze Awards",
+      "Glaze Store",
+      "Glaze AI",
+      "Raycast",
+      "glazeapp",
+      "glaze.app"
+    ],
+    "patterns": [
+      "\\bglaze\\b",
+      "glaze[-_.]?app",
+      "\\braycast\\b",
+      "glazeapp",
+      "\\bglz\\b"
+    ],
+    "note": "Matched case-insensitively against every string of a generated PageSpec (headings, labels, alt text, hrefs, refs, route, head). The word 'glaze' is also an English word; a generated page must not use it. People, companies, hosts and verbatim copy are in assets/source-protected.json."
+  },
+  "observedAssets": {
+    "$description": "Every file of the source project's public/ tree (assets/protected-assets.json) mapped to exactly one role by the FIRST matching rule below (paths relative to public/). 'none:*' entries are not PageSpec assets. verify_all.py check 7c fails when a file matches no rule or a rule names an unknown role, and records the per-role counts.",
+    "rules": [
+      {
+        "match": "^assets/fonts/",
+        "role": "none:font",
+        "note": "Self-hosted font files: referenced by tokens (typography), never by a PageSpec role."
+      },
+      {
+        "match": "^(assets/)?(favicon|apple-touch-icon)",
+        "role": "none:site-meta",
+        "note": "Favicons and touch icon: document head, not a PageSpec asset."
+      },
+      {
+        "match": "^(assets/)?og-glaze",
+        "role": "none:site-meta",
+        "note": "Open Graph share image: document head, not a PageSpec asset."
+      },
+      {
+        "match": "^assets/app-icon-PC60coqE\\.png$",
+        "role": "brand.app-icon",
+        "note": "The product app icon (CTA, 404, download page)."
+      },
+      {
+        "match": "^assets/app-icon[0-9]+-",
+        "role": "particle.app-icon",
+        "note": "Pool of 17 icons thrown by the click burst."
+      },
+      {
+        "match": "^assets/logo-full-",
+        "role": "brand.wordmark",
+        "note": "Nav wordmark."
+      },
+      {
+        "match": "^assets/intro-loop-",
+        "role": "video.hero-loop",
+        "note": "Hero loop."
+      },
+      {
+        "match": "^assets/feature-",
+        "role": "screenshot.feature",
+        "note": "Feature card screenshots (desktop and -m mobile crops)."
+      },
+      {
+        "match": "^assets/award-(gold|silver|bronze)@2x-",
+        "role": "badge.award",
+        "note": "Tier medals."
+      },
+      {
+        "match": "^assets/marketing/award-peoples-choice",
+        "role": "badge.award",
+        "note": "Finalist medal on the awards prizes."
+      },
+      {
+        "match": "^assets/marketing/awards-hero-",
+        "role": "video.awards-hero",
+        "note": "Awards hero loop."
+      },
+      {
+        "match": "^assets/marketing/jury-",
+        "role": "person.photo",
+        "note": "Jury portraits."
+      },
+      {
+        "match": "^assets/marketing/anthropic-wordmark",
+        "role": "logo.sponsor",
+        "note": "Sponsor wordmark."
+      },
+      {
+        "match": "^assets/marketing/claude-mark",
+        "role": "mark.third-party",
+        "note": "Third-party product mark in a pricing plan row."
+      },
+      {
+        "match": "^assets/apps/.*-icon\\.",
+        "role": "app.icon",
+        "note": "Icons of the persona-tab apps."
+      },
+      {
+        "match": "^assets/apps/.*-avatar\\.",
+        "role": "avatar.person",
+        "note": "Authors of the persona-tab apps."
+      },
+      {
+        "match": "^assets/[0-9a-f]{8}-[0-9a-f-]+-icon-512\\.",
+        "role": "app.icon",
+        "note": "Downloaded app icons (store and awards)."
+      },
+      {
+        "match": "^assets/[0-9a-f]{8}-[0-9a-f-]+\\.",
+        "role": "avatar.person",
+        "note": "Downloaded author avatars."
+      },
+      {
+        "match": "^assets/blog/(optimized/)?avatar|^assets/blog/avatars/",
+        "role": "avatar.person",
+        "note": "Blog authors."
+      },
+      {
+        "match": "^assets/blog/(optimized/cover-|covers/)",
+        "role": "cover.image",
+        "note": "Post covers."
+      },
+      {
+        "match": "^assets/blog/",
+        "role": "article.image",
+        "note": "Images inside posts and release notes."
+      },
+      {
+        "match": "^assets/store/(optimized/)?avatar-",
+        "role": "avatar.person",
+        "note": "Store authors."
+      },
+      {
+        "match": "^assets/store/(optimized/)?[^/]*-icon\\.",
+        "role": "app.icon",
+        "note": "Store app icons."
+      },
+      {
+        "match": "^assets/store/(optimized/)?[^/]*-(hero|cover)\\.",
+        "role": "cover.image",
+        "note": "Featured covers."
+      },
+      {
+        "match": "^assets/store/(optimized/)?[^/]*-shot-[0-9]+\\.",
+        "role": "screenshot.app",
+        "note": "Store app screenshots."
+      }
+    ],
+    "counts": {
+      "app.icon": 154,
+      "article.image": 46,
+      "avatar.person": 130,
+      "badge.award": 4,
+      "brand.app-icon": 1,
+      "brand.wordmark": 1,
+      "cover.image": 28,
+      "logo.sponsor": 1,
+      "mark.third-party": 1,
+      "none:font": 4,
+      "none:site-meta": 8,
+      "particle.app-icon": 17,
+      "person.photo": 5,
+      "screenshot.app": 50,
+      "screenshot.feature": 12,
+      "video.awards-hero": 1,
+      "video.hero-loop": 1
     }
   }
 }

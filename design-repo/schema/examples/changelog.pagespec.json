@@ -1,0 +1,239 @@
+{
+  "id": "page.changelog",
+  "mode": "reference",
+  "route": "/changelog",
+  "template": "template.changelog",
+  "theme": "dark",
+  "head": {
+    "title": "Placeholder changelog title",
+    "description": "Placeholder changelog description."
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Link 1",
+            "href": "/example-1"
+          },
+          {
+            "label": "Link 2",
+            "href": "/example-2"
+          },
+          {
+            "label": "Link 3",
+            "href": "/example-3"
+          },
+          {
+            "label": "Link 4",
+            "href": "/example-4"
+          },
+          {
+            "label": "Link 5",
+            "href": "/example-5"
+          }
+        ],
+        "activeLinkHref": "/changelog",
+        "signInLabel": "Sign in",
+        "signInHref": "/example-sign-in",
+        "downloadLabel": "Download",
+        "downloadHref": "/example-download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://example.com/x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://example.com/slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://example.com/youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://example.com/reddit"
+          }
+        ],
+        "creditLabel": "Made by Example",
+        "creditHref": "https://example.com",
+        "logoAssetRole": "brand.wordmark",
+        "logoAssetRef": "ph-wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "page-header-1",
+      "type": "hero.page-header",
+      "content": {
+        "title": "Placeholder title",
+        "subtitle": "Placeholder subtitle."
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "release-entry-1",
+      "type": "content.release-entry",
+      "content": {
+        "version": "0.1.0",
+        "date": "January 5, 2026",
+        "datetime": "2026-01-05",
+        "href": "/example/release-1",
+        "title": "Placeholder release title 1",
+        "blocks": [
+          {
+            "kind": "h2",
+            "text": "New"
+          },
+          {
+            "kind": "p",
+            "text": "Placeholder paragraph.",
+            "codes": [
+              "code"
+            ]
+          },
+          {
+            "kind": "ul",
+            "items": [
+              {
+                "lead": "Lead",
+                "text": "Placeholder item."
+              },
+              {
+                "text": "Placeholder item two."
+              }
+            ]
+          },
+          {
+            "kind": "img",
+            "image": {
+              "assetRole": "article.image",
+              "assetRef": "ph-article-img",
+              "alt": "Placeholder image"
+            },
+            "width": 2400,
+            "height": 1200
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "release-entry-2",
+      "type": "content.release-entry",
+      "content": {
+        "version": "0.2.0",
+        "date": "January 5, 2026",
+        "datetime": "2026-01-05",
+        "href": "/example/release-2",
+        "title": "Placeholder release title 2",
+        "blocks": [
+          {
+            "kind": "h2",
+            "text": "New"
+          },
+          {
+            "kind": "p",
+            "text": "Placeholder paragraph.",
+            "codes": [
+              "code"
+            ]
+          },
+          {
+            "kind": "ul",
+            "items": [
+              {
+                "lead": "Lead",
+                "text": "Placeholder item."
+              },
+              {
+                "text": "Placeholder item two."
+              }
+            ]
+          },
+          {
+            "kind": "img",
+            "image": {
+              "assetRole": "article.image",
+              "assetRef": "ph-article-img",
+              "alt": "Placeholder image"
+            },
+            "width": 2400,
+            "height": 1200
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "footer-1",
+      "type": "shell.footer",
+      "content": {
+        "copyright": "Copyright Example",
+        "primaryLinks": [
+          {
+            "label": "Docs",
+            "href": "https://example.com/docs"
+          },
+          {
+            "label": "Blog",
+            "href": "/example-blog"
+          }
+        ],
+        "legalLinks": [
+          {
+            "label": "Terms",
+            "href": "/example-terms"
+          },
+          {
+            "label": "Privacy",
+            "href": "/example-privacy"
+          },
+          {
+            "label": "Use policy",
+            "href": "/example-use"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://example.com/x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://example.com/slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://example.com/youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://example.com/reddit"
+          }
+        ],
+        "creditLabel": "Made by Example",
+        "creditHref": "https://example.com"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    }
+  ]
+}

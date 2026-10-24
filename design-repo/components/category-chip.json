@@ -1,0 +1,66 @@
+{
+  "registryId": "component.category-chip",
+  "version": "1.0.0",
+  "category": "store",
+  "description": "Pill link with a 13px glyph and a label in a horizontally scrolling track; the active chip is brighter (aria-current=page).",
+  "composes": [
+    "primitive.link",
+    "primitive.icon",
+    "primitive.text"
+  ],
+  "props": {
+    "label": {
+      "type": "string",
+      "maxWords": 3
+    },
+    "href": {
+      "type": "string"
+    },
+    "icon": {
+      "enum": [
+        "star",
+        "shuffle",
+        "hammer",
+        "chart-line",
+        "wrench",
+        "headphones",
+        "paintbrush",
+        "heart",
+        "gamepad-2"
+      ]
+    },
+    "active": {
+      "type": "boolean"
+    }
+  },
+  "layout": {
+    "height": "{categoryChip.height}",
+    "paddingX": "{categoryChip.paddingX}",
+    "gap": "{categoryChip.gap}",
+    "trackGap": "{categoryChip.trackGap}",
+    "typography": "{typography.label.chip}",
+    "radius": "{radius.control}",
+    "activeFill": "{color.surface.ghost-hover}",
+    "restFill": "{color.surface.chip-rest}"
+  },
+  "states": {
+    "hover": {
+      "background": "{color.surface.ghost}",
+      "transition": "{motion.recipe.hover.colors}"
+    }
+  },
+  "tokens": [
+    "categoryChip.height",
+    "categoryChip.paddingX",
+    "categoryChip.gap",
+    "categoryChip.trackGap",
+    "typography.label.chip",
+    "radius.control",
+    "color.surface.ghost-hover",
+    "color.surface.chip-rest"
+  ],
+  "measuredFrom": [
+    "jsx.store.chip",
+    "jsx.store.chips"
+  ]
+}

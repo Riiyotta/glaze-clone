@@ -1,0 +1,376 @@
+{
+  "id": "page.generated-app-detail",
+  "mode": "generated",
+  "route": "/app/pocket-atlas-Fn4Kq1",
+  "template": "template.app-detail",
+  "theme": "dark",
+  "head": {
+    "title": "Pocket Atlas. Keep every map you love in one place",
+    "description": "A calm library for saved places and routes."
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Overview",
+            "href": "/"
+          },
+          {
+            "label": "Plans",
+            "href": "/pricing"
+          },
+          {
+            "label": "Library",
+            "href": "/store"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          },
+          {
+            "label": "Releases",
+            "href": "/changelog"
+          }
+        ],
+        "activeLinkHref": null,
+        "signInLabel": "Sign in",
+        "signInHref": "/account",
+        "downloadLabel": "Download",
+        "downloadHref": "/download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example",
+        "logoAssetRole": "brand.wordmark-placeholder",
+        "logoAssetRef": "placeholder:wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "app-header-1",
+      "type": "store.app-header",
+      "content": {
+        "name": "Pocket Atlas",
+        "tagline": "Keep every map you love in one calm place.",
+        "icon": {
+          "assetRole": "app.icon-generated",
+          "assetRef": "generated:icon-atlas"
+        },
+        "cover": {
+          "assetRole": "media.generated",
+          "assetRef": "generated:cover-atlas"
+        },
+        "featuredLabel": "Featured",
+        "award": "none",
+        "aiBadge": {
+          "label": "Assist",
+          "purpose": "Suggests labels for the places you save."
+        },
+        "primaryCta": {
+          "label": "Open in app",
+          "href": "/download"
+        },
+        "secondaryCta": {
+          "label": "Remix",
+          "href": "/download",
+          "kind": "remix"
+        }
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "remix-lineage-1",
+      "type": "store.remix-lineage",
+      "content": {
+        "prefix": "Based on",
+        "parentName": "Trail Notes",
+        "parentHref": "/app/trail-notes",
+        "by": "by",
+        "authorName": "Jonas Heller",
+        "authorHref": "/account"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "app-stats-1",
+      "type": "store.app-stats",
+      "content": {
+        "labels": {
+          "author": "Author",
+          "size": "Size",
+          "updated": "Updated",
+          "installs": "Installs"
+        },
+        "author": {
+          "name": "Mira Sandoval",
+          "href": "/account",
+          "avatar": {
+            "assetRole": "avatar.placeholder",
+            "assetRef": "placeholder:author-1"
+          }
+        },
+        "size": "4.2 MB",
+        "updated": "5 Mar 2026",
+        "installs": "<100"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "screenshot-strip-1",
+      "type": "store.screenshot-strip",
+      "content": {
+        "previousLabel": "Previous",
+        "nextLabel": "Next",
+        "shots": [
+          {
+            "image": {
+              "assetRole": "media.user-supplied",
+              "assetRef": "user:shot-1",
+              "alt": "Screenshot 1"
+            },
+            "width": 346,
+            "height": 260
+          },
+          {
+            "image": {
+              "assetRole": "media.user-supplied",
+              "assetRef": "user:shot-2",
+              "alt": "Screenshot 2"
+            },
+            "width": 346,
+            "height": 260
+          },
+          {
+            "image": {
+              "assetRole": "media.user-supplied",
+              "assetRef": "user:shot-3",
+              "alt": "Screenshot 3"
+            },
+            "width": 346,
+            "height": 260
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "app-about-1",
+      "type": "store.app-about",
+      "content": {
+        "heading": "About Pocket Atlas",
+        "body": "Pocket Atlas keeps saved places, routes and notes in one searchable library, so planning a trip never starts from scratch."
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "list-remixes",
+      "type": "store.app-list",
+      "content": {
+        "title": "Remixes",
+        "remixIcons": true,
+        "apps": [
+          {
+            "name": "Compass 1",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 71",
+            "href": "/app/compass-1-71",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-71"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-71"
+            }
+          },
+          {
+            "name": "Compass 2",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 72",
+            "href": "/app/compass-2-72",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-72"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-72"
+            }
+          },
+          {
+            "name": "Compass 3",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 73",
+            "href": "/app/compass-3-73",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-73"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-73"
+            }
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "list-related",
+      "type": "store.app-list",
+      "content": {
+        "title": "Related apps",
+        "remixIcons": false,
+        "apps": [
+          {
+            "name": "Compass 1",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 71",
+            "href": "/app/compass-1-71",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-71"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-71"
+            }
+          },
+          {
+            "name": "Compass 2",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 72",
+            "href": "/app/compass-2-72",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-72"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-72"
+            }
+          },
+          {
+            "name": "Compass 3",
+            "tagline": "A quiet little tool for one job.",
+            "author": "Maker 73",
+            "href": "/app/compass-3-73",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon-generated",
+              "assetRef": "generated:icon-73"
+            },
+            "avatar": {
+              "assetRole": "avatar.placeholder",
+              "assetRef": "placeholder:avatar-73"
+            }
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "footer-1",
+      "type": "shell.footer",
+      "content": {
+        "copyright": "Copyright Fernhill",
+        "primaryLinks": [
+          {
+            "label": "Guides",
+            "href": "/guides"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          }
+        ],
+        "legalLinks": [
+          {
+            "label": "Terms",
+            "href": "/terms"
+          },
+          {
+            "label": "Privacy",
+            "href": "/privacy"
+          },
+          {
+            "label": "Acceptable use",
+            "href": "/aup"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    }
+  ]
+}

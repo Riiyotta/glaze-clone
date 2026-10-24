@@ -2,7 +2,7 @@
   "id": "section.shell.navbar",
   "typeId": "shell.navbar",
   "registryId": "section.shell.navbar",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "category": "shell",
   "semantic": {
     "id": "section.shell.navbar",
@@ -17,7 +17,7 @@
   },
   "retrievalEligible": true,
   "purpose": "Fixed top navigation: glass pill from 624px, collapsible glass panel below.",
-  "scope": "All routes in scope (/, five persona routes, 404).",
+  "scope": "Every route.",
   "composes": [
     "component.nav-pill",
     "component.mobile-menu-panel"
@@ -103,7 +103,18 @@
         "type": "string"
       },
       "logoAssetRole": {
-        "const": "brand.wordmark"
+        "enum": [
+          "brand.wordmark",
+          "brand.wordmark-placeholder",
+          "brand.wordmark-user-supplied"
+        ],
+        "referenceRoles": [
+          "brand.wordmark"
+        ],
+        "generatedRoles": [
+          "brand.wordmark-placeholder",
+          "brand.wordmark-user-supplied"
+        ]
       },
       "logoAssetRef": {
         "type": "string"

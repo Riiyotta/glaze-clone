@@ -1,0 +1,675 @@
+{
+  "id": "page.generated-landing",
+  "mode": "generated",
+  "route": "/",
+  "template": "template.landing",
+  "theme": "dark",
+  "head": {
+    "title": "Fernlight: notes that grow with you",
+    "description": "A calm place to capture, shape and share your notes on the Mac.",
+    "robots": "max-image-preview:large"
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Overview",
+            "href": "/"
+          },
+          {
+            "label": "Plans",
+            "href": "/pricing"
+          },
+          {
+            "label": "Library",
+            "href": "/store"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          },
+          {
+            "label": "Releases",
+            "href": "/changelog"
+          }
+        ],
+        "activeLinkHref": "/",
+        "signInLabel": "Sign in",
+        "signInHref": "/account",
+        "downloadLabel": "Download",
+        "downloadHref": "/download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example",
+        "logoAssetRole": "brand.wordmark-placeholder",
+        "logoAssetRef": "placeholder:wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "landing-hero-1",
+      "type": "hero.landing-hero",
+      "content": {
+        "eyebrowBrand": "Fernlight",
+        "eyebrowByline": "by",
+        "eyebrowLinkLabel": "Fernhill Studio",
+        "eyebrowLinkHref": "https://fernhill.example",
+        "headline": "Notes that grow\nwith your thinking",
+        "subheadline": "Capture ideas on your Mac in seconds.\nShape them into something worth sharing.",
+        "primaryCta": {
+          "label": "Download",
+          "href": "/download",
+          "icon": "apple"
+        },
+        "secondaryCta": {
+          "label": "See it in action",
+          "videoId": "intro"
+        },
+        "requirementsNote": "Requires a recent Mac with Apple Silicon",
+        "mobileSignUp": {
+          "label": "Join the list",
+          "href": "/account",
+          "note": "Available on Mac first"
+        },
+        "video": {
+          "assetRole": "video.user-supplied",
+          "assetRef": "user:hero-loop",
+          "alt": "Looping screen recording supplied by the user"
+        },
+        "introVideoId": "intro",
+        "pillars": [
+          {
+            "icon": "hard-drive",
+            "title": "Stored locally",
+            "text": "Your notes stay in files you own."
+          },
+          {
+            "icon": "laptop-minimal-check",
+            "title": "Native feel",
+            "text": "Menus, shortcuts and search behave like the rest of your Mac."
+          },
+          {
+            "icon": "sparkles",
+            "title": "Quietly smart",
+            "text": "Suggestions appear only when you ask for them."
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "entrance-hero-rise",
+        "reducedMotionFallback": "opacity-only"
+      }
+    },
+    {
+      "id": "persona-tabs-1",
+      "type": "showcase.persona-tabs",
+      "content": {
+        "label": "Tools for",
+        "dropdownAriaLabel": "Pick an audience",
+        "initialTab": "personal",
+        "tabs": [
+          {
+            "id": "personal",
+            "label": "Everyday",
+            "kind": "apps",
+            "title": "Made for everyday work",
+            "description": "A few small apps people built for everyday routines:",
+            "bottomLink": {
+              "label": "Browse the library",
+              "href": "/store"
+            },
+            "apps": [
+              {
+                "name": "Everyday Helper 1",
+                "author": "Maker 1",
+                "href": "/app/personal-helper-1",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-personal-1",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-1"
+              },
+              {
+                "name": "Everyday Helper 2",
+                "author": "Maker 2",
+                "href": "/app/personal-helper-2",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-personal-2",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-2"
+              },
+              {
+                "name": "Everyday Helper 3",
+                "author": "Maker 3",
+                "href": "/app/personal-helper-3",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-personal-3",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-3"
+              },
+              {
+                "name": "Everyday Helper 4",
+                "author": "Maker 4",
+                "href": "/app/personal-helper-4",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-personal-4",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-4"
+              }
+            ]
+          },
+          {
+            "id": "design",
+            "label": "Studio",
+            "kind": "apps",
+            "title": "Made for studio work",
+            "description": "A few small apps people built for studio routines:",
+            "bottomLink": {
+              "label": "Browse the library",
+              "href": "/store"
+            },
+            "apps": [
+              {
+                "name": "Studio Helper 1",
+                "author": "Maker 1",
+                "href": "/app/design-helper-1",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-design-1",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-1"
+              },
+              {
+                "name": "Studio Helper 2",
+                "author": "Maker 2",
+                "href": "/app/design-helper-2",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-design-2",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-2"
+              },
+              {
+                "name": "Studio Helper 3",
+                "author": "Maker 3",
+                "href": "/app/design-helper-3",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-design-3",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-3"
+              },
+              {
+                "name": "Studio Helper 4",
+                "author": "Maker 4",
+                "href": "/app/design-helper-4",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-design-4",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-4"
+              }
+            ]
+          },
+          {
+            "id": "development",
+            "label": "Engineering",
+            "kind": "apps",
+            "title": "Made for engineering work",
+            "description": "A few small apps people built for engineering routines:",
+            "bottomLink": {
+              "label": "Browse the library",
+              "href": "/store"
+            },
+            "apps": [
+              {
+                "name": "Engineering Helper 1",
+                "author": "Maker 1",
+                "href": "/app/development-helper-1",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-development-1",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-1"
+              },
+              {
+                "name": "Engineering Helper 2",
+                "author": "Maker 2",
+                "href": "/app/development-helper-2",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-development-2",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-2"
+              },
+              {
+                "name": "Engineering Helper 3",
+                "author": "Maker 3",
+                "href": "/app/development-helper-3",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-development-3",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-3"
+              },
+              {
+                "name": "Engineering Helper 4",
+                "author": "Maker 4",
+                "href": "/app/development-helper-4",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-development-4",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-4"
+              }
+            ]
+          },
+          {
+            "id": "creativity",
+            "label": "Writing",
+            "kind": "apps",
+            "title": "Made for writing work",
+            "description": "A few small apps people built for writing routines:",
+            "bottomLink": {
+              "label": "Browse the library",
+              "href": "/store"
+            },
+            "apps": [
+              {
+                "name": "Writing Helper 1",
+                "author": "Maker 1",
+                "href": "/app/creativity-helper-1",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-creativity-1",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-1"
+              },
+              {
+                "name": "Writing Helper 2",
+                "author": "Maker 2",
+                "href": "/app/creativity-helper-2",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-creativity-2",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-2"
+              },
+              {
+                "name": "Writing Helper 3",
+                "author": "Maker 3",
+                "href": "/app/creativity-helper-3",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-creativity-3",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-3"
+              },
+              {
+                "name": "Writing Helper 4",
+                "author": "Maker 4",
+                "href": "/app/creativity-helper-4",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-creativity-4",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-4"
+              }
+            ]
+          },
+          {
+            "id": "fun",
+            "label": "Play",
+            "kind": "apps",
+            "title": "Made for play work",
+            "description": "A few small apps people built for play routines:",
+            "bottomLink": {
+              "label": "Browse the library",
+              "href": "/store"
+            },
+            "apps": [
+              {
+                "name": "Play Helper 1",
+                "author": "Maker 1",
+                "href": "/app/fun-helper-1",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-fun-1",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-1"
+              },
+              {
+                "name": "Play Helper 2",
+                "author": "Maker 2",
+                "href": "/app/fun-helper-2",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-fun-2",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-2"
+              },
+              {
+                "name": "Play Helper 3",
+                "author": "Maker 3",
+                "href": "/app/fun-helper-3",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-fun-3",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-3"
+              },
+              {
+                "name": "Play Helper 4",
+                "author": "Maker 4",
+                "href": "/app/fun-helper-4",
+                "award": "none",
+                "iconAssetRole": "app.icon-generated",
+                "iconAssetRef": "generated:icon-fun-4",
+                "avatarAssetRole": "avatar.placeholder",
+                "avatarAssetRef": "placeholder:avatar-4"
+              }
+            ]
+          },
+          {
+            "id": "teams",
+            "label": "Teams",
+            "kind": "logos",
+            "title": "Used by small teams",
+            "description": "Teams keep shared notes and checklists in one library:",
+            "logos": [
+              {
+                "name": "Studio 1",
+                "assetRole": "logo.placeholder",
+                "assetRef": "placeholder:logo-1"
+              },
+              {
+                "name": "Studio 2",
+                "assetRole": "logo.placeholder",
+                "assetRef": "placeholder:logo-2"
+              },
+              {
+                "name": "Studio 3",
+                "assetRole": "logo.placeholder",
+                "assetRef": "placeholder:logo-3"
+              },
+              {
+                "name": "Studio 4",
+                "assetRole": "logo.placeholder",
+                "assetRef": "placeholder:logo-4"
+              }
+            ],
+            "bottomLink": {
+              "label": "Read their stories",
+              "href": "/blog"
+            }
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "panel-fade-on-switch",
+        "reducedMotionFallback": "opacity-only"
+      }
+    },
+    {
+      "id": "feature-grid-1",
+      "type": "features.feature-grid",
+      "content": {
+        "rows": [
+          {
+            "cards": [
+              {
+                "title": "Capture mode 1",
+                "description": "A short description of what this part of the app does for you.",
+                "desktopImage": {
+                  "assetRole": "media.user-supplied",
+                  "assetRef": "user:shot-desktop",
+                  "alt": "Screenshot supplied by the user"
+                },
+                "mobileImage": {
+                  "assetRole": "media.user-supplied",
+                  "assetRef": "user:shot-mobile",
+                  "alt": "Screenshot supplied by the user"
+                },
+                "demoLabel": "Play demo",
+                "demoVideoId": "demo"
+              }
+            ]
+          },
+          {
+            "cards": [
+              {
+                "title": "Capture mode 2",
+                "description": "A short description of what this part of the app does for you.",
+                "desktopImage": {
+                  "assetRole": "media.user-supplied",
+                  "assetRef": "user:shot-desktop",
+                  "alt": "Screenshot supplied by the user"
+                },
+                "mobileImage": {
+                  "assetRole": "media.user-supplied",
+                  "assetRef": "user:shot-mobile",
+                  "alt": "Screenshot supplied by the user"
+                }
+              },
+              {
+                "title": "Capture mode 3",
+                "description": "A short description of what this part of the app does for you.",
+                "desktopImage": {
+                  "assetRole": "media.user-supplied",
+                  "assetRef": "user:shot-desktop",
+                  "alt": "Screenshot supplied by the user"
+                },
+                "mobileImage": {
+                  "assetRole": "media.user-supplied",
+                  "assetRef": "user:shot-mobile",
+                  "alt": "Screenshot supplied by the user"
+                }
+              }
+            ]
+          },
+          {
+            "cards": [
+              {
+                "title": "Capture mode 4",
+                "description": "A short description of what this part of the app does for you.",
+                "desktopImage": {
+                  "assetRole": "media.user-supplied",
+                  "assetRef": "user:shot-desktop",
+                  "alt": "Screenshot supplied by the user"
+                },
+                "mobileImage": {
+                  "assetRole": "media.user-supplied",
+                  "assetRef": "user:shot-mobile",
+                  "alt": "Screenshot supplied by the user"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "faq-1",
+      "type": "support.faq",
+      "content": {
+        "title": "FAQ",
+        "items": [
+          {
+            "question": "What does the free plan include?",
+            "answer": "Everything you need to write and organise notes for yourself, with a monthly allowance of assisted edits."
+          },
+          {
+            "question": "How do plan credits renew?",
+            "answer": "Credits refresh on the first day of every billing month and unused credits expire after sixty days."
+          },
+          {
+            "question": "Can I cancel at any time?",
+            "answer": "Yes. Cancel from the account page and your plan stays active until the end of the period."
+          },
+          {
+            "question": "Where are my notes stored?",
+            "answer": "Notes live in plain files on your Mac, so you can open them with any editor.",
+            "link": {
+              "label": "plans page",
+              "href": "/pricing",
+              "after": "."
+            }
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "accordion-and-dim",
+        "reducedMotionFallback": "static"
+      }
+    },
+    {
+      "id": "download-icon-1",
+      "type": "cta.download-icon",
+      "content": {
+        "icon": {
+          "assetRole": "brand.app-icon-placeholder",
+          "assetRef": "placeholder:app-icon",
+          "alt": "Fernlight app icon placeholder"
+        },
+        "particlePoolRef": "placeholder:particle-pool",
+        "headline": "Ready when you are",
+        "primaryCta": {
+          "label": "Download",
+          "href": "/download",
+          "icon": "apple"
+        },
+        "mobileHref": "/account",
+        "requirementsNote": "Requires a recent Mac with Apple Silicon"
+      },
+      "motion": {
+        "pattern": "icon-press-and-burst",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "footer-1",
+      "type": "shell.footer",
+      "content": {
+        "copyright": "Copyright Fernhill",
+        "primaryLinks": [
+          {
+            "label": "Guides",
+            "href": "/guides"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          }
+        ],
+        "legalLinks": [
+          {
+            "label": "Terms",
+            "href": "/terms"
+          },
+          {
+            "label": "Privacy",
+            "href": "/privacy"
+          },
+          {
+            "label": "Acceptable use",
+            "href": "/aup"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "youtube-overlay-1",
+      "type": "shell.youtube-overlay",
+      "content": {
+        "closeLabel": "Close the video",
+        "videos": [
+          {
+            "id": "intro",
+            "assetRole": "video.user-supplied",
+            "embedUrl": "https://video.example/embed/fernlight-intro",
+            "aspect": "16/9"
+          },
+          {
+            "id": "demo",
+            "assetRole": "video.user-supplied",
+            "embedUrl": "https://video.example/embed/fernlight-demo",
+            "aspect": "16/9"
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "app-dialog-1",
+      "type": "shell.app-dialog",
+      "content": {
+        "variant": "app-detail",
+        "closeLabel": "Dismiss",
+        "previousLabel": "Back",
+        "nextLabel": "Forward",
+        "fullPageLabel": "Open full page"
+      },
+      "motion": {
+        "pattern": "dialog-fade",
+        "reducedMotionFallback": "opacity-only"
+      }
+    }
+  ]
+}

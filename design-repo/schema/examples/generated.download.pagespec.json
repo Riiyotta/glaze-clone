@@ -1,0 +1,97 @@
+{
+  "id": "page.generated-download",
+  "mode": "generated",
+  "route": "/download",
+  "template": "template.download",
+  "theme": "dark",
+  "head": {
+    "title": "Download Fernlight"
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Overview",
+            "href": "/"
+          },
+          {
+            "label": "Plans",
+            "href": "/pricing"
+          },
+          {
+            "label": "Library",
+            "href": "/store"
+          },
+          {
+            "label": "Journal",
+            "href": "/blog"
+          },
+          {
+            "label": "Releases",
+            "href": "/changelog"
+          }
+        ],
+        "activeLinkHref": null,
+        "signInLabel": "Sign in",
+        "signInHref": "/account",
+        "downloadLabel": "Download",
+        "downloadHref": "/download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://social.example/fernlight-x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://social.example/fernlight-slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://social.example/fernlight-youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://social.example/fernlight-reddit"
+          }
+        ],
+        "creditLabel": "Made by Fernhill",
+        "creditHref": "https://fernhill.example",
+        "logoAssetRole": "brand.wordmark-placeholder",
+        "logoAssetRef": "placeholder:wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "download-page-1",
+      "type": "cta.download-page",
+      "content": {
+        "icon": {
+          "assetRole": "brand.app-icon-placeholder",
+          "assetRef": "placeholder:app-icon",
+          "alt": "Fernlight app icon placeholder"
+        },
+        "particlePoolRef": "placeholder:particle-pool",
+        "headline": "Get Fernlight",
+        "subheadline": "Start your first library today",
+        "primaryCta": {
+          "label": "Download",
+          "href": "/download",
+          "icon": "apple"
+        },
+        "mobileNote": "Available for Apple Silicon Macs",
+        "desktopNote": "Apple Silicon Mac required",
+        "versionLabel": "v 1.0.0"
+      },
+      "motion": {
+        "pattern": "icon-press-and-burst",
+        "reducedMotionFallback": "none"
+      }
+    }
+  ]
+}

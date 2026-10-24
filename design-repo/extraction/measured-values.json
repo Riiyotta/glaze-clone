@@ -1,27 +1,50 @@
 {
-  "description": "Ledger of the real evidence behind every token, contract and rule. Each citation id used in a 'cite' or 'measuredFrom' field resolves here to a file in the SOURCE PROJECT (the Glaze clone that sits next to design-repo/), a line range and strings that must appear inside that range. extraction/verify_all.py checks range validity and content when the source is present, and only WARNS (never fails) when design-repo/ is used standalone. The paths are project-relative, not machine paths.",
+  "description": "Ledger of the real evidence behind every token, contract and rule. Each citation id used in a 'cite' or 'measuredFrom' field resolves here to a file in the SOURCE PROJECT (the Glaze clone that sits next to design-repo/), a line range and strings that must appear inside that range. extraction/verify_all.py checks range validity and content when the source is present, and only WARNS (never fails) when design-repo/ is used standalone. The paths are project-relative, not machine paths. Also recorded here (all produced by the extraction/*.mjs evidence tools and re-checked offline by verify_all.py): routeTable, sectionHeights, typographyChecks, layoutChecks, contentBudgets.",
   "sourceProject": {
     "name": "Glaze clone (React 18, Vite 5, Tailwind 3.4)",
     "origin": "Glaze by Raycast, a real, live commercial site. Clone is a study copy; its copy, brand marks, app icons and screenshots are not licensed for reuse.",
-    "measuredWith": "Playwright, Chromium, 1440x900 and 390x844, spot checks at 768/1024/1280 (CLONE_SPEC.md header)",
+    "measuredWith": "Playwright, Chromium, 1440x900, 768x1024 and 390x844 (type probes at all three; section heights at 1440), CLONE_SPEC.md and specs/SPEC_*.md (live-site measurements recorded by the clone's authors)",
     "builtRoutes": [
+      "/blog",
+      "/blog/:slug",
+      "/changelog",
       "/",
+      "/terms",
+      "/privacy",
+      "/aup",
+      "/pricing",
+      "/download",
+      "/awards",
+      "/awards/terms",
       "/designers",
       "/product-managers",
       "/engineers",
       "/creators",
       "/teams",
-      "/* (404, includes /m)"
+      "/store",
+      "/store/:category",
+      "/app/:slug",
+      "*"
     ]
   },
   "scope": {
     "modelled": [
+      "template.app-detail",
+      "template.awards",
+      "template.blog-index",
+      "template.blog-post",
+      "template.changelog",
+      "template.download",
       "template.landing",
+      "template.legal",
+      "template.not-found",
       "template.persona",
-      "template.not-found"
+      "template.pricing",
+      "template.store-category",
+      "template.store-index"
     ],
-    "decision": "Only the landing page, five persona routes and the 404 are modelled. Pricing, download, awards, legal, blog, changelog, store and app-detail routes appear in the repo-level ia.json but were still being specced/built when this repo was written; they are deliberately absent. Do not infer their structure from this repo.",
-    "linkPolicy": "Nav and footer links in the clone point at absolute https://www.glaze.app URLs today and are expected to become local routes. External domains (YouTube, Raycast, x.com, reddit, slack) are intentionally not cloned. Example PageSpecs use example.com placeholders."
+    "decision": "Every route of the clone's real route table (src/route-modules/*.js, recorded in routeTable) is modelled by one of 13 templates. Only two states are deliberately not templates: the in-page 'App not found' state of /app/<unknown slug> and the search / pagination states (?q=, ?page=, ?entriesQuery=, ?entriesPage=) of the store and awards pages, which render on the same routes.",
+    "linkPolicy": "Internal nav, footer, blog, store and legal links in the clone are local routes (router Link). Sign-in and download targets, the manual, Raycast, the sponsor, jurors' sites and the social profiles are absolute external URLs. External domains (YouTube, Raycast, x.com, reddit, slack, anthropic.com, github.com, ...) are intentionally not cloned; reference examples use example.com placeholders and generated examples use reserved .example hosts."
   },
   "evidenceLevels": {
     "measured": "CLONE_SPEC.md Playwright-computed values and matching src values",
@@ -31,8 +54,13 @@
     "description": "First 16 hex of sha256 of each cited file at build time. A mismatch in a sibling source is a WARNING that the snapshot is stale (MASTER-GUIDE 3.10), not an error.",
     "files": {
       "CLONE_SPEC.md": "998c1945be2747a0",
-      "ia.json": "44a5ff104cb95fdf",
+      "ia.json": "1b9819bbd30999cc",
+      "specs/SPEC_blog.md": "42ecf0cf5ab24bbb",
       "specs/SPEC_legal_persona.md": "36bb0b535aa84787",
+      "specs/SPEC_marketing.md": "6354f303e3a24253",
+      "specs/SPEC_store.md": "529daf9b8a58d6a2",
+      "src/awards.css": "6b75ae515a58fe53",
+      "src/blog.css": "7484c85794473c1d",
       "src/components/DownloadCTA.jsx": "f75ae03429e61b6a",
       "src/components/FAQ.jsx": "18b55db606c76f56",
       "src/components/Features.jsx": "974912077aa94bfa",
@@ -41,13 +69,53 @@
       "src/components/Hero.jsx": "515a9bff09d553ea",
       "src/components/Navbar.jsx": "b82ebaedcf008981",
       "src/components/PersonaShowcase.jsx": "08f7f40958340311",
+      "src/components/Tooltip.jsx": "71ecb5dc7639d78b",
       "src/components/YouTubeOverlay.jsx": "080ffcf0b6cfe36d",
+      "src/components/awards/AppCard.jsx": "16f123d1941a989c",
+      "src/components/awards/Entries.jsx": "687622aef673af04",
+      "src/components/awards/Sections.jsx": "5143821e13599975",
+      "src/components/awards/Winners.jsx": "0497a2de09c7190a",
+      "src/components/blog/AuthorRow.jsx": "63ff187c10f867ca",
+      "src/components/blog/Lightbox.jsx": "b46ca7893fe7f603",
+      "src/components/blog/Prose.jsx": "e1ac3e57b95b61a8",
       "src/components/icons.jsx": "e6363fa5861c456c",
+      "src/components/store/AppDetail.jsx": "199e3212e6c6574a",
+      "src/components/store/AppDialog.jsx": "42260bcdfb64016d",
+      "src/components/store/AppRow.jsx": "8b06cfb2acce9b22",
+      "src/components/store/Awards.jsx": "5ac4caa063726ed5",
+      "src/components/store/HeroCarousel.jsx": "0416907ee4e938b6",
+      "src/components/store/Pagination.jsx": "55efa1cffffce7c2",
+      "src/components/store/ScreenshotStrip.jsx": "f75ace616dcdec20",
+      "src/components/store/Slider.jsx": "20b8df0ac4cfa385",
+      "src/components/store/StoreView.jsx": "2318f73e66bcb4ff",
+      "src/data/awards-terms.js": "e300e7dd3c349b56",
+      "src/data/awards.js": "b13e9bea440249e8",
+      "src/data/blog.js": "398ea63be790685b",
+      "src/data/changelog.js": "57b6f08bc132d043",
       "src/data/content.js": "c843bd0c68221936",
+      "src/data/legal/terms.js": "6831d3cf2e6a78c5",
+      "src/data/pricing.js": "e2c23889b94b116e",
+      "src/data/store.js": "e397f92fd2fb4063",
       "src/index.css": "60d73d46957f7cff",
       "src/motion.js": "5760b43f101eba89",
+      "src/pages/AppPage.jsx": "18a8e0816aebe638",
+      "src/pages/Awards.jsx": "316be26e358b64c9",
+      "src/pages/AwardsTerms.jsx": "1bf8c3e2146f27dd",
+      "src/pages/BlogIndex.jsx": "3ba9ef65df175d87",
+      "src/pages/BlogPost.jsx": "d539288ba5037d96",
+      "src/pages/Changelog.jsx": "b863d99a8116b8c3",
+      "src/pages/Download.jsx": "5766a9503b4c49d7",
       "src/pages/Landing.jsx": "51fefaf6cb52e3a2",
+      "src/pages/LegalPage.jsx": "f9f650df3a41f234",
       "src/pages/NotFoundPage.jsx": "c1d374a70f6e196d",
+      "src/pages/Pricing.jsx": "39537c5a497ba5f9",
+      "src/route-modules/blog.js": "38347998b7580497",
+      "src/route-modules/legal.js": "8b6c61ab3006c893",
+      "src/route-modules/marketing.js": "8359c7ecee4a5638",
+      "src/route-modules/store.js": "bbaf69482d7583cf",
+      "src/router.jsx": "91c5f94ff5287cf2",
+      "src/routes.jsx": "c4170b619906d864",
+      "src/store.css": "951dfe9fdf6ffcdd",
       "tailwind.config.js": "895e6fdcefc72f00"
     }
   },
@@ -204,21 +272,21 @@
     },
     "ia.template.landing": {
       "file": "ia.json",
-      "lines": "138",
+      "lines": "265",
       "mustContain": [
         "\"id\": \"template.landing\""
       ]
     },
     "ia.template.not-found": {
       "file": "ia.json",
-      "lines": "180",
+      "lines": "309",
       "mustContain": [
         "\"id\": \"template.not-found\""
       ]
     },
     "ia.template.persona": {
       "file": "ia.json",
-      "lines": "157",
+      "lines": "285",
       "mustContain": [
         "\"id\": \"template.persona\""
       ]
@@ -1471,6 +1539,1690 @@
         "<div",
         "role=\"dialog\""
       ]
+    },
+    "jsx.pricing.root": {
+      "file": "src/pages/Pricing.jsx",
+      "lines": "85",
+      "mustContain": [
+        "export default function Pricing"
+      ]
+    },
+    "jsx.pricing.section": {
+      "file": "src/pages/Pricing.jsx",
+      "lines": "88",
+      "mustContain": [
+        "px-4 pt-[140px] xs:pt-40"
+      ]
+    },
+    "jsx.pricing.h1": {
+      "file": "src/pages/Pricing.jsx",
+      "lines": "90",
+      "mustContain": [
+        "font-display text-4xl font-medium leading-[1.1] tracking-tight text-white"
+      ]
+    },
+    "jsx.pricing.grid": {
+      "file": "src/pages/Pricing.jsx",
+      "lines": "93",
+      "mustContain": [
+        "mt-8 grid grid-cols-1 gap-3 min-[992px]:grid-cols-3"
+      ]
+    },
+    "jsx.pricing.card": {
+      "file": "src/pages/Pricing.jsx",
+      "lines": "55",
+      "mustContain": [
+        "flex flex-col rounded-2xl border border-border-separator p-5"
+      ]
+    },
+    "jsx.pricing.card-title": {
+      "file": "src/pages/Pricing.jsx",
+      "lines": "59",
+      "mustContain": [
+        "text-3xl font-medium leading-none text-white"
+      ]
+    },
+    "jsx.pricing.features": {
+      "file": "src/pages/Pricing.jsx",
+      "lines": "60",
+      "mustContain": [
+        "text-sm font-medium leading-[18px] text-white min-[760px]:mt-14"
+      ]
+    },
+    "jsx.pricing.feature": {
+      "file": "src/pages/Pricing.jsx",
+      "lines": "10",
+      "mustContain": [
+        "function Feature"
+      ]
+    },
+    "jsx.pricing.badge": {
+      "file": "src/pages/Pricing.jsx",
+      "lines": "42",
+      "mustContain": [
+        "rounded-full bg-white/[0.08] px-2 py-0.5 text-xs font-medium text-text-secondary"
+      ]
+    },
+    "jsx.pricing.footer": {
+      "file": "src/pages/Pricing.jsx",
+      "lines": "52",
+      "mustContain": [
+        "mt-10 flex flex-col items-start gap-2 text-left"
+      ]
+    },
+    "jsx.pricing.price": {
+      "file": "src/pages/Pricing.jsx",
+      "lines": "71",
+      "mustContain": [
+        "text-xl font-medium leading-5 text-white"
+      ]
+    },
+    "jsx.pricing.unit": {
+      "file": "src/pages/Pricing.jsx",
+      "lines": "72",
+      "mustContain": [
+        "text-sm leading-[14px] text-text-secondary"
+      ]
+    },
+    "jsx.pricing.faq": {
+      "file": "src/pages/Pricing.jsx",
+      "lines": "100",
+      "mustContain": [
+        "<FAQ items={PRICING_FAQS}"
+      ]
+    },
+    "jsx.pricing.cta": {
+      "file": "src/pages/Pricing.jsx",
+      "lines": "101",
+      "mustContain": [
+        "<DownloadCTA />"
+      ]
+    },
+    "jsx.tooltip.panel": {
+      "file": "src/components/Tooltip.jsx",
+      "lines": "83",
+      "mustContain": [
+        "role=\"tooltip\""
+      ]
+    },
+    "jsx.tooltip.fade": {
+      "file": "src/components/Tooltip.jsx",
+      "lines": "6",
+      "mustContain": [
+        "const FADE_MS = 150"
+      ]
+    },
+    "data.pricing.plans": {
+      "file": "src/data/pricing.js",
+      "lines": "2",
+      "mustContain": [
+        "export const PLANS"
+      ]
+    },
+    "data.pricing.faqs": {
+      "file": "src/data/pricing.js",
+      "lines": "51",
+      "mustContain": [
+        "export const PRICING_FAQS"
+      ]
+    },
+    "jsx.download.root": {
+      "file": "src/pages/Download.jsx",
+      "lines": "9",
+      "mustContain": [
+        "export default function Download"
+      ]
+    },
+    "jsx.download.main": {
+      "file": "src/pages/Download.jsx",
+      "lines": "11",
+      "mustContain": [
+        "flex min-h-dvh items-center justify-center px-4"
+      ]
+    },
+    "jsx.download.h1": {
+      "file": "src/pages/Download.jsx",
+      "lines": "16",
+      "mustContain": [
+        "mb-2 select-none text-2xl font-medium leading-[1.25] tracking-tight text-white"
+      ]
+    },
+    "jsx.download.sub": {
+      "file": "src/pages/Download.jsx",
+      "lines": "19",
+      "mustContain": [
+        "select-none text-base leading-[1.4] text-text-secondary"
+      ]
+    },
+    "jsx.download.button": {
+      "file": "src/pages/Download.jsx",
+      "lines": "26",
+      "mustContain": [
+        "hidden h-11 items-center justify-center gap-2.5 rounded-full bg-accent"
+      ]
+    },
+    "jsx.download.note": {
+      "file": "src/pages/Download.jsx",
+      "lines": "21",
+      "mustContain": [
+        "text-center text-xs leading-[1.35] text-text-tertiary xs:hidden"
+      ]
+    },
+    "jsx.download.version": {
+      "file": "src/pages/Download.jsx",
+      "lines": "36",
+      "mustContain": [
+        "font-mono text-xs text-text-tertiary"
+      ]
+    },
+    "jsx.legal.root": {
+      "file": "src/pages/LegalPage.jsx",
+      "lines": "68",
+      "mustContain": [
+        "export default function LegalPage"
+      ]
+    },
+    "jsx.legal.section": {
+      "file": "src/pages/LegalPage.jsx",
+      "lines": "71",
+      "mustContain": [
+        "px-4 pb-24 pt-[172px]"
+      ]
+    },
+    "jsx.legal.h1": {
+      "file": "src/pages/LegalPage.jsx",
+      "lines": "73",
+      "mustContain": [
+        "mb-3 text-balance text-center text-4xl font-medium leading-[1.1] tracking-tight text-white"
+      ]
+    },
+    "jsx.legal.updated": {
+      "file": "src/pages/LegalPage.jsx",
+      "lines": "76",
+      "mustContain": [
+        "mb-8 text-center text-sm text-text-secondary"
+      ]
+    },
+    "jsx.legal.body": {
+      "file": "src/pages/LegalPage.jsx",
+      "lines": "77",
+      "mustContain": [
+        "legal-prose space-y-4 text-base leading-[1.6] text-white"
+      ]
+    },
+    "jsx.legal.list": {
+      "file": "src/pages/LegalPage.jsx",
+      "lines": "55",
+      "mustContain": [
+        "function List"
+      ]
+    },
+    "css.legal-prose": {
+      "file": "src/index.css",
+      "lines": "174",
+      "mustContain": [
+        ".legal-prose h2 {"
+      ]
+    },
+    "css.legal-prose.ul": {
+      "file": "src/index.css",
+      "lines": "188",
+      "mustContain": [
+        ".legal-prose ul {"
+      ]
+    },
+    "jsx.awardsterms.root": {
+      "file": "src/pages/AwardsTerms.jsx",
+      "lines": "42",
+      "mustContain": [
+        "export default function AwardsTerms"
+      ]
+    },
+    "jsx.awardsterms.h1": {
+      "file": "src/pages/AwardsTerms.jsx",
+      "lines": "47",
+      "mustContain": [
+        "mb-3 text-balance text-center text-4xl font-medium leading-[1.1] tracking-tight text-white"
+      ]
+    },
+    "jsx.awardsterms.body": {
+      "file": "src/pages/AwardsTerms.jsx",
+      "lines": "58",
+      "mustContain": [
+        "[&_h2]:text-balance [&_h2]:pt-6 [&_h2]:text-3xl [&_h2]:font-semibold [&_h2]:leading-9"
+      ]
+    },
+    "jsx.awardsterms.h3": {
+      "file": "src/pages/AwardsTerms.jsx",
+      "lines": "59",
+      "mustContain": [
+        "[&_h3]:text-balance [&_h3]:pt-2 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:leading-7"
+      ]
+    },
+    "jsx.awardsterms.schedule": {
+      "file": "src/pages/AwardsTerms.jsx",
+      "lines": "68",
+      "mustContain": [
+        "mt-16 border-t border-border-separator pt-12 text-center"
+      ]
+    },
+    "jsx.awardsterms.label": {
+      "file": "src/pages/AwardsTerms.jsx",
+      "lines": "29",
+      "mustContain": [
+        "b.label &&"
+      ]
+    },
+    "data.legal.terms": {
+      "file": "src/data/legal/terms.js",
+      "lines": "10",
+      "mustContain": [
+        "export const TERMS_BLOCKS"
+      ]
+    },
+    "data.awardsterms.blocks": {
+      "file": "src/data/awards-terms.js",
+      "lines": "22",
+      "mustContain": [
+        "export const AWARDS_TERMS_BLOCKS"
+      ]
+    },
+    "jsx.blogindex.root": {
+      "file": "src/pages/BlogIndex.jsx",
+      "lines": "8",
+      "mustContain": [
+        "export default function BlogIndex"
+      ]
+    },
+    "jsx.blogindex.section": {
+      "file": "src/pages/BlogIndex.jsx",
+      "lines": "11",
+      "mustContain": [
+        "px-4 pb-20 pt-[140px] xs:pt-40"
+      ]
+    },
+    "jsx.blogindex.header": {
+      "file": "src/pages/BlogIndex.jsx",
+      "lines": "12",
+      "mustContain": [
+        "mx-auto mb-12 w-full max-w-[680px] text-center xs:mb-16"
+      ]
+    },
+    "jsx.blogindex.h1": {
+      "file": "src/pages/BlogIndex.jsx",
+      "lines": "13",
+      "mustContain": [
+        "mb-4 px-4 font-display text-[36px] font-medium leading-[1.1] tracking-[-0.9px]"
+      ]
+    },
+    "jsx.blogindex.sub": {
+      "file": "src/pages/BlogIndex.jsx",
+      "lines": "16",
+      "mustContain": [
+        "mx-auto text-base leading-relaxed text-text-tertiary xs:max-w-[440px] xs:text-lg"
+      ]
+    },
+    "jsx.blogindex.card": {
+      "file": "src/pages/BlogIndex.jsx",
+      "lines": "23",
+      "mustContain": [
+        "border-t border-border-separator py-10 first:border-t-0 xs:py-16"
+      ]
+    },
+    "jsx.blogindex.cover": {
+      "file": "src/pages/BlogIndex.jsx",
+      "lines": "34",
+      "mustContain": [
+        "aspect-[1.9/1] h-auto w-full rounded-[12px] border border-border-separator object-cover"
+      ]
+    },
+    "jsx.blogindex.time": {
+      "file": "src/pages/BlogIndex.jsx",
+      "lines": "36",
+      "mustContain": [
+        "mt-8 block text-[15px] leading-[22px] text-text-tertiary"
+      ]
+    },
+    "jsx.blogindex.title": {
+      "file": "src/pages/BlogIndex.jsx",
+      "lines": "39",
+      "mustContain": [
+        "mt-4 text-balance font-display text-[28px] font-medium leading-[1.08] tracking-tight"
+      ]
+    },
+    "jsx.blogindex.excerpt": {
+      "file": "src/pages/BlogIndex.jsx",
+      "lines": "44",
+      "mustContain": [
+        "mt-5 text-[16px] leading-[1.6] text-text-secondary xs:text-[17px]"
+      ]
+    },
+    "jsx.author.row": {
+      "file": "src/components/blog/AuthorRow.jsx",
+      "lines": "11",
+      "mustContain": [
+        "flex min-w-0 items-center gap-3 text-[15px] leading-[22px] text-text-tertiary"
+      ]
+    },
+    "jsx.author.avatar": {
+      "file": "src/components/blog/AuthorRow.jsx",
+      "lines": "3",
+      "mustContain": [
+        "relative flex h-6 w-6 shrink-0 items-center justify-center overflow-hidden rounded-full"
+      ]
+    },
+    "jsx.blogpost.root": {
+      "file": "src/pages/BlogPost.jsx",
+      "lines": "12",
+      "mustContain": [
+        "export default function BlogPost"
+      ]
+    },
+    "jsx.blogpost.section": {
+      "file": "src/pages/BlogPost.jsx",
+      "lines": "48",
+      "mustContain": [
+        "px-4 pb-20 pt-[132px] xs:pt-[172px]"
+      ]
+    },
+    "jsx.blogpost.article": {
+      "file": "src/pages/BlogPost.jsx",
+      "lines": "50",
+      "mustContain": [
+        "<article className=\"min-w-0\">"
+      ]
+    },
+    "jsx.blogpost.cover": {
+      "file": "src/pages/BlogPost.jsx",
+      "lines": "51",
+      "mustContain": [
+        "overflow-hidden rounded-[18px] border border-border-separator bg-white/[0.04]"
+      ]
+    },
+    "jsx.blogpost.header": {
+      "file": "src/pages/BlogPost.jsx",
+      "lines": "61",
+      "mustContain": [
+        "<header className=\"mt-10\">"
+      ]
+    },
+    "jsx.blogpost.h1": {
+      "file": "src/pages/BlogPost.jsx",
+      "lines": "65",
+      "mustContain": [
+        "mt-3 font-display text-[32px] font-medium leading-[1.05] tracking-[-0.8px]"
+      ]
+    },
+    "jsx.blogpost.footer": {
+      "file": "src/pages/BlogPost.jsx",
+      "lines": "79",
+      "mustContain": [
+        "mt-16 border-t border-border-separator pt-10 xs:mt-20 xs:pt-12"
+      ]
+    },
+    "jsx.blogpost.share": {
+      "file": "src/pages/BlogPost.jsx",
+      "lines": "27",
+      "mustContain": [
+        "const share = async"
+      ]
+    },
+    "jsx.blogpost.copied": {
+      "file": "src/pages/BlogPost.jsx",
+      "lines": "40",
+      "mustContain": [
+        "setTimeout(() => setCopied(false), 1600)"
+      ]
+    },
+    "jsx.blogpost.cta": {
+      "file": "src/pages/BlogPost.jsx",
+      "lines": "96",
+      "mustContain": [
+        "<DownloadCTA compact />"
+      ]
+    },
+    "jsx.prose.root": {
+      "file": "src/components/blog/Prose.jsx",
+      "lines": "47",
+      "mustContain": [
+        "markdown-content min-w-0 space-y-5 text-base leading-[25px] text-white/80"
+      ]
+    },
+    "jsx.prose.h2": {
+      "file": "src/components/blog/Prose.jsx",
+      "lines": "52",
+      "mustContain": [
+        "pt-3 text-xl font-medium leading-[1.25] text-text-primary"
+      ]
+    },
+    "jsx.prose.h3": {
+      "file": "src/components/blog/Prose.jsx",
+      "lines": "58",
+      "mustContain": [
+        "pt-2 text-lg font-medium leading-[1.3] text-text-primary"
+      ]
+    },
+    "jsx.prose.img": {
+      "file": "src/components/blog/Prose.jsx",
+      "lines": "85",
+      "mustContain": [
+        "my-6 block h-auto w-full rounded-[8px] border border-border-separator"
+      ]
+    },
+    "jsx.prose.link": {
+      "file": "src/components/blog/Prose.jsx",
+      "lines": "15",
+      "mustContain": [
+        "underline decoration-white/30 underline-offset-4"
+      ]
+    },
+    "jsx.prose.code": {
+      "file": "src/components/blog/Prose.jsx",
+      "lines": "23",
+      "mustContain": [
+        "rounded-[4px] bg-white/[0.06] px-1.5 py-0.5 font-mono"
+      ]
+    },
+    "css.markdown-list": {
+      "file": "src/blog.css",
+      "lines": "11",
+      "mustContain": [
+        ".markdown-list > li::before {"
+      ]
+    },
+    "jsx.lightbox.root": {
+      "file": "src/components/blog/Lightbox.jsx",
+      "lines": "28",
+      "mustContain": [
+        "aria-label=\"Screenshot gallery\""
+      ]
+    },
+    "jsx.compactcta.section": {
+      "file": "src/components/DownloadCTA.jsx",
+      "lines": "37",
+      "mustContain": [
+        "mt-20 pt-4 xs:mt-24 xs:pt-0"
+      ]
+    },
+    "jsx.compactcta.title": {
+      "file": "src/components/DownloadCTA.jsx",
+      "lines": "40",
+      "mustContain": [
+        "text-[30px] font-medium leading-[1.1] tracking-[-0.9px]"
+      ]
+    },
+    "data.blog.posts": {
+      "file": "src/data/blog.js",
+      "lines": "15",
+      "mustContain": [
+        "export const POSTS"
+      ]
+    },
+    "jsx.changelog.root": {
+      "file": "src/pages/Changelog.jsx",
+      "lines": "7",
+      "mustContain": [
+        "export default function Changelog"
+      ]
+    },
+    "jsx.changelog.h1": {
+      "file": "src/pages/Changelog.jsx",
+      "lines": "12",
+      "mustContain": [
+        "xs:text-5xl xs:leading-[1.1] xs:tracking-[-1.2px]"
+      ]
+    },
+    "jsx.changelog.wrap": {
+      "file": "src/pages/Changelog.jsx",
+      "lines": "19",
+      "mustContain": [
+        "mx-auto w-full max-w-content xl:max-w-[1240px]"
+      ]
+    },
+    "jsx.changelog.entry": {
+      "file": "src/pages/Changelog.jsx",
+      "lines": "24",
+      "mustContain": [
+        "grid border-t border-border-separator py-10 first:border-t-0 last:border-b"
+      ]
+    },
+    "jsx.changelog.aside": {
+      "file": "src/pages/Changelog.jsx",
+      "lines": "27",
+      "mustContain": [
+        "flex items-center gap-3 text-sm text-text-tertiary xl:sticky xl:top-[116px]"
+      ]
+    },
+    "jsx.changelog.pill": {
+      "file": "src/pages/Changelog.jsx",
+      "lines": "28",
+      "mustContain": [
+        "rounded-full bg-white/[0.08] px-3 py-1 text-sm font-medium leading-none text-text-secondary"
+      ]
+    },
+    "jsx.changelog.title": {
+      "file": "src/pages/Changelog.jsx",
+      "lines": "39",
+      "mustContain": [
+        "text-balance font-display text-3xl font-medium leading-[1.08] tracking-tight"
+      ]
+    },
+    "data.changelog.releases": {
+      "file": "src/data/changelog.js",
+      "lines": "14",
+      "mustContain": [
+        "export const RELEASES"
+      ]
+    },
+    "jsx.awards.root": {
+      "file": "src/pages/Awards.jsx",
+      "lines": "38",
+      "mustContain": [
+        "export default function Awards"
+      ]
+    },
+    "jsx.awards.theme": {
+      "file": "src/pages/Awards.jsx",
+      "lines": "12",
+      "mustContain": [
+        "function useAwardsTheme"
+      ]
+    },
+    "jsx.awards.main": {
+      "file": "src/pages/Awards.jsx",
+      "lines": "42",
+      "mustContain": [
+        "awards-page-background flex min-h-dvh flex-col bg-black"
+      ]
+    },
+    "jsx.awards.hero": {
+      "file": "src/pages/Awards.jsx",
+      "lines": "43",
+      "mustContain": [
+        "px-4 pt-[clamp(0px,calc(225px-35.9vw),88px)] min-[624px]:pt-0"
+      ]
+    },
+    "jsx.awards.video": {
+      "file": "src/pages/Awards.jsx",
+      "lines": "50",
+      "mustContain": [
+        "relative left-1/2 aspect-video w-screen max-w-[1280px]"
+      ]
+    },
+    "jsx.awards.fade": {
+      "file": "src/pages/Awards.jsx",
+      "lines": "48",
+      "mustContain": [
+        "animationDuration: '800ms'"
+      ]
+    },
+    "jsx.awards.rows": {
+      "file": "src/pages/Awards.jsx",
+      "lines": "66",
+      "mustContain": [
+        "relative z-10 mt-[-28px] min-[624px]:mt-[clamp(-144px,-11vw,-48px)]"
+      ]
+    },
+    "jsx.awards.sponsor": {
+      "file": "src/pages/Awards.jsx",
+      "lines": "68",
+      "mustContain": [
+        "flex items-center justify-center gap-2 text-sm font-medium text-white"
+      ]
+    },
+    "jsx.awards.h1": {
+      "file": "src/pages/Awards.jsx",
+      "lines": "76",
+      "mustContain": [
+        "mt-2 text-center font-display text-4xl font-medium leading-[1.1] tracking-tight text-white"
+      ]
+    },
+    "jsx.awards.sub": {
+      "file": "src/pages/Awards.jsx",
+      "lines": "81",
+      "mustContain": [
+        "mx-auto mt-2 max-w-[720px] text-base leading-relaxed text-text-secondary"
+      ]
+    },
+    "jsx.awards.below": {
+      "file": "src/pages/Awards.jsx",
+      "lines": "89",
+      "mustContain": [
+        "data-anim=\"awards-below-fold\""
+      ]
+    },
+    "css.awards.bg": {
+      "file": "src/awards.css",
+      "lines": "3",
+      "mustContain": [
+        ".awards-page-background {"
+      ]
+    },
+    "css.awards.secondary": {
+      "file": "src/index.css",
+      "lines": "255",
+      "mustContain": [
+        ":where([data-page='awards']) .text-text-secondary {"
+      ]
+    },
+    "jsx.winners.root": {
+      "file": "src/components/awards/Winners.jsx",
+      "lines": "101",
+      "mustContain": [
+        "export default function Winners"
+      ]
+    },
+    "jsx.winners.section": {
+      "file": "src/components/awards/Winners.jsx",
+      "lines": "112",
+      "mustContain": [
+        "dialog-focus-surface mx-auto max-w-page"
+      ]
+    },
+    "jsx.winners.card": {
+      "file": "src/components/awards/Winners.jsx",
+      "lines": "23",
+      "mustContain": [
+        "relative flex flex-col items-center gap-2 rounded-2xl border border-border-separator px-8 py-12"
+      ]
+    },
+    "jsx.winners.finalists": {
+      "file": "src/components/awards/Winners.jsx",
+      "lines": "120",
+      "mustContain": [
+        "mb-4 mt-16 truncate text-lg font-medium leading-[22px] text-white xs:mt-20"
+      ]
+    },
+    "jsx.winners.grid": {
+      "file": "src/components/awards/Winners.jsx",
+      "lines": "121",
+      "mustContain": [
+        "grid grid-cols-2 gap-x-5 gap-y-1 md:grid-cols-3 min-[1920px]:grid-cols-4"
+      ]
+    },
+    "jsx.winners.dialog": {
+      "file": "src/components/awards/Winners.jsx",
+      "lines": "71",
+      "mustContain": [
+        "aria-label={`${w.name} details`}"
+      ]
+    },
+    "jsx.awardcard.root": {
+      "file": "src/components/awards/AppCard.jsx",
+      "lines": "12",
+      "mustContain": [
+        "-mx-2 flex h-[72px] items-center gap-3 rounded-2xl px-2"
+      ]
+    },
+    "jsx.entries.root": {
+      "file": "src/components/awards/Entries.jsx",
+      "lines": "117",
+      "mustContain": [
+        "id=\"entries\""
+      ]
+    },
+    "jsx.entries.search": {
+      "file": "src/components/awards/Entries.jsx",
+      "lines": "124",
+      "mustContain": [
+        "liquid-glass ml-auto flex h-10 shrink-0 items-center overflow-hidden rounded-full"
+      ]
+    },
+    "jsx.entries.pager": {
+      "file": "src/components/awards/Entries.jsx",
+      "lines": "184",
+      "mustContain": [
+        "aria-label=\"Entries pagination\""
+      ]
+    },
+    "jsx.entries.window": {
+      "file": "src/components/awards/Entries.jsx",
+      "lines": "41",
+      "mustContain": [
+        "function pageWindow"
+      ]
+    },
+    "jsx.prizes.root": {
+      "file": "src/components/awards/Sections.jsx",
+      "lines": "17",
+      "mustContain": [
+        "export function Prizes"
+      ]
+    },
+    "jsx.prizes.fieldset": {
+      "file": "src/components/awards/Sections.jsx",
+      "lines": "20",
+      "mustContain": [
+        "mx-auto min-w-0 max-w-page rounded-3xl border border-border-primary bg-transparent"
+      ]
+    },
+    "jsx.prizes.legend": {
+      "file": "src/components/awards/Sections.jsx",
+      "lines": "21",
+      "mustContain": [
+        "mx-auto whitespace-nowrap px-4 text-center font-display text-sm font-medium"
+      ]
+    },
+    "jsx.prizes.title": {
+      "file": "src/components/awards/Sections.jsx",
+      "lines": "28",
+      "mustContain": [
+        "mt-3 font-display text-2xl font-medium leading-tight text-white"
+      ]
+    },
+    "jsx.prizes.sub": {
+      "file": "src/components/awards/Sections.jsx",
+      "lines": "29",
+      "mustContain": [
+        "mt-2 font-display text-lg font-medium leading-tight text-text-secondary"
+      ]
+    },
+    "jsx.prizes.eligible": {
+      "file": "src/components/awards/Sections.jsx",
+      "lines": "43",
+      "mustContain": [
+        "Eligible Countries"
+      ]
+    },
+    "jsx.jury.root": {
+      "file": "src/components/awards/Sections.jsx",
+      "lines": "116",
+      "mustContain": [
+        "export function Jury"
+      ]
+    },
+    "jsx.jury.photo": {
+      "file": "src/components/awards/Sections.jsx",
+      "lines": "127",
+      "mustContain": [
+        "size-[88px] rounded-full object-cover grayscale"
+      ]
+    },
+    "jsx.jury.name": {
+      "file": "src/components/awards/Sections.jsx",
+      "lines": "129",
+      "mustContain": [
+        "mt-4 font-display text-[15px] font-medium leading-[18.8px] text-white"
+      ]
+    },
+    "jsx.jury.links": {
+      "file": "src/components/awards/Sections.jsx",
+      "lines": "145",
+      "mustContain": [
+        "mt-4 flex items-center gap-2.5 text-text-tertiary"
+      ]
+    },
+    "jsx.criteria.root": {
+      "file": "src/components/awards/Sections.jsx",
+      "lines": "176",
+      "mustContain": [
+        "export function Criteria"
+      ]
+    },
+    "jsx.criteria.title": {
+      "file": "src/components/awards/Sections.jsx",
+      "lines": "184",
+      "mustContain": [
+        "flex items-center justify-center gap-2 font-display text-xl font-medium leading-7 text-white"
+      ]
+    },
+    "jsx.criteria.body": {
+      "file": "src/components/awards/Sections.jsx",
+      "lines": "188",
+      "mustContain": [
+        "mt-2.5 text-balance text-sm leading-relaxed text-text-secondary"
+      ]
+    },
+    "data.awards.winners": {
+      "file": "src/data/awards.js",
+      "lines": "10",
+      "mustContain": [
+        "export const WINNERS"
+      ]
+    },
+    "jsx.store.root": {
+      "file": "src/components/store/StoreView.jsx",
+      "lines": "124",
+      "mustContain": [
+        "export default function StoreView"
+      ]
+    },
+    "jsx.store.section": {
+      "file": "src/components/store/StoreView.jsx",
+      "lines": "185",
+      "mustContain": [
+        "px-4 pb-20 pt-[76px] xs:pt-[80px]"
+      ]
+    },
+    "jsx.store.wrap": {
+      "file": "src/components/store/StoreView.jsx",
+      "lines": "186",
+      "mustContain": [
+        "mx-auto flex w-full max-w-page flex-col gap-3 min-[1920px]:max-w-[1440px]"
+      ]
+    },
+    "jsx.store.titlebar": {
+      "file": "src/components/store/StoreView.jsx",
+      "lines": "190",
+      "mustContain": [
+        "flex items-center justify-between gap-3"
+      ]
+    },
+    "jsx.store.h1": {
+      "file": "src/components/store/StoreView.jsx",
+      "lines": "191",
+      "mustContain": [
+        "truncate text-lg font-medium leading-[22px] text-white"
+      ]
+    },
+    "jsx.store.search": {
+      "file": "src/components/store/StoreView.jsx",
+      "lines": "60",
+      "mustContain": [
+        "liquid-glass ml-auto flex h-10 w-[210px] items-center overflow-hidden rounded-full"
+      ]
+    },
+    "jsx.store.debounce": {
+      "file": "src/components/store/StoreView.jsx",
+      "lines": "52",
+      "mustContain": [
+        "250 ms debounce"
+      ]
+    },
+    "jsx.store.chips": {
+      "file": "src/components/store/StoreView.jsx",
+      "lines": "76",
+      "mustContain": [
+        "aria-label=\"Store categories\""
+      ]
+    },
+    "jsx.store.chip": {
+      "file": "src/components/store/StoreView.jsx",
+      "lines": "85",
+      "mustContain": [
+        "flex h-8 items-center gap-1.5 whitespace-nowrap rounded-full border px-[9px] text-[13px]"
+      ]
+    },
+    "jsx.store.body": {
+      "file": "src/components/store/StoreView.jsx",
+      "lines": "200",
+      "mustContain": [
+        "mt-8 flex flex-col gap-8"
+      ]
+    },
+    "jsx.store.shelves": {
+      "file": "src/components/store/StoreView.jsx",
+      "lines": "155",
+      "mustContain": [
+        "<Slider title=\"Our Picks\""
+      ]
+    },
+    "jsx.store.grid": {
+      "file": "src/components/store/StoreView.jsx",
+      "lines": "115",
+      "mustContain": [
+        "function GridWithPagination"
+      ]
+    },
+    "jsx.store.remix": {
+      "file": "src/components/store/StoreView.jsx",
+      "lines": "174",
+      "mustContain": [
+        "All Remixable Apps"
+      ]
+    },
+    "jsx.store.noapps": {
+      "file": "src/components/store/StoreView.jsx",
+      "lines": "103",
+      "mustContain": [
+        "No apps found"
+      ]
+    },
+    "jsx.slider.root": {
+      "file": "src/components/store/Slider.jsx",
+      "lines": "9",
+      "mustContain": [
+        "export default function Slider"
+      ]
+    },
+    "jsx.slider.track": {
+      "file": "src/components/store/Slider.jsx",
+      "lines": "54",
+      "mustContain": [
+        "ease-[cubic-bezier(0.22,1,0.36,1)]"
+      ]
+    },
+    "jsx.slider.button": {
+      "file": "src/components/store/Slider.jsx",
+      "lines": "40",
+      "mustContain": [
+        "liquid-glass grid size-7 place-items-center rounded-full"
+      ]
+    },
+    "jsx.slider.cols": {
+      "file": "src/components/store/Slider.jsx",
+      "lines": "59",
+      "mustContain": [
+        "grid grid-cols-1 gap-x-5 gap-y-1 xs:grid-cols-2 md:grid-cols-3 min-[1920px]:grid-cols-4"
+      ]
+    },
+    "jsx.approw.root": {
+      "file": "src/components/store/AppRow.jsx",
+      "lines": "18",
+      "mustContain": [
+        "flex h-[72px] items-center gap-3 rounded-2xl transition-colors hover:bg-white/10"
+      ]
+    },
+    "jsx.approw.name": {
+      "file": "src/components/store/AppRow.jsx",
+      "lines": "23",
+      "mustContain": [
+        "min-w-0 truncate text-sm font-medium leading-[18px] text-white"
+      ]
+    },
+    "jsx.pagination.root": {
+      "file": "src/components/store/Pagination.jsx",
+      "lines": "29",
+      "mustContain": [
+        "aria-label=\"Pagination\""
+      ]
+    },
+    "jsx.pagination.window": {
+      "file": "src/components/store/Pagination.jsx",
+      "lines": "5",
+      "mustContain": [
+        "export function pageWindow"
+      ]
+    },
+    "jsx.carousel.root": {
+      "file": "src/components/store/HeroCarousel.jsx",
+      "lines": "25",
+      "mustContain": [
+        "export default function HeroCarousel"
+      ]
+    },
+    "jsx.carousel.timing": {
+      "file": "src/components/store/HeroCarousel.jsx",
+      "lines": "12",
+      "mustContain": [
+        "const SLIDE_MS = 260"
+      ]
+    },
+    "jsx.carousel.card": {
+      "file": "src/components/store/HeroCarousel.jsx",
+      "lines": "209",
+      "mustContain": [
+        "group relative h-[clamp(220px,38vw,360px)] w-[var(--featured-card-width)]"
+      ]
+    },
+    "jsx.carousel.title": {
+      "file": "src/components/store/HeroCarousel.jsx",
+      "lines": "226",
+      "mustContain": [
+        "truncate text-lg font-semibold leading-[22px] text-white"
+      ]
+    },
+    "jsx.carousel.tagline": {
+      "file": "src/components/store/HeroCarousel.jsx",
+      "lines": "229",
+      "mustContain": [
+        "line-clamp-1 text-sm font-medium leading-4 text-white/[0.72]"
+      ]
+    },
+    "jsx.carousel.dots": {
+      "file": "src/components/store/HeroCarousel.jsx",
+      "lines": "268",
+      "mustContain": [
+        "h-[3px] w-7 rounded-full transition-all xs:h-1 xs:w-9"
+      ]
+    },
+    "css.store-hero": {
+      "file": "src/store.css",
+      "lines": "10",
+      "mustContain": [
+        ".store-hero {"
+      ]
+    },
+    "jsx.awardpill.root": {
+      "file": "src/components/store/Awards.jsx",
+      "lines": "13",
+      "mustContain": [
+        "export function AwardPill"
+      ]
+    },
+    "jsx.apppage.root": {
+      "file": "src/pages/AppPage.jsx",
+      "lines": "5",
+      "mustContain": [
+        "export default function AppPage"
+      ]
+    },
+    "jsx.apppage.section": {
+      "file": "src/pages/AppPage.jsx",
+      "lines": "21",
+      "mustContain": [
+        "px-4 pb-14 pt-[76px] xs:pt-[80px]"
+      ]
+    },
+    "jsx.apppage.notfound": {
+      "file": "src/pages/AppPage.jsx",
+      "lines": "8",
+      "mustContain": [
+        "App not found"
+      ]
+    },
+    "jsx.appdetail.root": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "186",
+      "mustContain": [
+        "export default function AppDetail"
+      ]
+    },
+    "jsx.appdetail.header": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "83",
+      "mustContain": [
+        "function HeaderBlock"
+      ]
+    },
+    "jsx.appdetail.cover": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "107",
+      "mustContain": [
+        "relative isolate h-[clamp(220px,38vw,360px)] overflow-hidden rounded-2xl bg-surface-well"
+      ]
+    },
+    "jsx.appdetail.h1": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "90",
+      "mustContain": [
+        "text-balance text-lg font-medium leading-tight text-white xs:text-xl xs:leading-[26px]"
+      ]
+    },
+    "jsx.appdetail.tagline": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "98",
+      "mustContain": [
+        "flex min-w-0 items-center gap-1.5 overflow-hidden whitespace-nowrap text-xs leading-4 xs:text-sm"
+      ]
+    },
+    "jsx.appdetail.cta": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "49",
+      "mustContain": [
+        "inline-flex h-8 items-center justify-center gap-2 rounded-full bg-accent px-3.5"
+      ]
+    },
+    "jsx.appdetail.cta2": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "59",
+      "mustContain": [
+        "inline-flex h-8 items-center justify-center gap-2 rounded-full border border-border-separator bg-white/10 px-3.5"
+      ]
+    },
+    "jsx.appdetail.ai": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "25",
+      "mustContain": [
+        "function AiBadge"
+      ]
+    },
+    "jsx.appdetail.lineage": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "124",
+      "mustContain": [
+        "flex items-center gap-2 rounded-xl bg-white/[0.04] px-4 py-2.5 text-sm leading-[18px] text-text-secondary"
+      ]
+    },
+    "jsx.appdetail.stats": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "153",
+      "mustContain": [
+        "flex overflow-hidden border-y border-border-separator"
+      ]
+    },
+    "jsx.appdetail.stat": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "142",
+      "mustContain": [
+        "flex min-w-0 flex-col items-center gap-0.5 px-1 py-2.5 xs:gap-1 xs:px-3 xs:py-3"
+      ]
+    },
+    "jsx.appdetail.statlabel": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "143",
+      "mustContain": [
+        "text-2xs font-medium uppercase leading-3 text-text-tertiary xs:text-xs xs:leading-[14px]"
+      ]
+    },
+    "jsx.appdetail.about": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "196",
+      "mustContain": [
+        "whitespace-pre-line text-balance text-sm leading-[18px] text-text-secondary"
+      ]
+    },
+    "jsx.appdetail.list": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "175",
+      "mustContain": [
+        "grid grid-cols-1 gap-px sm:grid-cols-2 xs:-ml-2"
+      ]
+    },
+    "jsx.appdetail.listtitle": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "174",
+      "mustContain": [
+        "text-base font-medium leading-[22px] text-white"
+      ]
+    },
+    "jsx.shots.root": {
+      "file": "src/components/store/ScreenshotStrip.jsx",
+      "lines": "118",
+      "mustContain": [
+        "relative -mx-4 h-[220px] xs:h-[260px]"
+      ]
+    },
+    "jsx.shots.strip": {
+      "file": "src/components/store/ScreenshotStrip.jsx",
+      "lines": "122",
+      "mustContain": [
+        "hide-scrollbar flex h-full gap-3 overflow-x-auto px-4"
+      ]
+    },
+    "jsx.shots.img": {
+      "file": "src/components/store/ScreenshotStrip.jsx",
+      "lines": "139",
+      "mustContain": [
+        "h-full w-auto shrink-0 cursor-pointer rounded-lg object-cover"
+      ]
+    },
+    "jsx.appdialog.root": {
+      "file": "src/components/store/AppDialog.jsx",
+      "lines": "9",
+      "mustContain": [
+        "export default function AppDialog"
+      ]
+    },
+    "jsx.persona.appdialog": {
+      "file": "src/components/PersonaShowcase.jsx",
+      "lines": "308",
+      "mustContain": [
+        "<AppDialog slug={dialogSlug}"
+      ]
+    },
+    "data.store.snapshot": {
+      "file": "src/data/store.js",
+      "lines": "5",
+      "mustContain": [
+        "export const APPS = snapshot.apps"
+      ]
+    },
+    "jsx.router.table": {
+      "file": "src/routes.jsx",
+      "lines": "48",
+      "mustContain": [
+        "const modules = import.meta.glob('./route-modules/*.js'"
+      ]
+    },
+    "jsx.router.notfound": {
+      "file": "src/routes.jsx",
+      "lines": "55",
+      "mustContain": [
+        "export const notFoundRoute"
+      ]
+    },
+    "jsx.router.layout": {
+      "file": "src/routes.jsx",
+      "lines": "67",
+      "mustContain": [
+        "function Layout"
+      ]
+    },
+    "jsx.router.match": {
+      "file": "src/router.jsx",
+      "lines": "100",
+      "mustContain": [
+        "export function createMatcher"
+      ]
+    },
+    "jsx.router.active": {
+      "file": "src/router.jsx",
+      "lines": "24",
+      "mustContain": [
+        "export const usePathname"
+      ]
+    },
+    "jsx.routemod.marketing": {
+      "file": "src/route-modules/marketing.js",
+      "lines": "5",
+      "mustContain": [
+        "export default ["
+      ]
+    },
+    "jsx.routemod.blog": {
+      "file": "src/route-modules/blog.js",
+      "lines": "7",
+      "mustContain": [
+        "export default ["
+      ]
+    },
+    "jsx.routemod.legal": {
+      "file": "src/route-modules/legal.js",
+      "lines": "11",
+      "mustContain": [
+        "export default ["
+      ]
+    },
+    "jsx.routemod.store": {
+      "file": "src/route-modules/store.js",
+      "lines": "12",
+      "mustContain": [
+        "export default ["
+      ]
+    },
+    "spec.marketing.pricing": {
+      "file": "specs/SPEC_marketing.md",
+      "lines": "32",
+      "mustContain": [
+        "## 1. /pricing"
+      ]
+    },
+    "spec.marketing.download": {
+      "file": "specs/SPEC_marketing.md",
+      "lines": "121",
+      "mustContain": [
+        "## 2. /download"
+      ]
+    },
+    "spec.marketing.awards": {
+      "file": "specs/SPEC_marketing.md",
+      "lines": "156",
+      "mustContain": [
+        "## 3. /awards"
+      ]
+    },
+    "spec.marketing.awardsterms": {
+      "file": "specs/SPEC_marketing.md",
+      "lines": "297",
+      "mustContain": [
+        "## 4. /awards/terms"
+      ]
+    },
+    "spec.marketing.awards.motion": {
+      "file": "specs/SPEC_marketing.md",
+      "lines": "280",
+      "mustContain": [
+        "### 3.11 Motion (/awards)"
+      ]
+    },
+    "spec.marketing.pricing.responsive": {
+      "file": "specs/SPEC_marketing.md",
+      "lines": "98",
+      "mustContain": [
+        "### 1.5 Responsive changes"
+      ]
+    },
+    "spec.blog.header": {
+      "file": "specs/SPEC_blog.md",
+      "lines": "24",
+      "mustContain": [
+        "### 0.1 Page header block"
+      ]
+    },
+    "spec.blog.index": {
+      "file": "specs/SPEC_blog.md",
+      "lines": "32",
+      "mustContain": [
+        "## 1. /blog (index)"
+      ]
+    },
+    "spec.blog.post": {
+      "file": "specs/SPEC_blog.md",
+      "lines": "64",
+      "mustContain": [
+        "## 2. "
+      ]
+    },
+    "spec.blog.changelog": {
+      "file": "specs/SPEC_blog.md",
+      "lines": "148",
+      "mustContain": [
+        "## 3. "
+      ]
+    },
+    "spec.legal.b": {
+      "file": "specs/SPEC_legal_persona.md",
+      "lines": "111",
+      "mustContain": [
+        "## B. "
+      ]
+    },
+    "spec.store.top": {
+      "file": "specs/SPEC_store.md",
+      "lines": "3",
+      "mustContain": [
+        "# "
+      ]
+    },
+    "ia.template.pricing": {
+      "file": "ia.json",
+      "lines": "323",
+      "mustContain": [
+        "\"id\": \"template.pricing\""
+      ]
+    },
+    "ia.template.download": {
+      "file": "ia.json",
+      "lines": "340",
+      "mustContain": [
+        "\"id\": \"template.download\""
+      ]
+    },
+    "ia.template.awards": {
+      "file": "ia.json",
+      "lines": "353",
+      "mustContain": [
+        "\"id\": \"template.awards\""
+      ]
+    },
+    "ia.template.legal": {
+      "file": "ia.json",
+      "lines": "374",
+      "mustContain": [
+        "\"id\": \"template.legal\""
+      ]
+    },
+    "ia.template.blog-index": {
+      "file": "ia.json",
+      "lines": "392",
+      "mustContain": [
+        "\"id\": \"template.blog-index\""
+      ]
+    },
+    "ia.template.blog-post": {
+      "file": "ia.json",
+      "lines": "407",
+      "mustContain": [
+        "\"id\": \"template.blog-post\""
+      ]
+    },
+    "ia.template.changelog": {
+      "file": "ia.json",
+      "lines": "437",
+      "mustContain": [
+        "\"id\": \"template.changelog\""
+      ]
+    },
+    "ia.template.store-index": {
+      "file": "ia.json",
+      "lines": "452",
+      "mustContain": [
+        "\"id\": \"template.store-index\""
+      ]
+    },
+    "ia.template.store-category": {
+      "file": "ia.json",
+      "lines": "468",
+      "mustContain": [
+        "\"id\": \"template.store-category\""
+      ]
+    },
+    "ia.template.app-detail": {
+      "file": "ia.json",
+      "lines": "491",
+      "mustContain": [
+        "\"id\": \"template.app-detail\""
+      ]
+    },
+    "jsx.pricing.h1.source": {
+      "file": "src/pages/Pricing.jsx",
+      "lines": "90",
+      "mustContain": [
+        "<h1",
+        "<h1 className=\"text-center font-display text-4xl"
+      ]
+    },
+    "jsx.blogindex.header.source": {
+      "file": "src/pages/BlogIndex.jsx",
+      "lines": "12",
+      "mustContain": [
+        "<div",
+        "<div className=\"mx-auto mb-12 w-full max-w-[680px] text-center xs:mb-16\">"
+      ]
+    },
+    "jsx.pricing.grid.source": {
+      "file": "src/pages/Pricing.jsx",
+      "lines": "93",
+      "mustContain": [
+        "<div",
+        "<div className=\"mt-8 grid grid-cols-1 gap-3 min-[992px]:grid-cols-3\">"
+      ]
+    },
+    "jsx.download.block.source": {
+      "file": "src/pages/Download.jsx",
+      "lines": "12",
+      "mustContain": [
+        "<div",
+        "<div className=\"max-w-narrow text-center\">"
+      ]
+    },
+    "jsx.compactcta.source": {
+      "file": "src/components/DownloadCTA.jsx",
+      "lines": "37",
+      "mustContain": [
+        "<section",
+        "<section className=\"mt-20 pt-4 xs:mt-24 xs:pt-0\">"
+      ]
+    },
+    "jsx.legal.header.source": {
+      "file": "src/pages/LegalPage.jsx",
+      "lines": "73",
+      "mustContain": [
+        "<h1",
+        "<h1 className=\"mb-3 text-balance text-center text-4xl"
+      ]
+    },
+    "jsx.legal.body.source": {
+      "file": "src/pages/LegalPage.jsx",
+      "lines": "77",
+      "mustContain": [
+        "<div",
+        "<div className=\"legal-prose space-y-4 text-base"
+      ]
+    },
+    "jsx.blogindex.card.source": {
+      "file": "src/pages/BlogIndex.jsx",
+      "lines": "23",
+      "mustContain": [
+        "<article",
+        "<article key={post.slug}"
+      ]
+    },
+    "jsx.blogpost.cover.source": {
+      "file": "src/pages/BlogPost.jsx",
+      "lines": "51",
+      "mustContain": [
+        "<div",
+        "<div className=\"overflow-hidden rounded-[18px] border border-border-separator bg-white/[0.04]\">"
+      ]
+    },
+    "jsx.blogpost.header.source": {
+      "file": "src/pages/BlogPost.jsx",
+      "lines": "61",
+      "mustContain": [
+        "<header",
+        "<header className=\"mt-10\">"
+      ]
+    },
+    "jsx.prose.source": {
+      "file": "src/components/blog/Prose.jsx",
+      "lines": "47",
+      "mustContain": [
+        "<div",
+        "<div className=\"markdown-content min-w-0 space-y-5"
+      ]
+    },
+    "jsx.blogpost.footer.source": {
+      "file": "src/pages/BlogPost.jsx",
+      "lines": "79",
+      "mustContain": [
+        "<footer",
+        "<footer className=\"mt-16 border-t border-border-separator"
+      ]
+    },
+    "jsx.lightbox.source": {
+      "file": "src/components/blog/Lightbox.jsx",
+      "lines": "25-26",
+      "mustContain": [
+        "<div",
+        "role=\"dialog\""
+      ]
+    },
+    "jsx.changelog.entry.source": {
+      "file": "src/pages/Changelog.jsx",
+      "lines": "22",
+      "mustContain": [
+        "<article",
+        "<article"
+      ]
+    },
+    "jsx.awards.hero.source": {
+      "file": "src/pages/Awards.jsx",
+      "lines": "43",
+      "mustContain": [
+        "<section",
+        "<section className=\"px-4 pt-[clamp(0px,calc(225px-35.9vw),88px)] min-[624px]:pt-0\">"
+      ]
+    },
+    "jsx.winners.source": {
+      "file": "src/components/awards/Winners.jsx",
+      "lines": "112",
+      "mustContain": [
+        "<section",
+        "<section className=\"dialog-focus-surface mx-auto max-w-page\">"
+      ]
+    },
+    "jsx.entries.source": {
+      "file": "src/components/awards/Entries.jsx",
+      "lines": "118",
+      "mustContain": [
+        "<section",
+        "<section className=\"mx-auto max-w-page\">"
+      ]
+    },
+    "jsx.prizes.source": {
+      "file": "src/components/awards/Sections.jsx",
+      "lines": "20",
+      "mustContain": [
+        "<fieldset",
+        "<fieldset className=\"mx-auto min-w-0 max-w-page rounded-3xl"
+      ]
+    },
+    "jsx.jury.source": {
+      "file": "src/components/awards/Sections.jsx",
+      "lines": "119",
+      "mustContain": [
+        "<section",
+        "<section className=\"mx-auto max-w-page text-center\">"
+      ]
+    },
+    "jsx.criteria.source": {
+      "file": "src/components/awards/Sections.jsx",
+      "lines": "179",
+      "mustContain": [
+        "<section",
+        "<section className=\"mx-auto max-w-page\">"
+      ]
+    },
+    "jsx.appdialog.source": {
+      "file": "src/components/store/AppDialog.jsx",
+      "lines": "58-60",
+      "mustContain": [
+        "<div",
+        "role=\"dialog\""
+      ]
+    },
+    "jsx.carousel.source": {
+      "file": "src/components/store/HeroCarousel.jsx",
+      "lines": "166-167",
+      "mustContain": [
+        "<section",
+        "className=\"store-hero group/carousel"
+      ]
+    },
+    "jsx.store.nav.source": {
+      "file": "src/components/store/StoreView.jsx",
+      "lines": "188",
+      "mustContain": [
+        "<div",
+        "<div className=\"mt-6\">"
+      ]
+    },
+    "jsx.store.shelf.source": {
+      "file": "src/components/store/Slider.jsx",
+      "lines": "22",
+      "mustContain": [
+        "<section",
+        "<section className=\"flex flex-col gap-1.5 xs:gap-2\">"
+      ]
+    },
+    "jsx.store.grid.source": {
+      "file": "src/components/store/StoreView.jsx",
+      "lines": "115-117",
+      "mustContain": [
+        "<div",
+        "function GridWithPagination",
+        "<div>"
+      ]
+    },
+    "jsx.appheader.source": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "107",
+      "mustContain": [
+        "<div",
+        "<div className=\"relative isolate h-[clamp(220px,38vw,360px)]"
+      ]
+    },
+    "jsx.lineage.source": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "124",
+      "mustContain": [
+        "<div",
+        "<div className=\"flex items-center gap-2 rounded-xl bg-white/[0.04] px-4 py-2.5"
+      ]
+    },
+    "jsx.appstats.source": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "153",
+      "mustContain": [
+        "<div",
+        "<div className=\"flex overflow-hidden border-y border-border-separator\">"
+      ]
+    },
+    "jsx.shots.source": {
+      "file": "src/components/store/ScreenshotStrip.jsx",
+      "lines": "118",
+      "mustContain": [
+        "<div",
+        "<div className=\"relative -mx-4 h-[220px] xs:h-[260px]\">"
+      ]
+    },
+    "jsx.appabout.source": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "194",
+      "mustContain": [
+        "<section",
+        "<section>"
+      ]
+    },
+    "jsx.applist.source": {
+      "file": "src/components/store/AppDetail.jsx",
+      "lines": "173",
+      "mustContain": [
+        "<div",
+        "<div className=\"mt-4 flex flex-col gap-3\">"
+      ]
     }
   },
   "unclassified": [
@@ -1518,7 +3270,7 @@
     {
       "id": "app-details-dialog",
       "value": "AppCard click opens a lazy AppDialog (src/components/store/AppDialog)",
-      "handling": "added to the source while this repo was being built; belongs to the store specs, not modelled. CLONE_SPEC section 4 already lists the app-details dialog as not specced for the landing scope"
+      "handling": "modelled since 2.0.0 as the utility section shell.app-dialog (retrievalEligible false), a PageSpec node with variant app-detail (landing, persona) or winner-summary (awards); the body it shows is the store.app-* sections of /app/<slug>."
     },
     {
       "id": "lang-text-hardcoded",
@@ -1529,6 +3281,36 @@
       "id": "viewport-heights",
       "value": "nav mobile max-height calc(100dvh - 16px); popup viewport padding 5px",
       "handling": "recorded in prose fields of the component contracts; not tokenised (viewport-derived)"
+    },
+    {
+      "id": "blog-index-header-line-heights",
+      "value": "BlogIndex.jsx h1 (xs:text-5xl) renders 48/48 and the subtitle (xs:text-lg) 18/28 at >=480",
+      "handling": "clone defect, not the design: the same header block in Changelog.jsx carries xs:leading-[1.1] / xs:leading-relaxed and renders 48/52.8 and 18/29.25, as does the live site (specs/SPEC_blog.md 0.1). The token roles keep the live values; the two probes pin the deviation (extraction/type_probes.json cloneDeviation) so it goes stale when the clone is fixed."
+    },
+    {
+      "id": "awards-search-collapsed-below-624",
+      "value": "/awards entries search is a 40px icon button below 624px and expands on tap; /store search is always the 210/240px pill",
+      "handling": "component.search-field documents both; layout probe awards.search measures the collapsed width at 390"
+    },
+    {
+      "id": "store-carousel-heading-per-slide",
+      "value": "the featured carousel renders one h1 per slide (five in the DOM) plus the page title h1",
+      "handling": "source markup, kept as measured; heading.carousel is probed on the first slide. A generated page should use one page title only; the contract has a single `label` for the carousel."
+    },
+    {
+      "id": "placeholder-prose-bodies",
+      "value": "legal, blog, changelog and app-about bodies in the clone are deterministic placeholder text sized to the original word counts",
+      "handling": "budgets (contentBudgets) are measured on that placeholder data, which was sized to the original block lengths; document heights of those routes differ from the live site by 2-8% (specCrossCheck, each explained)"
+    },
+    {
+      "id": "app-not-found-state",
+      "value": "/app/<unknown slug> renders an in-page 'App not found' block (icon, h1, sentence, no footer)",
+      "handling": "not a separate route and not a template; recorded in templates.json scope.notModelled"
+    },
+    {
+      "id": "hotlinked-images-during-measurement",
+      "value": "cover, avatar and icon images of the store are hotlinked from api.glazeapp.com in the clone",
+      "handling": "external requests are blocked during every measurement run (the pages are measured with the local assets and layout-reserved image boxes); no image dimension of a hotlinked asset is recorded"
     }
   ],
   "sectionHeights": {
@@ -1575,12 +3357,17 @@
           "shell.footer": {
             "heightPx": 122,
             "inFlow": true,
-            "selector": "footer"
+            "selector": "footer.mt-auto"
           },
           "shell.youtube-overlay": {
             "heightPx": 900,
             "inFlow": false,
-            "selector": "[role=\"dialog\"][aria-modal=\"true\"]"
+            "selector": "[role=\"dialog\"][aria-label=\"Video\"]"
+          },
+          "shell.app-dialog": {
+            "heightPx": 800,
+            "inFlow": false,
+            "selector": "[role=\"dialog\"][aria-label$=\"details\"]"
           }
         }
       },
@@ -1621,12 +3408,17 @@
           "shell.footer": {
             "heightPx": 122,
             "inFlow": true,
-            "selector": "footer"
+            "selector": "footer.mt-auto"
           },
           "shell.youtube-overlay": {
             "heightPx": 900,
             "inFlow": false,
-            "selector": "[role=\"dialog\"][aria-modal=\"true\"]"
+            "selector": "[role=\"dialog\"][aria-label=\"Video\"]"
+          },
+          "shell.app-dialog": {
+            "heightPx": 800,
+            "inFlow": false,
+            "selector": "[role=\"dialog\"][aria-label$=\"details\"]"
           }
         }
       },
@@ -1647,11 +3439,4274 @@
           "shell.footer": {
             "heightPx": 122,
             "inFlow": true,
-            "selector": "footer"
+            "selector": "footer.mt-auto"
+          }
+        }
+      },
+      "template.pricing": {
+        "route": "/pricing",
+        "documentHeightPx": 2566,
+        "sections": {
+          "shell.navbar": {
+            "heightPx": 48,
+            "inFlow": false,
+            "selector": "nav.site-navigation"
+          },
+          "hero.page-title": {
+            "heightPx": 53,
+            "inFlow": true,
+            "selector": "main > section:first-of-type h1"
+          },
+          "commerce.pricing-plans": {
+            "heightPx": 426,
+            "inFlow": true,
+            "selector": "main > section:first-of-type > div > div.grid"
+          },
+          "support.faq": {
+            "heightPx": 804,
+            "inFlow": true,
+            "selector": "#faq"
+          },
+          "cta.download-icon": {
+            "heightPx": 789,
+            "inFlow": true,
+            "selector": "section#download"
+          },
+          "shell.footer": {
+            "heightPx": 122,
+            "inFlow": true,
+            "selector": "footer.mt-auto"
+          }
+        }
+      },
+      "template.download": {
+        "route": "/download",
+        "documentHeightPx": 900,
+        "sections": {
+          "shell.navbar": {
+            "heightPx": 48,
+            "inFlow": false,
+            "selector": "nav.site-navigation"
+          },
+          "cta.download-page": {
+            "heightPx": 348,
+            "inFlow": true,
+            "selector": "main > div"
+          }
+        }
+      },
+      "template.awards": {
+        "route": "/awards",
+        "documentHeightPx": 5145,
+        "sections": {
+          "shell.navbar": {
+            "heightPx": 48,
+            "inFlow": false,
+            "selector": "nav.site-navigation"
+          },
+          "hero.awards-hero": {
+            "heightPx": 678,
+            "inFlow": true,
+            "selector": "main > section"
+          },
+          "showcase.award-winners": {
+            "heightPx": 905,
+            "inFlow": true,
+            "selector": "[data-anim=\"awards-below-fold\"] > div:nth-child(1) > section"
+          },
+          "showcase.award-entries": {
+            "heightPx": 720,
+            "inFlow": true,
+            "selector": "#entries > section"
+          },
+          "content.award-prizes": {
+            "heightPx": 276,
+            "inFlow": true,
+            "selector": "[data-anim=\"awards-below-fold\"] > div:nth-child(3) > fieldset"
+          },
+          "content.award-jury": {
+            "heightPx": 296,
+            "inFlow": true,
+            "selector": "[data-anim=\"awards-below-fold\"] > div:nth-child(4) > section"
+          },
+          "content.award-criteria": {
+            "heightPx": 376,
+            "inFlow": true,
+            "selector": "[data-anim=\"awards-below-fold\"] > div:nth-child(5) > section"
+          },
+          "cta.download-icon": {
+            "heightPx": 789,
+            "inFlow": true,
+            "selector": "section#download"
+          },
+          "shell.footer": {
+            "heightPx": 122,
+            "inFlow": true,
+            "selector": "footer.mt-auto"
+          },
+          "shell.app-dialog": {
+            "heightPx": 800,
+            "inFlow": false,
+            "selector": "[role=\"dialog\"][aria-label$=\"details\"]"
+          }
+        }
+      },
+      "template.legal": {
+        "route": "/terms",
+        "documentHeightPx": 28271,
+        "sections": {
+          "shell.navbar": {
+            "heightPx": 48,
+            "inFlow": false,
+            "selector": "nav.site-navigation"
+          },
+          "content.legal-header": {
+            "heightPx": 85,
+            "inFlow": true,
+            "selector": "main section h1, main section h1 + p"
+          },
+          "content.legal-body": {
+            "heightPx": 27764,
+            "inFlow": true,
+            "selector": ".legal-prose"
+          },
+          "shell.footer": {
+            "heightPx": 122,
+            "inFlow": true,
+            "selector": "footer.mt-auto"
+          }
+        }
+      },
+      "template.blog-index": {
+        "route": "/blog",
+        "documentHeightPx": 3290,
+        "sections": {
+          "shell.navbar": {
+            "heightPx": 48,
+            "inFlow": false,
+            "selector": "nav.site-navigation"
+          },
+          "hero.page-header": {
+            "heightPx": 92,
+            "inFlow": true,
+            "selector": "main > section > div.mb-12"
+          },
+          "content.post-card": {
+            "heightPx": 690,
+            "inFlow": true,
+            "selector": "main section article",
+            "instances": 4,
+            "totalHeightPx": 2772
+          },
+          "shell.footer": {
+            "heightPx": 122,
+            "inFlow": true,
+            "selector": "footer.mt-auto"
+          }
+        }
+      },
+      "template.blog-post": {
+        "route": "/blog/how-teams-use-glaze",
+        "documentHeightPx": 4886,
+        "sections": {
+          "shell.navbar": {
+            "heightPx": 48,
+            "inFlow": false,
+            "selector": "nav.site-navigation"
+          },
+          "content.article-cover": {
+            "heightPx": 338,
+            "inFlow": true,
+            "selector": "article > div:first-child"
+          },
+          "content.article-header": {
+            "heightPx": 116,
+            "inFlow": true,
+            "selector": "article > header"
+          },
+          "content.article-body": {
+            "heightPx": 3482,
+            "inFlow": true,
+            "selector": ".markdown-content"
+          },
+          "content.article-footer": {
+            "heightPx": 73,
+            "inFlow": true,
+            "selector": "article > footer"
+          },
+          "cta.download-compact": {
+            "heightPx": 256,
+            "inFlow": true,
+            "selector": "article > section"
+          },
+          "shell.footer": {
+            "heightPx": 122,
+            "inFlow": true,
+            "selector": "footer.mt-auto"
+          },
+          "shell.image-lightbox": {
+            "heightPx": 900,
+            "inFlow": false,
+            "selector": "[role=\"dialog\"][aria-label=\"Screenshot gallery\"]"
+          }
+        }
+      },
+      "template.changelog": {
+        "route": "/changelog",
+        "documentHeightPx": 22231,
+        "sections": {
+          "shell.navbar": {
+            "heightPx": 48,
+            "inFlow": false,
+            "selector": "nav.site-navigation"
+          },
+          "hero.page-header": {
+            "heightPx": 98,
+            "inFlow": true,
+            "selector": "main > section > div.mb-12"
+          },
+          "content.release-entry": {
+            "heightPx": 805,
+            "inFlow": true,
+            "selector": "main section article",
+            "instances": 11,
+            "totalHeightPx": 21707
+          },
+          "shell.footer": {
+            "heightPx": 122,
+            "inFlow": true,
+            "selector": "footer.mt-auto"
+          }
+        }
+      },
+      "template.store-index": {
+        "route": "/store",
+        "documentHeightPx": 1718,
+        "sections": {
+          "shell.navbar": {
+            "heightPx": 48,
+            "inFlow": false,
+            "selector": "nav.site-navigation"
+          },
+          "store.featured-carousel": {
+            "heightPx": 380,
+            "inFlow": true,
+            "selector": "section.store-hero"
+          },
+          "store.category-nav": {
+            "heightPx": 80,
+            "inFlow": true,
+            "selector": "main section > div > div.mt-6"
+          },
+          "store.app-shelves": {
+            "heightPx": 184,
+            "inFlow": true,
+            "selector": "main section > div > div.mt-8 > section",
+            "instances": 5,
+            "totalHeightPx": 768
+          },
+          "shell.footer": {
+            "heightPx": 122,
+            "inFlow": true,
+            "selector": "footer.mt-auto"
+          }
+        }
+      },
+      "template.store-category": {
+        "route": "/store/design",
+        "documentHeightPx": 1490,
+        "sections": {
+          "shell.navbar": {
+            "heightPx": 48,
+            "inFlow": false,
+            "selector": "nav.site-navigation"
+          },
+          "store.featured-carousel": {
+            "heightPx": 380,
+            "inFlow": true,
+            "selector": "section.store-hero"
+          },
+          "store.category-nav": {
+            "heightPx": 80,
+            "inFlow": true,
+            "selector": "main section > div > div.mt-6"
+          },
+          "store.app-grid": {
+            "heightPx": 668,
+            "inFlow": true,
+            "selector": "main section > div > div.mt-8 > div"
+          },
+          "shell.footer": {
+            "heightPx": 122,
+            "inFlow": true,
+            "selector": "footer.mt-auto"
+          }
+        }
+      },
+      "template.app-detail": {
+        "route": "/app/my-stash-CDBw9Z",
+        "alsoMeasuredOn": [
+          "/app/airwayfl-XD7JA5"
+        ],
+        "documentHeightPx": 1359,
+        "sections": {
+          "shell.navbar": {
+            "heightPx": 48,
+            "inFlow": false,
+            "selector": "nav.site-navigation"
+          },
+          "store.app-header": {
+            "heightPx": 360,
+            "inFlow": true,
+            "selector": "main section > div > div:first-child"
+          },
+          "store.remix-lineage": {
+            "heightPx": 38,
+            "inFlow": true,
+            "selector": "main section > div > div.rounded-xl",
+            "measuredOn": "/app/airwayfl-XD7JA5"
+          },
+          "store.app-stats": {
+            "heightPx": 64,
+            "inFlow": true,
+            "selector": "main section > div > div.border-y"
+          },
+          "store.screenshot-strip": {
+            "heightPx": 260,
+            "inFlow": true,
+            "selector": "main section > div > div.relative.-mx-4"
+          },
+          "store.app-about": {
+            "heightPx": 126,
+            "inFlow": true,
+            "selector": "main section > div > section"
+          },
+          "store.app-list": {
+            "heightPx": 179,
+            "inFlow": true,
+            "selector": "main section > div > div.mt-4"
+          },
+          "shell.footer": {
+            "heightPx": 122,
+            "inFlow": true,
+            "selector": "footer.mt-auto"
           }
         }
       }
     },
-    "wrapperWhitelist": []
+    "wrapperWhitelist": [],
+    "majorityAccepted": [
+      {
+        "template": "template.legal",
+        "section": "content.legal-body",
+        "reviewedBy": "design-review",
+        "justification": "A legal document is one continuous text column of flat h2/h3/p/ul siblings with no wrapper per clause; the title header and the footer are separate sections, so the body is the page by nature."
+      },
+      {
+        "template": "template.blog-post",
+        "section": "content.article-body",
+        "reviewedBy": "design-review",
+        "justification": "An article is a header, a cover and a footer around one prose column; the prose body is the article, and the cover, header, footer and CTA are already separate sections."
+      },
+      {
+        "template": "template.store-category",
+        "section": "store.app-grid",
+        "reviewedBy": "design-review",
+        "justification": "The category page is a carousel, a title row with chips and one paged grid of up to 24 rows; the grid is the listing the page exists for and the carousel and chip row above it are separate sections."
+      }
+    ]
+  },
+  "routeTable": {
+    "generatedBy": "extraction/enumerate_routes.mjs",
+    "routes": [
+      {
+        "path": "/blog",
+        "module": "src/route-modules/blog.js",
+        "component": "src/pages/BlogIndex.jsx",
+        "kind": "static"
+      },
+      {
+        "path": "/blog/:slug",
+        "module": "src/route-modules/blog.js",
+        "component": "src/pages/BlogPost.jsx",
+        "kind": "pattern",
+        "validated": true
+      },
+      {
+        "path": "/changelog",
+        "module": "src/route-modules/blog.js",
+        "component": "src/pages/Changelog.jsx",
+        "kind": "static"
+      },
+      {
+        "path": "/",
+        "module": "src/route-modules/home.js",
+        "component": "src/pages/Landing.jsx",
+        "kind": "static"
+      },
+      {
+        "path": "/terms",
+        "module": "src/route-modules/legal.js",
+        "component": "src/pages/Terms.jsx",
+        "kind": "static"
+      },
+      {
+        "path": "/privacy",
+        "module": "src/route-modules/legal.js",
+        "component": "src/pages/Privacy.jsx",
+        "kind": "static"
+      },
+      {
+        "path": "/aup",
+        "module": "src/route-modules/legal.js",
+        "component": "src/pages/Aup.jsx",
+        "kind": "static"
+      },
+      {
+        "path": "/pricing",
+        "module": "src/route-modules/marketing.js",
+        "component": "src/pages/Pricing.jsx",
+        "kind": "static"
+      },
+      {
+        "path": "/download",
+        "module": "src/route-modules/marketing.js",
+        "component": "src/pages/Download.jsx",
+        "kind": "static"
+      },
+      {
+        "path": "/awards",
+        "module": "src/route-modules/marketing.js",
+        "component": "src/pages/Awards.jsx",
+        "kind": "static"
+      },
+      {
+        "path": "/awards/terms",
+        "module": "src/route-modules/marketing.js",
+        "component": "src/pages/AwardsTerms.jsx",
+        "kind": "static"
+      },
+      {
+        "path": "/designers",
+        "module": "src/route-modules/personas.js",
+        "component": "src/pages/Landing.jsx",
+        "kind": "static"
+      },
+      {
+        "path": "/product-managers",
+        "module": "src/route-modules/personas.js",
+        "component": "src/pages/Landing.jsx",
+        "kind": "static"
+      },
+      {
+        "path": "/engineers",
+        "module": "src/route-modules/personas.js",
+        "component": "src/pages/Landing.jsx",
+        "kind": "static"
+      },
+      {
+        "path": "/creators",
+        "module": "src/route-modules/personas.js",
+        "component": "src/pages/Landing.jsx",
+        "kind": "static"
+      },
+      {
+        "path": "/teams",
+        "module": "src/route-modules/personas.js",
+        "component": "src/pages/Landing.jsx",
+        "kind": "static"
+      },
+      {
+        "path": "/store",
+        "module": "src/route-modules/store.js",
+        "component": "src/pages/Store.jsx",
+        "kind": "static"
+      },
+      {
+        "path": "/store/:category",
+        "module": "src/route-modules/store.js",
+        "component": "src/pages/Store.jsx",
+        "kind": "pattern",
+        "validated": true
+      },
+      {
+        "path": "/app/:slug",
+        "module": "src/route-modules/store.js",
+        "component": "src/pages/AppPage.jsx",
+        "kind": "pattern"
+      },
+      {
+        "path": "*",
+        "module": "src/routes.jsx",
+        "component": "src/pages/NotFoundPage.jsx",
+        "kind": "catch-all"
+      }
+    ],
+    "patterns": {
+      "/blog/:slug": {
+        "count": 4,
+        "sample": [
+          "how-teams-use-glaze",
+          "why-glaze-when-claude-code-and-codex-exist",
+          "affiliate-program"
+        ],
+        "all": [
+          "how-teams-use-glaze",
+          "why-glaze-when-claude-code-and-codex-exist",
+          "affiliate-program",
+          "how-we-use-glaze-at-raycast"
+        ]
+      },
+      "/store/:category": {
+        "count": 8,
+        "sample": [
+          "remixable",
+          "developer-tools",
+          "productivity"
+        ],
+        "all": [
+          "remixable",
+          "developer-tools",
+          "productivity",
+          "utilities",
+          "media",
+          "design",
+          "lifestyle",
+          "games-and-fun"
+        ]
+      },
+      "/app/:slug": {
+        "count": 265,
+        "sample": [
+          "ai-models-database-VzvbvJ",
+          "ai-skills-browser-vMg0FR",
+          "aimessage-oEx7Rj"
+        ]
+      }
+    },
+    "counts": {
+      "staticRoutes": 16,
+      "patternRoutes": 3,
+      "expandedRoutes": 293,
+      "catchAll": 1,
+      "totalWithCatchAll": 294
+    },
+    "note": "/store (no category) and /app/<unknown slug>: the router matches /app/:slug for ANY slug; an unknown slug renders the in-page \"App not found\" state (AppPage.jsx), which is not a separate route. /blog/:slug validates against the post list, so an unknown slug falls to the catch-all. /store/:category validates against the category map. /m and the six showcase tab ids are not registered and fall to the catch-all."
+  },
+  "contentBudgets": {
+    "description": "Longest real source string (words) or longest real array (items) behind each section content field. verify_all.py check 14: a section contract budget must not be lower than these. Re-measure with extraction/measure_content_budgets.mjs --write.",
+    "entries": [
+      {
+        "id": "hero.landing-hero:headline:words",
+        "type": "hero.landing-hero",
+        "path": "headline",
+        "kind": "words",
+        "observed": 9,
+        "p95": 9,
+        "samples": 6,
+        "where": "src/data/personas.js"
+      },
+      {
+        "id": "hero.landing-hero:subheadline:words",
+        "type": "hero.landing-hero",
+        "path": "subheadline",
+        "kind": "words",
+        "observed": 19,
+        "p95": 19,
+        "samples": 6,
+        "where": "src/data/personas.js"
+      },
+      {
+        "id": "showcase.persona-tabs:tabs.[].oneOf0.label:words",
+        "type": "showcase.persona-tabs",
+        "path": "tabs.[].oneOf0.label",
+        "kind": "words",
+        "observed": 2,
+        "p95": 2,
+        "samples": 6,
+        "where": "src/data/content.js"
+      },
+      {
+        "id": "showcase.persona-tabs:tabs.[].oneOf0.title:words",
+        "type": "showcase.persona-tabs",
+        "path": "tabs.[].oneOf0.title",
+        "kind": "words",
+        "observed": 6,
+        "p95": 6,
+        "samples": 6,
+        "where": "src/data/content.js"
+      },
+      {
+        "id": "showcase.persona-tabs:tabs.[].oneOf0.description:words",
+        "type": "showcase.persona-tabs",
+        "path": "tabs.[].oneOf0.description",
+        "kind": "words",
+        "observed": 15,
+        "p95": 15,
+        "samples": 6,
+        "where": "src/data/content.js"
+      },
+      {
+        "id": "showcase.persona-tabs:tabs.[].oneOf0.apps.[].name:words",
+        "type": "showcase.persona-tabs",
+        "path": "tabs.[].oneOf0.apps.[].name",
+        "kind": "words",
+        "observed": 3,
+        "p95": 3,
+        "samples": 20,
+        "where": "src/data/content.js"
+      },
+      {
+        "id": "showcase.persona-tabs:tabs.[].oneOf0.apps.[].author:words",
+        "type": "showcase.persona-tabs",
+        "path": "tabs.[].oneOf0.apps.[].author",
+        "kind": "words",
+        "observed": 3,
+        "p95": 3,
+        "samples": 20,
+        "where": "src/data/content.js"
+      },
+      {
+        "id": "features.feature-grid:rows.[].cards.[].title:words",
+        "type": "features.feature-grid",
+        "path": "rows.[].cards.[].title",
+        "kind": "words",
+        "observed": 4,
+        "p95": 4,
+        "samples": 6,
+        "where": "src/data/content.js"
+      },
+      {
+        "id": "features.feature-grid:rows.[].cards.[].description:words",
+        "type": "features.feature-grid",
+        "path": "rows.[].cards.[].description",
+        "kind": "words",
+        "observed": 15,
+        "p95": 15,
+        "samples": 6,
+        "where": "src/data/content.js"
+      },
+      {
+        "id": "support.faq:items.[].question:words",
+        "type": "support.faq",
+        "path": "items.[].question",
+        "kind": "words",
+        "observed": 9,
+        "p95": 9,
+        "samples": 22,
+        "where": "src/data/content.js + src/data/pricing.js"
+      },
+      {
+        "id": "support.faq:items.[].answer:words",
+        "type": "support.faq",
+        "path": "items.[].answer",
+        "kind": "words",
+        "observed": 92,
+        "p95": 77,
+        "samples": 22,
+        "where": "src/data/content.js + src/data/pricing.js"
+      },
+      {
+        "id": "support.faq:items:items",
+        "type": "support.faq",
+        "path": "items",
+        "kind": "items",
+        "observed": 12,
+        "p95": 12,
+        "samples": 2,
+        "where": "src/data/content.js + src/data/pricing.js"
+      },
+      {
+        "id": "commerce.pricing-plans:plans.[].title:words",
+        "type": "commerce.pricing-plans",
+        "path": "plans.[].title",
+        "kind": "words",
+        "observed": 1,
+        "p95": 1,
+        "samples": 3,
+        "where": "src/data/pricing.js"
+      },
+      {
+        "id": "commerce.pricing-plans:plans.[].features.[].text:words",
+        "type": "commerce.pricing-plans",
+        "path": "plans.[].features.[].text",
+        "kind": "words",
+        "observed": 6,
+        "p95": 6,
+        "samples": 17,
+        "where": "src/data/pricing.js"
+      },
+      {
+        "id": "commerce.pricing-plans:plans.[].features.[].info:words",
+        "type": "commerce.pricing-plans",
+        "path": "plans.[].features.[].info",
+        "kind": "words",
+        "observed": 14,
+        "p95": 14,
+        "samples": 2,
+        "where": "src/data/pricing.js"
+      },
+      {
+        "id": "commerce.pricing-plans:plans.[].features.[].badge:words",
+        "type": "commerce.pricing-plans",
+        "path": "plans.[].features.[].badge",
+        "kind": "words",
+        "observed": 3,
+        "p95": 3,
+        "samples": 1,
+        "where": "src/data/pricing.js"
+      },
+      {
+        "id": "commerce.pricing-plans:plans.[].features:items",
+        "type": "commerce.pricing-plans",
+        "path": "plans.[].features",
+        "kind": "items",
+        "observed": 7,
+        "p95": 7,
+        "samples": 3,
+        "where": "src/data/pricing.js"
+      },
+      {
+        "id": "commerce.pricing-plans:plans.[].caption:words",
+        "type": "commerce.pricing-plans",
+        "path": "plans.[].caption",
+        "kind": "words",
+        "observed": 4,
+        "p95": 4,
+        "samples": 2,
+        "where": "src/data/pricing.js"
+      },
+      {
+        "id": "content.legal-body:blocks:items",
+        "type": "content.legal-body",
+        "path": "blocks",
+        "kind": "items",
+        "observed": 151,
+        "p95": 151,
+        "samples": 4,
+        "where": "src/data/legal/*.js + src/data/awards-terms.js"
+      },
+      {
+        "id": "content.legal-body:blocks.[].kind:h2.text:words",
+        "type": "content.legal-body",
+        "path": "blocks.[].kind:h2.text",
+        "kind": "words",
+        "observed": 9,
+        "p95": 7,
+        "samples": 42,
+        "where": "src/data/legal/*.js"
+      },
+      {
+        "id": "content.legal-body:blocks.[].kind:h3.text:words",
+        "type": "content.legal-body",
+        "path": "blocks.[].kind:h3.text",
+        "kind": "words",
+        "observed": 16,
+        "p95": 10,
+        "samples": 65,
+        "where": "src/data/legal/*.js"
+      },
+      {
+        "id": "content.legal-body:blocks.[].kind:p.text:words",
+        "type": "content.legal-body",
+        "path": "blocks.[].kind:p.text",
+        "kind": "words",
+        "observed": 438,
+        "p95": 225,
+        "samples": 234,
+        "where": "src/data/legal/*.js"
+      },
+      {
+        "id": "content.legal-body:blocks.[].kind:ul.items:items",
+        "type": "content.legal-body",
+        "path": "blocks.[].kind:ul.items",
+        "kind": "items",
+        "observed": 17,
+        "p95": 17,
+        "samples": 19,
+        "where": "src/data/legal/*.js"
+      },
+      {
+        "id": "content.legal-body:blocks.[].kind:ul.items.[].text:words",
+        "type": "content.legal-body",
+        "path": "blocks.[].kind:ul.items.[].text",
+        "kind": "words",
+        "observed": 94,
+        "p95": 54,
+        "samples": 133,
+        "where": "src/data/legal/*.js"
+      },
+      {
+        "id": "content.post-card:title:words",
+        "type": "content.post-card",
+        "path": "title",
+        "kind": "words",
+        "observed": 8,
+        "p95": 8,
+        "samples": 4,
+        "where": "src/data/blog.js"
+      },
+      {
+        "id": "content.post-card:excerpt:words",
+        "type": "content.post-card",
+        "path": "excerpt",
+        "kind": "words",
+        "observed": 26,
+        "p95": 26,
+        "samples": 4,
+        "where": "src/data/blog.js"
+      },
+      {
+        "id": "content.post-card:author.name:words",
+        "type": "content.post-card",
+        "path": "author.name",
+        "kind": "words",
+        "observed": 3,
+        "p95": 3,
+        "samples": 4,
+        "where": "src/data/blog.js"
+      },
+      {
+        "id": "content.article-body:blocks:items",
+        "type": "content.article-body",
+        "path": "blocks",
+        "kind": "items",
+        "observed": 30,
+        "p95": 30,
+        "samples": 4,
+        "where": "src/data/blog.js"
+      },
+      {
+        "id": "content.article-body:blocks.[].kind:h2.text:words",
+        "type": "content.article-body",
+        "path": "blocks.[].kind:h2.text",
+        "kind": "words",
+        "observed": 12,
+        "p95": 12,
+        "samples": 10,
+        "where": "src/data/blog.js"
+      },
+      {
+        "id": "content.article-body:blocks.[].kind:h3.text:words",
+        "type": "content.article-body",
+        "path": "blocks.[].kind:h3.text",
+        "kind": "words",
+        "observed": 6,
+        "p95": 6,
+        "samples": 10,
+        "where": "src/data/blog.js"
+      },
+      {
+        "id": "content.article-body:blocks.[].kind:p.text:words",
+        "type": "content.article-body",
+        "path": "blocks.[].kind:p.text",
+        "kind": "words",
+        "observed": 115,
+        "p95": 74,
+        "samples": 60,
+        "where": "src/data/blog.js"
+      },
+      {
+        "id": "content.article-body:blocks.[].kind:ul.items:items",
+        "type": "content.article-body",
+        "path": "blocks.[].kind:ul.items",
+        "kind": "items",
+        "observed": 3,
+        "p95": 3,
+        "samples": 1,
+        "where": "src/data/blog.js"
+      },
+      {
+        "id": "content.article-body:blocks.[].kind:ul.items.[].text:words",
+        "type": "content.article-body",
+        "path": "blocks.[].kind:ul.items.[].text",
+        "kind": "words",
+        "observed": 27,
+        "p95": 27,
+        "samples": 3,
+        "where": "src/data/blog.js"
+      },
+      {
+        "id": "content.release-entry:title:words",
+        "type": "content.release-entry",
+        "path": "title",
+        "kind": "words",
+        "observed": 9,
+        "p95": 9,
+        "samples": 11,
+        "where": "src/data/changelog.js"
+      },
+      {
+        "id": "content.release-entry:blocks:items",
+        "type": "content.release-entry",
+        "path": "blocks",
+        "kind": "items",
+        "observed": 31,
+        "p95": 31,
+        "samples": 11,
+        "where": "src/data/changelog.js"
+      },
+      {
+        "id": "content.release-entry:blocks.[].kind:h2.text:words",
+        "type": "content.release-entry",
+        "path": "blocks.[].kind:h2.text",
+        "kind": "words",
+        "observed": 7,
+        "p95": 5,
+        "samples": 47,
+        "where": "src/data/changelog.js"
+      },
+      {
+        "id": "content.release-entry:blocks.[].kind:p.text:words",
+        "type": "content.release-entry",
+        "path": "blocks.[].kind:p.text",
+        "kind": "words",
+        "observed": 56,
+        "p95": 46,
+        "samples": 39,
+        "where": "src/data/changelog.js"
+      },
+      {
+        "id": "content.release-entry:blocks.[].kind:ul.items:items",
+        "type": "content.release-entry",
+        "path": "blocks.[].kind:ul.items",
+        "kind": "items",
+        "observed": 10,
+        "p95": 9,
+        "samples": 37,
+        "where": "src/data/changelog.js"
+      },
+      {
+        "id": "content.release-entry:blocks.[].kind:ul.items.[].text:words",
+        "type": "content.release-entry",
+        "path": "blocks.[].kind:ul.items.[].text",
+        "kind": "words",
+        "observed": 25,
+        "p95": 25,
+        "samples": 154,
+        "where": "src/data/changelog.js"
+      },
+      {
+        "id": "showcase.award-winners:winners.gold.name:words",
+        "type": "showcase.award-winners",
+        "path": "winners.gold.name",
+        "kind": "words",
+        "observed": 3,
+        "p95": 3,
+        "samples": 3,
+        "where": "src/data/awards.js"
+      },
+      {
+        "id": "showcase.award-winners:winners.gold.tagline:words",
+        "type": "showcase.award-winners",
+        "path": "winners.gold.tagline",
+        "kind": "words",
+        "observed": 7,
+        "p95": 7,
+        "samples": 3,
+        "where": "src/data/awards.js"
+      },
+      {
+        "id": "showcase.award-winners:winners.gold.author:words",
+        "type": "showcase.award-winners",
+        "path": "winners.gold.author",
+        "kind": "words",
+        "observed": 2,
+        "p95": 2,
+        "samples": 3,
+        "where": "src/data/awards.js"
+      },
+      {
+        "id": "showcase.award-winners:finalists.[].name:words",
+        "type": "showcase.award-winners",
+        "path": "finalists.[].name",
+        "kind": "words",
+        "observed": 2,
+        "p95": 2,
+        "samples": 7,
+        "where": "src/data/awards.js"
+      },
+      {
+        "id": "showcase.award-winners:finalists.[].tagline:words",
+        "type": "showcase.award-winners",
+        "path": "finalists.[].tagline",
+        "kind": "words",
+        "observed": 6,
+        "p95": 6,
+        "samples": 7,
+        "where": "src/data/awards.js"
+      },
+      {
+        "id": "showcase.award-winners:finalists:items",
+        "type": "showcase.award-winners",
+        "path": "finalists",
+        "kind": "items",
+        "observed": 7,
+        "p95": 7,
+        "samples": 1,
+        "where": "src/data/awards.js"
+      },
+      {
+        "id": "store.app-shelves:shelves.[].apps.[].name:words",
+        "type": "store.app-shelves",
+        "path": "shelves.[].apps.[].name",
+        "kind": "words",
+        "observed": 5,
+        "p95": 3,
+        "samples": 265,
+        "userGenerated": true,
+        "where": "src/data/store-head-index.js"
+      },
+      {
+        "id": "store.app-shelves:shelves.[].apps.[].tagline:words",
+        "type": "store.app-shelves",
+        "path": "shelves.[].apps.[].tagline",
+        "kind": "words",
+        "observed": 31,
+        "p95": 14,
+        "samples": 265,
+        "userGenerated": true,
+        "where": "src/data/store-head-index.js"
+      },
+      {
+        "id": "store.app-shelves:shelves.[].apps.[].author:words",
+        "type": "store.app-shelves",
+        "path": "shelves.[].apps.[].author",
+        "kind": "words",
+        "observed": 4,
+        "p95": 3,
+        "samples": 265,
+        "userGenerated": true,
+        "where": "src/data/store-snapshot.json"
+      },
+      {
+        "id": "store.app-header:name:words",
+        "type": "store.app-header",
+        "path": "name",
+        "kind": "words",
+        "observed": 5,
+        "p95": 3,
+        "samples": 265,
+        "userGenerated": true,
+        "where": "src/data/store-head-index.js"
+      },
+      {
+        "id": "store.app-header:tagline:words",
+        "type": "store.app-header",
+        "path": "tagline",
+        "kind": "words",
+        "observed": 31,
+        "p95": 14,
+        "samples": 265,
+        "userGenerated": true,
+        "where": "src/data/store-head-index.js"
+      },
+      {
+        "id": "store.category-nav:title:words",
+        "type": "store.category-nav",
+        "path": "title",
+        "kind": "words",
+        "observed": 3,
+        "p95": 3,
+        "samples": 8,
+        "where": "src/data/store-meta.js"
+      },
+      {
+        "id": "store.category-nav:description:words",
+        "type": "store.category-nav",
+        "path": "description",
+        "kind": "words",
+        "observed": 21,
+        "p95": 21,
+        "samples": 8,
+        "where": "src/data/store-meta.js"
+      }
+    ]
+  },
+  "typographyChecks": {
+    "measuredWith": "Playwright Chromium, getComputedStyle of the first match of each probe selector, 1200ms settle, external requests blocked",
+    "viewports": [
+      1440,
+      768,
+      390
+    ],
+    "checks": {
+      "display.hero": {
+        "role": "display.hero",
+        "route": "/",
+        "selector": "#overview h1",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "34px",
+            "lineHeight": "37.4px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.85px"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "48px",
+            "lineHeight": "52.8px",
+            "fontWeight": 500,
+            "letterSpacing": "-1.2px"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "48px",
+            "lineHeight": "52.8px",
+            "fontWeight": 500,
+            "letterSpacing": "-1.2px"
+          }
+        }
+      },
+      "eyebrow": {
+        "role": "eyebrow",
+        "route": "/",
+        "selector": "#overview span.leading-none",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "16px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "16px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "16px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "body.lead": {
+        "role": "body.lead",
+        "route": "/",
+        "selector": "#overview p.max-w-content",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "26px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "29.25px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "29.25px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "label.pillar": {
+        "role": "label.pillar",
+        "route": "/",
+        "selector": "#overview span.mb-1",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "caption": {
+        "role": "caption",
+        "route": "/",
+        "selector": "#overview p.text-xs",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "12px",
+            "lineHeight": "16.2px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "12px",
+            "lineHeight": "16.2px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "12px",
+            "lineHeight": "16.2px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "display.section.faq": {
+        "role": "display.section",
+        "route": "/",
+        "selector": "#faq h2",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "30px",
+            "lineHeight": "33px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.75px"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "44px",
+            "lineHeight": "48.4px",
+            "fontWeight": 500,
+            "letterSpacing": "-1.1px"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "44px",
+            "lineHeight": "48.4px",
+            "fontWeight": 500,
+            "letterSpacing": "-1.1px"
+          }
+        }
+      },
+      "heading.card": {
+        "role": "heading.card",
+        "route": "/",
+        "selector": "#features h2",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "24px",
+            "lineHeight": "26.4px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.6px"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "24px",
+            "lineHeight": "26.4px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.6px"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "30px",
+            "lineHeight": "33px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.75px"
+          }
+        }
+      },
+      "body.card": {
+        "role": "body.card",
+        "route": "/",
+        "selector": "#features p",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "19.6px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "19.6px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "26px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.panel": {
+        "role": "heading.panel",
+        "route": "/",
+        "selector": "#persona-showcase-title",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "24px",
+            "lineHeight": "30px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.6px"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "30px",
+            "lineHeight": "37.5px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.75px"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "30px",
+            "lineHeight": "37.5px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.75px"
+          }
+        }
+      },
+      "body.panel": {
+        "role": "body.panel",
+        "route": "/",
+        "selector": "#persona-panel p",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "19.25px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "26px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "26px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "label.card-title": {
+        "role": "label.card-title",
+        "route": "/",
+        "selector": "#persona-panel h3",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "15px",
+            "lineHeight": "20.625px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "meta": {
+        "role": "meta",
+        "route": "/",
+        "selector": "#persona-panel a span.truncate",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "13px",
+            "lineHeight": "16px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "13px",
+            "lineHeight": "16px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "13px",
+            "lineHeight": "16px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "label.question": {
+        "role": "label.question",
+        "route": "/",
+        "selector": "#faq button span",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "20px",
+            "lineHeight": "28px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "20px",
+            "lineHeight": "28px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "body.answer": {
+        "role": "body.answer",
+        "route": "/",
+        "selector": "#faq p",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "22.75px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "26px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "26px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "label.nav-link": {
+        "role": "label.nav-link",
+        "route": "/",
+        "selector": "nav a.h-8.text-sm[href=\"/pricing\"]",
+        "measured": {
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "14px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "14px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "label.control": {
+        "role": "label.control",
+        "route": "/",
+        "selector": "#overview a.bg-accent",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "label.control-lg": {
+        "role": "label.control-lg",
+        "route": "/",
+        "selector": "#download a",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "footer": {
+        "role": "footer",
+        "route": "/",
+        "selector": "footer a",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "nav.mobile-link": {
+        "role": "nav.mobile-link",
+        "route": "/",
+        "selector": ".mobile-nav-panel a[href=\"/pricing\"]",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "30px",
+            "lineHeight": "33px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "nav.mobile-secondary": {
+        "role": "nav.mobile-secondary",
+        "route": "/",
+        "selector": ".mobile-nav-panel a[href*=\"signup\"]",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "24px",
+            "lineHeight": "30px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "body.error": {
+        "role": "body.error",
+        "route": "/does-not-exist",
+        "selector": "main p",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "22.4px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "22.4px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "22.4px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "display.section.404": {
+        "role": "display.section",
+        "route": "/does-not-exist",
+        "selector": "main h1",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "30px",
+            "lineHeight": "33px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.75px"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "44px",
+            "lineHeight": "48.4px",
+            "fontWeight": 500,
+            "letterSpacing": "-1.1px"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "44px",
+            "lineHeight": "48.4px",
+            "fontWeight": 500,
+            "letterSpacing": "-1.1px"
+          }
+        }
+      },
+      "display.page-title.pricing": {
+        "role": "display.page-title",
+        "route": "/pricing",
+        "selector": "main h1",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "36px",
+            "lineHeight": "39.6px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.9px"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "48px",
+            "lineHeight": "52.8px",
+            "fontWeight": 500,
+            "letterSpacing": "-1.2px"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "48px",
+            "lineHeight": "52.8px",
+            "fontWeight": 500,
+            "letterSpacing": "-1.2px"
+          }
+        }
+      },
+      "heading.plan": {
+        "role": "heading.plan",
+        "route": "/pricing",
+        "selector": "main article h2",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "30px",
+            "lineHeight": "30px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "30px",
+            "lineHeight": "30px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "30px",
+            "lineHeight": "30px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "label.plan-feature": {
+        "role": "label.plan-feature",
+        "route": "/pricing",
+        "selector": "main article li",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "18px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "18px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "18px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "label.badge": {
+        "role": "label.badge",
+        "route": "/pricing",
+        "selector": "main article li span.rounded-full",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "price.amount": {
+        "role": "price.amount",
+        "route": "/pricing",
+        "selector": "main article p.text-xl",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "20px",
+            "lineHeight": "20px",
+            "fontWeight": 500,
+            "letterSpacing": "0.022px"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "20px",
+            "lineHeight": "20px",
+            "fontWeight": 500,
+            "letterSpacing": "0.022px"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "20px",
+            "lineHeight": "20px",
+            "fontWeight": 500,
+            "letterSpacing": "0.022px"
+          }
+        }
+      },
+      "price.unit": {
+        "role": "price.unit",
+        "route": "/pricing",
+        "selector": "main article p[class*=\"leading-[14px]\"]",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "14px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "14px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "14px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "display.page-title.changelog": {
+        "role": "display.page-title",
+        "route": "/changelog",
+        "selector": "main h1",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "36px",
+            "lineHeight": "39.6px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.9px"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "48px",
+            "lineHeight": "52.8px",
+            "fontWeight": 500,
+            "letterSpacing": "-1.2px"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "48px",
+            "lineHeight": "52.8px",
+            "fontWeight": 500,
+            "letterSpacing": "-1.2px"
+          }
+        }
+      },
+      "body.page-subtitle": {
+        "role": "body.page-subtitle",
+        "route": "/changelog",
+        "selector": "main section > div > p",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "26px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "29.25px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "29.25px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.release": {
+        "role": "heading.release",
+        "route": "/changelog",
+        "selector": "main article a h2",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "30px",
+            "lineHeight": "32.4px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.75px"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "30px",
+            "lineHeight": "32.4px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.75px"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "30px",
+            "lineHeight": "32.4px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.75px"
+          }
+        }
+      },
+      "label.release-pill": {
+        "role": "label.release-pill",
+        "route": "/changelog",
+        "selector": "main article aside span",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "14px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "14px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "14px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "meta.release-date": {
+        "role": "meta.release-date",
+        "route": "/changelog",
+        "selector": "main article aside time",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "display.page-title.awards": {
+        "role": "display.page-title",
+        "route": "/awards",
+        "selector": "main h1",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "36px",
+            "lineHeight": "39.6px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.9px"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "48px",
+            "lineHeight": "52.8px",
+            "fontWeight": 500,
+            "letterSpacing": "-1.2px"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "48px",
+            "lineHeight": "52.8px",
+            "fontWeight": 500,
+            "letterSpacing": "-1.2px"
+          }
+        }
+      },
+      "heading.winner-name": {
+        "role": "heading.winner-name",
+        "route": "/awards",
+        "selector": "main button span.font-display",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "18px",
+            "lineHeight": "22.5px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "18px",
+            "lineHeight": "22.5px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "18px",
+            "lineHeight": "22.5px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "body.winner-tagline": {
+        "role": "body.winner-tagline",
+        "route": "/awards",
+        "selector": "main button span.line-clamp-2",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "22.75px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "22.75px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "22.75px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "label.medal": {
+        "role": "label.medal",
+        "route": "/awards",
+        "selector": "main button > span:first-child > span",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.prize": {
+        "role": "heading.prize",
+        "route": "/awards",
+        "selector": "main fieldset h2",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "24px",
+            "lineHeight": "30px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "30px",
+            "lineHeight": "37.5px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "30px",
+            "lineHeight": "37.5px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "text.prize-sub": {
+        "role": "text.prize-sub",
+        "route": "/awards",
+        "selector": "main fieldset article p",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "18px",
+            "lineHeight": "22.5px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "20px",
+            "lineHeight": "25px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "20px",
+            "lineHeight": "25px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "label.legend": {
+        "role": "label.legend",
+        "route": "/awards",
+        "selector": "main fieldset legend",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.jury-name": {
+        "role": "heading.jury-name",
+        "route": "/awards",
+        "selector": "main h3[class*=\"leading-[18.8px]\"]",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "15px",
+            "lineHeight": "18.8px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "18px",
+            "lineHeight": "22.5px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "18px",
+            "lineHeight": "22.5px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "text.jury-role": {
+        "role": "text.jury-role",
+        "route": "/awards",
+        "selector": "main article p.leading-snug",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "19.25px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "19.25px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "19.25px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.criteria": {
+        "role": "heading.criteria",
+        "route": "/awards",
+        "selector": "main h3.flex.items-center",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "20px",
+            "lineHeight": "28px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "20px",
+            "lineHeight": "28px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "20px",
+            "lineHeight": "28px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "body.criteria": {
+        "role": "body.criteria",
+        "route": "/awards",
+        "selector": "main article p.text-balance",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "22.75px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "26px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "26px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.legal-title": {
+        "role": "heading.legal-title",
+        "route": "/terms",
+        "selector": "main h1",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "36px",
+            "lineHeight": "39.6px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.9px"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "48px",
+            "lineHeight": "52.8px",
+            "fontWeight": 500,
+            "letterSpacing": "-1.2px"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "48px",
+            "lineHeight": "52.8px",
+            "fontWeight": 500,
+            "letterSpacing": "-1.2px"
+          }
+        }
+      },
+      "body.legal": {
+        "role": "body.legal",
+        "route": "/terms",
+        "selector": ".legal-prose > p",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "25.6px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "25.6px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "25.6px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "text.legal-updated": {
+        "role": "text.legal-updated",
+        "route": "/terms",
+        "selector": "main section > div > p",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "20px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.legal-h2": {
+        "role": "heading.legal-h2",
+        "route": "/terms",
+        "selector": ".legal-prose h2",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "24px",
+            "lineHeight": "36px",
+            "fontWeight": 600,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "24px",
+            "lineHeight": "36px",
+            "fontWeight": 600,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "24px",
+            "lineHeight": "36px",
+            "fontWeight": 600,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.legal-h3": {
+        "role": "heading.legal-h3",
+        "route": "/terms",
+        "selector": ".legal-prose h3",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": 600,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": 600,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "24px",
+            "fontWeight": 600,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.state": {
+        "role": "heading.state",
+        "route": "/download",
+        "selector": "main h1",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "24px",
+            "lineHeight": "30px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.6px"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "30px",
+            "lineHeight": "37.5px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.75px"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "30px",
+            "lineHeight": "37.5px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.75px"
+          }
+        }
+      },
+      "label.version": {
+        "role": "label.version",
+        "route": "/download",
+        "selector": "main span.font-mono",
+        "measured": {
+          "390": {
+            "fontFamily": "ui-monospace",
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "ui-monospace",
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "ui-monospace",
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.terms-h2": {
+        "role": "heading.terms-h2",
+        "route": "/awards/terms",
+        "selector": "main h2",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "30px",
+            "lineHeight": "36px",
+            "fontWeight": 600,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "30px",
+            "lineHeight": "36px",
+            "fontWeight": 600,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "30px",
+            "lineHeight": "36px",
+            "fontWeight": 600,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.terms-h3": {
+        "role": "heading.terms-h3",
+        "route": "/awards/terms",
+        "selector": "main h3",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "28px",
+            "fontWeight": 600,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "28px",
+            "fontWeight": 600,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "28px",
+            "fontWeight": 600,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "meta.date": {
+        "role": "meta.date",
+        "route": "/blog",
+        "selector": "main article time",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "15px",
+            "lineHeight": "22px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "15px",
+            "lineHeight": "22px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "15px",
+            "lineHeight": "22px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.post-card": {
+        "role": "heading.post-card",
+        "route": "/blog",
+        "selector": "main article h2",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "28px",
+            "lineHeight": "30.24px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.7px"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "34px",
+            "lineHeight": "36.72px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.85px"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "34px",
+            "lineHeight": "36.72px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.85px"
+          }
+        }
+      },
+      "body.excerpt": {
+        "role": "body.excerpt",
+        "route": "/blog",
+        "selector": "main article > div > p",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "25.6px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "17px",
+            "lineHeight": "27.2px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "17px",
+            "lineHeight": "27.2px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "display.page-title.blog": {
+        "role": "display.page-title",
+        "route": "/blog",
+        "selector": "main h1",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "36px",
+            "lineHeight": "39.6px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.9px"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "48px",
+            "lineHeight": "48px",
+            "fontWeight": 500,
+            "letterSpacing": "-1.2px"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "48px",
+            "lineHeight": "48px",
+            "fontWeight": 500,
+            "letterSpacing": "-1.2px"
+          }
+        }
+      },
+      "body.page-subtitle.blog": {
+        "role": "body.page-subtitle",
+        "route": "/blog",
+        "selector": "main section > div > p",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "26px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "28px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "28px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.article": {
+        "role": "heading.article",
+        "route": "/blog/how-teams-use-glaze",
+        "selector": "main article header h1",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "32px",
+            "lineHeight": "33.6px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.8px"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "36px",
+            "lineHeight": "37.8px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.9px"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "36px",
+            "lineHeight": "37.8px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.9px"
+          }
+        }
+      },
+      "body.prose": {
+        "role": "body.prose",
+        "route": "/blog/how-teams-use-glaze",
+        "selector": ".markdown-content > p",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "25px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "17px",
+            "lineHeight": "27px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "17px",
+            "lineHeight": "27px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.prose-h2": {
+        "role": "heading.prose-h2",
+        "route": "/blog/how-teams-use-glaze",
+        "selector": ".markdown-content h2",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "20px",
+            "lineHeight": "25px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "20px",
+            "lineHeight": "25px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "20px",
+            "lineHeight": "25px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.cta-compact": {
+        "role": "heading.cta-compact",
+        "route": "/blog/how-teams-use-glaze",
+        "selector": "main article section h2",
+        "measured": {
+          "390": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "30px",
+            "lineHeight": "33px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.9px"
+          },
+          "768": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "36px",
+            "lineHeight": "39.6px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.9px"
+          },
+          "1440": {
+            "fontFamily": "Instrument Sans",
+            "fontSize": "36px",
+            "lineHeight": "39.6px",
+            "fontWeight": 500,
+            "letterSpacing": "-0.9px"
+          }
+        }
+      },
+      "heading.prose-h3": {
+        "role": "heading.prose-h3",
+        "route": "/blog/how-we-use-glaze-at-raycast",
+        "selector": ".markdown-content h3",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "23.4px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "23.4px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "23.4px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.list-title": {
+        "role": "heading.list-title",
+        "route": "/store",
+        "selector": "main section > div > div.mt-6 h1",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "22px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "22px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "22px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.shelf": {
+        "role": "heading.shelf",
+        "route": "/store",
+        "selector": "main section h2",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "16px",
+            "lineHeight": "22px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "label.app-name": {
+        "role": "label.app-name",
+        "route": "/store",
+        "selector": "main section h3",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "18px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "18px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "18px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "text.app-meta": {
+        "role": "text.app-meta",
+        "route": "/store",
+        "selector": "main a[aria-label^=\"Open\"] p",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "18px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "18px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "18px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "label.chip": {
+        "role": "label.chip",
+        "route": "/store",
+        "selector": "nav[aria-label=\"Store categories\"] a",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "13px",
+            "lineHeight": "13px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "13px",
+            "lineHeight": "13px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "13px",
+            "lineHeight": "13px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.carousel": {
+        "role": "heading.carousel",
+        "route": "/store",
+        "selector": "main section.store-hero h1",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "22px",
+            "fontWeight": 600,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "22px",
+            "fontWeight": 600,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "22px",
+            "fontWeight": 600,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "text.carousel-tagline": {
+        "role": "text.carousel-tagline",
+        "route": "/store",
+        "selector": "main section.store-hero p",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "16px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "17px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "17px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "heading.app-title": {
+        "role": "heading.app-title",
+        "route": "/app/my-stash-CDBw9Z",
+        "selector": "main h1",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "18px",
+            "lineHeight": "22.5px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "20px",
+            "lineHeight": "26px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "20px",
+            "lineHeight": "26px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "text.app-tagline": {
+        "role": "text.app-tagline",
+        "route": "/app/my-stash-CDBw9Z",
+        "selector": "main p.whitespace-nowrap",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "18px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "18px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "label.stat": {
+        "role": "label.stat",
+        "route": "/app/my-stash-CDBw9Z",
+        "selector": "main span.uppercase",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "10px",
+            "lineHeight": "12px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "12px",
+            "lineHeight": "14px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "12px",
+            "lineHeight": "14px",
+            "fontWeight": 500,
+            "letterSpacing": "normal"
+          }
+        }
+      },
+      "text.stat-value": {
+        "role": "text.stat-value",
+        "route": "/app/my-stash-CDBw9Z",
+        "selector": "main div.border-y span[class*=\"max-w-full\"]",
+        "measured": {
+          "390": {
+            "fontFamily": "Inter",
+            "fontSize": "12px",
+            "lineHeight": "16px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "768": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "18px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          },
+          "1440": {
+            "fontFamily": "Inter",
+            "fontSize": "14px",
+            "lineHeight": "18px",
+            "fontWeight": 400,
+            "letterSpacing": "normal"
+          }
+        }
+      }
+    }
+  },
+  "layoutChecks": {
+    "overflow": {
+      "/@1440": 1440,
+      "/@768": 768,
+      "/@390": 390,
+      "/designers@1440": 1440,
+      "/designers@768": 768,
+      "/designers@390": 390,
+      "/does-not-exist@1440": 1440,
+      "/does-not-exist@768": 768,
+      "/does-not-exist@390": 390,
+      "/pricing@1440": 1440,
+      "/pricing@768": 768,
+      "/pricing@390": 390,
+      "/download@1440": 1440,
+      "/download@768": 768,
+      "/download@390": 390,
+      "/awards@1440": 1440,
+      "/awards@768": 768,
+      "/awards@390": 390,
+      "/terms@1440": 1440,
+      "/terms@768": 768,
+      "/terms@390": 390,
+      "/awards/terms@1440": 1440,
+      "/awards/terms@768": 768,
+      "/awards/terms@390": 390,
+      "/blog@1440": 1440,
+      "/blog@768": 768,
+      "/blog@390": 390,
+      "/blog/how-teams-use-glaze@1440": 1440,
+      "/blog/how-teams-use-glaze@768": 768,
+      "/blog/how-teams-use-glaze@390": 390,
+      "/changelog@1440": 1440,
+      "/changelog@768": 768,
+      "/changelog@390": 390,
+      "/store@1440": 1440,
+      "/store@768": 768,
+      "/store@390": 390,
+      "/store/design@1440": 1440,
+      "/store/design@768": 768,
+      "/store/design@390": 390,
+      "/app/my-stash-CDBw9Z@1440": 1440,
+      "/app/my-stash-CDBw9Z@768": 768,
+      "/app/my-stash-CDBw9Z@390": 390,
+      "/app/airwayfl-XD7JA5@1440": 1440,
+      "/app/airwayfl-XD7JA5@768": 768,
+      "/app/airwayfl-XD7JA5@390": 390
+    },
+    "measuredWith": "Playwright Chromium, getComputedStyle / getBoundingClientRect of the first match of each probe selector, 1200ms settle, external requests blocked",
+    "checks": {
+      "landing.hero-padding": {
+        "route": "/",
+        "selector": "#overview section",
+        "measured": {
+          "390": {
+            "paddingTop": 140,
+            "paddingLeft": 16
+          },
+          "1440": {
+            "paddingTop": 160,
+            "paddingLeft": 16
+          }
+        }
+      },
+      "landing.faq-margin": {
+        "route": "/",
+        "selector": "#faq",
+        "measured": {
+          "390": {
+            "marginTop": 160
+          },
+          "1440": {
+            "marginTop": 256
+          }
+        }
+      },
+      "landing.cta-padding": {
+        "route": "/",
+        "selector": "#download",
+        "measured": {
+          "390": {
+            "paddingTop": 220,
+            "paddingBottom": 64
+          },
+          "1440": {
+            "paddingTop": 280,
+            "paddingBottom": 200
+          }
+        }
+      },
+      "landing.feature-card": {
+        "route": "/",
+        "selector": "#features div.rounded-2xl",
+        "measured": {
+          "390": {
+            "borderTopLeftRadius": 18
+          },
+          "1440": {
+            "borderTopLeftRadius": 18
+          }
+        }
+      },
+      "landing.app-card": {
+        "route": "/",
+        "selector": "#persona-panel a",
+        "measured": {
+          "390": {
+            "minHeight": 160,
+            "paddingTop": 12,
+            "borderTopLeftRadius": 18
+          },
+          "1440": {
+            "minHeight": 232,
+            "paddingTop": 12,
+            "borderTopLeftRadius": 18
+          }
+        }
+      },
+      "landing.footer": {
+        "route": "/",
+        "selector": "footer.mt-auto",
+        "measured": {
+          "390": {
+            "paddingBottom": 20
+          },
+          "1440": {
+            "paddingBottom": 56
+          }
+        }
+      },
+      "motion.landing-hero-h1": {
+        "route": "/",
+        "selector": "[data-anim=\"hero-fade-2\"]",
+        "measured": {
+          "1440": {
+            "animationDuration": 600,
+            "animationDelay": 100
+          }
+        }
+      },
+      "motion.landing-below": {
+        "route": "/",
+        "selector": "[data-anim=\"below-fold-fade\"]",
+        "measured": {
+          "1440": {
+            "animationDuration": 600,
+            "animationDelay": 500
+          }
+        }
+      },
+      "motion.faq-dim": {
+        "route": "/",
+        "selector": "#faq",
+        "measured": {
+          "1440": {
+            "transitionDuration": 600
+          }
+        }
+      },
+      "notfound.padding": {
+        "route": "/does-not-exist",
+        "selector": "main > section",
+        "measured": {
+          "390": {
+            "paddingTop": 96
+          },
+          "1440": {
+            "paddingTop": 96
+          }
+        }
+      },
+      "pricing.section": {
+        "route": "/pricing",
+        "selector": "main > section:first-of-type",
+        "measured": {
+          "390": {
+            "paddingTop": 140
+          },
+          "1440": {
+            "paddingTop": 160
+          }
+        }
+      },
+      "pricing.grid": {
+        "route": "/pricing",
+        "selector": "main section div.grid",
+        "measured": {
+          "390": {
+            "columnGap": 12,
+            "width": 358
+          },
+          "1440": {
+            "columnGap": 12,
+            "width": 960
+          }
+        }
+      },
+      "pricing.card": {
+        "route": "/pricing",
+        "selector": "main article",
+        "measured": {
+          "390": {
+            "paddingTop": 20,
+            "paddingLeft": 20,
+            "borderTopLeftRadius": 18,
+            "width": 358
+          },
+          "1440": {
+            "paddingTop": 20,
+            "paddingLeft": 20,
+            "borderTopLeftRadius": 18,
+            "width": 312
+          }
+        }
+      },
+      "pricing.faq-margin": {
+        "route": "/pricing",
+        "selector": "#faq",
+        "measured": {
+          "390": {
+            "marginTop": 128
+          },
+          "1440": {
+            "marginTop": 180
+          }
+        }
+      },
+      "motion.plan-card-static": {
+        "route": "/pricing",
+        "selector": "main article",
+        "measured": {
+          "1440": {
+            "transitionDuration": 0
+          }
+        }
+      },
+      "download.icon": {
+        "route": "/download",
+        "selector": "main img",
+        "measured": {
+          "390": {
+            "width": 112,
+            "height": 112
+          },
+          "1440": {
+            "width": 112,
+            "height": 112
+          }
+        }
+      },
+      "legal.section": {
+        "route": "/terms",
+        "selector": "main > section",
+        "measured": {
+          "390": {
+            "paddingTop": 172,
+            "paddingBottom": 96
+          },
+          "1440": {
+            "paddingTop": 172,
+            "paddingBottom": 96
+          }
+        }
+      },
+      "legal.column": {
+        "route": "/terms",
+        "selector": ".legal-prose",
+        "measured": {
+          "390": {
+            "width": 358
+          },
+          "1440": {
+            "width": 640
+          }
+        }
+      },
+      "legal.header-gap": {
+        "route": "/terms",
+        "selector": "main section h1",
+        "measured": {
+          "390": {
+            "marginBottom": 12
+          },
+          "1440": {
+            "marginBottom": 12
+          }
+        }
+      },
+      "legal.updated-gap": {
+        "route": "/terms",
+        "selector": "main section > div > p",
+        "measured": {
+          "390": {
+            "marginBottom": 32
+          },
+          "1440": {
+            "marginBottom": 32
+          }
+        }
+      },
+      "legal.list-indent": {
+        "route": "/terms",
+        "selector": ".legal-prose ul",
+        "measured": {
+          "390": {
+            "paddingLeft": 24
+          },
+          "1440": {
+            "paddingLeft": 24
+          }
+        }
+      },
+      "terms.schedule": {
+        "route": "/awards/terms",
+        "selector": "main div.border-t",
+        "measured": {
+          "390": {
+            "marginTop": 64,
+            "paddingTop": 48
+          },
+          "1440": {
+            "marginTop": 64,
+            "paddingTop": 48
+          }
+        }
+      },
+      "blog.header": {
+        "route": "/blog",
+        "selector": "main section > div.mb-12",
+        "measured": {
+          "390": {
+            "width": 358,
+            "marginBottom": 48
+          },
+          "1440": {
+            "width": 680,
+            "marginBottom": 64
+          }
+        }
+      },
+      "blog.card": {
+        "route": "/blog",
+        "selector": "main article:nth-child(2)",
+        "measured": {
+          "390": {
+            "paddingTop": 40,
+            "width": 358
+          },
+          "1440": {
+            "paddingTop": 64,
+            "width": 640
+          }
+        }
+      },
+      "blog.cover": {
+        "route": "/blog",
+        "selector": "main article a img",
+        "measured": {
+          "390": {
+            "borderTopLeftRadius": 12,
+            "height": 188.40625
+          },
+          "1440": {
+            "borderTopLeftRadius": 12,
+            "height": 336.828125
+          }
+        }
+      },
+      "blog.date-gap": {
+        "route": "/blog",
+        "selector": "main article time",
+        "measured": {
+          "390": {
+            "marginTop": 32
+          },
+          "1440": {
+            "marginTop": 32
+          }
+        }
+      },
+      "motion.post-card-static": {
+        "route": "/blog",
+        "selector": "main article",
+        "measured": {
+          "1440": {
+            "animationDuration": 0
+          }
+        }
+      },
+      "post.section": {
+        "route": "/blog/how-teams-use-glaze",
+        "selector": "main > section",
+        "measured": {
+          "390": {
+            "paddingTop": 132
+          },
+          "1440": {
+            "paddingTop": 172
+          }
+        }
+      },
+      "post.cover": {
+        "route": "/blog/how-teams-use-glaze",
+        "selector": "main article > div:first-child",
+        "measured": {
+          "390": {
+            "borderTopLeftRadius": 18
+          },
+          "1440": {
+            "borderTopLeftRadius": 18
+          }
+        }
+      },
+      "post.header": {
+        "route": "/blog/how-teams-use-glaze",
+        "selector": "main article header",
+        "measured": {
+          "390": {
+            "marginTop": 40
+          },
+          "1440": {
+            "marginTop": 40
+          }
+        }
+      },
+      "post.image": {
+        "route": "/blog/how-teams-use-glaze",
+        "selector": ".markdown-content img",
+        "measured": {
+          "390": {
+            "borderTopLeftRadius": 8,
+            "marginTop": 24
+          },
+          "1440": {
+            "borderTopLeftRadius": 8,
+            "marginTop": 24
+          }
+        }
+      },
+      "post.footer": {
+        "route": "/blog/how-teams-use-glaze",
+        "selector": "main article > footer",
+        "measured": {
+          "390": {
+            "marginTop": 64,
+            "paddingTop": 40
+          },
+          "1440": {
+            "marginTop": 80,
+            "paddingTop": 48
+          }
+        }
+      },
+      "post.cta-compact": {
+        "route": "/blog/how-teams-use-glaze",
+        "selector": "main article section",
+        "measured": {
+          "390": {
+            "marginTop": 80
+          },
+          "1440": {
+            "marginTop": 96
+          }
+        }
+      },
+      "changelog.entry": {
+        "route": "/changelog",
+        "selector": "main article",
+        "measured": {
+          "768": {
+            "paddingTop": 40
+          },
+          "1440": {
+            "paddingTop": 64
+          }
+        }
+      },
+      "changelog.list": {
+        "route": "/changelog",
+        "selector": "main section > div.max-w-content",
+        "measured": {
+          "768": {
+            "width": 640
+          },
+          "1440": {
+            "width": 1240
+          }
+        }
+      },
+      "changelog.pill": {
+        "route": "/changelog",
+        "selector": "main article aside span",
+        "measured": {
+          "390": {
+            "paddingLeft": 12,
+            "paddingTop": 4
+          },
+          "1440": {
+            "paddingLeft": 12,
+            "paddingTop": 4
+          }
+        }
+      },
+      "awards.video": {
+        "route": "/awards",
+        "selector": "main video",
+        "measured": {
+          "390": {
+            "width": 390
+          },
+          "1440": {
+            "width": 1280
+          }
+        }
+      },
+      "awards.winner-card": {
+        "route": "/awards",
+        "selector": "main section.dialog-focus-surface button",
+        "measured": {
+          "390": {
+            "paddingTop": 48,
+            "paddingLeft": 32,
+            "borderTopLeftRadius": 18
+          },
+          "1440": {
+            "paddingTop": 48,
+            "paddingLeft": 32,
+            "borderTopLeftRadius": 18
+          }
+        }
+      },
+      "awards.prizes": {
+        "route": "/awards",
+        "selector": "main fieldset",
+        "measured": {
+          "390": {
+            "paddingTop": 40,
+            "paddingLeft": 12,
+            "borderTopLeftRadius": 26
+          },
+          "1440": {
+            "paddingTop": 48,
+            "paddingLeft": 24,
+            "borderTopLeftRadius": 26
+          }
+        }
+      },
+      "awards.prize-icon": {
+        "route": "/awards",
+        "selector": "main fieldset article img",
+        "measured": {
+          "390": {
+            "width": 64
+          },
+          "1440": {
+            "width": 72
+          }
+        }
+      },
+      "awards.jury-photo": {
+        "route": "/awards",
+        "selector": "main section.text-center img",
+        "measured": {
+          "390": {
+            "width": 88
+          },
+          "1440": {
+            "width": 104
+          }
+        }
+      },
+      "awards.search": {
+        "route": "/awards",
+        "selector": "#entries .liquid-glass",
+        "measured": {
+          "390": {
+            "height": 40,
+            "width": 40
+          },
+          "1440": {
+            "height": 36,
+            "width": 240
+          }
+        }
+      },
+      "motion.awards-video": {
+        "route": "/awards",
+        "selector": "[data-anim=\"awards-video-fade\"]",
+        "measured": {
+          "1440": {
+            "animationDuration": 800,
+            "animationDelay": 0
+          }
+        }
+      },
+      "motion.awards-sponsor": {
+        "route": "/awards",
+        "selector": "[data-anim=\"awards-sponsor\"]",
+        "measured": {
+          "1440": {
+            "animationDuration": 600,
+            "animationDelay": 100
+          }
+        }
+      },
+      "motion.awards-title": {
+        "route": "/awards",
+        "selector": "[data-anim=\"awards-title\"]",
+        "measured": {
+          "1440": {
+            "animationDelay": 200
+          }
+        }
+      },
+      "motion.awards-subtitle": {
+        "route": "/awards",
+        "selector": "[data-anim=\"awards-subtitle\"]",
+        "measured": {
+          "1440": {
+            "animationDelay": 300
+          }
+        }
+      },
+      "motion.awards-below": {
+        "route": "/awards",
+        "selector": "[data-anim=\"awards-below-fold\"]",
+        "measured": {
+          "1440": {
+            "animationDuration": 600,
+            "animationDelay": 500
+          }
+        }
+      },
+      "motion.search-expand": {
+        "route": "/awards",
+        "selector": "#entries .liquid-glass",
+        "measured": {
+          "1440": {
+            "transitionDuration": 200
+          }
+        }
+      },
+      "store.section": {
+        "route": "/store",
+        "selector": "main > section",
+        "measured": {
+          "390": {
+            "paddingTop": 76,
+            "paddingBottom": 80
+          },
+          "1440": {
+            "paddingTop": 80,
+            "paddingBottom": 80
+          }
+        }
+      },
+      "store.carousel-card": {
+        "route": "/store",
+        "selector": "main section.store-hero [role=\"button\"][tabindex=\"0\"]",
+        "measured": {
+          "390": {
+            "width": 358,
+            "height": 220,
+            "borderTopLeftRadius": 18
+          },
+          "1440": {
+            "width": 960,
+            "height": 360,
+            "borderTopLeftRadius": 26
+          }
+        }
+      },
+      "store.chip": {
+        "route": "/store",
+        "selector": "nav[aria-label=\"Store categories\"] a",
+        "measured": {
+          "390": {
+            "height": 32,
+            "columnGap": 6
+          },
+          "1440": {
+            "height": 32,
+            "columnGap": 6
+          }
+        }
+      },
+      "store.search": {
+        "route": "/store",
+        "selector": "main .liquid-glass.ml-auto",
+        "measured": {
+          "390": {
+            "height": 40,
+            "width": 210
+          },
+          "1440": {
+            "height": 36,
+            "width": 240
+          }
+        }
+      },
+      "store.app-row": {
+        "route": "/store",
+        "selector": "main a[aria-label^=\"Open\"]",
+        "measured": {
+          "390": {
+            "height": 72,
+            "columnGap": 12,
+            "borderTopLeftRadius": 18
+          },
+          "1440": {
+            "height": 72,
+            "columnGap": 12,
+            "borderTopLeftRadius": 18
+          }
+        }
+      },
+      "motion.shelf-track": {
+        "route": "/store",
+        "selector": "main div.will-change-transform",
+        "measured": {
+          "1440": {
+            "transitionDuration": 500
+          }
+        }
+      },
+      "motion.chip-hover": {
+        "route": "/store",
+        "selector": "nav[aria-label=\"Store categories\"] a",
+        "measured": {
+          "1440": {
+            "transitionDuration": 150
+          }
+        }
+      },
+      "motion.app-row-hover": {
+        "route": "/store",
+        "selector": "main a[aria-label^=\"Open\"]",
+        "measured": {
+          "1440": {
+            "transitionDuration": 150
+          }
+        }
+      },
+      "app.icon": {
+        "route": "/app/my-stash-CDBw9Z",
+        "selector": "main section span.glaze-app-icon-glass",
+        "measured": {
+          "390": {
+            "width": 80
+          },
+          "1440": {
+            "width": 112
+          }
+        }
+      },
+      "app.cover": {
+        "route": "/app/my-stash-CDBw9Z",
+        "selector": "main section > div > div:first-child",
+        "measured": {
+          "390": {
+            "height": 220,
+            "borderTopLeftRadius": 18
+          },
+          "1440": {
+            "height": 360,
+            "borderTopLeftRadius": 26
+          }
+        }
+      },
+      "app.cta": {
+        "route": "/app/my-stash-CDBw9Z",
+        "selector": "main a.bg-accent",
+        "measured": {
+          "1440": {
+            "height": 32,
+            "paddingLeft": 14
+          }
+        }
+      },
+      "app.stats": {
+        "route": "/app/my-stash-CDBw9Z",
+        "selector": "main div.border-y > div:nth-child(2)",
+        "measured": {
+          "390": {
+            "paddingTop": 10,
+            "paddingLeft": 4
+          },
+          "1440": {
+            "paddingTop": 12,
+            "paddingLeft": 12
+          }
+        }
+      },
+      "app.shots": {
+        "route": "/app/my-stash-CDBw9Z",
+        "selector": "main div.relative.-mx-4",
+        "measured": {
+          "390": {
+            "height": 220
+          },
+          "1440": {
+            "height": 260
+          }
+        }
+      },
+      "app.lineage": {
+        "route": "/app/airwayfl-XD7JA5",
+        "selector": "main div.rounded-xl",
+        "measured": {
+          "390": {
+            "paddingLeft": 16,
+            "paddingTop": 10,
+            "borderTopLeftRadius": 18
+          },
+          "1440": {
+            "paddingLeft": 16,
+            "paddingTop": 10,
+            "borderTopLeftRadius": 18
+          }
+        }
+      }
+    }
+  },
+  "specCrossCheck": {
+    "measuredWith": "Playwright Chromium, document.documentElement.scrollHeight, 1200ms settle, external requests blocked",
+    "tolerancePct": 1,
+    "entries": [
+      {
+        "route": "/pricing",
+        "viewport": 1440,
+        "specPx": 2566,
+        "specCite": "spec.marketing.pricing",
+        "clonePx": 2566,
+        "deltaPx": 0,
+        "deltaPct": 0
+      },
+      {
+        "route": "/pricing",
+        "viewport": 390,
+        "specPx": 2822,
+        "specCite": "spec.marketing.pricing",
+        "clonePx": 2822,
+        "deltaPx": 0,
+        "deltaPct": 0
+      },
+      {
+        "route": "/awards",
+        "viewport": 1440,
+        "specPx": 5145,
+        "specCite": "spec.marketing.awards",
+        "clonePx": 5145,
+        "deltaPx": 0,
+        "deltaPct": 0
+      },
+      {
+        "route": "/awards",
+        "viewport": 390,
+        "specPx": 5657,
+        "specCite": "spec.marketing.awards",
+        "clonePx": 5657,
+        "deltaPx": 0,
+        "deltaPct": 0
+      },
+      {
+        "route": "/awards/terms",
+        "viewport": 1440,
+        "specPx": 6175,
+        "specCite": "spec.marketing.awardsterms",
+        "explained": "Awards terms body is deterministic placeholder text sized to the original paragraph lengths; line wrapping differs from the real text.",
+        "clonePx": 6175,
+        "deltaPx": 0,
+        "deltaPct": 0
+      },
+      {
+        "route": "/awards/terms",
+        "viewport": 390,
+        "specPx": 8541,
+        "specCite": "spec.marketing.awardsterms",
+        "explained": "Awards terms body is deterministic placeholder text sized to the original paragraph lengths; line wrapping differs from the real text.",
+        "clonePx": 8516,
+        "deltaPx": -25,
+        "deltaPct": -0.3
+      },
+      {
+        "route": "/blog",
+        "viewport": 1440,
+        "specPx": 3296,
+        "specCite": "spec.blog.index",
+        "clonePx": 3290,
+        "deltaPx": -6,
+        "deltaPct": -0.2
+      },
+      {
+        "route": "/blog",
+        "viewport": 390,
+        "specPx": 2524,
+        "specCite": "spec.blog.index",
+        "clonePx": 2549,
+        "deltaPx": 25,
+        "deltaPct": 1
+      },
+      {
+        "route": "/blog/how-teams-use-glaze",
+        "viewport": 1440,
+        "specPx": 4877,
+        "specCite": "spec.blog.post",
+        "explained": "Post bodies are deterministic placeholder prose sized to the original word counts; wrapping and image heights differ slightly from the real text.",
+        "clonePx": 4886,
+        "deltaPx": 9,
+        "deltaPct": 0.2
+      },
+      {
+        "route": "/blog/how-teams-use-glaze",
+        "viewport": 390,
+        "specPx": 4935,
+        "specCite": "spec.blog.post",
+        "explained": "Post bodies are deterministic placeholder prose sized to the original word counts; wrapping and image heights differ slightly from the real text.",
+        "clonePx": 5083,
+        "deltaPx": 148,
+        "deltaPct": 3
+      },
+      {
+        "route": "/blog/why-glaze-when-claude-code-and-codex-exist",
+        "viewport": 1440,
+        "specPx": 2910,
+        "specCite": "spec.blog.post",
+        "explained": "Post bodies are deterministic placeholder prose sized to the original word counts; wrapping and image heights differ slightly from the real text.",
+        "clonePx": 2919,
+        "deltaPx": 9,
+        "deltaPct": 0.3
+      },
+      {
+        "route": "/blog/why-glaze-when-claude-code-and-codex-exist",
+        "viewport": 390,
+        "specPx": 3028,
+        "specCite": "spec.blog.post",
+        "explained": "Post bodies are deterministic placeholder prose sized to the original word counts; wrapping and image heights differ slightly from the real text.",
+        "clonePx": 3076,
+        "deltaPx": 48,
+        "deltaPct": 1.6
+      },
+      {
+        "route": "/blog/affiliate-program",
+        "viewport": 1440,
+        "specPx": 2839,
+        "specCite": "spec.blog.post",
+        "explained": "Post bodies are deterministic placeholder prose sized to the original word counts; wrapping and image heights differ slightly from the real text.",
+        "clonePx": 2875,
+        "deltaPx": 36,
+        "deltaPct": 1.3
+      },
+      {
+        "route": "/blog/affiliate-program",
+        "viewport": 390,
+        "specPx": 2956,
+        "specCite": "spec.blog.post",
+        "explained": "Post bodies are deterministic placeholder prose sized to the original word counts; wrapping and image heights differ slightly from the real text.",
+        "clonePx": 2954,
+        "deltaPx": -2,
+        "deltaPct": -0.1
+      },
+      {
+        "route": "/blog/how-we-use-glaze-at-raycast",
+        "viewport": 1440,
+        "specPx": 7155,
+        "specCite": "spec.blog.post",
+        "explained": "Post bodies are deterministic placeholder prose sized to the original word counts; wrapping and image heights differ slightly from the real text.",
+        "clonePx": 7244,
+        "deltaPx": 89,
+        "deltaPct": 1.2
+      },
+      {
+        "route": "/blog/how-we-use-glaze-at-raycast",
+        "viewport": 390,
+        "specPx": 6619,
+        "specCite": "spec.blog.post",
+        "explained": "Post bodies are deterministic placeholder prose sized to the original word counts; wrapping and image heights differ slightly from the real text.",
+        "clonePx": 6817,
+        "deltaPx": 198,
+        "deltaPct": 3
+      },
+      {
+        "route": "/store",
+        "viewport": 1440,
+        "specPx": 1718,
+        "specCite": "spec.store.top",
+        "clonePx": 1718,
+        "deltaPx": 0,
+        "deltaPct": 0
+      },
+      {
+        "route": "/store",
+        "viewport": 390,
+        "specPx": 3241,
+        "specCite": "spec.store.top",
+        "clonePx": 3241,
+        "deltaPx": 0,
+        "deltaPct": 0
+      },
+      {
+        "route": "/app/my-stash-CDBw9Z",
+        "viewport": 1440,
+        "specPx": 1449,
+        "specCite": "spec.store.top",
+        "explained": "The About text of an app is placeholder prose (src/data/store-about-placeholder.js) of a different length than the real description.",
+        "clonePx": 1359,
+        "deltaPx": -90,
+        "deltaPct": -6.2
+      },
+      {
+        "route": "/app/my-stash-CDBw9Z",
+        "viewport": 390,
+        "specPx": 1473,
+        "specCite": "spec.store.top",
+        "explained": "The About text of an app is placeholder prose (src/data/store-about-placeholder.js) of a different length than the real description.",
+        "clonePx": 1455,
+        "deltaPx": -18,
+        "deltaPct": -1.2
+      },
+      {
+        "route": "/app/elsewhere-khfW1h",
+        "viewport": 1440,
+        "specPx": 1431,
+        "specCite": "spec.store.top",
+        "explained": "The About text of an app is placeholder prose (src/data/store-about-placeholder.js) of a different length than the real description.",
+        "clonePx": 1323,
+        "deltaPx": -108,
+        "deltaPct": -7.5
+      },
+      {
+        "route": "/app/elsewhere-khfW1h",
+        "viewport": 390,
+        "specPx": 1509,
+        "specCite": "spec.store.top",
+        "explained": "The About text of an app is placeholder prose (src/data/store-about-placeholder.js) of a different length than the real description.",
+        "clonePx": 1401,
+        "deltaPx": -108,
+        "deltaPct": -7.2
+      },
+      {
+        "route": "/app/the-last-blockbuster-oRLCOs",
+        "viewport": 1440,
+        "specPx": 1395,
+        "specCite": "spec.store.top",
+        "explained": "The About text of an app is placeholder prose (src/data/store-about-placeholder.js) of a different length than the real description.",
+        "clonePx": 1341,
+        "deltaPx": -54,
+        "deltaPct": -3.9
+      },
+      {
+        "route": "/app/the-last-blockbuster-oRLCOs",
+        "viewport": 390,
+        "specPx": 1491,
+        "specCite": "spec.store.top",
+        "explained": "The About text of an app is placeholder prose (src/data/store-about-placeholder.js) of a different length than the real description.",
+        "clonePx": 1401,
+        "deltaPx": -90,
+        "deltaPct": -6
+      },
+      {
+        "route": "/terms",
+        "viewport": 1440,
+        "specPx": 27375,
+        "specCite": "spec.legal.b",
+        "explained": "Legal bodies are deterministic placeholder text sized to the original block lengths; line wrapping differs from the real text.",
+        "clonePx": 28271,
+        "deltaPx": 896,
+        "deltaPct": 3.3
+      },
+      {
+        "route": "/terms",
+        "viewport": 390,
+        "specPx": 45431,
+        "specCite": "spec.legal.b",
+        "explained": "Legal bodies are deterministic placeholder text sized to the original block lengths; line wrapping differs from the real text.",
+        "clonePx": 47171,
+        "deltaPx": 1740,
+        "deltaPct": 3.8
+      },
+      {
+        "route": "/privacy",
+        "viewport": 1440,
+        "specPx": 10042,
+        "specCite": "spec.legal.b",
+        "explained": "Legal bodies are deterministic placeholder text sized to the original block lengths; line wrapping differs from the real text.",
+        "clonePx": 10349,
+        "deltaPx": 307,
+        "deltaPct": 3.1
+      },
+      {
+        "route": "/privacy",
+        "viewport": 390,
+        "specPx": 16061,
+        "specCite": "spec.legal.b",
+        "explained": "Legal bodies are deterministic placeholder text sized to the original block lengths; line wrapping differs from the real text.",
+        "clonePx": 16701,
+        "deltaPx": 640,
+        "deltaPct": 4
+      },
+      {
+        "route": "/aup",
+        "viewport": 1440,
+        "specPx": 12817,
+        "specCite": "spec.legal.b",
+        "explained": "Legal bodies are deterministic placeholder text sized to the original block lengths; line wrapping differs from the real text.",
+        "clonePx": 13124,
+        "deltaPx": 307,
+        "deltaPct": 2.4
+      },
+      {
+        "route": "/aup",
+        "viewport": 390,
+        "specPx": 19584,
+        "specCite": "spec.legal.b",
+        "explained": "Legal bodies are deterministic placeholder text sized to the original block lengths; line wrapping differs from the real text.",
+        "clonePx": 20044,
+        "deltaPx": 460,
+        "deltaPct": 2.3
+      },
+      {
+        "route": "/",
+        "viewport": 1440,
+        "specPx": 6141,
+        "specCite": "spec.persona.diff",
+        "clonePx": 6141,
+        "deltaPx": 0,
+        "deltaPct": 0
+      },
+      {
+        "route": "/",
+        "viewport": 390,
+        "specPx": 5683,
+        "specCite": "spec.persona.diff",
+        "clonePx": 5683,
+        "deltaPx": 0,
+        "deltaPct": 0
+      }
+    ]
   }
 }

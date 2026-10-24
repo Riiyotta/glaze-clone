@@ -1,0 +1,78 @@
+{
+  "id": "section.hero.page-title",
+  "typeId": "hero.page-title",
+  "registryId": "section.hero.page-title",
+  "version": "1.0.0",
+  "category": "hero",
+  "semantic": {
+    "id": "section.hero.page-title",
+    "category": "hero"
+  },
+  "source": {
+    "id": "src.Pricing.h1",
+    "file": "src/pages/Pricing.jsx",
+    "tag": "h1",
+    "domSelector": "main > section:first-of-type h1",
+    "citation": "jsx.pricing.h1.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Centred display page title with no subtitle (the pricing page).",
+  "scope": "Pricing. Pages with a subtitle use hero.page-header.",
+  "composes": [
+    "primitive.text",
+    "primitive.container"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "maxWords": 3
+      }
+    },
+    "required": [
+      "title"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Title 36 to 48; section top padding 140 to 160."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "shell.navbar"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "paddingTop": "{sectionPadding.hero-top-narrow} below 480, {sectionPadding.hero-top} from 480",
+    "align": "centre",
+    "titleTypography": "{typography.display.page-title}"
+  },
+  "measuredFrom": [
+    "jsx.pricing.section",
+    "jsx.pricing.h1",
+    "spec.marketing.pricing"
+  ]
+}

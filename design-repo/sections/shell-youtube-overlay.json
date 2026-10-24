@@ -2,7 +2,7 @@
   "id": "section.shell.youtube-overlay",
   "typeId": "shell.youtube-overlay",
   "registryId": "section.shell.youtube-overlay",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "category": "shell",
   "semantic": {
     "id": "section.shell.youtube-overlay",
@@ -12,7 +12,7 @@
     "id": "src.YouTubeOverlay.div",
     "file": "src/components/YouTubeOverlay.jsx",
     "tag": "div",
-    "domSelector": "[role=\"dialog\"][aria-modal=\"true\"]",
+    "domSelector": "[role=\"dialog\"][aria-label=\"Video\"]",
     "citation": "jsx.overlay.dialog"
   },
   "retrievalEligible": false,
@@ -38,7 +38,16 @@
               "type": "string"
             },
             "assetRole": {
-              "const": "embed.video"
+              "enum": [
+                "embed.video",
+                "video.user-supplied"
+              ],
+              "referenceRoles": [
+                "embed.video"
+              ],
+              "generatedRoles": [
+                "video.user-supplied"
+              ]
             },
             "embedUrl": {
               "type": "string"
@@ -93,8 +102,8 @@
   ],
   "constraints": {
     "onePerPage": true,
-    "mustBeLast": true,
-    "floating": true
+    "floating": true,
+    "trailsPage": true
   },
   "containerRules": {
     "width": "{container.video-frame}",

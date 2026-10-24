@@ -1,6 +1,6 @@
 {
   "registryId": "primitive.badge",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "category": "media",
   "description": "Award badge: a small raster tier medal shown after an app name. Tiers gold, silver, bronze.",
   "props": {
@@ -35,5 +35,23 @@
   "measuredFrom": [
     "jsx.appcard.award",
     "content.awards"
-  ]
+  ],
+  "variants": {
+    "award-medal": {
+      "description": "Tier medal image."
+    },
+    "pill": {
+      "fill": "{color.surface.pill}",
+      "radius": "{radius.control}",
+      "paddingX": "{badge.paddingX}",
+      "paddingY": "{badge.paddingY}",
+      "typography": "{typography.label.badge}",
+      "text": "{color.text.secondary}",
+      "note": "Text pill ('Unlimited during Beta', version number).",
+      "cite": [
+        "jsx.pricing.badge",
+        "jsx.changelog.pill"
+      ]
+    }
+  }
 }

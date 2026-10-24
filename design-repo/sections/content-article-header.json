@@ -1,0 +1,130 @@
+{
+  "id": "section.content.article-header",
+  "typeId": "content.article-header",
+  "registryId": "section.content.article-header",
+  "version": "1.0.0",
+  "category": "content",
+  "semantic": {
+    "id": "section.content.article-header",
+    "category": "content"
+  },
+  "source": {
+    "id": "src.BlogPost.header",
+    "file": "src/pages/BlogPost.jsx",
+    "tag": "header",
+    "domSelector": "article > header",
+    "citation": "jsx.blogpost.header.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Post date, title and author row.",
+  "scope": "Blog posts.",
+  "composes": [
+    "component.author-row",
+    "primitive.text"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "date": {
+        "type": "string",
+        "maxWords": 3
+      },
+      "datetime": {
+        "type": "string",
+        "pattern": "^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$",
+        "description": "ISO date, e.g. the datetime attribute"
+      },
+      "title": {
+        "type": "string",
+        "maxWords": 16
+      },
+      "author": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxWords": 4
+          },
+          "avatar": {
+            "type": "object",
+            "properties": {
+              "assetRole": {
+                "enum": [
+                  "avatar.person",
+                  "avatar.placeholder"
+                ],
+                "referenceRoles": [
+                  "avatar.person"
+                ],
+                "generatedRoles": [
+                  "avatar.placeholder"
+                ]
+              },
+              "assetRef": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "assetRole",
+              "assetRef"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "name",
+          "avatar"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "date",
+      "datetime",
+      "title",
+      "author"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Title 32 to 36."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "content.article-cover"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.content}",
+    "gutter": "{space.page-gutter}",
+    "marginTop": "{article.headerGap}",
+    "titleGap": "{foundation.space.3}",
+    "authorGap": "{postCard.authorGap}"
+  },
+  "measuredFrom": [
+    "jsx.blogpost.header",
+    "jsx.blogpost.h1",
+    "jsx.author.row",
+    "spec.blog.post"
+  ]
+}

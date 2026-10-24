@@ -1,136 +1,263 @@
 {
-  "$comment": "Route set from the live sitemap (glaze.app/sitemap.xml) plus recon in specs/ and CLONE_SPEC.md. implementedBy is set only for sections that exist in src/ today.",
+  "$comment": "Route set from the clone's real route table (src/route-modules/*.js, enumerated by design-repo/extraction/enumerate_routes.mjs) cross-checked with the live sitemap (glaze.app/sitemap.xml) and recon in specs/ and CLONE_SPEC.md. design-repo/templates/templates.json and this file are generated from the same template definitions and checked against each other by design-repo/extraction/verify_all.py. implementedBy is the source file that renders the section.",
   "meta": {
     "source": "https://www.glaze.app (sitemap + Playwright recon); clone at this project root",
-    "status": "built: all 13 templates exist in src/; app pages use a 265-app snapshot, long text pages use placeholder prose",
-    "totalRoutes": 1953,
-    "totalTemplates": 13
+    "status": "built: all 13 templates exist in src/; the route table is the clone's own (src/route-modules/*.js): 16 static routes, /blog/:slug (4 posts), /store/:category (8), /app/:slug (265-app snapshot) and the catch-all. Long-form pages are decomposed into header, body and footer-type sections (legal, article, release entries). The live sitemap lists 1924 app pages (1953 routes); the clone serves its 265-app snapshot.",
+    "totalRoutes": 294,
+    "totalTemplates": 13,
+    "liveSitemapRoutes": 1953
   },
   "categories": {
     "SHELL": "Chrome shared across pages: navigation, footer, overlays.",
-    "HERO": "Page-opening header block.",
-    "SHOWCASE": "Product-in-use displays: app tabs, grids, listings.",
+    "HERO": "Page-opening header block (landing hero, page title, awards hero).",
+    "SHOWCASE": "Product-in-use displays: app tabs, award winners and entries.",
     "FEATURES": "Capability explanation modules.",
     "SUPPORT": "Answers to common questions.",
-    "CTA": "Calls to download or act.",
-    "CONTENT": "Body content of a page: documents, articles, changelog, error states.",
+    "CTA": "Calls to download or act (conversion blocks, closing the page above the footer).",
+    "CONTENT": "Body content of a page: legal text, articles, release entries, awards blocks, error states.",
     "COMMERCE": "Plans and pricing.",
     "STORE": "App store browsing and app detail blocks."
   },
   "sections": {
-    "shell.navbar": {
-      "category": "SHELL",
-      "description": "Fixed top navigation: glass pill on desktop (brand, Home, Pricing, Store, Blog, Changelog, Sign in) and a slide-down panel on mobile, with an active-link dot.",
-      "scope": "Present on all 1953 routes, including the 404.",
-      "implementedBy": "src/components/Navbar.jsx"
+    "commerce.pricing-plans": {
+      "category": "COMMERCE",
+      "description": "Plan comparison cards with prices and feature lists.",
+      "scope": "Pricing (1 route in total).",
+      "implementedBy": "src/pages/Pricing.jsx"
     },
-    "shell.footer": {
-      "category": "SHELL",
-      "description": "Bottom footer with legal links, socials and the Raycast credit.",
-      "scope": "Present on all 1953 routes, including the 404.",
-      "implementedBy": "src/components/Footer.jsx"
+    "content.article-body": {
+      "category": "CONTENT",
+      "description": "Blog post header (title, date, author, hero image) and prose body.",
+      "scope": "Blog posts (4 routes in total).",
+      "implementedBy": "src/pages/BlogPost.jsx"
     },
-    "shell.youtube-overlay": {
-      "category": "SHELL",
-      "description": "Full-screen YouTube embed dialog opened from hero and feature demo buttons; locks scroll, closes on Esc or backdrop.",
-      "scope": "Carried by the landing page and the 5 persona routes, 6 routes in total.",
-      "implementedBy": "src/components/YouTubeOverlay.jsx"
+    "content.article-cover": {
+      "category": "CONTENT",
+      "description": "Blog post cover image in a rounded, bordered frame (aspect 1.9:1).",
+      "scope": "Blog posts (4 routes in total).",
+      "implementedBy": "src/pages/BlogPost.jsx"
     },
-    "hero.landing-hero": {
-      "category": "HERO",
-      "description": "Eyebrow, two-line headline, subtext, Download and Reinvent-your-wheel buttons, requirements note, autoplay loop video and three pillars; headline and subtext are swapped per persona route.",
-      "scope": "Landing page plus the 5 persona routes, 6 routes in total.",
-      "implementedBy": "src/components/Hero.jsx"
+    "content.article-footer": {
+      "category": "CONTENT",
+      "description": "Closing row of a post: author, dot, date, and a Share button that uses the share sheet or copies the link ('Copied' for 1600ms).",
+      "scope": "Blog posts (4 routes in total).",
+      "implementedBy": "src/pages/BlogPost.jsx"
     },
-    "showcase.persona-tabs": {
-      "category": "SHOWCASE",
-      "description": "Six audience tabs (dropdown below 800px) each showing a four-app grid, with company logos on the team tab; the starting tab depends on the route.",
-      "scope": "Landing page plus the 5 persona routes, 6 routes in total.",
-      "implementedBy": "src/components/PersonaShowcase.jsx"
+    "content.article-header": {
+      "category": "CONTENT",
+      "description": "Post date, title and author row.",
+      "scope": "Blog posts (4 routes in total).",
+      "implementedBy": "src/pages/BlogPost.jsx"
     },
-    "features.feature-grid": {
-      "category": "FEATURES",
-      "description": "Six feature cards laid out 1 / 2 / 2 / 1, switching to mobile images below 800px.",
-      "scope": "Landing page plus the 5 persona routes, 6 routes in total.",
-      "implementedBy": "src/components/Features.jsx"
+    "content.award-criteria": {
+      "category": "CONTENT",
+      "description": "'Selection criteria' heading and up to six criteria, each an icon, a title and a short paragraph; 1, 2 and 3 per row at 0, 700 and 1000.",
+      "scope": "Awards (1 route in total).",
+      "implementedBy": "src/components/awards/Sections.jsx"
     },
-    "support.faq": {
-      "category": "SUPPORT",
-      "description": "Ten-question single-open accordion that dims to 15% opacity once scrolled past.",
-      "scope": "Landing page plus the 5 persona routes, 6 routes in total.",
-      "implementedBy": "src/components/FAQ.jsx"
+    "content.award-jury": {
+      "category": "CONTENT",
+      "description": "'The jury' heading and up to five greyscale juror portraits with name, 'Role, Organisation' and link icons; 3 per row below 760, 5 across from 760.",
+      "scope": "Awards (1 route in total).",
+      "implementedBy": "src/components/awards/Sections.jsx"
+    },
+    "content.award-prizes": {
+      "category": "CONTENT",
+      "description": "Bordered fieldset with a centred legend ('Cash prizes for winners') and four prize cards (medal, tier, amount), plus an 'Eligible Countries' tooltip trigger under it.",
+      "scope": "Awards (1 route in total).",
+      "implementedBy": "src/components/awards/Sections.jsx"
+    },
+    "content.legal-body": {
+      "category": "CONTENT",
+      "description": "Long-form legal text in a 640px column: h2 and h3 headings, paragraphs (optional bold label lead and trailing links), bullet lists with one nested level, and for the awards terms a Schedule divider.",
+      "scope": "Terms, privacy, acceptable use and the awards terms (typography policy or terms) (4 routes in total).",
+      "implementedBy": "src/pages/LegalPage.jsx"
+    },
+    "content.legal-header": {
+      "category": "CONTENT",
+      "description": "Legal page title (one or two balanced lines) and a 'Last Updated' line.",
+      "scope": "Terms, privacy, acceptable use and the awards terms (4 routes in total).",
+      "implementedBy": "src/pages/LegalPage.jsx"
+    },
+    "content.not-found-block": {
+      "category": "CONTENT",
+      "description": "Centered error state with the clickable app icon, 'Page not found' heading, one sentence and a Go Home button.",
+      "scope": "The catch-all not-found route (also /m and the showcase tab ids, which are not routes) (1 route in total).",
+      "implementedBy": "src/pages/NotFoundPage.jsx"
+    },
+    "content.post-card": {
+      "category": "CONTENT",
+      "description": "One blog post in the index: cover image, date, title (a link to the post), author row and excerpt. Repeated once per post, separated by a hairline.",
+      "scope": "Blog index (1 route in total).",
+      "implementedBy": "src/pages/BlogIndex.jsx"
+    },
+    "content.release-entry": {
+      "category": "CONTENT",
+      "description": "One changelog release: version pill and date (sticky beside the entry from 1280), a linked release title, then prose blocks (h2 groups, paragraphs, bullet lists, images). Repeated newest first, separated by a hairline.",
+      "scope": "Changelog (1 route in total).",
+      "implementedBy": "src/pages/Changelog.jsx"
+    },
+    "cta.download-compact": {
+      "category": "CTA",
+      "description": "Compact closing call to action under a blog post: smaller icon, 'What will you build?'-style headline, Download button (>=480) or a one-line availability note (<480).",
+      "scope": "Blog posts (4 routes in total).",
+      "implementedBy": "src/components/DownloadCTA.jsx"
     },
     "cta.download-icon": {
       "category": "CTA",
       "description": "Large app icon that launches a burst of flying app icons on click, with the 'What will you build?' headline and download buttons.",
-      "scope": "Landing page plus the 5 persona routes, 6 routes in total.",
+      "scope": "Landing, persona, pricing and awards routes (8 routes in total).",
       "implementedBy": "src/components/DownloadCTA.jsx"
     },
     "cta.download-page": {
       "category": "CTA",
       "description": "Dedicated download page with the installer call to action and system requirements.",
-      "scope": "Only the single /download route.",
+      "scope": "Download (1 route in total).",
       "implementedBy": "src/pages/Download.jsx"
     },
-    "content.not-found-block": {
-      "category": "CONTENT",
-      "description": "Centered error state with the clickable app icon, 'Page not found' heading, one sentence and a Go Home button.",
-      "scope": "The catch-all 404 route, which also serves /m and the 6 persona-style slugs that do not exist upstream.",
-      "implementedBy": "src/pages/NotFoundPage.jsx"
+    "features.feature-grid": {
+      "category": "FEATURES",
+      "description": "Six feature cards laid out 1 / 2 / 2 / 1, switching to mobile images below 800px.",
+      "scope": "Landing and persona routes (6 routes in total).",
+      "implementedBy": "src/components/Features.jsx"
     },
-    "content.legal-document": {
-      "category": "CONTENT",
-      "description": "Long-form legal text in a 640px column: Inter 48px title, last-updated line, h2 and h3 headings, paragraphs, nested bullet lists and underlined links.",
-      "scope": "The 3 legal routes: terms, privacy and acceptable use.",
-      "implementedBy": "src/pages/LegalPage.jsx"
-    },
-    "content.awards-body": {
-      "category": "CONTENT",
-      "description": "Awards program page and its terms page content.",
-      "scope": "The 2 awards routes.",
+    "hero.awards-hero": {
+      "category": "HERO",
+      "description": "Awards opening block on a black page: a looping video (full-bleed, 16:9, side fades), then a sponsor row, a display title and a subtitle that overlap the video bottom edge.",
+      "scope": "Awards (1 route in total).",
       "implementedBy": "src/pages/Awards.jsx"
     },
-    "content.post-list": {
-      "category": "CONTENT",
-      "description": "Blog index listing of post cards with image, title, excerpt and date.",
-      "scope": "Only the single /blog route.",
+    "hero.landing-hero": {
+      "category": "HERO",
+      "description": "Eyebrow, two-line headline, subtext, Download and Reinvent-your-wheel buttons, requirements note, autoplay loop video and three pillars; headline and subtext are swapped per persona route.",
+      "scope": "Landing and persona routes (6 routes in total).",
+      "implementedBy": "src/components/Hero.jsx"
+    },
+    "hero.page-header": {
+      "category": "HERO",
+      "description": "Centred page title with a one-line subtitle in a 680px column (blog index and changelog).",
+      "scope": "Blog index and changelog (2 routes in total).",
       "implementedBy": "src/pages/BlogIndex.jsx"
     },
-    "content.article-body": {
-      "category": "CONTENT",
-      "description": "Blog post header (title, date, author, hero image) and prose body.",
-      "scope": "The 4 blog post routes.",
-      "implementedBy": "src/pages/BlogPost.jsx"
-    },
-    "content.changelog-entries": {
-      "category": "CONTENT",
-      "description": "Chronological list of release entries with version/date headers and media.",
-      "scope": "Only the single /changelog route.",
-      "implementedBy": "src/pages/Changelog.jsx"
-    },
-    "commerce.pricing-plans": {
-      "category": "COMMERCE",
-      "description": "Plan comparison cards with prices and feature lists.",
-      "scope": "Only the single /pricing route.",
+    "hero.page-title": {
+      "category": "HERO",
+      "description": "Centred display page title with no subtitle (the pricing page).",
+      "scope": "Pricing. Pages with a subtitle use hero.page-header (1 route in total).",
       "implementedBy": "src/pages/Pricing.jsx"
     },
-    "store.category-nav": {
+    "shell.app-dialog": {
+      "category": "SHELL",
+      "description": "Centred dialog opened from an app card (landing persona tabs) or a winner card (awards): app detail body (or a winner summary) with a close button and previous/next app buttons; scroll lock, Escape closes, Arrow keys step through the opener's apps.",
+      "scope": "Landing, persona routes and awards, opened on demand (7 routes in total).",
+      "implementedBy": "src/components/store/AppDialog.jsx"
+    },
+    "shell.footer": {
+      "category": "SHELL",
+      "description": "Bottom footer with legal links, socials and the Raycast credit.",
+      "scope": "Every route except /download (293 routes in total).",
+      "implementedBy": "src/components/Footer.jsx"
+    },
+    "shell.image-lightbox": {
+      "category": "SHELL",
+      "description": "Full-screen gallery of the post's images: black backdrop, current image at 70vw with neighbours at 60% opacity, arrows and Escape, backdrop click closes.",
+      "scope": "Blog posts, opened on demand (4 routes in total).",
+      "implementedBy": "src/components/blog/Lightbox.jsx"
+    },
+    "shell.navbar": {
+      "category": "SHELL",
+      "description": "Fixed top navigation: glass pill on desktop (brand, Home, Pricing, Store, Blog, Changelog, Sign in) and a slide-down panel on mobile, with an active-link dot.",
+      "scope": "Every route (294 routes in total).",
+      "implementedBy": "src/components/Navbar.jsx"
+    },
+    "shell.youtube-overlay": {
+      "category": "SHELL",
+      "description": "Full-screen YouTube embed dialog opened from hero and feature demo buttons; locks scroll, closes on Esc or backdrop.",
+      "scope": "Landing and persona routes (6 routes in total).",
+      "implementedBy": "src/components/YouTubeOverlay.jsx"
+    },
+    "showcase.award-entries": {
+      "category": "SHOWCASE",
+      "description": "'Browse N Entries' heading with a search pill, a 2/3/4-column grid of app rows (24 per page) and numbered pagination; search replaces the heading with a result count and hides the pager.",
+      "scope": "Awards (1 route in total).",
+      "implementedBy": "src/components/awards/Entries.jsx"
+    },
+    "showcase.award-winners": {
+      "category": "SHOWCASE",
+      "description": "Gold winner card full width, silver and bronze side by side (stacked below 624), then a 'Finalists' title and a grid of app rows. Winner cards open the app dialog.",
+      "scope": "Awards (1 route in total).",
+      "implementedBy": "src/components/awards/Winners.jsx"
+    },
+    "showcase.persona-tabs": {
+      "category": "SHOWCASE",
+      "description": "Six audience tabs (dropdown below 800px) each showing a four-app grid, with company logos on the team tab; the starting tab depends on the route.",
+      "scope": "Landing and persona routes (6 routes in total).",
+      "implementedBy": "src/components/PersonaShowcase.jsx"
+    },
+    "store.app-about": {
       "category": "STORE",
-      "description": "Row of store category links (remixable, developer tools, productivity, utilities, media, design, lifestyle, games and fun).",
-      "scope": "The store index plus the 8 category routes, 9 routes in total.",
-      "implementedBy": "src/pages/Store.jsx"
+      "description": "Balanced description paragraph under a screen-reader-only 'About <app>' heading.",
+      "scope": "App detail pages (265 routes in total).",
+      "implementedBy": "src/components/store/AppDetail.jsx"
     },
     "store.app-grid": {
       "category": "STORE",
       "description": "Grid of app cards (icon, name, tagline, author) for the store index or one category.",
-      "scope": "The store index plus the 8 category routes, 9 routes in total.",
+      "scope": "Store category pages (and store search results) (8 routes in total).",
       "implementedBy": "src/pages/Store.jsx"
     },
-    "store.app-detail": {
+    "store.app-header": {
       "category": "STORE",
-      "description": "Single app page: icon, name, author, download and remix actions, screenshots and description.",
-      "scope": "Every /app/{slug} route, 1924 in total.",
-      "implementedBy": "src/pages/AppPage.jsx"
+      "description": "App detail header: squircle icon (112 from 480), name, award pill, optional Glaze-AI badge, tagline and two actions. With a featured image the block is a rounded cover with a bottom gradient and a 'Featured' pill; without one it is plain.",
+      "scope": "App detail pages (/app/<slug>) (265 routes in total).",
+      "implementedBy": "src/components/store/AppDetail.jsx"
+    },
+    "store.app-list": {
+      "category": "STORE",
+      "description": "Titled two-column list of app rows ('Remixes', 'Suggested Apps'); the remix list marks each row with a shuffle glyph.",
+      "scope": "App detail pages (265 routes in total).",
+      "implementedBy": "src/components/store/AppDetail.jsx"
+    },
+    "store.app-shelves": {
+      "category": "STORE",
+      "description": "Store home shelves (Our Picks, Trending, Made to Remix, Award Winners, Latest): a title with an optional 'View All' link and paged slider arrows, then pages of app rows (1/2/3/4 columns).",
+      "scope": "Store index (1 route in total).",
+      "implementedBy": "src/components/store/Slider.jsx"
+    },
+    "store.app-stats": {
+      "category": "STORE",
+      "description": "Four-cell bordered strip: Author (avatar and name), Size, Updated, Installs.",
+      "scope": "App detail pages (265 routes in total).",
+      "implementedBy": "src/components/store/AppDetail.jsx"
+    },
+    "store.category-nav": {
+      "category": "STORE",
+      "description": "Row of store category links (remixable, developer tools, productivity, utilities, media, design, lifestyle, games and fun).",
+      "scope": "Store index and store category pages (9 routes in total).",
+      "implementedBy": "src/pages/Store.jsx"
+    },
+    "store.featured-carousel": {
+      "category": "STORE",
+      "description": "Full-width carousel of featured apps: five-card window of 960-wide cover cards (rounded, bottom gradient, icon, name, award pill, tagline), autoplay every 4000ms, drag, wheel, arrows on hover and dot indicators.",
+      "scope": "Store index and store category pages (9 routes in total).",
+      "implementedBy": "src/components/store/HeroCarousel.jsx"
+    },
+    "store.remix-lineage": {
+      "category": "STORE",
+      "description": "Banner under the header for a remixed app: 'Remixed from <app> by <author>' with a shuffle glyph.",
+      "scope": "App detail pages of remixed apps (265 routes in total).",
+      "implementedBy": "src/components/store/AppDetail.jsx"
+    },
+    "store.screenshot-strip": {
+      "category": "STORE",
+      "description": "Horizontal scroll-snap strip of screenshots (220 tall, 260 from 480) with edge fades and arrow buttons; a click opens the lightbox.",
+      "scope": "App detail pages with screenshots (265 routes in total).",
+      "implementedBy": "src/components/store/ScreenshotStrip.jsx"
+    },
+    "support.faq": {
+      "category": "SUPPORT",
+      "description": "Ten-question single-open accordion that dims to 15% opacity once scrolled past.",
+      "scope": "Landing, persona and pricing routes (the pricing page has a longer list) (7 routes in total).",
+      "implementedBy": "src/components/FAQ.jsx"
     }
   },
   "templates": [
@@ -150,7 +277,8 @@
         "support.faq",
         "cta.download-icon",
         "shell.footer",
-        "shell.youtube-overlay"
+        "shell.youtube-overlay",
+        "shell.app-dialog"
       ]
     },
     {
@@ -173,7 +301,8 @@
         "support.faq",
         "cta.download-icon",
         "shell.footer",
-        "shell.youtube-overlay"
+        "shell.youtube-overlay",
+        "shell.app-dialog"
       ]
     },
     {
@@ -200,7 +329,10 @@
       "chrome": "full",
       "sections": [
         "shell.navbar",
+        "hero.page-title",
         "commerce.pricing-plans",
+        "support.faq",
+        "cta.download-icon",
         "shell.footer"
       ]
     },
@@ -211,41 +343,48 @@
       "routes": [
         "/download"
       ],
-      "chrome": "full",
+      "chrome": "nav-only",
       "sections": [
         "shell.navbar",
-        "cta.download-page",
-        "shell.footer"
+        "cta.download-page"
       ]
     },
     {
       "id": "template.awards",
       "name": "Awards",
-      "routeCount": 2,
+      "routeCount": 1,
       "routes": [
-        "/awards",
-        "/awards/terms"
+        "/awards"
       ],
       "chrome": "full",
       "sections": [
         "shell.navbar",
-        "content.awards-body",
-        "shell.footer"
+        "hero.awards-hero",
+        "showcase.award-winners",
+        "showcase.award-entries",
+        "content.award-prizes",
+        "content.award-jury",
+        "content.award-criteria",
+        "cta.download-icon",
+        "shell.footer",
+        "shell.app-dialog"
       ]
     },
     {
       "id": "template.legal",
       "name": "Legal document",
-      "routeCount": 3,
+      "routeCount": 4,
       "routes": [
         "/terms",
         "/privacy",
-        "/aup"
+        "/aup",
+        "/awards/terms"
       ],
       "chrome": "full",
       "sections": [
         "shell.navbar",
-        "content.legal-document",
+        "content.legal-header",
+        "content.legal-body",
         "shell.footer"
       ]
     },
@@ -259,7 +398,8 @@
       "chrome": "full",
       "sections": [
         "shell.navbar",
-        "content.post-list",
+        "hero.page-header",
+        "content.post-card",
         "shell.footer"
       ]
     },
@@ -268,16 +408,29 @@
       "name": "Blog post",
       "routeCount": 4,
       "routes": [
-        "/blog/how-teams-use-glaze",
-        "/blog/why-glaze-when-claude-code-and-codex-exist",
-        "/blog/affiliate-program",
-        "/blog/how-we-use-glaze-at-raycast"
+        "/blog/:slug"
       ],
       "chrome": "full",
       "sections": [
         "shell.navbar",
+        "content.article-cover",
+        "content.article-header",
         "content.article-body",
-        "shell.footer"
+        "content.article-footer",
+        "cta.download-compact",
+        "shell.footer",
+        "shell.image-lightbox"
+      ],
+      "routePattern": "/blog/:slug",
+      "routeRange": [
+        1,
+        4
+      ],
+      "routesKnown": [
+        "/blog/how-teams-use-glaze",
+        "/blog/why-glaze-when-claude-code-and-codex-exist",
+        "/blog/affiliate-program",
+        "/blog/how-we-use-glaze-at-raycast"
       ]
     },
     {
@@ -290,7 +443,8 @@
       "chrome": "full",
       "sections": [
         "shell.navbar",
-        "content.changelog-entries",
+        "hero.page-header",
+        "content.release-entry",
         "shell.footer"
       ]
     },
@@ -304,8 +458,9 @@
       "chrome": "full",
       "sections": [
         "shell.navbar",
+        "store.featured-carousel",
         "store.category-nav",
-        "store.app-grid",
+        "store.app-shelves",
         "shell.footer"
       ]
     },
@@ -326,6 +481,7 @@
       "chrome": "full",
       "sections": [
         "shell.navbar",
+        "store.featured-carousel",
         "store.category-nav",
         "store.app-grid",
         "shell.footer"
@@ -334,23 +490,25 @@
     {
       "id": "template.app-detail",
       "name": "App detail",
-      "routeCount": 1924,
+      "routeCount": 265,
       "routes": [
-        "/app/my-stash-CDBw9Z",
-        "/app/elsewhere-khfW1h",
-        "/app/the-last-blockbuster-oRLCOs"
-      ],
-      "routesTruncated": true,
-      "routePattern": "/app/{slug}",
-      "routeRange": [
-        1,
-        1924
+        "/app/:slug"
       ],
       "chrome": "full",
       "sections": [
         "shell.navbar",
-        "store.app-detail",
+        "store.app-header",
+        "store.remix-lineage",
+        "store.app-stats",
+        "store.screenshot-strip",
+        "store.app-about",
+        "store.app-list",
         "shell.footer"
+      ],
+      "routePattern": "/app/:slug",
+      "routeRange": [
+        1,
+        265
       ]
     }
   ]

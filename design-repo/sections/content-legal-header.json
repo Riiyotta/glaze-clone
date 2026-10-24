@@ -1,0 +1,91 @@
+{
+  "id": "section.content.legal-header",
+  "typeId": "content.legal-header",
+  "registryId": "section.content.legal-header",
+  "version": "1.0.0",
+  "category": "content",
+  "semantic": {
+    "id": "section.content.legal-header",
+    "category": "content"
+  },
+  "source": {
+    "id": "src.LegalPage.h1",
+    "file": "src/pages/LegalPage.jsx",
+    "tag": "h1",
+    "domSelector": "main section h1, main section h1 + p",
+    "citation": "jsx.legal.header.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Legal page title (one or two balanced lines) and a 'Last Updated' line.",
+  "scope": "Terms, privacy, acceptable use and the awards terms.",
+  "composes": [
+    "primitive.text",
+    "primitive.container"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "titleLines": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "maxWords": 8
+        },
+        "minItems": 1,
+        "maxItems": 2
+      },
+      "lastUpdated": {
+        "type": "string",
+        "maxWords": 4
+      }
+    },
+    "required": [
+      "titleLines",
+      "lastUpdated"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Title 36 to 48."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "shell.navbar"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.content}",
+    "gutter": "{space.page-gutter}",
+    "paddingTop": "{sectionPadding.legal-top}",
+    "titleGap": "{legal.headerGap}",
+    "updatedGap": "{legal.updatedGap}",
+    "align": "centre"
+  },
+  "measuredFrom": [
+    "jsx.legal.section",
+    "jsx.legal.h1",
+    "jsx.legal.updated",
+    "jsx.awardsterms.h1",
+    "spec.legal.b"
+  ]
+}

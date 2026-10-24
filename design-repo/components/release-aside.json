@@ -1,0 +1,41 @@
+{
+  "registryId": "component.release-aside",
+  "version": "1.0.0",
+  "category": "content",
+  "description": "Version pill and date shown beside (>=1280) or above a release; sticky under the nav at >=1280.",
+  "composes": [
+    "primitive.text"
+  ],
+  "props": {
+    "version": {
+      "type": "string",
+      "maxWords": 1
+    },
+    "date": {
+      "type": "string",
+      "maxWords": 3
+    },
+    "datetime": {
+      "type": "string"
+    }
+  },
+  "layout": {
+    "pillFill": "{color.surface.pill}",
+    "pillTypography": "{typography.label.release-pill}",
+    "dateTypography": "{typography.meta.release-date}",
+    "pillPadding": "{release.pillPaddingX} / {release.pillPaddingY}",
+    "stickyTop": "{release.stickyTop} from {foundation.breakpoint.1280}"
+  },
+  "tokens": [
+    "color.surface.pill",
+    "typography.label.release-pill",
+    "typography.meta.release-date",
+    "release.pillPaddingX",
+    "release.pillPaddingY",
+    "release.stickyTop"
+  ],
+  "measuredFrom": [
+    "jsx.changelog.aside",
+    "jsx.changelog.pill"
+  ]
+}

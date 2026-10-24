@@ -1,0 +1,376 @@
+{
+  "id": "page.app-detail",
+  "mode": "reference",
+  "route": "/app/example-app-AbC123",
+  "template": "template.app-detail",
+  "theme": "dark",
+  "head": {
+    "title": "Placeholder app title",
+    "description": "Placeholder app description."
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Link 1",
+            "href": "/example-1"
+          },
+          {
+            "label": "Link 2",
+            "href": "/example-2"
+          },
+          {
+            "label": "Link 3",
+            "href": "/example-3"
+          },
+          {
+            "label": "Link 4",
+            "href": "/example-4"
+          },
+          {
+            "label": "Link 5",
+            "href": "/example-5"
+          }
+        ],
+        "activeLinkHref": null,
+        "signInLabel": "Sign in",
+        "signInHref": "/example-sign-in",
+        "downloadLabel": "Download",
+        "downloadHref": "/example-download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://example.com/x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://example.com/slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://example.com/youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://example.com/reddit"
+          }
+        ],
+        "creditLabel": "Made by Example",
+        "creditHref": "https://example.com",
+        "logoAssetRole": "brand.wordmark",
+        "logoAssetRef": "ph-wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "app-header-1",
+      "type": "store.app-header",
+      "content": {
+        "name": "Example App",
+        "tagline": "Placeholder tagline.",
+        "icon": {
+          "assetRole": "app.icon",
+          "assetRef": "ph-icon-1"
+        },
+        "cover": {
+          "assetRole": "cover.image",
+          "assetRef": "ph-cover-1"
+        },
+        "featuredLabel": "Featured",
+        "award": "none",
+        "aiBadge": {
+          "label": "AI",
+          "purpose": "Placeholder purpose sentence."
+        },
+        "primaryCta": {
+          "label": "Open app",
+          "href": "/example-download"
+        },
+        "secondaryCta": {
+          "label": "Remix",
+          "href": "/example-download",
+          "kind": "remix"
+        }
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "remix-lineage-1",
+      "type": "store.remix-lineage",
+      "content": {
+        "prefix": "Remixed from",
+        "parentName": "Parent App",
+        "parentHref": "/example/parent",
+        "by": "by",
+        "authorName": "Author 2",
+        "authorHref": "/example/author"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "app-stats-1",
+      "type": "store.app-stats",
+      "content": {
+        "labels": {
+          "author": "Author",
+          "size": "Size",
+          "updated": "Updated",
+          "installs": "Installs"
+        },
+        "author": {
+          "name": "Author 1",
+          "href": "/example/author",
+          "avatar": {
+            "assetRole": "avatar.person",
+            "assetRef": "ph-avatar-1"
+          }
+        },
+        "size": "4.2 MB",
+        "updated": "5 Jan 2026",
+        "installs": "<100"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "screenshot-strip-1",
+      "type": "store.screenshot-strip",
+      "content": {
+        "previousLabel": "Previous",
+        "nextLabel": "Next",
+        "shots": [
+          {
+            "image": {
+              "assetRole": "screenshot.app",
+              "assetRef": "ph-shot-1",
+              "alt": "Screenshot 1"
+            },
+            "width": 346,
+            "height": 260
+          },
+          {
+            "image": {
+              "assetRole": "screenshot.app",
+              "assetRef": "ph-shot-2",
+              "alt": "Screenshot 2"
+            },
+            "width": 346,
+            "height": 260
+          },
+          {
+            "image": {
+              "assetRole": "screenshot.app",
+              "assetRef": "ph-shot-3",
+              "alt": "Screenshot 3"
+            },
+            "width": 346,
+            "height": 260
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "app-about-1",
+      "type": "store.app-about",
+      "content": {
+        "heading": "About Example App",
+        "body": "Placeholder description of the app."
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "list-remixes",
+      "type": "store.app-list",
+      "content": {
+        "title": "Remixes",
+        "remixIcons": true,
+        "apps": [
+          {
+            "name": "App 71",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 71",
+            "href": "/example/app-71",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-71"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-71"
+            }
+          },
+          {
+            "name": "App 72",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 72",
+            "href": "/example/app-72",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-72"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-72"
+            }
+          },
+          {
+            "name": "App 73",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 73",
+            "href": "/example/app-73",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-73"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-73"
+            }
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "list-related",
+      "type": "store.app-list",
+      "content": {
+        "title": "Related",
+        "remixIcons": false,
+        "apps": [
+          {
+            "name": "App 71",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 71",
+            "href": "/example/app-71",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-71"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-71"
+            }
+          },
+          {
+            "name": "App 72",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 72",
+            "href": "/example/app-72",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-72"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-72"
+            }
+          },
+          {
+            "name": "App 73",
+            "tagline": "Placeholder tagline.",
+            "author": "Author 73",
+            "href": "/example/app-73",
+            "award": "none",
+            "icon": {
+              "assetRole": "app.icon",
+              "assetRef": "ph-icon-73"
+            },
+            "avatar": {
+              "assetRole": "avatar.person",
+              "assetRef": "ph-avatar-73"
+            }
+          }
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "footer-1",
+      "type": "shell.footer",
+      "content": {
+        "copyright": "Copyright Example",
+        "primaryLinks": [
+          {
+            "label": "Docs",
+            "href": "https://example.com/docs"
+          },
+          {
+            "label": "Blog",
+            "href": "/example-blog"
+          }
+        ],
+        "legalLinks": [
+          {
+            "label": "Terms",
+            "href": "/example-terms"
+          },
+          {
+            "label": "Privacy",
+            "href": "/example-privacy"
+          },
+          {
+            "label": "Use policy",
+            "href": "/example-use"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://example.com/x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://example.com/slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://example.com/youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://example.com/reddit"
+          }
+        ],
+        "creditLabel": "Made by Example",
+        "creditHref": "https://example.com"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    }
+  ]
+}

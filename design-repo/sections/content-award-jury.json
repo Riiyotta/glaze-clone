@@ -1,0 +1,176 @@
+{
+  "id": "section.content.award-jury",
+  "typeId": "content.award-jury",
+  "registryId": "section.content.award-jury",
+  "version": "1.0.0",
+  "category": "content",
+  "semantic": {
+    "id": "section.content.award-jury",
+    "category": "content"
+  },
+  "source": {
+    "id": "src.Sections.section.1",
+    "file": "src/components/awards/Sections.jsx",
+    "tag": "section",
+    "domSelector": "[data-anim=\"awards-below-fold\"] > div:nth-child(4) > section",
+    "citation": "jsx.jury.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "'The jury' heading and up to five greyscale juror portraits with name, 'Role, Organisation' and link icons; 3 per row below 760, 5 across from 760.",
+  "scope": "Awards.",
+  "composes": [
+    "component.jury-card",
+    "primitive.text",
+    "primitive.link",
+    "primitive.image"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "maxWords": 3
+      },
+      "jurors": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "maxWords": 4
+            },
+            "role": {
+              "type": "string",
+              "maxWords": 4
+            },
+            "org": {
+              "type": "string",
+              "maxWords": 3
+            },
+            "orgHref": {
+              "type": "string"
+            },
+            "photo": {
+              "type": "object",
+              "properties": {
+                "assetRole": {
+                  "enum": [
+                    "person.photo",
+                    "avatar.placeholder"
+                  ],
+                  "referenceRoles": [
+                    "person.photo"
+                  ],
+                  "generatedRoles": [
+                    "avatar.placeholder"
+                  ]
+                },
+                "assetRef": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "assetRole",
+                "assetRef"
+              ],
+              "additionalProperties": false
+            },
+            "links": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "maxWords": 3
+                  },
+                  "href": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "enum": [
+                      "website",
+                      "x",
+                      "threads",
+                      "bluesky",
+                      "linkedin"
+                    ]
+                  }
+                },
+                "required": [
+                  "label",
+                  "href",
+                  "icon"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0,
+              "maxItems": 4
+            }
+          },
+          "required": [
+            "name",
+            "role",
+            "org",
+            "photo"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 1,
+        "maxItems": 5
+      }
+    },
+    "required": [
+      "title",
+      "jurors"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.760}",
+      "change": "Photo 88 to 104; name 15/18.8 to 18/22.5; 5 jurors across (20% each, no column gap)."
+    },
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Title 30 to 44."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "content.award-prizes"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "marginTop": "{space.section-gap} below 480, {space.section-gap-wide} from 480",
+    "align": "centre",
+    "rowGap": "{jury.rowGap} below 760, {jury.rowGapWide} from 760"
+  },
+  "measuredFrom": [
+    "jsx.jury.root",
+    "jsx.jury.photo",
+    "jsx.jury.name",
+    "jsx.jury.links",
+    "spec.marketing.awards"
+  ]
+}

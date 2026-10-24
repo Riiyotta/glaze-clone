@@ -1,0 +1,220 @@
+{
+  "id": "page.blog-index",
+  "mode": "reference",
+  "route": "/blog",
+  "template": "template.blog-index",
+  "theme": "dark",
+  "head": {
+    "title": "Placeholder blog title",
+    "description": "Placeholder blog description."
+  },
+  "nodes": [
+    {
+      "id": "navbar-1",
+      "type": "shell.navbar",
+      "content": {
+        "links": [
+          {
+            "label": "Link 1",
+            "href": "/example-1"
+          },
+          {
+            "label": "Link 2",
+            "href": "/example-2"
+          },
+          {
+            "label": "Link 3",
+            "href": "/example-3"
+          },
+          {
+            "label": "Link 4",
+            "href": "/example-4"
+          },
+          {
+            "label": "Link 5",
+            "href": "/example-5"
+          }
+        ],
+        "activeLinkHref": "/blog",
+        "signInLabel": "Sign in",
+        "signInHref": "/example-sign-in",
+        "downloadLabel": "Download",
+        "downloadHref": "/example-download",
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://example.com/x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://example.com/slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://example.com/youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://example.com/reddit"
+          }
+        ],
+        "creditLabel": "Made by Example",
+        "creditHref": "https://example.com",
+        "logoAssetRole": "brand.wordmark",
+        "logoAssetRef": "ph-wordmark"
+      },
+      "motion": {
+        "pattern": "nav-active-dot",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "page-header-1",
+      "type": "hero.page-header",
+      "content": {
+        "title": "Placeholder title",
+        "subtitle": "Placeholder subtitle sentence."
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "post-card-1",
+      "type": "content.post-card",
+      "content": {
+        "href": "/example/post-1",
+        "cover": {
+          "assetRole": "cover.image",
+          "assetRef": "ph-cover-1",
+          "alt": "Placeholder cover 1"
+        },
+        "date": "January 5, 2026",
+        "datetime": "2026-01-05",
+        "title": "Placeholder post title 1",
+        "author": {
+          "name": "Author 1",
+          "avatar": {
+            "assetRole": "avatar.person",
+            "assetRef": "ph-avatar-1"
+          }
+        },
+        "excerpt": "Placeholder excerpt sentence."
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "post-card-2",
+      "type": "content.post-card",
+      "content": {
+        "href": "/example/post-2",
+        "cover": {
+          "assetRole": "cover.image",
+          "assetRef": "ph-cover-2",
+          "alt": "Placeholder cover 2"
+        },
+        "date": "January 5, 2026",
+        "datetime": "2026-01-05",
+        "title": "Placeholder post title 2",
+        "author": {
+          "name": "Author 2",
+          "avatar": {
+            "assetRole": "avatar.person",
+            "assetRef": "ph-avatar-2"
+          }
+        },
+        "excerpt": "Placeholder excerpt sentence."
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "post-card-3",
+      "type": "content.post-card",
+      "content": {
+        "href": "/example/post-3",
+        "cover": {
+          "assetRole": "cover.image",
+          "assetRef": "ph-cover-3",
+          "alt": "Placeholder cover 3"
+        },
+        "date": "January 5, 2026",
+        "datetime": "2026-01-05",
+        "title": "Placeholder post title 3",
+        "author": {
+          "name": "Author 3",
+          "avatar": {
+            "assetRole": "avatar.person",
+            "assetRef": "ph-avatar-3"
+          }
+        },
+        "excerpt": "Placeholder excerpt sentence."
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    },
+    {
+      "id": "footer-1",
+      "type": "shell.footer",
+      "content": {
+        "copyright": "Copyright Example",
+        "primaryLinks": [
+          {
+            "label": "Docs",
+            "href": "https://example.com/docs"
+          },
+          {
+            "label": "Blog",
+            "href": "/example-blog"
+          }
+        ],
+        "legalLinks": [
+          {
+            "label": "Terms",
+            "href": "/example-terms"
+          },
+          {
+            "label": "Privacy",
+            "href": "/example-privacy"
+          },
+          {
+            "label": "Use policy",
+            "href": "/example-use"
+          }
+        ],
+        "socials": [
+          {
+            "platform": "x",
+            "href": "https://example.com/x"
+          },
+          {
+            "platform": "slack",
+            "href": "https://example.com/slack"
+          },
+          {
+            "platform": "youtube",
+            "href": "https://example.com/youtube"
+          },
+          {
+            "platform": "reddit",
+            "href": "https://example.com/reddit"
+          }
+        ],
+        "creditLabel": "Made by Example",
+        "creditHref": "https://example.com"
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "none"
+      }
+    }
+  ]
+}

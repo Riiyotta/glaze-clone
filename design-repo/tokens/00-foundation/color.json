@@ -58,7 +58,7 @@
         "panel-a58": { "$type": "color", "$value": "rgba(40,40,40,0.58)", "$extensions": { "cite": ["tw.color.surface-panel"] } },
         "panel-a52": { "$type": "color", "$value": "rgba(42,42,42,0.52)", "$extensions": { "cite": ["tw.color.close-btn"] } },
         "popover-a95": { "$type": "color", "$value": "rgba(34,34,34,0.95)", "$extensions": { "cite": ["tw.color.surface-popover"] } },
-        "page-a75": { "$type": "color", "$value": "rgba(18,18,18,0.75)", "$description": "Dialog backdrop (defined; the app-details dialog itself is out of scope).", "$extensions": { "cite": ["tw.color.dialog-backdrop"], "usedOnBuiltRoutes": false } },
+        "page-a75": { "$type": "color", "$value": "rgba(18,18,18,0.75)", "$description": "Dialog backdrop of the app-details dialog (shell.app-dialog); the winner dialog uses black-alpha.a75.", "$extensions": { "cite": ["tw.color.dialog-backdrop"], "usedOnBuiltRoutes": false } },
         "page-a78": { "$type": "color", "$value": "rgba(18,18,18,0.78)", "$description": "#121212c7, open mobile nav panel.", "$extensions": { "cite": ["css.mobile-nav-open"] } }
       },
       "keyword": {

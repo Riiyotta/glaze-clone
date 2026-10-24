@@ -1,0 +1,192 @@
+{
+  "id": "section.store.featured-carousel",
+  "typeId": "store.featured-carousel",
+  "registryId": "section.store.featured-carousel",
+  "version": "1.0.0",
+  "category": "store",
+  "semantic": {
+    "id": "section.store.featured-carousel",
+    "category": "store"
+  },
+  "source": {
+    "id": "src.HeroCarousel.section",
+    "file": "src/components/store/HeroCarousel.jsx",
+    "tag": "section",
+    "domSelector": "section.store-hero",
+    "citation": "jsx.carousel.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Full-width carousel of featured apps: five-card window of 960-wide cover cards (rounded, bottom gradient, icon, name, award pill, tagline), autoplay every 4000ms, drag, wheel, arrows on hover and dot indicators.",
+  "scope": "Store index and store category pages.",
+  "composes": [
+    "primitive.image",
+    "primitive.app-icon",
+    "primitive.badge",
+    "primitive.text",
+    "primitive.icon"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "label": {
+        "type": "string",
+        "maxWords": 3
+      },
+      "slides": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "maxWords": 5
+            },
+            "tagline": {
+              "type": "string",
+              "maxWords": 14
+            },
+            "href": {
+              "type": "string"
+            },
+            "cover": {
+              "type": "object",
+              "properties": {
+                "assetRole": {
+                  "enum": [
+                    "cover.image",
+                    "media.generated",
+                    "media.user-supplied"
+                  ],
+                  "referenceRoles": [
+                    "cover.image"
+                  ],
+                  "generatedRoles": [
+                    "media.generated",
+                    "media.user-supplied"
+                  ]
+                },
+                "assetRef": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "assetRole",
+                "assetRef"
+              ],
+              "additionalProperties": false
+            },
+            "icon": {
+              "type": "object",
+              "properties": {
+                "assetRole": {
+                  "enum": [
+                    "app.icon",
+                    "app.icon-generated"
+                  ],
+                  "referenceRoles": [
+                    "app.icon"
+                  ],
+                  "generatedRoles": [
+                    "app.icon-generated"
+                  ]
+                },
+                "assetRef": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "assetRole",
+                "assetRef"
+              ],
+              "additionalProperties": false
+            },
+            "award": {
+              "enum": [
+                "none",
+                "gold",
+                "silver",
+                "bronze"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "tagline",
+            "href",
+            "cover",
+            "icon"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 3,
+        "maxItems": 12
+      },
+      "previousLabel": {
+        "type": "string",
+        "maxWords": 3
+      },
+      "nextLabel": {
+        "type": "string",
+        "maxWords": 3
+      }
+    },
+    "required": [
+      "label",
+      "slides",
+      "previousLabel",
+      "nextLabel"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "carousel-autoplay"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Edge arrow buttons appear (hidden below 480); dot size 28x3 to 36x4."
+    },
+    {
+      "at": "{foundation.breakpoint.1920}",
+      "change": "Card width cap 960 to 1440 with a 48 inset; side fades only from 1280."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "shell.navbar"
+    ],
+    "autoplayMs": 4000
+  },
+  "containerRules": {
+    "width": "100vw, track centred on the active card",
+    "cardWidth": "min({container.featured-card}, 100vw minus gutters)",
+    "cardHeight": "clamp({foundation.space.55}, 38vw, {foundation.space.90})",
+    "cardGap": "{carouselCard.gap}",
+    "paddingTop": "{sectionPadding.app-top-narrow} below 480, {sectionPadding.app-top} from 480",
+    "radius": "{carouselCard.radius} below 480, {carouselCard.radiusWide} from 480"
+  },
+  "measuredFrom": [
+    "jsx.carousel.root",
+    "jsx.carousel.timing",
+    "jsx.carousel.card",
+    "jsx.carousel.title",
+    "jsx.carousel.tagline",
+    "jsx.carousel.dots",
+    "css.store-hero",
+    "spec.store.top"
+  ]
+}

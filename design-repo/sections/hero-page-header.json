@@ -1,0 +1,90 @@
+{
+  "id": "section.hero.page-header",
+  "typeId": "hero.page-header",
+  "registryId": "section.hero.page-header",
+  "version": "1.0.0",
+  "category": "hero",
+  "semantic": {
+    "id": "section.hero.page-header",
+    "category": "hero"
+  },
+  "source": {
+    "id": "src.BlogIndex.div",
+    "file": "src/pages/BlogIndex.jsx",
+    "tag": "div",
+    "domSelector": "main > section > div.mb-12",
+    "citation": "jsx.blogindex.header.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Centred page title with a one-line subtitle in a 680px column (blog index and changelog).",
+  "scope": "Blog index and changelog.",
+  "composes": [
+    "primitive.text",
+    "primitive.container"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "maxWords": 4
+      },
+      "subtitle": {
+        "type": "string",
+        "maxWords": 16
+      }
+    },
+    "required": [
+      "title",
+      "subtitle"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Title 36 to 48 (tracking tight); subtitle 16 to 18 and capped at 440; bottom margin 48 to 64; the title loses its 16 side padding."
+    },
+    {
+      "at": "below {foundation.breakpoint.480}",
+      "change": "Title carries 16 horizontal padding."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "shell.navbar"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.page-header}",
+    "gutter": "{space.page-gutter}",
+    "paddingTop": "{sectionPadding.hero-top-narrow} below 480, {sectionPadding.hero-top} from 480",
+    "marginBottom": "{pageHeader.marginBottom} below 480, {pageHeader.marginBottomWide} from 480",
+    "titleGap": "{pageHeader.gapBelowTitle}",
+    "subtitleMaxWidth": "{container.page-subtitle} from 480",
+    "align": "centre"
+  },
+  "measuredFrom": [
+    "jsx.blogindex.header",
+    "jsx.blogindex.h1",
+    "jsx.blogindex.sub",
+    "spec.blog.header"
+  ]
+}

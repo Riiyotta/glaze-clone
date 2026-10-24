@@ -1,0 +1,215 @@
+{
+  "id": "section.store.app-shelves",
+  "typeId": "store.app-shelves",
+  "registryId": "section.store.app-shelves",
+  "version": "1.0.0",
+  "category": "store",
+  "semantic": {
+    "id": "section.store.app-shelves",
+    "category": "store"
+  },
+  "source": {
+    "id": "src.Slider.section",
+    "file": "src/components/store/Slider.jsx",
+    "tag": "section",
+    "domSelector": "main section > div > div.mt-8 > section",
+    "citation": "jsx.store.shelf.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "Store home shelves (Our Picks, Trending, Made to Remix, Award Winners, Latest): a title with an optional 'View All' link and paged slider arrows, then pages of app rows (1/2/3/4 columns).",
+  "scope": "Store index.",
+  "composes": [
+    "component.shelf",
+    "component.app-row",
+    "primitive.text",
+    "primitive.link"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "shelves": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "maxWords": 3
+            },
+            "accessory": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "maxWords": 2
+                },
+                "href": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "label",
+                "href"
+              ],
+              "additionalProperties": false
+            },
+            "apps": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "maxWords": 5
+                  },
+                  "tagline": {
+                    "type": "string",
+                    "maxWords": 14
+                  },
+                  "author": {
+                    "type": "string",
+                    "maxWords": 4
+                  },
+                  "href": {
+                    "type": "string"
+                  },
+                  "award": {
+                    "enum": [
+                      "none",
+                      "gold",
+                      "silver",
+                      "bronze",
+                      "finalist"
+                    ]
+                  },
+                  "icon": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "app.icon",
+                          "app.icon-generated"
+                        ],
+                        "referenceRoles": [
+                          "app.icon"
+                        ],
+                        "generatedRoles": [
+                          "app.icon-generated"
+                        ]
+                      },
+                      "assetRef": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "assetRef"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "avatar": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "avatar.person",
+                          "avatar.placeholder"
+                        ],
+                        "referenceRoles": [
+                          "avatar.person"
+                        ],
+                        "generatedRoles": [
+                          "avatar.placeholder"
+                        ]
+                      },
+                      "assetRef": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "assetRef"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "name",
+                  "tagline",
+                  "href",
+                  "icon"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 24
+            }
+          },
+          "required": [
+            "title",
+            "apps"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 3,
+        "maxItems": 6
+      }
+    },
+    "required": [
+      "shelves"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "shelf-slide"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "2 columns (1 below 480)."
+    },
+    {
+      "at": "{foundation.breakpoint.768}",
+      "change": "3 columns."
+    },
+    {
+      "at": "{foundation.breakpoint.1920}",
+      "change": "4 columns."
+    }
+  ],
+  "constraints": {
+    "onePerPage": true,
+    "mustFollow": [
+      "store.category-nav"
+    ],
+    "uniqueShelfTitles": true
+  },
+  "containerRules": {
+    "width": "{container.page}",
+    "gutter": "{space.page-gutter}",
+    "stackGap": "{foundation.space.8}",
+    "marginTop": "{foundation.space.8}"
+  },
+  "measuredFrom": [
+    "jsx.store.shelves",
+    "jsx.store.body",
+    "jsx.slider.root",
+    "jsx.slider.track",
+    "jsx.slider.button",
+    "jsx.slider.cols",
+    "spec.store.top"
+  ]
+}

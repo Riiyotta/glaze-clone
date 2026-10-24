@@ -1,0 +1,182 @@
+{
+  "id": "section.content.post-card",
+  "typeId": "content.post-card",
+  "registryId": "section.content.post-card",
+  "version": "1.0.0",
+  "category": "content",
+  "semantic": {
+    "id": "section.content.post-card",
+    "category": "content"
+  },
+  "source": {
+    "id": "src.BlogIndex.article",
+    "file": "src/pages/BlogIndex.jsx",
+    "tag": "article",
+    "domSelector": "main section article",
+    "citation": "jsx.blogindex.card.source"
+  },
+  "retrievalEligible": true,
+  "purpose": "One blog post in the index: cover image, date, title (a link to the post), author row and excerpt. Repeated once per post, separated by a hairline.",
+  "scope": "Blog index.",
+  "composes": [
+    "component.author-row",
+    "primitive.image",
+    "primitive.text",
+    "primitive.link",
+    "primitive.divider"
+  ],
+  "contentModel": {
+    "type": "object",
+    "properties": {
+      "href": {
+        "type": "string"
+      },
+      "cover": {
+        "type": "object",
+        "properties": {
+          "assetRole": {
+            "enum": [
+              "cover.image",
+              "media.generated",
+              "media.user-supplied"
+            ],
+            "referenceRoles": [
+              "cover.image"
+            ],
+            "generatedRoles": [
+              "media.generated",
+              "media.user-supplied"
+            ]
+          },
+          "assetRef": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string",
+            "maxWords": 16
+          }
+        },
+        "required": [
+          "assetRole",
+          "assetRef"
+        ],
+        "additionalProperties": false
+      },
+      "date": {
+        "type": "string",
+        "maxWords": 3
+      },
+      "datetime": {
+        "type": "string",
+        "pattern": "^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$",
+        "description": "ISO date, e.g. the datetime attribute"
+      },
+      "title": {
+        "type": "string",
+        "maxWords": 14
+      },
+      "author": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxWords": 4
+          },
+          "avatar": {
+            "type": "object",
+            "properties": {
+              "assetRole": {
+                "enum": [
+                  "avatar.person",
+                  "avatar.placeholder"
+                ],
+                "referenceRoles": [
+                  "avatar.person"
+                ],
+                "generatedRoles": [
+                  "avatar.placeholder"
+                ]
+              },
+              "assetRef": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "assetRole",
+              "assetRef"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "name",
+          "avatar"
+        ],
+        "additionalProperties": false
+      },
+      "excerpt": {
+        "type": "string",
+        "maxWords": 30
+      }
+    },
+    "required": [
+      "href",
+      "cover",
+      "date",
+      "datetime",
+      "title",
+      "author",
+      "excerpt"
+    ],
+    "additionalProperties": false
+  },
+  "motion": {
+    "allowedPatterns": [
+      "none"
+    ],
+    "reducedMotionFallbackRequired": true,
+    "reducedMotionFallbackEnum": [
+      "none",
+      "opacity-only",
+      "static"
+    ],
+    "allowedFields": [
+      "pattern",
+      "delayMs",
+      "reducedMotionFallback"
+    ]
+  },
+  "responsive": [
+    {
+      "at": "{foundation.breakpoint.480}",
+      "change": "Vertical padding 40 to 64; title 28 to 34; excerpt 16 to 17."
+    }
+  ],
+  "constraints": {
+    "repeatable": true,
+    "maxPerPage": 20,
+    "mustFollow": [
+      "hero.page-header"
+    ]
+  },
+  "containerRules": {
+    "width": "{container.content}",
+    "gutter": "{space.page-gutter}",
+    "paddingY": "{postCard.paddingY} below 480, {postCard.paddingYWide} from 480",
+    "separator": "primitive.divider#entry-border, none above the first",
+    "dateGap": "{postCard.dateGap}",
+    "titleGap": "{postCard.titleGap}",
+    "authorGap": "{postCard.authorGap}",
+    "excerptGap": "{postCard.excerptGap}"
+  },
+  "measuredFrom": [
+    "jsx.blogindex.card",
+    "jsx.blogindex.cover",
+    "jsx.blogindex.time",
+    "jsx.blogindex.title",
+    "jsx.blogindex.excerpt",
+    "jsx.author.row",
+    "data.blog.posts",
+    "spec.blog.index"
+  ]
+}

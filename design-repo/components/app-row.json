@@ -1,0 +1,76 @@
+{
+  "registryId": "component.app-row",
+  "version": "1.0.0",
+  "category": "store",
+  "description": "72px store row: squircle icon, name (with Finalist text or award medal, optional remix glyph), tagline, author with 14px avatar. The whole row is a link to /app/<slug>; hover fills the row.",
+  "composes": [
+    "primitive.app-icon",
+    "primitive.badge",
+    "primitive.text",
+    "primitive.icon"
+  ],
+  "props": {
+    "name": {
+      "type": "string",
+      "maxWords": 5
+    },
+    "tagline": {
+      "type": "string",
+      "maxWords": 9
+    },
+    "author": {
+      "type": "string",
+      "maxWords": 4
+    },
+    "href": {
+      "type": "string"
+    },
+    "award": {
+      "enum": [
+        "none",
+        "gold",
+        "silver",
+        "bronze",
+        "finalist"
+      ],
+      "default": "none"
+    },
+    "iconAssetRole": {
+      "enum": [
+        "app.icon",
+        "app.icon-generated"
+      ]
+    },
+    "avatarAssetRole": {
+      "enum": [
+        "avatar.person",
+        "avatar.placeholder"
+      ]
+    }
+  },
+  "layout": {
+    "height": "{appRow.height}",
+    "gap": "{appRow.gap}",
+    "radius": "{appRow.radius}",
+    "nameTypography": "{typography.label.app-name}",
+    "metaTypography": "{typography.text.app-meta}",
+    "truncate": "name, tagline and author truncate to one line"
+  },
+  "states": {
+    "hover": {
+      "background": "{color.surface.ghost-hover}",
+      "transition": "{motion.recipe.hover.colors}"
+    }
+  },
+  "tokens": [
+    "appRow.height",
+    "appRow.gap",
+    "appRow.radius",
+    "typography.label.app-name",
+    "typography.text.app-meta"
+  ],
+  "measuredFrom": [
+    "jsx.approw.root",
+    "jsx.approw.name"
+  ]
+}

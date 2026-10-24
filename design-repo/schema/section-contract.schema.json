@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "section-contract.schema.json",
-  "$comment": "Hand-written. Validates the provenance/taxonomy/retrieval fields every sections/*.json contract must carry. `source` is PROVENANCE (where in the source project the section comes from); `semantic` is TAXONOMY (what the section means in the design system). They are separate, closed objects and must never be merged or inferred from each other. extraction/verify_all.py and schema/semantic_validate.py (check_contracts) enforce the cross-field rules this schema cannot express.",
+  "$comment": "Hand-written. source.id is src.<component file>.<dom tag>, plus an ordinal suffix (.N = the N-th <tag opening in that file up to the cited line) where one file holds several sections with the same tag; verify_all.py traces the ordinal. A domSelector with a comma is a union: the section height is the bounding box of all matches (header = title plus the following line). Validates the provenance/taxonomy/retrieval fields every sections/*.json contract must carry. `source` is PROVENANCE (where in the source project the section comes from); `semantic` is TAXONOMY (what the section means in the design system). They are separate, closed objects and must never be merged or inferred from each other. extraction/verify_all.py and schema/semantic_validate.py (check_contracts) enforce the cross-field rules this schema cannot express.",
   "title": "Glaze section contract: provenance, taxonomy, retrieval",
   "type": "object",
   "required": ["id", "typeId", "registryId", "category", "semantic", "source", "retrievalEligible"],
@@ -9,14 +9,14 @@
     "id": {"type": "string", "pattern": "^section\\.[a-z-]+\\.[a-z-]+$"},
     "typeId": {"type": "string", "pattern": "^[a-z-]+\\.[a-z-]+$"},
     "registryId": {"type": "string", "pattern": "^section\\.[a-z-]+\\.[a-z-]+$"},
-    "category": {"enum": ["shell", "hero", "showcase", "features", "support", "cta", "content"]},
+    "category": {"enum": ["shell", "hero", "showcase", "features", "support", "cta", "content", "commerce", "store"]},
     "semantic": {
       "type": "object",
       "additionalProperties": false,
       "required": ["id", "category"],
       "properties": {
         "id": {"type": "string", "pattern": "^section\\.[a-z-]+\\.[a-z-]+$"},
-        "category": {"enum": ["shell", "hero", "showcase", "features", "support", "cta", "content"]}
+        "category": {"enum": ["shell", "hero", "showcase", "features", "support", "cta", "content", "commerce", "store"]}
       }
     },
     "source": {
@@ -24,7 +24,7 @@
       "additionalProperties": false,
       "required": ["id", "file", "tag", "domSelector", "citation"],
       "properties": {
-        "id": {"type": "string", "pattern": "^src\\.[A-Za-z0-9]+\\.[a-z][a-z0-9]*$"},
+        "id": {"type": "string", "pattern": "^src\\.[A-Za-z0-9]+\\.[a-z][a-z0-9]*(\\.[0-9]+)?$"},
         "file": {"type": "string", "pattern": "^src/[A-Za-z0-9_./-]+\\.(jsx|js|tsx|ts|vue|svelte|html)$"},
         "tag": {"type": "string", "pattern": "^[a-z][a-z0-9]*$"},
         "domSelector": {"type": "string", "minLength": 1},

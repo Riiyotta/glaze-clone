@@ -1,0 +1,51 @@
+{
+  "registryId": "component.info-tooltip",
+  "version": "1.0.0",
+  "category": "utility",
+  "description": "Hover/focus/click popover opened from a 16px info or label trigger. Opacity-only fade, no delay; closes on leave, blur, Escape or outside press; shifts to stay 12px inside the viewport.",
+  "composes": [
+    "primitive.text",
+    "primitive.icon"
+  ],
+  "props": {
+    "content": {
+      "type": "string",
+      "maxWords": 40
+    },
+    "side": {
+      "enum": [
+        "top",
+        "bottom"
+      ]
+    }
+  },
+  "layout": {
+    "surface": "{color.surface.popover}",
+    "border": "{color.border.separator}",
+    "radius": "{radius.option}",
+    "typography": "{typography.caption}",
+    "zIndex": "{zIndex.tooltip}",
+    "trigger": "{foundation.iconSize.16}"
+  },
+  "states": {
+    "open": {
+      "aria": "aria-expanded=true"
+    }
+  },
+  "motion": {
+    "fade": "{motion.recipe.tooltip.fade}"
+  },
+  "tokens": [
+    "color.surface.popover",
+    "color.border.separator",
+    "radius.option",
+    "typography.caption",
+    "zIndex.tooltip",
+    "motion.recipe.tooltip.fade"
+  ],
+  "retrievalNote": "Utility UI inside a section; never a standalone retrieval chunk.",
+  "measuredFrom": [
+    "jsx.tooltip.panel",
+    "jsx.tooltip.fade"
+  ]
+}
